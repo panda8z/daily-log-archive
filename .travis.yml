@@ -46,7 +46,8 @@ deploy:
     skip_cleanup: true
     github_token: $GITHUB_TOKEN_INTERVIEW2020  # Set in the settings page of your repository, as a secure variable
     keep_history: true
+    target_branch: master
     local_dir: ./_book
     allow_empty_commit: true
     on:
-      branch: master
+      branch: gh-pages
