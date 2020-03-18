@@ -40,7 +40,8 @@ script:
 # 分支白名单
 branches:
   only:
-    - gh-pages # 只对 master 分支进行构建
+    - gh-pages # 只对 gh-pages 分支进行构建
+    - /.*/
 deploy:
     provider: pages
     skip_cleanup: true
