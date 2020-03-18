@@ -1,0 +1,53 @@
+# git-token ea48f656d89fd8cce0e5f8a0944f26337f2afd5b
+# local_dir: Directory to push to GitHub Pages, defaults to current directory. Can be specified as an absolute path or a relative path from the current directory.
+# repo: Repo slug, defaults to current repo. Note: The slug consists of username and repo name and is formatted like user/repo-name.
+# target_branch: Branch to (force, see: keep_history) push local_dir contents to, defaults to gh-pages.
+# keep_history: Optional, create incremental commit instead of doing push force, defaults to false.
+# fqdn: Optional, sets a custom domain for your website, defaults to no custom domain support.
+# project_name: Defaults to value of fqdn or repo slug, used for metadata.
+# email: Optional, committer info, defaults to deploy@travis-ci.org.
+# name: Optional, committer, defaults to Deployment Bot.
+# committer_from_gh: Optional, defaults to false. Allows you to use the token’s owner name and email for commit. Overrides email and name options.
+# allow_empty_commit: Optional, defaults to false. Enabled if only keep_history is true.
+# github_url: Optional, the URL of the self-hosted GitHub enterprise, defaults to github.com.
+# verbose: Optional, be verbose about internal steps, defaults to false.
+# deployment_file: Optional, defaults to false, enables creation of deployment-info files.
+
+language: node_js
+
+node_js:
+  - "10"
+
+# 缓存依赖
+cache:
+  directories:
+    - $HOME/.npm
+
+before_install:
+  - export TZ='Asia/Shanghai' # 更改时区
+
+# 依赖安装
+install:
+  - npm install gitbook-cli -g
+  # 安装 gitbook 插件
+  - gitbook install
+
+# 构建脚本
+script:
+    # 自定义输出目录 gitbook build src dest
+  - gitbook build 
+
+# 分支白名单
+branches:
+  only:
+    - gh-pages # 只对 master 分支进行构建
+deploy:
+    provider: pages
+    skip_cleanup: true
+    github_token: $GITHUB_TOKEN_INTERVIEW2020  # Set in the settings page of your repository, as a secure variable
+    keep_history: true
+    local_dir: ./_book
+    target_branch: master
+    allow_empty_commit: true
+    on:
+      branch: gh-page
