@@ -50,4 +50,4 @@ deploy:
     target_branch: master
     allow_empty_commit: true
     on:
-      branch: gh-page
+      branch: gh-pages
