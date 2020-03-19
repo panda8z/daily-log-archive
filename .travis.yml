@@ -40,14 +40,14 @@ script:
 # 分支白名单
 branches:
   only:
-    - gh-pages # 只对 master 分支进行构建
+    - master # 只对 master 分支进行构建
 deploy:
     provider: pages
     skip_cleanup: true
     github_token: $GITHUB_TOKEN_INTERVIEW2020  # Set in the settings page of your repository, as a secure variable    多的
     keep_history: true
-    target_branch: master
+    target_branch: gh-pages
     local_dir: ./_book
     allow_empty_commit: true
     on:
-      branch: gh-pages
+      branch: master
