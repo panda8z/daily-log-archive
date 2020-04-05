@@ -1,4 +1,19 @@
+### 安装Gitbook
 
+
+`npm install -g gitbook`
+
+
+`npm uninstall -g gitbook`
+
+```
+You need to install "gitbook-cli" to have access to the gitbook command anywhere on your system.
+If you've installed this package globally, you need to uninstall it.
+>> Run "npm uninstall -g gitbook" then "npm install -g gitbook-cli"
+```
+
+
+`npm install -g gitbook-cli`
 
 
 
