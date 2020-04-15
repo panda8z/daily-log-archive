@@ -1,0 +1,148 @@
+"".hello STEXT size=85 args=0x10 locals=0x18
+	0x0000 00000 (main.go:3)	TEXT	"".hello(SB), ABIInternal, $24-16
+	0x0000 00000 (main.go:3)	MOVQ	(TLS), CX
+	0x0009 00009 (main.go:3)	CMPQ	SP, 16(CX)
+	0x000d 00013 (main.go:3)	PCDATA	$0, $-2
+	0x000d 00013 (main.go:3)	JLS	78
+	0x000f 00015 (main.go:3)	PCDATA	$0, $-1
+	0x000f 00015 (main.go:3)	SUBQ	$24, SP
+	0x0013 00019 (main.go:3)	MOVQ	BP, 16(SP)
+	0x0018 00024 (main.go:3)	LEAQ	16(SP), BP
+	0x001d 00029 (main.go:3)	PCDATA	$0, $-2
+	0x001d 00029 (main.go:3)	PCDATA	$1, $-2
+	0x001d 00029 (main.go:3)	FUNCDATA	$0, gclocals·1a65e721a2ccc325b382662e7ffee780(SB)
+	0x001d 00029 (main.go:3)	FUNCDATA	$1, gclocals·69c1753bd5f81501d95132d08af04464(SB)
+	0x001d 00029 (main.go:3)	FUNCDATA	$2, gclocals·9fb7f0986f647f17cb53dda1484e0f7a(SB)
+	0x001d 00029 (main.go:4)	PCDATA	$0, $0
+	0x001d 00029 (main.go:4)	PCDATA	$1, $0
+	0x001d 00029 (main.go:4)	CALL	runtime.printlock(SB)
+	0x0022 00034 (main.go:4)	PCDATA	$0, $1
+	0x0022 00034 (main.go:4)	MOVQ	"".msg+32(SP), AX
+	0x0027 00039 (main.go:4)	PCDATA	$0, $0
+	0x0027 00039 (main.go:4)	MOVQ	AX, (SP)
+	0x002b 00043 (main.go:4)	PCDATA	$1, $1
+	0x002b 00043 (main.go:4)	MOVQ	"".msg+40(SP), AX
+	0x0030 00048 (main.go:4)	MOVQ	AX, 8(SP)
+	0x0035 00053 (main.go:4)	CALL	runtime.printstring(SB)
+	0x003a 00058 (main.go:4)	CALL	runtime.printnl(SB)
+	0x003f 00063 (main.go:4)	CALL	runtime.printunlock(SB)
+	0x0044 00068 (main.go:5)	MOVQ	16(SP), BP
+	0x0049 00073 (main.go:5)	ADDQ	$24, SP
+	0x004d 00077 (main.go:5)	RET
+	0x004e 00078 (main.go:5)	NOP
+	0x004e 00078 (main.go:3)	PCDATA	$1, $-1
+	0x004e 00078 (main.go:3)	PCDATA	$0, $-2
+	0x004e 00078 (main.go:3)	CALL	runtime.morestack_noctxt(SB)
+	0x0053 00083 (main.go:3)	PCDATA	$0, $-1
+	0x0053 00083 (main.go:3)	JMP	0
+	0x0000 65 48 8b 0c 25 00 00 00 00 48 3b 61 10 76 3f 48  eH..%....H;a.v?H
+	0x0010 83 ec 18 48 89 6c 24 10 48 8d 6c 24 10 e8 00 00  ...H.l$.H.l$....
+	0x0020 00 00 48 8b 44 24 20 48 89 04 24 48 8b 44 24 28  ..H.D$ H..$H.D$(
+	0x0030 48 89 44 24 08 e8 00 00 00 00 e8 00 00 00 00 e8  H.D$............
+	0x0040 00 00 00 00 48 8b 6c 24 10 48 83 c4 18 c3 e8 00  ....H.l$.H......
+	0x0050 00 00 00 eb ab                                   .....
+	rel 5+4 t=17 TLS+0
+	rel 30+4 t=8 runtime.printlock+0
+	rel 54+4 t=8 runtime.printstring+0
+	rel 59+4 t=8 runtime.printnl+0
+	rel 64+4 t=8 runtime.printunlock+0
+	rel 79+4 t=8 runtime.morestack_noctxt+0
+"".main STEXT size=91 args=0x0 locals=0x28
+	0x0000 00000 (main.go:7)	TEXT	"".main(SB), ABIInternal, $40-0
+	0x0000 00000 (main.go:7)	MOVQ	(TLS), CX
+	0x0009 00009 (main.go:7)	CMPQ	SP, 16(CX)
+	0x000d 00013 (main.go:7)	PCDATA	$0, $-2
+	0x000d 00013 (main.go:7)	JLS	84
+	0x000f 00015 (main.go:7)	PCDATA	$0, $-1
+	0x000f 00015 (main.go:7)	SUBQ	$40, SP
+	0x0013 00019 (main.go:7)	MOVQ	BP, 32(SP)
+	0x0018 00024 (main.go:7)	LEAQ	32(SP), BP
+	0x001d 00029 (main.go:7)	PCDATA	$0, $-2
+	0x001d 00029 (main.go:7)	PCDATA	$1, $-2
+	0x001d 00029 (main.go:7)	FUNCDATA	$0, gclocals·33cdeccccebe80329f1fdbee7f5874cb(SB)
+	0x001d 00029 (main.go:7)	FUNCDATA	$1, gclocals·33cdeccccebe80329f1fdbee7f5874cb(SB)
+	0x001d 00029 (main.go:7)	FUNCDATA	$2, gclocals·9fb7f0986f647f17cb53dda1484e0f7a(SB)
+	0x001d 00029 (main.go:8)	PCDATA	$0, $0
+	0x001d 00029 (main.go:8)	PCDATA	$1, $0
+	0x001d 00029 (main.go:8)	MOVL	$16, (SP)
+	0x0024 00036 (main.go:8)	PCDATA	$0, $1
+	0x0024 00036 (main.go:8)	LEAQ	"".hello·f(SB), AX
+	0x002b 00043 (main.go:8)	PCDATA	$0, $0
+	0x002b 00043 (main.go:8)	MOVQ	AX, 8(SP)
+	0x0030 00048 (main.go:8)	PCDATA	$0, $1
+	0x0030 00048 (main.go:8)	LEAQ	go.string."hello world"(SB), AX
+	0x0037 00055 (main.go:8)	PCDATA	$0, $0
+	0x0037 00055 (main.go:8)	MOVQ	AX, 16(SP)
+	0x003c 00060 (main.go:8)	MOVQ	$11, 24(SP)
+	0x0045 00069 (main.go:8)	CALL	runtime.newproc(SB)
+	0x004a 00074 (main.go:9)	MOVQ	32(SP), BP
+	0x004f 00079 (main.go:9)	ADDQ	$40, SP
+	0x0053 00083 (main.go:9)	RET
+	0x0054 00084 (main.go:9)	NOP
+	0x0054 00084 (main.go:7)	PCDATA	$1, $-1
+	0x0054 00084 (main.go:7)	PCDATA	$0, $-2
+	0x0054 00084 (main.go:7)	CALL	runtime.morestack_noctxt(SB)
+	0x0059 00089 (main.go:7)	PCDATA	$0, $-1
+	0x0059 00089 (main.go:7)	JMP	0
+	0x0000 65 48 8b 0c 25 00 00 00 00 48 3b 61 10 76 45 48  eH..%....H;a.vEH
+	0x0010 83 ec 28 48 89 6c 24 20 48 8d 6c 24 20 c7 04 24  ..(H.l$ H.l$ ..$
+	0x0020 10 00 00 00 48 8d 05 00 00 00 00 48 89 44 24 08  ....H......H.D$.
+	0x0030 48 8d 05 00 00 00 00 48 89 44 24 10 48 c7 44 24  H......H.D$.H.D$
+	0x0040 18 0b 00 00 00 e8 00 00 00 00 48 8b 6c 24 20 48  ..........H.l$ H
+	0x0050 83 c4 28 c3 e8 00 00 00 00 eb a5                 ..(........
+	rel 5+4 t=17 TLS+0
+	rel 39+4 t=16 "".hello·f+0
+	rel 51+4 t=16 go.string."hello world"+0
+	rel 70+4 t=8 runtime.newproc+0
+	rel 85+4 t=8 runtime.morestack_noctxt+0
+go.cuinfo.packagename. SDWARFINFO dupok size=0
+	0x0000 6d 61 69 6e                                      main
+go.loc."".hello SDWARFLOC size=41
+	0x0000 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	0x0010 07 00 9c 93 08 91 08 93 08 00 00 00 00 00 00 00  ................
+	0x0020 00 00 00 00 00 00 00 00 00                       .........
+	rel 0+8 t=53 "".hello+0
+	rel 8+8 t=53 "".hello+85
+go.info."".hello SDWARFINFO size=49
+	0x0000 03 22 22 2e 68 65 6c 6c 6f 00 00 00 00 00 00 00  ."".hello.......
+	0x0010 00 00 00 00 00 00 00 00 00 00 01 9c 00 00 00 00  ................
+	0x0020 01 10 6d 73 67 00 00 03 00 00 00 00 00 00 00 00  ..msg...........
+	0x0030 00                                               .
+	rel 0+0 t=24 type.string+0
+	rel 10+8 t=1 "".hello+0
+	rel 18+8 t=1 "".hello+85
+	rel 28+4 t=30 gofile../Users/zcj/panda/git4me/daily-log-archive/2020-04-14/demo01/main.go+0
+	rel 40+4 t=29 go.info.string+0
+	rel 44+4 t=29 go.loc."".hello+0
+go.range."".hello SDWARFRANGE size=0
+go.debuglines."".hello SDWARFMISC size=17
+	0x0000 04 02 11 0a a5 9c 06 41 06 08 74 71 04 01 03 7e  .......A..tq...~
+	0x0010 01                                               .
+go.string."hello world" SRODATA dupok size=11
+	0x0000 68 65 6c 6c 6f 20 77 6f 72 6c 64                 hello world
+go.loc."".main SDWARFLOC size=0
+go.info."".main SDWARFINFO size=33
+	0x0000 03 22 22 2e 6d 61 69 6e 00 00 00 00 00 00 00 00  ."".main........
+	0x0010 00 00 00 00 00 00 00 00 00 01 9c 00 00 00 00 01  ................
+	0x0020 00                                               .
+	rel 9+8 t=1 "".main+0
+	rel 17+8 t=1 "".main+91
+	rel 27+4 t=30 gofile../Users/zcj/panda/git4me/daily-log-archive/2020-04-14/demo01/main.go+0
+go.range."".main SDWARFRANGE size=0
+go.debuglines."".main SDWARFMISC size=19
+	0x0000 04 02 03 01 14 0a a5 9c 06 55 06 08 9c 71 04 01  .........U...q..
+	0x0010 03 7a 01                                         .z.
+""..inittask SNOPTRDATA size=24
+	0x0000 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	0x0010 00 00 00 00 00 00 00 00                          ........
+"".hello·f SRODATA dupok size=8
+	0x0000 00 00 00 00 00 00 00 00                          ........
+	rel 0+8 t=1 "".hello+0
+gclocals·1a65e721a2ccc325b382662e7ffee780 SRODATA dupok size=10
+	0x0000 02 00 00 00 01 00 00 00 01 00                    ..........
+gclocals·69c1753bd5f81501d95132d08af04464 SRODATA dupok size=8
+	0x0000 02 00 00 00 00 00 00 00                          ........
+gclocals·9fb7f0986f647f17cb53dda1484e0f7a SRODATA dupok size=10
+	0x0000 02 00 00 00 01 00 00 00 00 01                    ..........
+gclocals·33cdeccccebe80329f1fdbee7f5874cb SRODATA dupok size=8
+	0x0000 01 00 00 00 00 00 00 00                          ........
