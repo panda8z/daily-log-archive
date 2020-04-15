@@ -43,3 +43,4 @@
 * 
 
 * [2020-04-15]()
+* [leetcode-day01](2020-04-15/go-leetcode-TwoSum.md)
