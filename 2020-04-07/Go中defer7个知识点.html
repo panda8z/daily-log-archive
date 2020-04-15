@@ -1,0 +1,1010 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Go中defer7个知识点 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="Go实现LeetCode全集.html" />
+    
+    
+    <link rel="prev" href="Go中defer.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    2020年Panda8z的面试笔记
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../2020-03-18/面试准备Day01.html">
+            
+                <a href="../2020-03-18/面试准备Day01.html">
+            
+                    
+                    面试准备Day01
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../2020-03-18/gitbook工具使用指南.html">
+            
+                <a href="../2020-03-18/gitbook工具使用指南.html">
+            
+                    
+                    gitbook工具使用指南
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../2020-04-05/Goroutine是怎么开始和退出的.html">
+            
+                <a href="../2020-04-05/Goroutine是怎么开始和退出的.html">
+            
+                    
+                    Goroutine是怎么开始和退出的
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" >
+            
+                <span>
+            
+                    
+                    2020-04-07
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="defer的前世今生.html">
+            
+                <a href="defer的前世今生.html">
+            
+                    
+                    defer的前世今生
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" data-path="Go中defer.html">
+            
+                <a href="Go中defer.html">
+            
+                    
+                    Go中defer
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="2.4" data-path="Go中defer7个知识点.html">
+            
+                <a href="Go中defer7个知识点.html">
+            
+                    
+                    Go中defer7个知识点
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.5" data-path="Go实现LeetCode全集.html">
+            
+                <a href="Go实现LeetCode全集.html">
+            
+                    
+                    Go实现LeetCode全集
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.6" data-path="如何成为Go语言代码贡献者.html">
+            
+                <a href="如何成为Go语言代码贡献者.html">
+            
+                    
+                    如何成为Go语言代码贡献者
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.7" data-path="读书笔记-2020-04-07.html">
+            
+                <a href="读书笔记-2020-04-07.html">
+            
+                    
+                    读书笔记-2020-04-07
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="3.1" >
+            
+                <span>
+            
+                    
+                    2020-04-08
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2" data-path="../2020-04-08/go编译器-编译指示.html">
+            
+                <a href="../2020-04-08/go编译器-编译指示.html">
+            
+                    
+                    编译指示
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3" data-path="../2020-04-08/go做一个小型http服务器并优化实战.html">
+            
+                <a href="../2020-04-08/go做一个小型http服务器并优化实战.html">
+            
+                    
+                    go做一个小型http服务器并优化实战
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.4" >
+            
+                <span>
+            
+                    
+                    2020-04-09
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.5" data-path="../2020-04-09/Go语言原本-调度器.html">
+            
+                <a href="../2020-04-09/Go语言原本-调度器.html">
+            
+                    
+                    Go语言原本-调度器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.6" >
+            
+                <span>
+            
+                    
+                    2020-04-10
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.7" data-path="../2020-04-10/go垃圾回收.html">
+            
+                <a href="../2020-04-10/go垃圾回收.html">
+            
+                    
+                    go垃圾回收
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.8" >
+            
+                <span>
+            
+                    
+                    2020-04-11
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.9" data-path="../2020-04-11/2020-04-11-日志.html">
+            
+                <a href="../2020-04-11/2020-04-11-日志.html">
+            
+                    
+                    2020-04-11-日志
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.10" >
+            
+                <span>
+            
+                    
+                    2020-04-12
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.11" data-path="../2020-04-12/Go语言原本-延迟语句.html">
+            
+                <a href="../2020-04-12/Go语言原本-延迟语句.html">
+            
+                    
+                    Go语言原本-延迟语句
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.12" >
+            
+                <span>
+            
+                    
+                    2020-04-13
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.13" data-path="../2020-04-13/Go语言原本-channel.html">
+            
+                <a href="../2020-04-13/Go语言原本-channel.html">
+            
+                    
+                    Go语言原本-channel
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.14" data-path="../2020-04-13/2020-04-13-日志.html">
+            
+                <a href="../2020-04-13/2020-04-13-日志.html">
+            
+                    
+                    2020-04-13-日志
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="4.1" >
+            
+                <span>
+            
+                    
+                    2020-04-14
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2" data-path="../2020-04-14/G0是怎么创建的.html">
+            
+                <a href="../2020-04-14/G0是怎么创建的.html">
+            
+                    
+                    G0是怎么创建的
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.3" data-path="../2020-04-14/从0构建亿级微服务架构.html">
+            
+                <a href="../2020-04-14/从0构建亿级微服务架构.html">
+            
+                    
+                    从0构建亿级微服务架构
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.4" >
+            
+                <span>
+            
+                    
+                    2020-04-15
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Go中defer7个知识点</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="&#x539F;&#x521B;&#x5206;&#x4EAB;-golang-&#x4E2D;&#x7684;-defer-&#x5FC5;&#x638C;&#x63E1;&#x7684;-7-&#x77E5;&#x8BC6;&#x70B9;"><a href="https://gocn.vip/topics/node3" target="_blank">&#x539F;&#x521B;&#x5206;&#x4EAB;</a> Golang &#x4E2D;&#x7684; Defer &#x5FC5;&#x638C;&#x63E1;&#x7684; 7 &#x77E5;&#x8BC6;&#x70B9;</h1>
+<p><a href="https://gocn.vip/aceld" target="_blank">author &#xFF1A; aceld</a> </p>
+<p> &#x672C;&#x5E16;&#x5DF2;&#x88AB;&#x8BBE;&#x4E3A;&#x7CBE;&#x534E;&#x5E16;&#xFF01;</p>
+<p> &#x76EE;&#x5F55;</p>
+<blockquote>
+<p>&#x672C;&#x6587;&#x4F5C;&#x8005;:&#x5218;&#x4E39;&#x51B0; Aceld, &#x516C;&#x4F17;&#x53F7;&#x540C;&#x540D;</p>
+</blockquote>
+<p>&#x5728;&#x7528; Golang &#x5F00;&#x53D1;&#x7684;&#x65F6;&#x5019;&#xFF0C;<code>defer</code>&#x8FD9;&#x4E2A;&#x8BED;&#x6CD5;&#x4E5F;&#x662F;&#x5FC5;&#x5907;&#x7684;&#x77E5;&#x8BC6;&#xFF0C;&#x4F46;&#x662F;&#x6211;&#x4EEC;&#x9664;&#x4E86;&#x77E5;&#x9053;&#x4ED6;&#x662F;&#x5728;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#x9000;&#x51FA;&#x4E4B;&#x524D;&#x6267;&#x884C;&#xFF0C;&#x5BF9;&#x4E8E;<code>defer</code>&#x662F;&#x5426;&#x8FD8;&#x6709;&#x5176;&#x4ED6;&#x5730;&#x65B9;&#x9700;&#x8981;&#x6CE8;&#x610F;&#x7684;&#x5462;&#x3002;</p>
+<p>&#x672C;&#x6587;&#x6574;&#x7406;&#x7684;<code>defer</code>&#x7684;&#x5168;&#x573A;&#x666F;&#x4F7F;&#x7528;&#x60C5;&#x51B5;&#xFF0C;&#x90E8;&#x5206;&#x573A;&#x666F;&#x6E90;&#x81EA;&#x7F51;&#x7EDC;&#xFF0C;&#x52A0;&#x4E0A;&#x81EA;&#x5DF1;&#x7684;&#x989D;&#x5916;&#x89C2;&#x70B9;&#x548C;&#x5206;&#x6790;&#xFF0C;&#x5B8C;&#x6210;&#x4E86;&#x8FD9;&#x4EFD;<code>defer</code>&#x7684; 7 &#x4E2A;&#x9690;&#x6027;&#x5FC5;&#x5907;&#x77E5;&#x8BC6;&#x70B9;&#x3002;</p>
+<p>&#x63D0;&#x7EB2;&#x5982;&#x4E0B;&#xFF1A;</p>
+<ul>
+<li>&#x77E5;&#x8BC6;&#x70B9; 1&#xFF1A; defer &#x7684;&#x6267;&#x884C;&#x987A;&#x5E8F;</li>
+<li>&#x77E5;&#x8BC6;&#x70B9; 2&#xFF1A;defer &#x4E0E; return &#x8C01;&#x5148;&#x8C01;&#x540E;</li>
+<li>&#x77E5;&#x8BC6;&#x70B9; 3&#xFF1A;&#x51FD;&#x6570;&#x7684;&#x8FD4;&#x56DE;&#x503C;&#x521D;&#x59CB;&#x5316;&#x4E0E; defer &#x95F4;&#x63A5;&#x5F71;&#x54CD;</li>
+<li>&#x77E5;&#x8BC6;&#x70B9; 4&#xFF1A;&#x6709;&#x540D;&#x51FD;&#x6570;&#x8FD4;&#x56DE;&#x503C;&#x9047;&#x89C1; defer &#x60C5;&#x51B5;</li>
+<li>&#x77E5;&#x8BC6;&#x70B9; 5&#xFF1A;defer &#x9047;&#x89C1; panic</li>
+<li>&#x77E5;&#x8BC6;&#x70B9; 6&#xFF1A;defer &#x4E2D;&#x5305;&#x542B; panic</li>
+<li>&#x77E5;&#x8BC6;&#x70B9; 7&#xFF1A;defer &#x4E0B;&#x7684;&#x51FD;&#x6570;&#x53C2;&#x6570;&#x5305;&#x542B;&#x5B50;&#x51FD;&#x6570;</li>
+</ul>
+<hr>
+<h4 id="&#x77E5;&#x8BC6;&#x70B9;-1&#xFF1A;defer-&#x7684;&#x6267;&#x884C;&#x987A;&#x5E8F;">&#x77E5;&#x8BC6;&#x70B9; 1&#xFF1A;defer &#x7684;&#x6267;&#x884C;&#x987A;&#x5E8F;</h4>
+<p>&#x591A;&#x4E2A; defer &#x51FA;&#x73B0;&#x7684;&#x65F6;&#x5019;&#xFF0C;<strong>&#x5B83;&#x662F;&#x4E00;&#x4E2A; &#x201C;&#x6808;&#x201D; &#x7684;&#x5173;&#x7CFB;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x5148;&#x8FDB;&#x540E;&#x51FA;</strong>&#x3002;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#x4E2D;&#xFF0C;&#x5199;&#x5728;&#x524D;&#x9762;&#x7684; defer &#x4F1A;&#x6BD4;&#x5199;&#x5728;&#x540E;&#x9762;&#x7684; defer &#x8C03;&#x7528;&#x7684;&#x665A;&#x3002;</p>
+<blockquote>
+<p>&#x793A;&#x4F8B;&#x4EE3;&#x7801;</p>
+</blockquote>
+<pre><code>package main
+
+import &quot;fmt&quot;
+
+func main() {
+    defer func1()
+    defer func2()
+    defer func3()
+}
+
+func func1() {
+    fmt.Println(&quot;A&quot;)
+}
+
+func func2() {
+    fmt.Println(&quot;B&quot;)
+}
+
+func func3() {
+    fmt.Println(&quot;C&quot;)
+}
+</code></pre><p><a href="https://static.gocn.vip/photo/2020/cf904f1f-271e-4ab3-a9a6-9390ecf93132.jpeg?x-oss-process=image/resize,w_1920" target="_blank"><img src="Go&#x4E2D;defer7&#x4E2A;&#x77E5;&#x8BC6;&#x70B9;/resize,w_1920-20200407090523761.jpeg" alt="img"></a></p>
+<p>&#x8F93;&#x51FA;&#x7ED3;&#x679C;&#xFF1A;</p>
+<pre><code>C
+B
+A
+</code></pre><hr>
+<h4 id="&#x77E5;&#x8BC6;&#x70B9;-2-defer-&#x4E0E;-return-&#x8C01;&#x5148;&#x8C01;&#x540E;">&#x77E5;&#x8BC6;&#x70B9; 2: defer &#x4E0E; return &#x8C01;&#x5148;&#x8C01;&#x540E;</h4>
+<blockquote>
+<p>&#x793A;&#x4F8B;&#x4EE3;&#x7801;</p>
+</blockquote>
+<pre><code>package main
+
+import &quot;fmt&quot;
+
+func deferFunc() int {
+    fmt.Println(&quot;defer func called&quot;)
+    return 0
+}
+
+func returnFunc() int {
+    fmt.Println(&quot;return func called&quot;)
+    return 0
+}
+
+func returnAndDefer() int {
+
+    defer deferFunc()
+
+    return returnFunc()
+}
+
+func main() {
+    returnAndDefer()
+}
+</code></pre><p>&#x6267;&#x884C;&#x7ED3;&#x679C;&#x4E3A;&#xFF1A;</p>
+<pre><code>return func called
+defer func called
+</code></pre><p>&#x7ED3;&#x8BBA;&#x4E3A;&#xFF1A;<strong>return &#x4E4B;&#x540E;&#x7684;&#x8BED;&#x53E5;&#x5148;&#x6267;&#x884C;&#xFF0C;defer &#x540E;&#x7684;&#x8BED;&#x53E5;&#x540E;&#x6267;&#x884C;</strong></p>
+<hr>
+<h4 id="&#x77E5;&#x8BC6;&#x70B9;-3&#xFF1A;&#x51FD;&#x6570;&#x7684;&#x8FD4;&#x56DE;&#x503C;&#x521D;&#x59CB;&#x5316;">&#x77E5;&#x8BC6;&#x70B9; 3&#xFF1A;&#x51FD;&#x6570;&#x7684;&#x8FD4;&#x56DE;&#x503C;&#x521D;&#x59CB;&#x5316;</h4>
+<p>&#x8BE5;&#x77E5;&#x8BC6;&#x70B9;&#x4E0D;&#x5C5E;&#x4E8E; defer &#x672C;&#x8EAB;&#xFF0C;&#x4F46;&#x662F;&#x8C03;&#x7528;&#x7684;&#x573A;&#x666F;&#x5374;&#x4E0E; defer &#x6709;&#x8054;&#x7CFB;&#xFF0C;&#x6240;&#x4EE5;&#x4E5F;&#x7B97;&#x662F; defer &#x5FC5;&#x5907;&#x4E86;&#x89E3;&#x7684;&#x77E5;&#x8BC6;&#x70B9;&#x4E4B;&#x4E00;&#x3002;</p>
+<p>&#x5982; &#xFF1A; <code>func DeferFunc1(i int) (t int) {}</code> &#x5176;&#x4E2D;&#x8FD4;&#x56DE;&#x503C;<code>t int</code>&#xFF0C;&#x8FD9;&#x4E2A;<code>t</code>&#x4F1A;&#x5728;&#x51FD;&#x6570;&#x8D77;&#x59CB;&#x5904;&#x88AB;&#x521D;&#x59CB;&#x5316;&#x4E3A;&#x5BF9;&#x5E94;&#x7C7B;&#x578B;&#x7684;&#x96F6;&#x503C;&#x5E76;&#x4E14;&#x4F5C;&#x7528;&#x57DF;&#x4E3A;&#x6574;&#x4E2A;&#x51FD;&#x6570;&#x3002;</p>
+<p><a href="https://static.gocn.vip/photo/2020/612d977d-34ff-48de-9c0b-725079a82042.png?x-oss-process=image/resize,w_1920" target="_blank"><img src="Go&#x4E2D;defer7&#x4E2A;&#x77E5;&#x8BC6;&#x70B9;/resize,w_1920.png" alt="img"></a></p>
+<blockquote>
+<p>&#x793A;&#x4F8B;&#x4EE3;&#x7801;</p>
+</blockquote>
+<pre><code>package main
+
+import &quot;fmt&quot;
+
+func DeferFunc(i int) (t int) {
+
+    fmt.Println(&quot;t = &quot;, t)
+
+    return 2
+}
+
+func main() {
+    DeferFunc(10)
+}
+</code></pre><p>&#x7ED3;&#x679C;</p>
+<pre><code>t =  0
+</code></pre><p>&#x8BC1;&#x660E;&#xFF0C;<strong>&#x53EA;&#x8981;&#x58F0;&#x660E;&#x51FD;&#x6570;&#x7684;&#x8FD4;&#x56DE;&#x503C;&#x53D8;&#x91CF;&#x540D;&#x79F0;&#xFF0C;&#x5C31;&#x4F1A;&#x5728;&#x51FD;&#x6570;&#x521D;&#x59CB;&#x5316;&#x65F6;&#x5019;&#x4E3A;&#x4E4B;&#x8D4B;&#x503C;&#x4E3A; 0&#xFF0C;&#x800C;&#x4E14;&#x5728;&#x51FD;&#x6570;&#x4F53;&#x4F5C;&#x7528;&#x57DF;&#x53EF;&#x89C1;</strong>&#x3002;</p>
+<hr>
+<h4 id="&#x77E5;&#x8BC6;&#x70B9;-4-&#x6709;&#x540D;&#x51FD;&#x6570;&#x8FD4;&#x56DE;&#x503C;&#x9047;&#x89C1;-defer-&#x60C5;&#x51B5;">&#x77E5;&#x8BC6;&#x70B9; 4: &#x6709;&#x540D;&#x51FD;&#x6570;&#x8FD4;&#x56DE;&#x503C;&#x9047;&#x89C1; defer &#x60C5;&#x51B5;</h4>
+<p>&#x5728;&#x6CA1;&#x6709; defer &#x7684;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x5176;&#x5B9E;&#x51FD;&#x6570;&#x7684;&#x8FD4;&#x56DE;&#x5C31;&#x662F;&#x4E0E; return &#x4E00;&#x81F4;&#x7684;&#xFF0C;&#x4F46;&#x662F;&#x6709;&#x4E86; defer &#x5C31;&#x4E0D;&#x4E00;&#x6837;&#x4E86;&#x3002;</p>
+<p> &#x6211;&#x4EEC;&#x901A;&#x8FC7;<strong>&#x77E5;&#x8BC6;&#x70B9; 2</strong>&#x5F97;&#x77E5;&#xFF0C;&#x5148; return&#xFF0C;&#x518D; defer&#xFF0C;&#x6240;&#x4EE5;&#x5728;&#x6267;&#x884C;&#x5B8C; return &#x4E4B;&#x540E;&#xFF0C;&#x8FD8;&#x8981;&#x518D;&#x6267;&#x884C; defer &#x91CC;&#x7684;&#x8BED;&#x53E5;&#xFF0C;&#x4F9D;&#x7136;&#x53EF;&#x4EE5;&#x4FEE;&#x6539;&#x672C;&#x5E94;&#x8BE5;&#x8FD4;&#x56DE;&#x7684;&#x7ED3;&#x679C;&#x3002;</p>
+<pre><code>package main
+
+import &quot;fmt&quot;
+
+func returnButDefer() (t int) {  //t&#x521D;&#x59CB;&#x5316;0&#xFF0C; &#x5E76;&#x4E14;&#x4F5C;&#x7528;&#x57DF;&#x4E3A;&#x8BE5;&#x51FD;&#x6570;&#x5168;&#x57DF;
+
+    defer func() {
+        t = t * 10
+    }()
+
+    return 1
+}
+
+func main() {
+    fmt.Println(returnButDefer())
+}
+</code></pre><p> &#x8BE5;<code>returnButDefer()</code>&#x672C;&#x5E94;&#x7684;&#x8FD4;&#x56DE;&#x503C;&#x662F;<code>1</code>&#xFF0C;&#x4F46;&#x662F;&#x5728; return &#x4E4B;&#x540E;&#xFF0C;&#x53C8;&#x88AB; defer &#x7684;&#x533F;&#x540D; func &#x51FD;&#x6570;&#x6267;&#x884C;&#xFF0C;&#x6240;&#x4EE5;<code>t=t*10</code>&#x88AB;&#x6267;&#x884C;&#xFF0C;&#x6700;&#x540E;<code>returnButDefer()</code>&#x8FD4;&#x56DE;&#x7ED9;&#x4E0A;&#x5C42;<code>main()</code>&#x7684;&#x7ED3;&#x679C;&#x4E3A;<code>10</code></p>
+<pre><code>$ go run test.go
+10
+</code></pre><hr>
+<h4 id="&#x77E5;&#x8BC6;&#x70B9;-5-defer-&#x9047;&#x89C1;-panic">&#x77E5;&#x8BC6;&#x70B9; 5: defer &#x9047;&#x89C1; panic</h4>
+<p> &#x6211;&#x4EEC;&#x77E5;&#x9053;&#xFF0C;&#x80FD;&#x591F;&#x89E6;&#x53D1; defer &#x7684;&#x662F;&#x9047;&#x89C1; return(&#x6216;&#x51FD;&#x6570;&#x4F53;&#x5230;&#x672B;&#x5C3E;) &#x548C;&#x9047;&#x89C1; panic&#x3002;</p>
+<p> &#x6839;&#x636E;<strong>&#x77E5;&#x8BC6;&#x70B9; 2</strong>&#xFF0C;&#x6211;&#x4EEC;&#x77E5;&#x9053;&#xFF0C;defer &#x9047;&#x89C1; return &#x60C5;&#x51B5;&#x5982;&#x4E0B;&#xFF1A;</p>
+<p><a href="https://static.gocn.vip/photo/2020/245136e0-9382-41af-9d9d-f80b1585c456.jpeg?x-oss-process=image/resize,w_1920" target="_blank"><img src="Go&#x4E2D;defer7&#x4E2A;&#x77E5;&#x8BC6;&#x70B9;/resize,w_1920-20200407090523953.jpeg" alt="img"></a></p>
+<p>&#x90A3;&#x4E48;&#xFF0C;&#x9047;&#x5230; panic &#x65F6;&#xFF0C;&#x904D;&#x5386;&#x672C;&#x534F;&#x7A0B;&#x7684; defer &#x94FE;&#x8868;&#xFF0C;&#x5E76;&#x6267;&#x884C; defer&#x3002;&#x5728;&#x6267;&#x884C; defer &#x8FC7;&#x7A0B;&#x4E2D;:&#x9047;&#x5230; recover &#x5219;&#x505C;&#x6B62; panic&#xFF0C;&#x8FD4;&#x56DE; recover &#x5904;&#x7EE7;&#x7EED;&#x5F80;&#x4E0B;&#x6267;&#x884C;&#x3002;&#x5982;&#x679C;&#x6CA1;&#x6709;&#x9047;&#x5230; recover&#xFF0C;&#x904D;&#x5386;&#x5B8C;&#x672C;&#x534F;&#x7A0B;&#x7684; defer &#x94FE;&#x8868;&#x540E;&#xFF0C;&#x5411; stderr &#x629B;&#x51FA; panic &#x4FE1;&#x606F;&#x3002;</p>
+<p><a href="https://static.gocn.vip/photo/2020/b467edf0-4ff9-49fb-8bf2-bdf0f2d14a66.jpeg?x-oss-process=image/resize,w_1920" target="_blank"><img src="Go&#x4E2D;defer7&#x4E2A;&#x77E5;&#x8BC6;&#x70B9;/resize,w_1920-20200407090523972.jpeg" alt="img"></a></p>
+<h5 id="a-defer-&#x9047;&#x89C1;-panic&#xFF0C;&#x4F46;&#x662F;&#x5E76;&#x4E0D;&#x6355;&#x83B7;&#x5F02;&#x5E38;&#x7684;&#x60C5;&#x51B5;">A. defer &#x9047;&#x89C1; panic&#xFF0C;&#x4F46;&#x662F;&#x5E76;&#x4E0D;&#x6355;&#x83B7;&#x5F02;&#x5E38;&#x7684;&#x60C5;&#x51B5;</h5>
+<blockquote>
+<p>test10.go</p>
+</blockquote>
+<pre><code>package main
+
+import (
+    &quot;fmt&quot;
+)
+
+func main() {
+    defer_call()
+
+    fmt.Println(&quot;main &#x6B63;&#x5E38;&#x7ED3;&#x675F;&quot;)
+}
+
+func defer_call() {
+    defer func() { fmt.Println(&quot;defer: panic &#x4E4B;&#x524D;1&quot;) }()
+    defer func() { fmt.Println(&quot;defer: panic &#x4E4B;&#x524D;2&quot;) }()
+
+    panic(&quot;&#x5F02;&#x5E38;&#x5185;&#x5BB9;&quot;)  //&#x89E6;&#x53D1;defer&#x51FA;&#x6808;
+
+    defer func() { fmt.Println(&quot;defer: panic &#x4E4B;&#x540E;&#xFF0C;&#x6C38;&#x8FDC;&#x6267;&#x884C;&#x4E0D;&#x5230;&quot;) }()
+}
+</code></pre><p><strong>&#x7ED3;&#x679C;</strong></p>
+<pre><code>defer: panic &#x4E4B;&#x524D;2
+defer: panic &#x4E4B;&#x524D;1
+panic: &#x5F02;&#x5E38;&#x5185;&#x5BB9;
+//... &#x5F02;&#x5E38;&#x5806;&#x6808;&#x4FE1;&#x606F;
+</code></pre><h5 id="b-defer-&#x9047;&#x89C1;-panic&#xFF0C;&#x5E76;&#x6355;&#x83B7;&#x5F02;&#x5E38;">B. defer &#x9047;&#x89C1; panic&#xFF0C;&#x5E76;&#x6355;&#x83B7;&#x5F02;&#x5E38;</h5>
+<pre><code>package main
+
+import (
+    &quot;fmt&quot;
+)
+
+func main() {
+    defer_call()
+
+    fmt.Println(&quot;main &#x6B63;&#x5E38;&#x7ED3;&#x675F;&quot;)
+}
+
+func defer_call() {
+
+    defer func() {
+        fmt.Println(&quot;defer: panic &#x4E4B;&#x524D;1, &#x6355;&#x83B7;&#x5F02;&#x5E38;&quot;)
+        if err := recover(); err != nil {
+            fmt.Println(err)
+        }
+    }()
+
+    defer func() { fmt.Println(&quot;defer: panic &#x4E4B;&#x524D;2, &#x4E0D;&#x6355;&#x83B7;&quot;) }()
+
+    panic(&quot;&#x5F02;&#x5E38;&#x5185;&#x5BB9;&quot;)  //&#x89E6;&#x53D1;defer&#x51FA;&#x6808;
+
+    defer func() { fmt.Println(&quot;defer: panic &#x4E4B;&#x540E;, &#x6C38;&#x8FDC;&#x6267;&#x884C;&#x4E0D;&#x5230;&quot;) }()
+}
+</code></pre><p><strong>&#x7ED3;&#x679C;</strong></p>
+<pre><code>defer: panic &#x4E4B;&#x524D;2, &#x4E0D;&#x6355;&#x83B7;
+defer: panic &#x4E4B;&#x524D;1, &#x6355;&#x83B7;&#x5F02;&#x5E38;
+&#x5F02;&#x5E38;&#x5185;&#x5BB9;
+main &#x6B63;&#x5E38;&#x7ED3;&#x675F;
+</code></pre><p><strong>defer &#x6700;&#x5927;&#x7684;&#x529F;&#x80FD;&#x662F; panic &#x540E;&#x4F9D;&#x7136;&#x6709;&#x6548;</strong> &#x6240;&#x4EE5; defer &#x53EF;&#x4EE5;&#x4FDD;&#x8BC1;&#x4F60;&#x7684;&#x4E00;&#x4E9B;&#x8D44;&#x6E90;&#x4E00;&#x5B9A;&#x4F1A;&#x88AB;&#x5173;&#x95ED;&#xFF0C;&#x4ECE;&#x800C;&#x907F;&#x514D;&#x4E00;&#x4E9B;&#x5F02;&#x5E38;&#x51FA;&#x73B0;&#x7684;&#x95EE;&#x9898;&#x3002;</p>
+<hr>
+<h4 id="&#x77E5;&#x8BC6;&#x70B9;-6-defer-&#x4E2D;&#x5305;&#x542B;-panic">&#x77E5;&#x8BC6;&#x70B9; 6: defer &#x4E2D;&#x5305;&#x542B; panic</h4>
+<blockquote>
+<p>&#x7F16;&#x8BD1;&#x6267;&#x884C;&#x4E0B;&#x9762;&#x4EE3;&#x7801;&#x4F1A;&#x51FA;&#x73B0;&#x4EC0;&#x4E48;?</p>
+<p>test16.go</p>
+</blockquote>
+<pre><code>package main
+
+import (
+    &quot;fmt&quot;
+)
+
+func main()  {
+
+    defer func() {
+       if err := recover(); err != nil{
+           fmt.Println(err)
+       }else {
+           fmt.Println(&quot;fatal&quot;)
+       }
+    }()
+
+    defer func() {
+        panic(&quot;defer panic&quot;)
+    }()
+
+    panic(&quot;panic&quot;)
+}
+</code></pre><p><strong>&#x7ED3;&#x679C;</strong></p>
+<pre><code>defer panic
+</code></pre><p><strong>&#x5206;&#x6790;</strong></p>
+<p><strong>panic &#x4EC5;&#x6709;&#x6700;&#x540E;&#x4E00;&#x4E2A;&#x53EF;&#x4EE5;&#x88AB; revover &#x6355;&#x83B7;</strong>&#x3002;</p>
+<p>&#x89E6;&#x53D1;<code>panic(&quot;panic&quot;)</code>&#x540E; defer &#x987A;&#x5E8F;&#x51FA;&#x6808;&#x6267;&#x884C;&#xFF0C;&#x7B2C;&#x4E00;&#x4E2A;&#x88AB;&#x6267;&#x884C;&#x7684; defer &#x4E2D; &#x4F1A;&#x6709;<code>panic(&quot;defer panic&quot;)</code>&#x5F02;&#x5E38;&#x8BED;&#x53E5;&#xFF0C;&#x8FD9;&#x4E2A;&#x5F02;&#x5E38;&#x5C06;&#x4F1A;&#x8986;&#x76D6;&#x6389; main &#x4E2D;&#x7684;&#x5F02;&#x5E38;<code>panic(&quot;panic&quot;)</code>&#xFF0C;&#x6700;&#x540E;&#x8FD9;&#x4E2A;&#x5F02;&#x5E38;&#x88AB;&#x7B2C;&#x4E8C;&#x4E2A;&#x6267;&#x884C;&#x7684; defer &#x6355;&#x83B7;&#x5230;&#x3002;</p>
+<hr>
+<h4 id="&#x77E5;&#x8BC6;&#x70B9;-7-defer-&#x4E0B;&#x7684;&#x51FD;&#x6570;&#x53C2;&#x6570;&#x5305;&#x542B;&#x5B50;&#x51FD;&#x6570;">&#x77E5;&#x8BC6;&#x70B9; 7: defer &#x4E0B;&#x7684;&#x51FD;&#x6570;&#x53C2;&#x6570;&#x5305;&#x542B;&#x5B50;&#x51FD;&#x6570;</h4>
+<pre><code>package main
+
+import &quot;fmt&quot;
+
+func function(index int, value int) int {
+
+    fmt.Println(index)
+
+    return index
+}
+
+func main() {
+    defer function(1, function(3, 0))
+    defer function(2, function(4, 0))
+}
+</code></pre><p> &#x8FD9;&#x91CC;&#xFF0C;&#x6709; 4 &#x4E2A;&#x51FD;&#x6570;&#xFF0C;&#x4ED6;&#x4EEC;&#x7684; index &#x5E8F;&#x53F7;&#x5206;&#x522B;&#x4E3A; 1&#xFF0C;2&#xFF0C;3&#xFF0C;4&#x3002;</p>
+<p>&#x90A3;&#x4E48;&#x8FD9; 4 &#x4E2A;&#x51FD;&#x6570;&#x7684;&#x5148;&#x540E;&#x6267;&#x884C;&#x987A;&#x5E8F;&#x662F;&#x4EC0;&#x4E48;&#x5462;&#xFF1F;&#x8FD9;&#x91CC;&#x9762;&#x6709;&#x4E24;&#x4E2A; defer&#xFF0C; &#x6240;&#x4EE5; defer &#x4E00;&#x5171;&#x4F1A;&#x538B;&#x6808;&#x4E24;&#x6B21;&#xFF0C;&#x5148;&#x8FDB;&#x6808; 1&#xFF0C;&#x540E;&#x8FDB;&#x6808; 2&#x3002; &#x90A3;&#x4E48;&#x5728;&#x538B;&#x6808; function1 &#x7684;&#x65F6;&#x5019;&#xFF0C;&#x9700;&#x8981;&#x8FDE;&#x540C;&#x51FD;&#x6570;&#x5730;&#x5740;&#x3001;&#x51FD;&#x6570;&#x5F62;&#x53C2;&#x4E00;&#x540C;&#x8FDB;&#x6808;&#xFF0C;&#x90A3;&#x4E48;&#x4E3A;&#x4E86;&#x5F97;&#x5230; function1 &#x7684;&#x7B2C;&#x4E8C;&#x4E2A;&#x53C2;&#x6570;&#x7684;&#x7ED3;&#x679C;&#xFF0C;&#x6240;&#x4EE5;&#x5C31;&#x9700;&#x8981;&#x5148;&#x6267;&#x884C; function3 &#x5C06;&#x7B2C;&#x4E8C;&#x4E2A;&#x53C2;&#x6570;&#x7B97;&#x51FA;&#xFF0C;&#x90A3;&#x4E48; function3 &#x5C31;&#x88AB;&#x7B2C;&#x4E00;&#x4E2A;&#x6267;&#x884C;&#x3002;&#x540C;&#x7406;&#x538B;&#x6808; function2&#xFF0C;&#x5C31;&#x9700;&#x8981;&#x6267;&#x884C; function4 &#x7B97;&#x51FA; function2 &#x7B2C;&#x4E8C;&#x4E2A;&#x53C2;&#x6570;&#x7684;&#x503C;&#x3002;&#x7136;&#x540E;&#x51FD;&#x6570;&#x7ED3;&#x675F;&#xFF0C;&#x5148;&#x51FA;&#x6808; fuction2&#x3001;&#x518D;&#x51FA;&#x6808; function1.</p>
+<p> &#x6240;&#x4EE5;&#x987A;&#x5E8F;&#x5982;&#x4E0B;&#xFF1A;</p>
+<ul>
+<li>defer &#x538B;&#x6808; function1&#xFF0C;&#x538B;&#x6808;&#x51FD;&#x6570;&#x5730;&#x5740;&#x3001;&#x5F62;&#x53C2; 1&#x3001;&#x5F62;&#x53C2; 2(&#x8C03;&#x7528; function3) --&gt; &#x6253;&#x5370; 3</li>
+<li>defer &#x538B;&#x6808; function2&#xFF0C;&#x538B;&#x6808;&#x51FD;&#x6570;&#x5730;&#x5740;&#x3001;&#x5F62;&#x53C2; 1&#x3001;&#x5F62;&#x53C2; 2(&#x8C03;&#x7528; function4) --&gt; &#x6253;&#x5370; 4</li>
+<li>defer &#x51FA;&#x6808; function2, &#x8C03;&#x7528; function2 --&gt; &#x6253;&#x5370; 2</li>
+<li>defer &#x51FA;&#x6808; function1, &#x8C03;&#x7528; function1--&gt; &#x6253;&#x5370; 1</li>
+</ul>
+<pre><code>3
+4
+2
+1
+</code></pre><hr>
+<h4 id="&#x7EC3;&#x4E60;&#xFF1A;defer-&#x9762;&#x8BD5;&#x771F;&#x9898;">&#x7EC3;&#x4E60;&#xFF1A;defer &#x9762;&#x8BD5;&#x771F;&#x9898;</h4>
+<p>&#x4E86;&#x89E3;&#x4EE5;&#x4E0A; 6 &#x4E2A; defer &#x7684;&#x77E5;&#x8BC6;&#x70B9;&#xFF0C;&#x6211;&#x4EEC;&#x6765;&#x9A8C;&#x8BC1;&#x4E00;&#x4E0B;&#x7F51;&#x4E0A;&#x7684;&#x771F;&#x9898;&#x5427;&#x3002;</p>
+<p>&#x4E0B;&#x9762;&#x4EE3;&#x7801;&#x8F93;&#x51FA;&#x4EC0;&#x4E48;&#xFF1F;</p>
+<blockquote>
+<p>test11.go</p>
+</blockquote>
+<pre><code>package main
+
+import &quot;fmt&quot;
+
+func DeferFunc1(i int) (t int) {
+    t = i
+    defer func() {
+        t += 3
+    }()
+    return t
+}
+
+func DeferFunc2(i int) int {
+    t := i
+    defer func() {
+        t += 3
+    }()
+    return t
+}
+
+func DeferFunc3(i int) (t int) {
+    defer func() {
+        t += i
+    }()
+    return 2
+}
+
+func DeferFunc4() (t int) {
+    defer func(i int) {
+        fmt.Println(i)
+        fmt.Println(t)
+    }(t)
+    t = 1
+    return 2
+}
+
+func main() {
+    fmt.Println(DeferFunc1(1))
+    fmt.Println(DeferFunc2(1))
+    fmt.Println(DeferFunc3(1))
+    DeferFunc4()
+}
+</code></pre><hr>
+<h4 id="&#x7EC3;&#x4E60;&#x9898;&#x5206;&#x6790;">&#x7EC3;&#x4E60;&#x9898;&#x5206;&#x6790;</h4>
+<h5 id="deferfunc1">DeferFunc1</h5>
+<pre><code>func DeferFunc1(i int) (t int) {
+    t = i
+    defer func() {
+        t += 3
+    }()
+    return t
+}
+</code></pre><ol>
+<li>&#x5C06;&#x8FD4;&#x56DE;&#x503C; t &#x8D4B;&#x503C;&#x4E3A;&#x4F20;&#x5165;&#x7684; i&#xFF0C;&#x6B64;&#x65F6; t &#x4E3A; 1</li>
+<li>&#x6267;&#x884C; return &#x8BED;&#x53E5;&#x5C06; t &#x8D4B;&#x503C;&#x7ED9; t&#xFF08;&#x7B49;&#x4E8E;&#x5565;&#x4E5F;&#x6CA1;&#x505A;&#xFF09;</li>
+<li>&#x6267;&#x884C; defer &#x65B9;&#x6CD5;&#xFF0C;&#x5C06; t + 3 = 4</li>
+<li>&#x51FD;&#x6570;&#x8FD4;&#x56DE; 4 &#x56E0;&#x4E3A; t &#x7684;&#x4F5C;&#x7528;&#x57DF;&#x4E3A;&#x6574;&#x4E2A;&#x51FD;&#x6570;&#x6240;&#x4EE5;&#x4FEE;&#x6539;&#x6709;&#x6548;&#x3002;</li>
+</ol>
+<h5 id="deferfunc2">DeferFunc2</h5>
+<pre><code>func DeferFunc2(i int) int {
+    t := i
+    defer func() {
+        t += 3
+    }()
+    return t
+}
+</code></pre><ol>
+<li>&#x521B;&#x5EFA;&#x53D8;&#x91CF; t &#x5E76;&#x8D4B;&#x503C;&#x4E3A; 1</li>
+<li>&#x6267;&#x884C; return &#x8BED;&#x53E5;&#xFF0C;&#x6CE8;&#x610F;&#x8FD9;&#x91CC;&#x662F;&#x5C06; t &#x8D4B;&#x503C;&#x7ED9;&#x8FD4;&#x56DE;&#x503C;&#xFF0C;&#x6B64;&#x65F6;&#x8FD4;&#x56DE;&#x503C;&#x4E3A; 1&#xFF08;&#x8FD9;&#x4E2A;&#x8FD4;&#x56DE;&#x503C;&#x5E76;&#x4E0D;&#x662F; t&#xFF09;</li>
+<li>&#x6267;&#x884C; defer &#x65B9;&#x6CD5;&#xFF0C;&#x5C06; t + 3 = 4</li>
+<li>&#x51FD;&#x6570;&#x8FD4;&#x56DE;&#x8FD4;&#x56DE;&#x503C; 1</li>
+</ol>
+<p>&#x4E5F;&#x53EF;&#x4EE5;&#x6309;&#x7167;&#x5982;&#x4E0B;&#x4EE3;&#x7801;&#x7406;&#x89E3;</p>
+<pre><code class="lang-go"><span class="hljs-keyword">func</span> DeferFunc2(i <span class="hljs-keyword">int</span>) (result <span class="hljs-keyword">int</span>) {
+    t := i
+    <span class="hljs-keyword">defer</span> <span class="hljs-keyword">func</span>() {
+        t += <span class="hljs-number">3</span>
+    }()
+    <span class="hljs-keyword">return</span> t
+}
+</code></pre>
+<p>&#x4E0A;&#x9762;&#x7684;&#x4EE3;&#x7801; return &#x7684;&#x65F6;&#x5019;&#x76F8;&#x5F53;&#x4E8E;&#x5C06; t &#x8D4B;&#x503C;&#x7ED9;&#x4E86; result&#xFF0C;&#x5F53; defer &#x4FEE;&#x6539;&#x4E86; t &#x7684;&#x503C;&#x4E4B;&#x540E;&#xFF0C;&#x5BF9; result &#x662F;&#x4E0D;&#x4F1A;&#x9020;&#x6210;&#x5F71;&#x54CD;&#x7684;&#x3002;</p>
+<h5 id="deferfunc3">DeferFunc3</h5>
+<pre><code class="lang-go"><span class="hljs-keyword">func</span> DeferFunc3(i <span class="hljs-keyword">int</span>) (t <span class="hljs-keyword">int</span>) {
+    <span class="hljs-keyword">defer</span> <span class="hljs-keyword">func</span>() {
+        t += i
+    }()
+    <span class="hljs-keyword">return</span> <span class="hljs-number">2</span>
+}
+</code></pre>
+<ol>
+<li>&#x9996;&#x5148;&#x6267;&#x884C; return &#x5C06;&#x8FD4;&#x56DE;&#x503C; t &#x8D4B;&#x503C;&#x4E3A; 2</li>
+<li>&#x6267;&#x884C; defer &#x65B9;&#x6CD5;&#x5C06; t + 1</li>
+<li>&#x6700;&#x540E;&#x8FD4;&#x56DE; 3</li>
+</ol>
+<h5 id="deferfunc4">DeferFunc4</h5>
+<pre><code>func DeferFunc4() (t int) {
+    defer func(i int) {
+        fmt.Println(i)
+        fmt.Println(t)
+    }(t)
+    t = 1
+    return 2
+}
+</code></pre><ol>
+<li>&#x521D;&#x59CB;&#x5316;&#x8FD4;&#x56DE;&#x503C; t &#x4E3A;&#x96F6;&#x503C; 0</li>
+<li>&#x9996;&#x5148;&#x6267;&#x884C; defer &#x7684;&#x7B2C;&#x4E00;&#x6B65;&#xFF0C;&#x8D4B;&#x503C; defer &#x4E2D;&#x7684; func &#x5165;&#x53C2; t &#x4E3A; 0</li>
+<li>&#x6267;&#x884C; defer &#x7684;&#x7B2C;&#x4E8C;&#x6B65;&#xFF0C;&#x5C06; defer &#x538B;&#x6808;</li>
+<li>&#x5C06; t &#x8D4B;&#x503C;&#x4E3A; 1</li>
+<li>&#x6267;&#x884C; return &#x8BED;&#x53E5;&#xFF0C;&#x5C06;&#x8FD4;&#x56DE;&#x503C; t &#x8D4B;&#x503C;&#x4E3A; 2</li>
+<li>&#x6267;&#x884C; defer &#x7684;&#x7B2C;&#x4E09;&#x6B65;&#xFF0C;&#x51FA;&#x6808;&#x5E76;&#x6267;&#x884C; &#x56E0;&#x4E3A;&#x5728;&#x5165;&#x6808;&#x65F6; defer &#x6267;&#x884C;&#x7684; func &#x7684;&#x5165;&#x53C2;&#x5DF2;&#x7ECF;&#x8D4B;&#x503C;&#x4E86;&#xFF0C;&#x6B64;&#x65F6;&#x5B83;&#x4F5C;&#x4E3A;&#x7684;&#x662F;&#x4E00;&#x4E2A;&#x5F62;&#x5F0F;&#x53C2;&#x6570;&#xFF0C;&#x6240;&#x4EE5;&#x6253;&#x5370;&#x4E3A; 0&#xFF1B;&#x76F8;&#x5BF9;&#x5E94;&#x7684;&#x56E0;&#x4E3A;&#x6700;&#x540E;&#x5DF2;&#x7ECF;&#x5C06; t &#x7684;&#x503C;&#x4FEE;&#x6539;&#x4E3A; 2&#xFF0C;&#x6240;&#x4EE5;&#x518D;&#x6253;&#x5370;&#x4E00;&#x4E2A; 2</li>
+</ol>
+<h5 id="&#x7ED3;&#x679C;"><strong>&#x7ED3;&#x679C;</strong></h5>
+<pre><code>4
+1
+3
+0
+2
+</code></pre><hr>
+<hr>
+<p>### &#x5173;&#x4E8E;&#x4F5C;&#x8005;&#xFF1A;</p>
+<p>mail: <a href="mailto:danbing.at@gmail.com" target="_blank">danbing.at@gmail.com</a> github: <a href="https://github.com/aceld" target="_blank">https://github.com/aceld</a> &#x539F;&#x521B;&#x4E66;&#x7C4D; gitbook: <a href="http://legacy.gitbook.com/@aceld" target="_blank">http://legacy.gitbook.com/@aceld</a></p>
+<h2 id="&#x521B;&#x4F5C;&#x4E0D;&#x6613;-&#x5171;&#x540C;&#x5B66;&#x4E60;&#x8FDB;&#x6B65;-&#x6B22;&#x8FCE;&#x5173;&#x6CE8;&#x4F5C;&#x8005;-&#x56DE;&#x590D;zinx&#x6709;&#x597D;&#x793C;">&#x521B;&#x4F5C;&#x4E0D;&#x6613;, &#x5171;&#x540C;&#x5B66;&#x4E60;&#x8FDB;&#x6B65;, &#x6B22;&#x8FCE;&#x5173;&#x6CE8;&#x4F5C;&#x8005;, &#x56DE;&#x590D;&quot;zinx&quot;&#x6709;&#x597D;&#x793C;</h2>
+<p><a href="https://static.gocn.vip/photo/2020/5f97af72-b1d5-4e64-8be0-c5ad5a57b153.jpg?x-oss-process=image/resize,w_1920" target="_blank"><img src="Go&#x4E2D;defer7&#x4E2A;&#x77E5;&#x8BC6;&#x70B9;/resize,w_1920.jpeg" alt="img"></a></p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="Go中defer.html" class="navigation navigation-prev " aria-label="Previous page: Go中defer">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="Go实现LeetCode全集.html" class="navigation navigation-next " aria-label="Next page: Go实现LeetCode全集">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Go中defer7个知识点","level":"2.4","depth":1,"next":{"title":"Go实现LeetCode全集","level":"2.5","depth":1,"path":"2020-04-07/Go实现LeetCode全集.md","ref":"2020-04-07/Go实现LeetCode全集.md","articles":[]},"previous":{"title":"Go中defer","level":"2.3","depth":1,"path":"2020-04-07/Go中defer.md","ref":"2020-04-07/Go中defer.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"2020-04-07/Go中defer7个知识点.md","mtime":"2020-04-15T06:14:50.212Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-04-15T06:15:30.771Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

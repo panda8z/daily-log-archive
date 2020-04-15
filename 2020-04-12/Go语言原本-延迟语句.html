@@ -1,0 +1,1144 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Go语言原本-延迟语句 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    2020年Panda8z的面试笔记
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../2020-03-18/面试准备Day01.html">
+            
+                <a href="../2020-03-18/面试准备Day01.html">
+            
+                    
+                    面试准备Day01
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../2020-03-18/gitbook工具使用指南.html">
+            
+                <a href="../2020-03-18/gitbook工具使用指南.html">
+            
+                    
+                    gitbook工具使用指南
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../2020-04-05/Goroutine是怎么开始和退出的.html">
+            
+                <a href="../2020-04-05/Goroutine是怎么开始和退出的.html">
+            
+                    
+                    Goroutine是怎么开始和退出的
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" >
+            
+                <span>
+            
+                    
+                    2020-04-07
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="../2020-04-07/defer的前世今生.html">
+            
+                <a href="../2020-04-07/defer的前世今生.html">
+            
+                    
+                    defer的前世今生
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" data-path="../2020-04-07/Go中defer.html">
+            
+                <a href="../2020-04-07/Go中defer.html">
+            
+                    
+                    Go中defer
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4" data-path="../2020-04-07/Go中defer7个知识点.html">
+            
+                <a href="../2020-04-07/Go中defer7个知识点.html">
+            
+                    
+                    Go中defer7个知识点
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.5" data-path="../2020-04-07/Go实现LeetCode全集.html">
+            
+                <a href="../2020-04-07/Go实现LeetCode全集.html">
+            
+                    
+                    Go实现LeetCode全集
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.6" data-path="../2020-04-07/如何成为Go语言代码贡献者.html">
+            
+                <a href="../2020-04-07/如何成为Go语言代码贡献者.html">
+            
+                    
+                    如何成为Go语言代码贡献者
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.7" data-path="../2020-04-07/读书笔记-2020-04-07.html">
+            
+                <a href="../2020-04-07/读书笔记-2020-04-07.html">
+            
+                    
+                    读书笔记-2020-04-07
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="3.1" >
+            
+                <span>
+            
+                    
+                    2020-04-08
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2" data-path="../2020-04-08/go编译器-编译指示.html">
+            
+                <a href="../2020-04-08/go编译器-编译指示.html">
+            
+                    
+                    编译指示
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3" data-path="../2020-04-08/go做一个小型http服务器并优化实战.html">
+            
+                <a href="../2020-04-08/go做一个小型http服务器并优化实战.html">
+            
+                    
+                    go做一个小型http服务器并优化实战
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.4" >
+            
+                <span>
+            
+                    
+                    2020-04-09
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.5" data-path="../2020-04-09/Go语言原本-调度器.html">
+            
+                <a href="../2020-04-09/Go语言原本-调度器.html">
+            
+                    
+                    Go语言原本-调度器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.6" >
+            
+                <span>
+            
+                    
+                    2020-04-10
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.7" data-path="../2020-04-10/go垃圾回收.html">
+            
+                <a href="../2020-04-10/go垃圾回收.html">
+            
+                    
+                    go垃圾回收
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.8" >
+            
+                <span>
+            
+                    
+                    2020-04-11
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.9" data-path="../2020-04-11/2020-04-11-日志.html">
+            
+                <a href="../2020-04-11/2020-04-11-日志.html">
+            
+                    
+                    2020-04-11-日志
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.10" >
+            
+                <span>
+            
+                    
+                    2020-04-12
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="3.11" data-path="Go语言原本-延迟语句.html">
+            
+                <a href="Go语言原本-延迟语句.html">
+            
+                    
+                    Go语言原本-延迟语句
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.12" >
+            
+                <span>
+            
+                    
+                    2020-04-13
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.13" data-path="../2020-04-13/Go语言原本-channel.html">
+            
+                <a href="../2020-04-13/Go语言原本-channel.html">
+            
+                    
+                    Go语言原本-channel
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.14" data-path="../2020-04-13/2020-04-13-日志.html">
+            
+                <a href="../2020-04-13/2020-04-13-日志.html">
+            
+                    
+                    2020-04-13-日志
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="4.1" >
+            
+                <span>
+            
+                    
+                    2020-04-14
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2" data-path="../2020-04-14/G0是怎么创建的.html">
+            
+                <a href="../2020-04-14/G0是怎么创建的.html">
+            
+                    
+                    G0是怎么创建的
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.3" data-path="../2020-04-14/从0构建亿级微服务架构.html">
+            
+                <a href="../2020-04-14/从0构建亿级微服务架构.html">
+            
+                    
+                    从0构建亿级微服务架构
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.4" >
+            
+                <span>
+            
+                    
+                    2020-04-15
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Go语言原本-延迟语句</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="92-&#x5EF6;&#x8FDF;&#x8BED;&#x53E5;">9.2 &#x5EF6;&#x8FDF;&#x8BED;&#x53E5;</h1>
+<p>&#x5EF6;&#x8FDF;&#x8BED;&#x53E5; <code>defer</code> &#x5728;&#x6700;&#x65E9;&#x671F;&#x7684; Go &#x8BED;&#x8A00;&#x8BBE;&#x8BA1;&#x4E2D;&#x5E76;&#x4E0D;&#x5B58;&#x5728;&#xFF0C;&#x540E;&#x6765;&#x624D;&#x5355;&#x72EC;&#x589E;&#x52A0;&#x4E86;&#x8FD9;&#x4E00;&#x7279;&#x6027;&#xFF0C; &#x7531; Robert Griesemer &#x5B8C;&#x6210;&#x8BED;&#x8A00;&#x89C4;&#x8303;&#x7684;&#x7F16;&#x5199; [Griesemer, 2009]&#xFF0C; &#x5E76;&#x7531; Ken Thompson &#x5B8C;&#x6210;&#x6700;&#x65E9;&#x671F;&#x7684;&#x5B9E;&#x73B0; [Thompson, 2009]&#xFF0C;&#x4E24;&#x4EBA;&#x5408;&#x4F5C;&#x5B8C;&#x6210;&#x8FD9;&#x4E00;&#x8BED;&#x8A00;&#x7279;&#x6027;&#x3002;</p>
+<p>defer &#x7684;&#x8BED;&#x4E49;&#x8868;&#x660E;&#xFF0C;&#x5B83;&#x4F1A;&#x5728;&#x51FD;&#x6570;&#x8FD4;&#x56DE;&#x3001;&#x4EA7;&#x751F;&#x6050;&#x614C;&#x6216;&#x8005; <code>runtime.Goexit</code> &#x65F6;&#x88AB;&#x8C03;&#x7528;&#x3002;&#x76F4;&#x89C9;&#x4E0A;&#x770B;&#xFF0C; defer &#x5E94;&#x8BE5;&#x7531;&#x7F16;&#x8BD1;&#x5668;&#x76F4;&#x63A5;&#x5C06;&#x9700;&#x8981;&#x7684;&#x51FD;&#x6570;&#x8C03;&#x7528;&#x63D2;&#x5165;&#x5230;&#x8BE5;&#x8C03;&#x7528;&#x7684;&#x5730;&#x65B9;&#xFF0C;&#x4F3C;&#x4E4E;&#x662F;&#x4E00;&#x4E2A;&#x7F16;&#x8BD1;&#x671F;&#x7279;&#x6027;&#xFF0C; &#x4E0D;&#x5E94;&#x8BE5;&#x5B58;&#x5728;&#x8FD0;&#x884C;&#x65F6;&#x6027;&#x80FD;&#x95EE;&#x9898;&#xFF0C;&#x975E;&#x5E38;&#x7C7B;&#x4F3C;&#x4E8E; C++ &#x7684; RAII &#x8303;&#x5F0F;&#xFF08;&#x5F53;&#x79BB;&#x5F00;&#x8D44;&#x6E90;&#x7684;&#x4F5C;&#x7528;&#x57DF;&#x65F6;&#xFF0C; &#x81EA;&#x52A8;&#x6267;&#x884C;&#x6790;&#x6784;&#x51FD;&#x6570;&#xFF09;&#x3002; &#x4F46;&#x5B9E;&#x9645;&#x60C5;&#x51B5;&#x662F;&#xFF0C;&#x7531;&#x4E8E; defer &#x5E76;&#x6CA1;&#x6709;&#x4E0E;&#x5176;&#x4F9D;&#x8D56;&#x8D44;&#x6E90;&#x6302;&#x94A9;&#xFF0C;&#x4E5F;&#x5141;&#x8BB8;&#x5728;&#x6761;&#x4EF6;&#x3001;&#x5FAA;&#x73AF;&#x8BED;&#x53E5;&#x4E2D;&#x51FA;&#x73B0;&#xFF0C; &#x4ECE;&#x800C;&#x4E0D;&#x518D;&#x662F;&#x4E00;&#x4E2A;&#x4F5C;&#x7528;&#x57DF;&#x76F8;&#x5173;&#x7684;&#x6982;&#x5FF5;&#xFF0C;&#x8FD9;&#x5C31;&#x662F;&#x4F7F;&#x5F97; defer &#x7684;&#x8BED;&#x4E49;&#x53D8;&#x5F97;&#x76F8;&#x5BF9;&#x590D;&#x6742;&#x3002; &#x5728;&#x4E00;&#x4E9B;&#x590D;&#x6742;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x65E0;&#x6CD5;&#x5728;&#x7F16;&#x8BD1;&#x671F;&#x51B3;&#x5B9A;&#x5B58;&#x5728;&#x591A;&#x5C11;&#x4E2A; defer &#x8C03;&#x7528;&#x3002;</p>
+<p>&#x4F8B;&#x5982;&#xFF0C;&#x5728;&#x4E00;&#x4E2A;&#x6267;&#x884C;&#x6B21;&#x6570;&#x4E0D;&#x786E;&#x5B9A;&#x7684; for &#x5FAA;&#x73AF;&#x4E2D;&#xFF0C;defer &#x7684;&#x6267;&#x884C;&#x6B21;&#x6570;&#x662F;&#x968F;&#x673A;&#x7684;&#xFF1A;</p>
+<table>
+<thead>
+<tr>
+<th><code>1 2 3 4 5 6 7 8</code></th>
+<th><code>func randomDefers() { rand.Seed(time.Now().UnixNano()) for rand.Intn(100) &gt; 42 {     defer func() {         println(&quot;changkun.de/golang&quot;)     }() } }</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&#x56E0;&#x800C; defer &#x5E76;&#x4E0D;&#x662F;&#x514D;&#x8D39;&#x7684;&#x5348;&#x9910;&#xFF0C;&#x5728;&#x4E00;&#x4E2A;&#x590D;&#x6742;&#x7684;&#x8C03;&#x7528;&#x4E2D;&#xFF0C;&#x5F53;&#x65E0;&#x6CD5;&#x76F4;&#x63A5;&#x786E;&#x5B9A;&#x9700;&#x8981;&#x7684;&#x4EA7;&#x751F;&#x7684;&#x5EF6;&#x8FDF;&#x8C03;&#x7528;&#x7684;&#x6570;&#x91CF;&#x65F6;&#xFF0C; &#x5EF6;&#x8FDF;&#x8BED;&#x53E5;&#x5C06;&#x5BFC;&#x81F4;&#x8FD0;&#x884C;&#x6027;&#x80FD;&#x7684;&#x4E0B;&#x964D;&#x3002;&#x672C;&#x8282;&#x6211;&#x4EEC;&#x6765;&#x8BA8;&#x8BBA; defer &#x7684;&#x5B9E;&#x73B0;&#x672C;&#x8D28;&#x53CA;&#x5176;&#x5BF9;&#x75C7;&#x4E0B;&#x836F;&#x7684;&#x76F8;&#x5173;&#x6027;&#x80FD;&#x4F18;&#x5316;&#x624B;&#x6BB5;&#x3002;</p>
+<h2 id="921-defer-&#x7684;&#x7C7B;&#x578B;">9.2.1 defer &#x7684;&#x7C7B;&#x578B;</h2>
+<p>&#x5EF6;&#x8FDF;&#x8BED;&#x53E5;&#x7684;&#x6587;&#x6CD5;&#x4EA7;&#x751F;&#x5F0F; <code>DeferStmt -&gt; &quot;defer&quot; Expression</code> &#x7684;&#x63CF;&#x8FF0;&#x975E;&#x5E38;&#x7684;&#x7B80;&#x5355;&#xFF0C;&#x56E0;&#x800C;&#x4E5F; &#x5F88;&#x5BB9;&#x6613;&#x5C06;&#x5176;&#x5904;&#x7406;&#x4E3A;&#x8BED;&#x6CD5;&#x6811;&#x7684;&#x5F62;&#x5F0F;&#xFF0C;&#x4F46;&#x6211;&#x4EEC;&#x8FD9;&#x91CC;&#x66F4;&#x5173;&#x5FC3;&#x7684;&#x5176;&#x5B9E;&#x662F;&#x5B83;&#x8BED;&#x4E49;&#x80CC;&#x540E;&#x7684;&#x4E2D;&#x95F4;&#x548C;&#x76EE;&#x6807;&#x4EE3;&#x7801;&#x7684;&#x5F62;&#x5F0F;&#x3002;</p>
+<p>&#x5728; <a href="https://changkun.de/golang/zh-cn/part1basic/ch05life/compile" target="_blank">5.2 Go &#x7A0B;&#x5E8F;&#x7F16;&#x8BD1;&#x6D41;&#x7A0B;</a> &#x4E00;&#x8282;&#x4E2D;&#x6211;&#x4EEC;&#x63D0;&#x5230;&#x8FC7;&#xFF0C; &#x5728;&#x8FDB;&#x884C;&#x4E2D;&#x95F4;&#x4EE3;&#x7801;&#x751F;&#x6210;&#x9636;&#x6BB5;&#x65F6;&#xFF0C;&#x4F1A;&#x901A;&#x8FC7; <code>compileSSA</code> &#x5148;&#x8C03;&#x7528; <code>buildssa</code> &#x4E3A;&#x51FD;&#x6570;&#x4F53;&#x751F;&#x6210; SSA &#x5F62;&#x5F0F;&#x7684;&#x51FD;&#x6570;&#xFF0C; &#x5E76;&#x800C;&#x540E;&#x8C03;&#x7528; <code>genssa</code> &#x5C06;&#x51FD;&#x6570;&#x7684; SSA &#x4E2D;&#x95F4;&#x8868;&#x793A;&#x8F6C;&#x6362;&#x4E3A;&#x5177;&#x4F53;&#x7684;&#x6307;&#x4EE4;&#x3002;</p>
+<p>Go &#x8BED;&#x8A00;&#x7684;&#x8BED;&#x53E5;&#x5728;&#x6267;&#x884C; <code>buildssa</code> &#x9636;&#x6BB5;&#x4E2D;&#xFF0C;&#x4F1A;&#x7531; <code>state.stmt</code> &#x5B8C;&#x6210;&#x51FD;&#x6570;&#x4E2D;&#x5404;&#x4E2A;&#x8BED;&#x53E5; SSA &#x5904;&#x7406;&#x3002;</p>
+<table>
+<thead>
+<tr>
+<th><code>1 2 3 4 5 6 7 8 9 10</code></th>
+<th><code>// src/cmd/compile/internal/gc/ssa.go func buildssa(fn *Node, worker int) *ssa.Func { var s state ... s.stmtList(fn.Nbody) ... } func (s *state) stmtList(l Nodes) { for _, n := range l.Slice() { s.stmt(n) } }</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&#x5BF9;&#x4E8E;&#x5EF6;&#x8FDF;&#x8BED;&#x53E5;&#x800C;&#x8A00;&#xFF0C;&#x5176;&#x4E2D;&#x95F4;&#x8868;&#x793A;&#x4F1A;&#x4EA7;&#x751F;&#x4E09;&#x79CD;&#x4E0D;&#x540C;&#x7684;&#x5EF6;&#x8FDF;&#x5F62;&#x5F0F;&#xFF0C; &#x7B2C;&#x4E00;&#x79CD;&#x662F;&#x6700;&#x4E00;&#x822C;&#x60C5;&#x51B5;&#x4E0B;&#x7684;&#x5728;<strong>&#x5806;&#x4E0A;&#x5206;&#x914D;</strong>&#x7684;&#x5EF6;&#x8FDF;&#x8BED;&#x53E5;&#xFF0C;&#x7B2C;&#x4E8C;&#x79CD;&#x662F;&#x5141;&#x8BB8;&#x5728;<strong>&#x6808;&#x4E0A;&#x5206;&#x914D;</strong>&#x7684;&#x5EF6;&#x8FDF;&#x8BED;&#x53E5;&#xFF0C; &#x6700;&#x540E;&#x4E00;&#x79CD;&#x5219;&#x662F;<strong>&#x5F00;&#x653E;&#x7F16;&#x7801;&#x5F0F;&#xFF08;Open-coded&#xFF09;</strong>&#x7684;&#x5EF6;&#x8FDF;&#x8BED;&#x53E5;&#x3002;</p>
+<table>
+<thead>
+<tr>
+<th><code>1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21</code></th>
+<th><code>// src/cmd/compile/internal/gc/ssa.go func (s *state) stmt(n *Node) { ... switch n.Op { case ODEFER:     // &#x5F00;&#x653E;&#x7F16;&#x7801;&#x5F0F; defer     if s.hasOpenDefers {         s.openDeferRecord(n.Left)     } else {         // &#x5806;&#x4E0A;&#x5206;&#x914D;&#x7684; defer         d := callDefer         if n.Esc == EscNever {             // &#x6808;&#x4E0A;&#x5206;&#x914D;&#x7684; defer             d = callDeferStack         }         s.call(n.Left, d)     } case ... } ... }</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="922-&#x5728;&#x5806;&#x4E0A;&#x5206;&#x914D;&#x7684;-defer">9.2.2 &#x5728;&#x5806;&#x4E0A;&#x5206;&#x914D;&#x7684; defer</h2>
+<p>&#x6211;&#x4EEC;&#x5148;&#x6765;&#x8BA8;&#x8BBA;&#x6700;&#x7B80;&#x5355;&#x7684;&#x5728;&#x5806;&#x4E0A;&#x5206;&#x914D;&#x7684; defer &#x8FD9;&#x79CD;&#x5F62;&#x5F0F;&#x3002;&#x5728;&#x5806;&#x4E0A;&#x5206;&#x914D;&#x7684;&#x539F;&#x56E0;&#x662F; defer &#x8BED;&#x53E5;&#x51FA;&#x73B0; &#x5728;&#x4E86;&#x5FAA;&#x73AF;&#x8BED;&#x53E5;&#x91CC;&#xFF0C;&#x6216;&#x8005;&#x65E0;&#x6CD5;&#x6267;&#x884C;&#x66F4;&#x9AD8;&#x9636;&#x7684;&#x7F16;&#x8BD1;&#x5668;&#x4F18;&#x5316;&#x5BFC;&#x81F4;&#x7684;&#x3002;&#x5982;&#x679C;&#x4E00;&#x4E2A;&#x4E0E; defer &#x51FA;&#x73B0;&#x5728;&#x5FAA;&#x73AF;&#x8BED;&#x53E5;&#x4E2D;&#xFF0C; &#x5219;&#x53EF;&#x6267;&#x884C;&#x7684;&#x6B21;&#x6570;&#x53EF;&#x80FD;&#x65E0;&#x6CD5;&#x5728;&#x7F16;&#x8BD1;&#x671F;&#x51B3;&#x5B9A;&#xFF1B;&#x5982;&#x679C;&#x4E00;&#x4E2A;&#x8C03;&#x7528;&#x4E2D; defer &#x7531;&#x4E8E;&#x6570;&#x91CF;&#x8FC7;&#x591A;&#x7B49;&#x539F;&#x56E0;&#xFF0C; &#x4E0D;&#x80FD;&#x88AB;&#x7F16;&#x8BD1;&#x5668;&#x8FDB;&#x884C;&#x5F00;&#x653E;&#x7F16;&#x7801;&#xFF0C;&#x5219;&#x4E5F;&#x4F1A;&#x5728;&#x5806;&#x4E0A;&#x5206;&#x914D; defer&#x3002;</p>
+<p>&#x603B;&#x4E4B;&#xFF0C;&#x7531;&#x4E8E;&#x8FD9;&#x79CD;&#x4E0D;&#x786E;&#x5B9A;&#x6027;&#x7684;&#x5B58;&#x5728;&#xFF0C;&#x5728;&#x5806;&#x4E0A;&#x5206;&#x914D;&#x7684; defer &#x9700;&#x8981;&#x6700;&#x591A;&#x7684;&#x8FD0;&#x884C;&#x65F6;&#x652F;&#x6301;&#xFF0C; &#x56E0;&#x800C;&#x4EA7;&#x751F;&#x7684;&#x8FD0;&#x884C;&#x65F6;&#x5F00;&#x9500;&#x4E5F;&#x6700;&#x5927;&#x3002;</p>
+<h3 id="&#x7F16;&#x8BD1;&#x9636;&#x6BB5;">&#x7F16;&#x8BD1;&#x9636;&#x6BB5;</h3>
+<p>&#x4E3A;&#x4E86;&#x4F7F;&#x5EF6;&#x8FDF;&#x8BED;&#x53E5;&#x7684;&#x529F;&#x80FD;&#x6EE1;&#x8DB3;&#x8BED;&#x8A00;&#x89C4;&#x8303;&#xFF0C;&#x8BE5;&#x8BED;&#x53E5;&#x5728;&#x7F16;&#x8BD1;&#x7684; SSA &#x9636;&#x6BB5;&#x4F1A;&#x88AB;&#x7FFB;&#x8BD1;&#x4E3A;&#x4E24;&#x4E2A;&#x4E3B;&#x4F53;&#xFF0C; &#x5176;&#x4E2D;&#x7B2C;&#x4E00;&#x4E2A;&#x4E3B;&#x4F53;&#x662F;&#x88AB;&#x5EF6;&#x8FDF;&#x7684;&#x51FD;&#x6570;&#x672C;&#x8EAB;&#xFF0C;&#x53E6;&#x4E00;&#x4E2A;&#x4E3B;&#x4F53;&#x5219;&#x662F;&#x51FD;&#x6570;&#x7ED3;&#x675F;&#x65F6;&#x9700;&#x8981;&#x6267;&#x884C;&#x6240;&#x8BB0;&#x5F55; defer &#x7684;&#x4EE3;&#x7801;&#x5757;&#x3002;</p>
+<p><code>state.call</code> &#x8C03;&#x7528;&#x4F1A;&#x751F;&#x6210;&#x7528;&#x4E8E;&#x8BB0;&#x5F55;&#x5EF6;&#x8FDF;&#x8C03;&#x7528;&#x53C2;&#x6570;&#x7684;&#x6307;&#x4EE4;&#xFF0C;&#x5E76;&#x521B;&#x5EFA;&#x4E00;&#x4E2A; <code>deferproc</code> &#x7684;&#x8C03;&#x7528;&#x6307;&#x4EE4;&#xFF1B; &#x800C;&#x540E;&#x5728; <code>state.exit</code> &#x8C03;&#x7528;&#x5728;&#x51FD;&#x6570;&#x8FD4;&#x56DE;&#x524D;&#x63D2;&#x5165; <code>deferreturn</code> &#x8C03;&#x7528;&#x7684;&#x6307;&#x4EE4;&#x3002;</p>
+<table>
+<thead>
+<tr>
+<th><code>1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50</code></th>
+<th>`// src/cmd/compile/internal/gc/ssa.go func (s <em>state) call(n </em>Node, k callKind) <em>ssa.Value { ... var call </em>ssa.Value if k == callDeferStack {     ... } else {     // &#x5728;&#x5806;&#x4E0A;&#x521B;&#x5EFA; defer     argStart := Ctxt.FixedFrameSize()     // Defer &#x53C2;&#x6570;     if k != callNormal {         // &#x8BB0;&#x5F55; deferproc &#x7684;&#x53C2;&#x6570;         argsize := s.constInt32(types.Types[TUINT32], int32(stksize))         addr := s.constOffPtrSP(s.f.Config.Types.UInt32Ptr, argStart)         s.store(types.Types[TUINT32], addr, argsize)    // &#x4FDD;&#x5B58;&#x53C2;&#x6570;&#x5927;&#x5C0F; siz         addr = s.constOffPtrSP(s.f.Config.Types.UintptrPtr, argStart+int64(Widthptr))         s.store(types.Types[TUINTPTR], addr, closure)    // &#x4FDD;&#x5B58;&#x51FD;&#x6570;&#x5730;&#x5740; fn         stksize += 2 <em> int64(Widthptr)         argStart += 2 </em> int64(Widthptr)     }     ...         // &#x521B;&#x5EFA; deferproc &#x8C03;&#x7528;     switch {     case k == callDefer:         call = s.newValue1A(ssa.OpStaticCall, types.TypeMem, deferproc, s.mem())     ...     }     ... } ...     // &#x7ED3;&#x675F; defer &#x5757; if k == callDefer</th>
+<th></th>
+<th>k == callDeferStack {     s.exit()     ... } ... } func (s <em>state) exit() </em>ssa.Block { if s.hasdefer {     if s.hasOpenDefers {         ...     } else {         // &#x8C03;&#x7528; deferreturn         s.rtcall(Deferreturn, true, nil)     } } ... } `</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&#x4F8B;&#x5982;&#xFF0C;&#x5BF9;&#x4E8E;&#x4E00;&#x4E2A;&#x7EAF;&#x7CB9;&#x7684; <code>defer</code> &#x8C03;&#x7528;&#x800C;&#x8A00;&#xFF1A;</p>
+<pre><code>package main
+
+func foo() {
+    return
+}
+
+func main() {
+    defer foo()
+    return
+}
+</code></pre><p>&#x5982;&#x679C;&#x6211;&#x4EEC;&#x5C06;&#x5176;&#x5F3A;&#x5236;&#x7F16;&#x8BD1;&#x4E3A;&#x5728;&#x5806;&#x4E0A;&#x5206;&#x914D;&#x7684;&#x5F62;&#x5F0F;&#xFF0C;&#x53EF;&#x4EE5;&#x89C2;&#x5BDF;&#x5230;&#x5982;&#x4E0B;&#x7684;&#x6C47;&#x7F16;&#x4EE3;&#x7801;&#x3002;&#x5176;&#x4E2D; <code>defer foo()</code> &#x88AB;&#x8F6C;&#x5316;&#x4E3A;&#x4E86; <code>deferproc</code> &#x8C03;&#x7528;&#xFF0C;&#x5E76;&#x5728;&#x51FD;&#x6570;&#x8FD4;&#x56DE;&#x524D;&#xFF0C;&#x8C03;&#x7528;&#x4E86; <code>deferreturn</code>&#xFF1A;</p>
+<pre><code>TEXT main.foo(SB) /Users/changkun/Desktop/defer/ssa/main.go
+    return
+  0x104ea20        c3            RET            
+
+TEXT main.main(SB) /Users/changkun/Desktop/defer/ssa/main.go
+func main() {
+  ...
+  // &#x5C06; defer foo() { ... }() &#x8F6C;&#x5316;&#x4E3A;&#x4E00;&#x4E2A; deferproc &#x8C03;&#x7528;
+  // &#x5728;&#x8C03;&#x7528; deferproc &#x524D;&#x5B8C;&#x6210;&#x53C2;&#x6570;&#x7684;&#x51C6;&#x5907;&#x5DE5;&#x4F5C;&#xFF0C;&#x8FD9;&#x4E2A;&#x4F8B;&#x5B50;&#x4E2D;&#x6CA1;&#x6709;&#x53C2;&#x6570;
+  0x104ea4d        c7042400000000        MOVL $0x0, 0(SP)        
+  0x104ea54        488d0585290200        LEAQ go.func.*+60(SB), AX    
+  0x104ea5b        4889442408        MOVQ AX, 0x8(SP)        
+  0x104ea60        e8bb31fdff        CALL runtime.deferproc(SB)    
+  ...
+  // &#x51FD;&#x6570;&#x8FD4;&#x56DE;&#x6307;&#x4EE4; RET &#x524D;&#x63D2;&#x5165;&#x7684; deferreturn &#x8BED;&#x53E5;
+  0x104ea7b        90            NOPL                
+  0x104ea7c        e82f3afdff        CALL runtime.deferreturn(SB)    
+  0x104ea81        488b6c2410        MOVQ 0x10(SP), BP        
+  0x104ea86        4883c418        ADDQ $0x18, SP            
+  0x104ea8a        c3            RET                
+  // &#x51FD;&#x6570;&#x7684;&#x5C3E;&#x58F0;
+  0x104ea8b        e8d084ffff        CALL runtime.morestack_noctxt(SB)    
+  0x104ea90        eb9e            JMP main.main(SB)
+</code></pre><h3 id="&#x8FD0;&#x884C;&#x9636;&#x6BB5;">&#x8FD0;&#x884C;&#x9636;&#x6BB5;</h3>
+<p>&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#x4E2D;&#x7684;&#x5EF6;&#x8FDF;&#x8BED;&#x53E5;&#x4F1A;&#x88AB;&#x4FDD;&#x5B58;&#x4E3A;&#x4E00;&#x4E2A; <code>_defer</code> &#x8BB0;&#x5F55;&#x7684;&#x94FE;&#x8868;&#xFF0C;&#x9644;&#x7740;&#x5728;&#x4E00;&#x4E2A; Goroutine &#x4E0A;&#x3002; <code>_defer</code> &#x8BB0;&#x5F55;&#x7684;&#x5177;&#x4F53;&#x7ED3;&#x6784;&#x4E5F;&#x975E;&#x5E38;&#x7B80;&#x5355;&#xFF0C;&#x4E3B;&#x8981;&#x5305;&#x542B;&#x4E86;&#x53C2;&#x4E0E;&#x8C03;&#x7528;&#x7684;&#x53C2;&#x6570;&#x5927;&#x5C0F;&#x3001; &#x5F53;&#x524D; defer &#x8BED;&#x53E5;&#x6240;&#x5728;&#x51FD;&#x6570;&#x7684; PC &#x548C; SP &#x5BC4;&#x5B58;&#x5668;&#x3001;&#x88AB; defer &#x7684;&#x51FD;&#x6570;&#x7684;&#x5165;&#x53E3;&#x5730;&#x5740;&#x4EE5;&#x53CA;&#x4E32;&#x8054; &#x591A;&#x4E2A; defer &#x7684; link &#x94FE;&#x8868;&#xFF0C;&#x8BE5;&#x94FE;&#x8868;&#x6307;&#x5411;&#x4E0B;&#x4E00;&#x4E2A;&#x9700;&#x8981;&#x6267;&#x884C;&#x7684; defer&#xFF0C;&#x5982;&#x56FE; 9.2.1 &#x6240;&#x793A;&#x3002;</p>
+<table>
+<thead>
+<tr>
+<th><code>1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16</code></th>
+<th><code>// src/runtime/panic.go type _defer struct { siz       int32 heap      bool sp        uintptr pc        uintptr fn        *funcval link      *_defer ... } // src/runtime/runtime2.go type g struct { ... _defer *_defer ... }</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><img src="Go&#x8BED;&#x8A00;&#x539F;&#x672C;-&#x5EF6;&#x8FDF;&#x8BED;&#x53E5;/defer-link.png" alt="img"><strong>&#x56FE; 9.2.1&#xFF1A;&#x9644;&#x7740;&#x5728; Goroutine &#x4E0A;&#x7684; <code>_defer</code> &#x8BB0;&#x5F55;&#x7684;&#x94FE;&#x8868;</strong></p>
+<p>&#x73B0;&#x5728;&#x6211;&#x4EEC;&#x77E5;&#x9053;&#xFF0C;&#x4E00;&#x4E2A;&#x5728;&#x5806;&#x4E0A;&#x5206;&#x914D;&#x7684;&#x5EF6;&#x8FDF;&#x8BED;&#x53E5;&#x88AB;&#x7F16;&#x8BD1;&#x4E3A;&#x4E86; <code>deferproc</code>&#xFF0C;&#x7528;&#x4E8E;&#x8BB0;&#x5F55;&#x88AB;&#x5EF6;&#x8FDF;&#x7684;&#x51FD;&#x6570;&#x8C03;&#x7528;&#xFF1B; &#x5728;&#x51FD;&#x6570;&#x7684;&#x5C3E;&#x58F0;&#xFF0C;&#x4F1A;&#x63D2;&#x5165; <code>deferreturn</code> &#x8C03;&#x7528;&#xFF0C;&#x7528;&#x4E8E;&#x6267;&#x884C;&#x88AB;&#x5EF6;&#x8FDF;&#x7684;&#x8C03;&#x7528;&#x3002;</p>
+<p>&#x4E0B;&#x9762;&#x6211;&#x4EEC;&#x5C31;&#x6765;&#x8BE6;&#x7EC6;&#x770B;&#x770B;&#x8FD9;&#x4E24;&#x4E2A;&#x8C03;&#x7528;&#x5177;&#x4F53;&#x53D1;&#x751F;&#x4E86;&#x4EC0;&#x4E48;&#x4E8B;&#x60C5;&#x3002;</p>
+<p>&#x6211;&#x4EEC;&#x5148;&#x770B;&#x521B;&#x5EFA; defer &#x7684;&#x7B2C;&#x4E00;&#x79CD;&#x5F62;&#x5F0F; <code>deferproc</code>&#x3002; &#x8FD9;&#x4E2A;&#x8C03;&#x7528;&#x5F88;&#x7B80;&#x5355;&#xFF0C;&#x4EC5;&#x4EC5;&#x53EA;&#x662F;&#x5C06;&#x9700;&#x8981;&#x88AB; defer &#x8C03;&#x7528;&#x7684;&#x51FD;&#x6570;&#x505A;&#x4E86;&#x4E00;&#x6B21;&#x8BB0;&#x5F55;&#xFF1A;</p>
+<table>
+<thead>
+<tr>
+<th><code>1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23</code></th>
+<th><code>//go:nosplit func deferproc(siz int32, fn *funcval) { ... sp := getcallersp() argp := uintptr(unsafe.Pointer(&amp;fn)) + unsafe.Sizeof(fn) callerpc := getcallerpc()     d := newdefer(siz) d.fn = fn d.pc = callerpc d.sp = sp     // &#x5C06;&#x53C2;&#x6570;&#x4FDD;&#x5B58;&#x5230; _defer &#x8BB0;&#x5F55;&#x4E2D; switch siz { case 0: // &#x4EC0;&#x4E48;&#x4E5F;&#x4E0D;&#x505A; case sys.PtrSize:     *(*uintptr)(deferArgs(d)) = *(*uintptr)(unsafe.Pointer(argp)) default:     memmove(deferArgs(d), unsafe.Pointer(argp), uintptr(siz)) }     return0() }</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&#x8FD9;&#x6BB5;&#x4EE3;&#x7801;&#x4E2D;&#xFF0C;&#x672C;&#x8D28;&#x4E0A;&#x53EA;&#x662F;&#x5728;&#x505A;&#x4E00;&#x4E9B;&#x7B80;&#x5355;&#x53C2;&#x6570;&#x5904;&#x7406;&#xFF0C; &#x6BD4;&#x5982; <code>fn</code> &#x4FDD;&#x5B58;&#x4E86; <code>defer</code> &#x6240;&#x8C03;&#x7528;&#x51FD;&#x6570;&#x7684;&#x8C03;&#x7528;&#x5730;&#x5740;&#xFF0C;<code>siz</code> &#x786E;&#x5B9A;&#x4E86;&#x5176;&#x53C2;&#x6570;&#x7684;&#x5927;&#x5C0F;&#x3002; &#x5E76;&#x4E14;&#x901A;&#x8FC7; <code>newdefer</code> &#x6765;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x65B0;&#x7684; <code>_defer</code> &#x5B9E;&#x4F8B;&#xFF0C; &#x7136;&#x540E;&#x7531; <code>fn</code>&#x3001;<code>callerpc</code> &#x548C; <code>sp</code> &#x6765;&#x4FDD;&#x5B58;&#x8C03;&#x7528;&#x8BE5; defer &#x7684; Goroutine &#x4E0A;&#x4E0B;&#x6587;&#x3002;</p>
+<p>&#x6CE8;&#x610F;&#xFF0C;&#x5728;&#x8FD9;&#x91CC;&#x6211;&#x4EEC;&#x770B;&#x5230;&#x4E86;&#x4E00;&#x4E2A;&#x5BF9;&#x53C2;&#x6570;&#x8FDB;&#x884C;&#x62F7;&#x8D1D;&#x7684;&#x64CD;&#x4F5C;&#x3002;&#x8FD9;&#x4E2A;&#x64CD;&#x4F5C;&#x4E5F;&#x662F;&#x6211;&#x4EEC;&#x5728;&#x5B9E;&#x8DF5;&#x8FC7;&#x7A0B;&#x4E2D;&#x7ECF;&#x5386;&#x8FC7;&#x7684;&#xFF0C; defer &#x8C03;&#x7528;&#x88AB;&#x8BB0;&#x5F55;&#x65F6;&#xFF0C;&#x5E76;&#x4E0D;&#x4F1A;&#x5BF9;&#x53C2;&#x6570;&#x8FDB;&#x884C;&#x6C42;&#x503C;&#xFF0C;&#x800C;&#x662F;&#x4F1A;&#x5BF9;&#x53C2;&#x6570;&#x5B8C;&#x6210;&#x4E00;&#x6B21;&#x62F7;&#x8D1D;&#x3002; &#x8FD9;&#x4E48;&#x505A;&#x539F;&#x56E0;&#x662F;&#x7531;&#x4E8E;&#x8BED;&#x4E49;&#x4E0A;&#x7684;&#x8003;&#x8651;&#x3002;&#x76F4;&#x89C9;&#x4E0A;&#x8BB2;&#xFF0C;defer &#x7684;&#x53C2;&#x6570;&#x5E94;&#x5F53;&#x5728;&#x5B83;&#x6240;&#x5199;&#x7684;&#x4F4D;&#x7F6E;&#x5BF9;&#x4F20;&#x5165;&#x7684;&#x53C2;&#x6570; &#x8FDB;&#x884C;&#x6C42;&#x503C;&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x5C06;&#x6C42;&#x503C;&#x6B65;&#x9AA4;&#x63A8;&#x8FDF;&#xFF0C;&#x56E0;&#x4E3A;&#x5EF6;&#x540E;&#x7684;&#x53C2;&#x6570;&#x53EF;&#x80FD;&#x53D1;&#x751F;&#x53D8;&#x5316;&#xFF0C;&#x5BFC;&#x81F4; defer &#x7684;&#x8BED;&#x4E49;&#x53D1;&#x751F;&#x610F;&#x6599;&#x4E4B;&#x5916;&#x7684;&#x9519;&#x8BEF;&#x3002; &#x4F8B;&#x5982;&#xFF0C;<code>f, _ := os.Open(&quot;file.txt&quot;)</code> &#x540E;&#x7ACB;&#x523B;&#x6307;&#x5B9A; <code>defer f.Close()</code>&#xFF0C;&#x5018;&#x82E5;&#x968F;&#x540E;&#x7684;&#x8BED;&#x53E5;&#x4FEE;&#x6539;&#x4E86; <code>f</code> &#x7684;&#x503C;&#xFF0C;&#x90A3;&#x4E48;&#x5C06;&#x5BFC;&#x81F4; <code>f</code> &#x65E0;&#x6CD5;&#x88AB;&#x6B63;&#x5E38;&#x5173;&#x95ED;&#x3002;</p>
+<p>&#x51FA;&#x4E8E;&#x6027;&#x80FD;&#x8003;&#x8651;&#xFF0C;<code>newdefer</code> &#x901A;&#x8FC7; P &#x6216;&#x8005;&#x8C03;&#x5EA6;&#x5668; sched &#x4E0A;&#x7684;&#x672C;&#x5730;&#x6216;&#x5168;&#x5C40; defer &#x6C60;&#x6765; &#x590D;&#x7528;&#x5DF2;&#x7ECF;&#x5728;&#x5806;&#x4E0A;&#x5206;&#x914D;&#x7684;&#x5185;&#x5B58;&#x3002;defer &#x7684;&#x8D44;&#x6E90;&#x6C60;&#x4F1A;&#x6839;&#x636E;&#x88AB;&#x5EF6;&#x8FDF;&#x7684;&#x8C03;&#x7528;&#x6240;&#x9700;&#x7684;&#x53C2;&#x6570;&#x6765;&#x51B3;&#x5B9A; defer &#x8BB0;&#x5F55; &#x7684;&#x5927;&#x5C0F;&#x7B49;&#x7EA7;&#xFF0C;&#x6BCF; 16 &#x4E2A;&#x5B57;&#x8282;&#x5206;&#x4E00;&#x4E2A;&#x7B49;&#x7EA7;&#x3002;&#x6B64;&#x505A;&#x6CD5;&#x7684;&#x52A8;&#x673A;&#x4E0E;&#x8FD0;&#x884C;&#x65F6;&#x5185;&#x5B58;&#x5206;&#x914D;&#x5668;&#x9488;&#x5BF9;&#x4E0D;&#x540C;&#x5927;&#x5C0F;&#x5BF9;&#x8C61;&#x7684;&#x5206;&#x914D;&#x601D;&#x8DEF;&#x96F7;&#x540C;&#xFF0C; &#x8FD9;&#x91CC;&#x4E0D;&#x518D;&#x505A;&#x6DF1;&#x5165;&#x8BA8;&#x8BBA;&#x3002;</p>
+<table>
+<thead>
+<tr>
+<th><code>1 2 3 4 5 6 7 8 9 10 11 12 13 14 15</code></th>
+<th><code>// src/runtime/runtime2.go type p struct { ... // &#x4E0D;&#x540C;&#x5927;&#x5C0F;&#x7684;&#x672C;&#x5730; defer &#x6C60; deferpool    [5][]*_defer deferpoolbuf [5][32]*_defer ... } type schedt struct { ... // &#x4E0D;&#x540C;&#x5927;&#x5C0F;&#x7684;&#x5168;&#x5C40; defer &#x6C60; deferlock mutex deferpool [5]*_defer ... }</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&#x5BF9;&#x4E8E;&#x65B0;&#x5EFA;&#x7684; <code>_defer</code> &#x5B9E;&#x4F8B;&#x800C;&#x8A00;&#xFF0C;&#x4F1A;&#x5C06;&#x5176;&#x52A0;&#x5165;&#x5230; Goroutine &#x6240;&#x4FDD;&#x7559;&#x7684; defer &#x94FE;&#x8868;&#x4E0A;&#xFF0C; &#x901A;&#x8FC7; <code>link</code> &#x5B57;&#x6BB5;&#x4E32;&#x8054;&#x3002;</p>
+<table>
+<thead>
+<tr>
+<th><code>1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48</code></th>
+<th><code>// src/runtime/panic.go //go:nosplit func newdefer(siz int32) *_defer { var d *_defer sc := deferclass(uintptr(siz)) gp := getg() // &#x68C0;&#x67E5; defer &#x53C2;&#x6570;&#x7684;&#x5927;&#x5C0F;&#x662F;&#x5426;&#x4ECE; p &#x7684; deferpool &#x76F4;&#x63A5;&#x5206;&#x914D; if sc &lt; uintptr(len(p{}.deferpool)) {     pp := gp.m.p.ptr()         // &#x5982;&#x679C; p &#x672C;&#x5730;&#x65E0;&#x6CD5;&#x5206;&#x914D;&#xFF0C;&#x5219;&#x4ECE;&#x5168;&#x5C40;&#x6C60;&#x4E2D;&#x83B7;&#x53D6;&#x4E00;&#x534A; defer&#xFF0C;&#x6765;&#x586B;&#x5145; P &#x7684;&#x672C;&#x5730;&#x8D44;&#x6E90;&#x6C60;     if len(pp.deferpool[sc]) == 0 &amp;&amp; sched.deferpool[sc] != nil {         // &#x51FA;&#x4E8E;&#x6027;&#x80FD;&#x8003;&#x8651;&#xFF0C;&#x5982;&#x679C;&#x53D1;&#x751F;&#x6808;&#x7684;&#x589E;&#x957F;&#xFF0C;&#x5219;&#x4F1A;&#x8C03;&#x7528; morestack&#xFF0C;         // &#x8FDB;&#x4E00;&#x6B65;&#x964D;&#x4F4E; defer &#x7684;&#x6027;&#x80FD;&#x3002;&#x56E0;&#x6B64;&#x5207;&#x6362;&#x5230;&#x7CFB;&#x7EDF;&#x6808;&#x4E0A;&#x6267;&#x884C;&#xFF0C;&#x8FDB;&#x800C;&#x4E0D;&#x4F1A;&#x53D1;&#x751F;&#x6808;&#x7684;&#x589E;&#x957F;&#x3002;         systemstack(func() {             lock(&amp;sched.deferlock)             for len(pp.deferpool[sc]) &lt; cap(pp.deferpool[sc])/2 &amp;&amp; sched.deferpool[sc] != nil {                 d := sched.deferpool[sc]                 sched.deferpool[sc] = d.link                 d.link = nil                 pp.deferpool[sc] = append(pp.deferpool[sc], d)             }             unlock(&amp;sched.deferlock)         })     }         // &#x4ECE; P &#x672C;&#x5730;&#x8FDB;&#x884C;&#x5206;&#x914D;     if n := len(pp.deferpool[sc]); n &gt; 0 {         d = pp.deferpool[sc][n-1]         pp.deferpool[sc][n-1] = nil         pp.deferpool[sc] = pp.deferpool[sc][:n-1]     } } // &#x6CA1;&#x6709;&#x53EF;&#x7528;&#x7684;&#x7F13;&#x5B58;&#xFF0C;&#x76F4;&#x63A5;&#x4ECE;&#x5806;&#x4E0A;&#x5206;&#x914D;&#x65B0;&#x7684; defer &#x548C; args if d == nil {     systemstack(func() {         total := roundupsize(totaldefersize(uintptr(siz)))         d = (*_defer)(mallocgc(total, deferType, true))     }) } // &#x5C06; _defer &#x5B9E;&#x4F8B;&#x6DFB;&#x52A0;&#x5230; Goroutine &#x7684; _defer &#x94FE;&#x8868;&#x4E0A;&#x3002; d.siz = siz d.heap = true d.link = gp._defer gp._defer = d return d }</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><code>deferreturn</code> &#x88AB;&#x7F16;&#x8BD1;&#x5668;&#x63D2;&#x5165;&#x5230;&#x51FD;&#x6570;&#x672B;&#x5C3E;&#xFF0C;&#x5F53;&#x8DF3;&#x8F6C;&#x5230;&#x5B83;&#x65F6;&#xFF0C;&#x4F1A;&#x5C06;&#x9700;&#x8981;&#x88AB; defer &#x7684;&#x5165;&#x53E3;&#x5730;&#x5740;&#x53D6;&#x51FA;&#xFF0C; &#x7136;&#x540E;&#x8DF3;&#x8F6C;&#x5E76;&#x6267;&#x884C;&#xFF1A;</p>
+<table>
+<thead>
+<tr>
+<th><code>1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33</code></th>
+<th><code>// src/runtime/panic.go //go:nosplit func deferreturn(arg0 uintptr) { gp := getg() d := gp._defer if d == nil {     return } // &#x786E;&#x5B9A; defer &#x7684;&#x8C03;&#x7528;&#x65B9;&#x662F;&#x4E0D;&#x662F;&#x5F53;&#x524D; deferreturn &#x7684;&#x8C03;&#x7528;&#x65B9; sp := getcallersp() if d.sp != sp {     return } ...     // &#x5C06;&#x53C2;&#x6570;&#x590D;&#x5236;&#x51FA; _defer &#x8BB0;&#x5F55;&#x5916; switch d.siz { case 0: // &#x4EC0;&#x4E48;&#x4E5F;&#x4E0D;&#x505A; case sys.PtrSize:     *(*uintptr)(unsafe.Pointer(&amp;arg0)) = *(*uintptr)(deferArgs(d)) default:     memmove(unsafe.Pointer(&amp;arg0), deferArgs(d), uintptr(d.siz)) } // &#x83B7;&#x5F97;&#x88AB;&#x5EF6;&#x8FDF;&#x7684;&#x8C03;&#x7528; fn &#x7684;&#x5165;&#x53E3;&#x5730;&#x5740;&#xFF0C;&#x5E76;&#x968F;&#x540E;&#x7ACB;&#x5373;&#x5C06; _defer &#x91CA;&#x653E;&#x6389; fn := d.fn d.fn = nil gp._defer = d.link freedefer(d)     // &#x8C03;&#x7528;&#xFF0C;&#x5E76;&#x8DF3;&#x8F6C;&#x5230;&#x4E0B;&#x4E00;&#x4E2A; defer jmpdefer(fn, uintptr(unsafe.Pointer(&amp;arg0))) }</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&#x5728;&#x8FD9;&#x4E2A;&#x51FD;&#x6570;&#x4E2D;&#xFF0C;&#x4F1A;&#x5728;&#x9700;&#x8981;&#x65F6;&#x5BF9; <code>defer</code> &#x7684;&#x53C2;&#x6570;&#x518D;&#x6B21;&#x8FDB;&#x884C;&#x62F7;&#x8D1D;&#xFF0C;&#x591A;&#x4E2A; <code>defer</code> &#x51FD;&#x6570;&#x4EE5; <code>jmpdefer</code> &#x5C3E;&#x8C03;&#x7528;&#x5F62;&#x5F0F;&#x88AB;&#x5B9E;&#x73B0;&#x3002; &#x5728;&#x8DF3;&#x8F6C;&#x5230; <code>fn</code> &#x4E4B;&#x524D;&#xFF0C;<code>_defer</code> &#x5B9E;&#x4F8B;&#x88AB;&#x91CA;&#x653E;&#x5F52;&#x8FD8;&#xFF0C;<code>jmpdefer</code> &#x771F;&#x6B63;&#x9700;&#x8981;&#x7684;&#x4EC5;&#x4EC5;&#x53EA;&#x662F;&#x51FD;&#x6570;&#x7684;&#x5165;&#x53E3;&#x5730;&#x5740;&#x548C;&#x53C2;&#x6570;&#xFF0C; &#x4EE5;&#x53CA;&#x5B83;&#x7684;&#x8C03;&#x7528;&#x65B9; <code>deferreturn</code> &#x7684; SP&#xFF1A;</p>
+<table>
+<thead>
+<tr>
+<th><code>1 2 3 4 5 6 7 8 9 10 11</code></th>
+<th><code>// src/runtime/asm_amd64.s // func jmpdefer(fv *funcval, argp uintptr) TEXT runtime&#xB7;jmpdefer(SB), NOSPLIT, $0-16 MOVQ    fv+0(FP), DX    // DX = fn MOVQ    argp+8(FP), BX    // &#x8C03;&#x7528;&#x65B9; SP LEAQ    -8(BX), SP        // CALL &#x540E;&#x7684;&#x8C03;&#x7528;&#x65B9; SP MOVQ    -8(SP), BP        // &#x6062;&#x590D; BP&#xFF0C;&#x597D;&#x50CF; deferreturn &#x8FD4;&#x56DE; SUBQ    $5, (SP)        // &#x518D;&#x6B21;&#x8FD4;&#x56DE;&#x5230; CALL MOVQ    0(DX), BX        // BX = DX JMP    BX                    // &#x6700;&#x540E;&#x624D;&#x8FD0;&#x884C;&#x88AB; defer &#x7684;&#x51FD;&#x6570;</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&#x8FD9;&#x4E2A; <code>jmpdefer</code> &#x5DE7;&#x5999;&#x7684;&#x5730;&#x65B9;&#x5728;&#x4E8E;&#xFF0C;&#x5B83;&#x901A;&#x8FC7;&#x8C03;&#x7528;&#x65B9; SP &#x6765;&#x63A8;&#x7B97;&#x4E86; <code>deferreturn</code> &#x7684;&#x5165;&#x53E3;&#x5730;&#x5740;&#xFF0C; &#x4ECE;&#x800C;&#x5728;&#x5B8C;&#x6210;&#x67D0;&#x4E2A; <code>defer</code> &#x8C03;&#x7528;&#x540E;&#xFF0C;&#x7531;&#x4E8E;&#x88AB; defer &#x7684;&#x51FD;&#x6570;&#x8FD4;&#x56DE;&#x65F6;&#x4F1A;&#x51FA;&#x6808;&#xFF0C; &#x4F1A;&#x518D;&#x6B21;&#x56DE;&#x5230; <code>deferreturn</code> &#x7684;&#x521D;&#x59CB;&#x4F4D;&#x7F6E;&#xFF0C;&#x8FDB;&#x800C;&#x7EE7;&#x7EED;&#x53CD;&#x590D;&#x8C03;&#x7528;&#xFF0C;&#x4ECE;&#x800C;&#x6A21;&#x62DF; <code>deferreturn</code> &#x4E0D;&#x65AD;&#x7684;&#x5BF9;&#x81EA;&#x5DF1;&#x8FDB;&#x884C;&#x5C3E;&#x9012;&#x5F52;&#x7684;&#x5047;&#x8C61;&#x3002;</p>
+<p>&#x4E0A;&#x9762;&#x7684;&#x63CF;&#x8FF0;&#x53EF;&#x80FD;&#x4E0D;&#x592A;&#x5BB9;&#x6613;&#x7406;&#x89E3;&#xFF0C;&#x6211;&#x4EEC;&#x518D;&#x4E3E;&#x4E00;&#x4E2A;&#x5B9E;&#x9645;&#x7684;&#x4F8B;&#x5B50;&#xFF1A;</p>
+<table>
+<thead>
+<tr>
+<th><code>1 2 3 4 5 6 7 8 9 10 11 12</code></th>
+<th><code>package main func foo() { for i := 1; i &lt;= 42; i++ {     defer func(i int) { println(i) }(i) } return } func main() { foo() }</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>TODO: &#x7ED8;&#x56FE;</p>
+<p>&#x91CA;&#x653E;&#x64CD;&#x4F5C;&#x975E;&#x5E38;&#x666E;&#x901A;&#xFF0C;&#x53EA;&#x662F;&#x7B80;&#x5355;&#x7684;&#x5C06;&#x5176;&#x5F52;&#x8FD8;&#x5230; P &#x7684; <code>deferpool</code> &#x4E2D;&#xFF0C; &#x5E76;&#x5728;&#x672C;&#x5730;&#x6C60;&#x5DF2;&#x6EE1;&#x65F6;&#x5C06;&#x5176;&#x5F52;&#x8FD8;&#x5230;&#x5168;&#x5C40;&#x8D44;&#x6E90;&#x6C60;:</p>
+<table>
+<thead>
+<tr>
+<th><code>1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46</code></th>
+<th><code>// src/runtime/panic.go //go:nosplit func freedefer(d *_defer) { ... sc := deferclass(uintptr(d.siz)) if sc &gt;= uintptr(len(p{}.deferpool)) {     return } pp := getg().m.p.ptr() // &#x5982;&#x679C; P &#x672C;&#x5730;&#x6C60;&#x5DF2;&#x6EE1;&#xFF0C;&#x5219;&#x5C06;&#x4E00;&#x534A;&#x8D44;&#x6E90;&#x653E;&#x5165;&#x5168;&#x5C40;&#x6C60;&#xFF0C;&#x540C;&#x6837;&#x4E5F;&#x662F;&#x51FA;&#x4E8E;&#x6027;&#x80FD;&#x8003;&#x8651; // &#x64CD;&#x4F5C;&#x4F1A;&#x5207;&#x6362;&#x5230;&#x7CFB;&#x7EDF;&#x6808;&#x4E0A;&#x6267;&#x884C;&#x3002; if len(pp.deferpool[sc]) == cap(pp.deferpool[sc]) {     systemstack(func() {         var first, last *_defer         for len(pp.deferpool[sc]) &gt; cap(pp.deferpool[sc])/2 {             n := len(pp.deferpool[sc])             d := pp.deferpool[sc][n-1]             pp.deferpool[sc][n-1] = nil             pp.deferpool[sc] = pp.deferpool[sc][:n-1]             if first == nil {                 first = d             } else {                 last.link = d             }             last = d         }         lock(&amp;sched.deferlock)         last.link = sched.deferpool[sc]         sched.deferpool[sc] = first         unlock(&amp;sched.deferlock)     }) }     // &#x6062;&#x590D; _defer &#x7684;&#x96F6;&#x503C;&#xFF0C;&#x5373; *d = _defer{} d.siz = 0 ... d.sp = 0 d.pc = 0 d.framepc = 0 ... d.link = nil     // &#x653E;&#x5165; P &#x672C;&#x5730;&#x8D44;&#x6E90;&#x6C60; pp.deferpool[sc] = append(pp.deferpool[sc], d) }</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="923-&#x5728;&#x6808;&#x4E0A;&#x521B;&#x5EFA;-defer">9.2.3 &#x5728;&#x6808;&#x4E0A;&#x521B;&#x5EFA; defer</h2>
+<p>defer &#x8FD8;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x5728;&#x6808;&#x4E0A;&#x8FDB;&#x884C;&#x5206;&#x914D;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x7B2C;&#x4E8C;&#x79CD;&#x8BB0;&#x5F55; defer &#x7684;&#x5F62;&#x5F0F; <code>deferprocStack</code>&#x3002; &#x5728;&#x6808;&#x4E0A;&#x5206;&#x914D; defer &#x7684;&#x597D;&#x5904;&#x5728;&#x4E8E;&#x51FD;&#x6570;&#x8FD4;&#x56DE;&#x540E; <code>_defer</code> &#x4FBF;&#x5DF2;&#x5F97;&#x5230;&#x91CA;&#x653E;&#xFF0C; &#x4E0D;&#x518D;&#x9700;&#x8981;&#x8003;&#x8651;&#x5185;&#x5B58;&#x5206;&#x914D;&#x65F6;&#x4EA7;&#x751F;&#x7684;&#x6027;&#x80FD;&#x5F00;&#x9500;&#xFF0C;&#x53EA;&#x9700;&#x8981;&#x9002;&#x5F53;&#x7684;&#x7EF4;&#x62A4; <code>_defer</code> &#x7684;&#x94FE;&#x8868;&#x5373;&#x53EF;&#x3002;</p>
+<p>&#x5728; SSA &#x9636;&#x6BB5;&#x4E0E;&#x5728;&#x5806;&#x4E0A;&#x5206;&#x914D;&#x7684;&#x533A;&#x522B;&#x5728;&#x4E8E;&#xFF0C;&#x5728;&#x6808;&#x4E0A;&#x521B;&#x5EFA; defer&#xFF0C; &#x9700;&#x8981;&#x76F4;&#x63A5;&#x5728;&#x51FD;&#x6570;&#x8C03;&#x7528;&#x5E27;&#x4E0A;&#x4F7F;&#x7528;&#x7F16;&#x8BD1;&#x5668;&#x6765;&#x521D;&#x59CB;&#x5316; <code>_defer</code> &#x8BB0;&#x5F55;&#xFF0C;&#x5E76;&#x4F5C;&#x4E3A;&#x53C2;&#x6570;&#x4F20;&#x9012;&#x7ED9; <code>deferprocStack</code>&#xFF1A;</p>
+<table>
+<thead>
+<tr>
+<th><code>1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39</code></th>
+<th>`// src/cmd/compile/internal/gc/ssa.go func (s <em>state) call(n </em>Node, k callKind) <em>ssa.Value { ... var call </em>ssa.Value if k == callDeferStack {     // &#x76F4;&#x63A5;&#x5728;&#x6808;&#x4E0A;&#x521B;&#x5EFA; defer &#x8BB0;&#x5F55;     t := deferstruct(stksize) // &#x4ECE;&#x7F16;&#x8BD1;&#x5668;&#x89D2;&#x5EA6;&#x6784;&#x9020; _defer &#x7ED3;&#x6784;     d := tempAt(n.Pos, s.curfn, t)         s.vars[&amp;memVar] = s.newValue1A(ssa.OpVarDef, types.TypeMem, d, s.mem())     addr := s.addr(d, false)         // &#x5728;&#x6808;&#x4E0A;&#x9884;&#x7559;&#x8BB0;&#x5F55; _defer &#x7684;&#x5404;&#x4E2A;&#x5B57;&#x6BB5;&#x7684;&#x7A7A;&#x95F4;     s.store(types.Types[TUINT32],         s.newValue1I(ssa.OpOffPtr, types.Types[TUINT32].PtrTo(), t.FieldOff(0), addr),         s.constInt32(types.Types[TUINT32], int32(stksize)))     s.store(closure.Type,         s.newValue1I(ssa.OpOffPtr, closure.Type.PtrTo(), t.FieldOff(6), addr),         closure)         // &#x8BB0;&#x5F55;&#x53C2;&#x4E0E; defer &#x8C03;&#x7528;&#x7684;&#x51FD;&#x6570;&#x53C2;&#x6570;     ft := fn.Type     off := t.FieldOff(12)     args := n.Rlist.Slice()         // &#x8C03;&#x7528; deferprocStack&#xFF0C;&#x4EE5; _defer &#x8BB0;&#x5F55;&#x7684;&#x6307;&#x9488;&#x4F5C;&#x4E3A;&#x53C2;&#x6570;&#x4F20;&#x9012;     arg0 := s.constOffPtrSP(types.Types[TUINTPTR], Ctxt.FixedFrameSize())     s.store(types.Types[TUINTPTR], arg0, addr)     call = s.newValue1A(ssa.OpStaticCall, types.TypeMem, deferprocStack, s.mem())     ... } else { ... }     // &#x51FD;&#x6570;&#x5C3E;&#x58F0;&#x4E0E;&#x5806;&#x4E0A;&#x5206;&#x914D;&#x7684;&#x6808;&#x4E00;&#x6837;&#xFF0C;&#x8C03;&#x7528; deferreturn if k == callDefer</th>
+<th></th>
+<th>k == callDeferStack {     ...     s.exit() } ... } `</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&#x53EF;&#x89C1;&#xFF0C;&#x5728;&#x7F16;&#x8BD1;&#x9636;&#x6BB5;&#xFF0C;&#x4E00;&#x4E2A; <code>_defer</code> &#x8BB0;&#x5F55;&#x7684;&#x7A7A;&#x95F4;&#x5DF2;&#x7ECF;&#x5728;&#x6808;&#x4E0A;&#x5F97;&#x5230;&#x4FDD;&#x7559;&#xFF0C;<code>deferprocStack</code> &#x7684;&#x4F5C;&#x7528; &#x5C31;&#x4EC5;&#x4EC5;&#x627F;&#x62C5;&#x4E86;&#x8FD0;&#x884C;&#x65F6;&#x5BF9;&#x8BE5;&#x8BB0;&#x5F55;&#x7684;&#x521D;&#x59CB;&#x5316;&#x8FD9;&#x4E00;&#x529F;&#x80FD;&#xFF1A;</p>
+<table>
+<thead>
+<tr>
+<th><code>1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20</code></th>
+<th><code>// src/runtime/panic.go //go:nosplit func deferprocStack(d *_defer) { gp := getg() // &#x6CE8;&#x610F;&#xFF0C;siz &#x548C; fn &#x5DF2;&#x7ECF;&#x5728;&#x7F16;&#x8BD1;&#x9636;&#x6BB5;&#x5B8C;&#x6210;&#x8BBE;&#x7F6E;&#xFF0C;&#x8FD9;&#x91CC;&#x53EA;&#x521D;&#x59CB;&#x5316;&#x4E86;&#x5176;&#x4ED6;&#x5B57;&#x6BB5; d.started = false d.heap = false        // &#x53EF;&#x89C1;&#x6B64;&#x65F6; defer &#x88AB;&#x6807;&#x8BB0;&#x4E3A;&#x4E0D;&#x5728;&#x5806;&#x4E0A;&#x5206;&#x914D; d.openDefer = false d.sp = getcallersp() d.pc = getcallerpc() ... // &#x5C3D;&#x7BA1;&#x5728;&#x6808;&#x4E0A;&#x8FDB;&#x884C;&#x5206;&#x914D;&#xFF0C;&#x4ECD;&#x7136;&#x9700;&#x8981;&#x5C06;&#x591A;&#x4E2A; _defer &#x8BB0;&#x5F55;&#x901A;&#x8FC7;&#x94FE;&#x8868;&#x8FDB;&#x884C;&#x4E32;&#x8054;&#xFF0C; // &#x4EE5;&#x4FBF;&#x5728; deferreturn &#x4E2D;&#x627E;&#x5230;&#x88AB;&#x5EF6;&#x8FDF;&#x7684;&#x51FD;&#x6570;&#x7684;&#x5165;&#x53E3;&#x5730;&#x5740;&#xFF1A; //   d.link = gp._defer //   gp._defer = d *(*uintptr)(unsafe.Pointer(&amp;d.link)) = uintptr(unsafe.Pointer(gp._defer)) *(*uintptr)(unsafe.Pointer(&amp;gp._defer)) = uintptr(unsafe.Pointer(d)) return0() }</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&#x81F3;&#x4E8E;&#x51FD;&#x6570;&#x5C3E;&#x58F0;&#x7684;&#x884C;&#x4E3A;&#xFF0C;&#x4E0E;&#x5728;&#x5806;&#x4E0A;&#x8FDB;&#x884C;&#x5206;&#x914D;&#x7684;&#x64CD;&#x4F5C;&#x540C;&#x6837;&#x662F;&#x8C03;&#x7528; <code>deferreturn</code>&#xFF0C;&#x6211;&#x4EEC;&#x5C31;&#x4E0D;&#x518D;&#x91CD;&#x590D;&#x8BF4;&#x660E;&#x4E86;&#x3002; &#x5F53;&#x7136;&#xFF0C;&#x91CC;&#x9762;&#x6D89;&#x53CA;&#x7684; <code>freedefer</code> &#x8C03;&#x7528;&#x7531;&#x4E8E;&#x4E0D;&#x9700;&#x8981;&#x91CA;&#x653E;&#x4EFB;&#x4F55;&#x5185;&#x5B58;&#xFF0C;&#x4E5F;&#x5C31;&#x65E9;&#x65E9;&#x8FD4;&#x56DE;&#x4E86;&#xFF1A;</p>
+<table>
+<thead>
+<tr>
+<th><code>1 2 3 4 5</code></th>
+<th><code>// src/runtime/panic.go func freedefer(d *_defer) { if !d.heap { return } ... }</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="923-&#x5F00;&#x653E;&#x7F16;&#x7801;&#x5F0F;-defer">9.2.3 &#x5F00;&#x653E;&#x7F16;&#x7801;&#x5F0F; defer</h2>
+<p>&#x6B63;&#x5982;&#x672C;&#x8282;&#x6700;&#x521D;&#x6240;&#x63CF;&#x8FF0;&#x7684;&#x90A3;&#x6837;&#xFF0C;defer &#x7ED9;&#x6211;&#x4EEC;&#x7684;&#x7B2C;&#x4E00;&#x611F;&#x89C9;&#x5176;&#x5B9E;&#x662F;&#x4E00;&#x4E2A;&#x7F16;&#x8BD1;&#x671F;&#x7279;&#x6027;&#x3002;&#x524D;&#x9762;&#x6211;&#x4EEC;&#x8BA8;&#x8BBA;&#x4E86; &#x4E3A;&#x4EC0;&#x4E48; defer &#x4F1A;&#x9700;&#x8981;&#x8FD0;&#x884C;&#x65F6;&#x7684;&#x652F;&#x6301;&#xFF0C;&#x4EE5;&#x53CA;&#x9700;&#x8981;&#x8FD0;&#x884C;&#x65F6;&#x7684; defer &#x662F;&#x5982;&#x4F55;&#x5DE5;&#x4F5C;&#x7684;&#x3002;&#x73B0;&#x5728;&#x6211;&#x4EEC;&#x6765; &#x63A2;&#x7A76;&#x4E00;&#x4E0B;&#x4EC0;&#x4E48;&#x60C5;&#x51B5;&#x4E0B;&#x80FD;&#x591F;&#x8BA9; defer &#x8FDB;&#x5316;&#x4E3A;&#x4E00;&#x4E2A;&#x4EC5;&#x7F16;&#x8BD1;&#x671F;&#x7279;&#x6027;&#xFF0C;&#x5373;&#x5728;&#x51FD;&#x6570;&#x672B;&#x5C3E;&#x76F4;&#x63A5;&#x5BF9;&#x5EF6;&#x8FDF;&#x51FD;&#x6570;&#x8FDB;&#x884C;&#x8C03;&#x7528;&#xFF0C; &#x505A;&#x5230;&#x51E0;&#x4E4E;&#x4E0D;&#x9700;&#x8981;&#x989D;&#x5916;&#x7684;&#x5F00;&#x9500;&#x3002;&#x8FD9;&#x7C7B;&#x51E0;&#x4E4E;&#x4E0D;&#x9700;&#x8981;&#x989D;&#x5916;&#x8FD0;&#x884C;&#x65F6;&#x6027;&#x80FD;&#x5F00;&#x9500;&#x7684; defer&#xFF0C;&#x6B63;&#x662F;&#x5F00;&#x653E;&#x7F16;&#x7801;&#x5F0F; defer&#x3002; &#x8FD9;&#x7C7B; defer &#x4E0E;&#x76F4;&#x63A5;&#x8C03;&#x7528;&#x4EA7;&#x751F;&#x7684;&#x6027;&#x80FD;&#x5DEE;&#x5F02;&#x6709;&#x591A;&#x5927;&#x5462;&#xFF1F;&#x6211;&#x4EEC;&#x4E0D;&#x59A8;&#x7F16;&#x5199;&#x4E24;&#x4E2A;&#x6027;&#x80FD;&#x6D4B;&#x8BD5;&#xFF1A;</p>
+<table>
+<thead>
+<tr>
+<th><code>1 2 3 4 5 6 7</code></th>
+<th><code>func call()      { func() {}() } func callDefer() { defer func() {}() } func BenchmarkDefer(b *testing.B) { for i := 0; i &lt; b.N; i++ {     call() // &#x7B2C;&#x4E8C;&#x6B21;&#x8FD0;&#x884C;&#x65F6;&#x66FF;&#x6362;&#x4E3A; callDefer } }</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&#x5728; Go 1.14 &#x7248;&#x672C;&#x4E0B;&#xFF0C;&#x8BFB;&#x8005;&#x53EF;&#x4EE5;&#x83B7;&#x5F97;&#x7C7B;&#x4F3C;&#x4E0B;&#x65B9;&#x7684;&#x6027;&#x80FD;&#x4F30;&#x8BA1;&#xFF0C;&#x5176;&#x4E2D;&#x4F7F;&#x7528; <code>callDefer</code> &#x540E;&#xFF0C; &#x6027;&#x80FD;&#x635F;&#x8017;&#x5927;&#x7EA6;&#x4E3A; 1 ns&#x3002;&#x8FD9;&#x79CD;&#x7EB3;&#x79D2;&#x7EA7;&#x7684;&#x6027;&#x80FD;&#x635F;&#x8017;&#x4E0D;&#x5230;&#x4E00;&#x4E2A; CPU &#x65F6;&#x949F;&#x5468;&#x671F;&#xFF0C; &#x6211;&#x4EEC;&#x5DF2;&#x7ECF;&#x53EF;&#x4EE5;&#x8BA4;&#x4E3A;&#x5F00;&#x653E;&#x7F16;&#x7801;&#x5F0F; defer &#x51E0;&#x4E4E;&#x6CA1;&#x6709;&#x4E86;&#x6027;&#x80FD;&#x5F00;&#x9500;&#xFF1A;</p>
+<pre><code>name      old time/op  new time/op  delta
+Defer-12  1.24ns &#xB1; 1%  2.23ns &#xB1; 1%  +80.06%  (p=0.000 n=10+9)
+</code></pre><p>&#x6211;&#x4EEC;&#x518D;&#x6765;&#x89C2;&#x5BDF;&#x4E00;&#x4E0B;&#x5F00;&#x653E;&#x7F16;&#x7801;&#x5F0F; defer &#x6700;&#x7EC8;&#x88AB;&#x7F16;&#x8BD1;&#x7684;&#x5F62;&#x5F0F;&#xFF1A;</p>
+<table>
+<thead>
+<tr>
+<th><code>1 2</code></th>
+<th><code>$ go build -gcflags &quot;-l&quot; -ldflags=-compressdwarf=false -o main.out main.go $ go tool objdump -S main.out &gt; main.s</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&#x5BF9;&#x4E8E;&#x5982;&#x4E0B;&#x5F62;&#x5F0F;&#x7684;&#x51FD;&#x6570;&#x8C03;&#x7528;&#xFF1A;</p>
+<table>
+<thead>
+<tr>
+<th><code>1 2 3 4 5</code></th>
+<th><code>var mu sync.Mutex func callDefer() { mu.Lock() defer mu.Unlock() }</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&#x6574;&#x4E2A;&#x8C03;&#x7528;&#x6700;&#x7EC8;&#x7F16;&#x8BD1;&#x7ED3;&#x679C;&#x65E2;&#x6CA1;&#x6709; <code>deferproc</code> &#x6216;&#x8005; <code>deferprocStack</code>&#xFF0C;&#x4E5F;&#x6CA1;&#x6709;&#x4E86; <code>deferreturn</code>&#x3002; &#x5EF6;&#x8FDF;&#x8BED;&#x53E5;&#x88AB;&#x76F4;&#x63A5;&#x63D2;&#x5165;&#x5230;&#x4E86;&#x51FD;&#x6570;&#x7684;&#x672B;&#x5C3E;&#xFF1A;</p>
+<table>
+<thead>
+<tr>
+<th><code>1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21</code></th>
+<th><code>TEXT main.callDefer(SB) /Users/changkun/Desktop/defer/main.go func callDefer() {  ... mu.Lock()  0x105794a        488d05071f0a00        LEAQ main.mu(SB), AX          0x1057951        48890424        MOVQ AX, 0(SP)              0x1057955        e8f6f8ffff        CALL sync.(*Mutex).Lock(SB)     defer mu.Unlock()  0x105795a        488d057f110200        LEAQ go.func.*+1064(SB), AX      0x1057961        4889442418        MOVQ AX, 0x18(SP)          0x1057966        488d05eb1e0a00        LEAQ main.mu(SB), AX          0x105796d        4889442410        MOVQ AX, 0x10(SP)         }  0x1057972        c644240f00        MOVB $0x0, 0xf(SP)          0x1057977        488b442410        MOVQ 0x10(SP), AX          0x105797c        48890424        MOVQ AX, 0(SP)              0x1057980        e8ebfbffff        CALL sync.(*Mutex).Unlock(SB)      0x1057985        488b6c2420        MOVQ 0x20(SP), BP          0x105798a        4883c428        ADDQ $0x28, SP              0x105798e        c3            RET                  ...</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&#x90A3;&#x4E48;&#x5F00;&#x653E;&#x7F16;&#x7801;&#x5F0F; defer &#x662F;&#x600E;&#x4E48;&#x5B9E;&#x73B0;&#x7684;&#xFF1F;&#x6240;&#x6709;&#x7684; defer &#x90FD;&#x662F;&#x5F00;&#x653E;&#x7F16;&#x7801;&#x5F0F;&#x7684;&#x5417;&#xFF1F; &#x4EC0;&#x4E48;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x5F00;&#x653E;&#x7F16;&#x7801;&#x5F0F; defer &#x4F1A;&#x9000;&#x5316;&#x4E3A;&#x4E00;&#x4E2A;&#x4F9D;&#x8D56;&#x8FD0;&#x884C;&#x65F6;&#x7684;&#x7279;&#x6027;&#xFF1F;</p>
+<h3 id="&#x4EA7;&#x751F;&#x6761;&#x4EF6;">&#x4EA7;&#x751F;&#x6761;&#x4EF6;</h3>
+<p>&#x6211;&#x4EEC;&#x5148;&#x6765;&#x770B;&#x5F00;&#x653E;&#x7F16;&#x7801;&#x5F0F; defer &#x7684;&#x4EA7;&#x751F;&#x6761;&#x4EF6;&#x3002;&#x5728; SSA &#x7684;&#x6784;&#x5EFA;&#x9636;&#x6BB5; <code>buildssa</code>&#xFF0C;&#x6211;&#x4EEC;&#x6709;&#xFF1A;</p>
+<table>
+<thead>
+<tr>
+<th><code>1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40</code></th>
+<th><code>// src/cmd/compile/internal/gc/ssa.go const maxOpenDefers = 8 func walkstmt(n *Node) *Node { ... switch n.Op { case ODEFER:     Curfn.Func.SetHasDefer(true)     Curfn.Func.numDefers++     // &#x8D85;&#x8FC7; 8 &#x4E2A; defer &#x65F6;&#xFF0C;&#x7981;&#x7528;&#x5BF9; defer &#x8FDB;&#x884C;&#x5F00;&#x653E;&#x7F16;&#x7801;     if Curfn.Func.numDefers &gt; maxOpenDefers {         Curfn.Func.SetOpenCodedDeferDisallowed(true)     }     // &#x5B58;&#x5728;&#x5FAA;&#x73AF;&#x8BED;&#x53E5;&#x4E2D;&#x7684; defer&#xFF0C;&#x7981;&#x7528;&#x5BF9; defer &#x8FDB;&#x884C;&#x5F00;&#x653E;&#x7F16;&#x7801;&#x3002;     // &#x662F;&#x5426;&#x6709; defer &#x53D1;&#x751F;&#x5728;&#x5FAA;&#x73AF;&#x8BED;&#x53E5;&#x5185;&#xFF0C;&#x4F1A;&#x5728; SSA &#x4E4B;&#x524D;&#x7684;&#x9003;&#x9038;&#x5206;&#x6790;&#x4E2D;&#x8FDB;&#x884C;&#x5224;&#x65AD;&#xFF0C;     // &#x9003;&#x9038;&#x5206;&#x6790;&#x4F1A;&#x68C0;&#x67E5;&#x662F;&#x5426;&#x5B58;&#x5728;&#x5FAA;&#x73AF;&#xFF08;loopDepth&#xFF09;&#xFF1A;     // if where.Op == ODEFER &amp;&amp; e.loopDepth == 1 {     //     where.Esc = EscNever     //     ...     // }     if n.Esc != EscNever {         Curfn.Func.SetOpenCodedDeferDisallowed(true)     } case ... } ... } func buildssa(fn *Node, worker int) *ssa.Func { ... var s state ... s.hasdefer = fn.Func.HasDefer() ... // &#x53EF;&#x4EE5;&#x5BF9; defer &#x8FDB;&#x884C;&#x5F00;&#x653E;&#x7F16;&#x7801;&#x7684;&#x6761;&#x4EF6; s.hasOpenDefers = Debug[&apos;N&apos;] == 0 &amp;&amp; s.hasdefer &amp;&amp; !s.curfn.Func.OpenCodedDeferDisallowed() if s.hasOpenDefers &amp;&amp;     s.curfn.Func.numReturns*s.curfn.Func.numDefers &gt; 15 {     s.hasOpenDefers = false } ... }</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&#x8FD9;&#x6837;&#xFF0C;&#x6211;&#x4EEC;&#x5F97;&#x5230;&#x4E86;&#x5141;&#x8BB8;&#x8FDB;&#x884C; defer &#x7684;&#x5F00;&#x653E;&#x7F16;&#x7801;&#x7684;&#x4E3B;&#x8981;&#x6761;&#x4EF6; &#xFF08;&#x6B64;&#x5904;&#x7565;&#x53BB;&#x4E86;&#x4E00;&#x4E9B;&#x5E38;&#x89C1;&#x751F;&#x4EA7;&#x73AF;&#x5883;&#x65E0;&#x5173;&#x7684;&#x6761;&#x4EF6;&#xFF0C;&#x4F8B;&#x5982;&#x542F;&#x7528;&#x7ADE;&#x4E89;&#x68C0;&#x67E5;&#x65F6;&#x4E5F;&#x4E0D;&#x80FD;&#x5BF9; defer &#x8FDB;&#x884C;&#x5F00;&#x653E;&#x7F16;&#x7801;&#xFF09;&#xFF1A;</p>
+<ol>
+<li>&#x6CA1;&#x6709;&#x7981;&#x7528;&#x7F16;&#x8BD1;&#x5668;&#x4F18;&#x5316;&#xFF0C;&#x5373;&#x6CA1;&#x6709;&#x8BBE;&#x7F6E; <code>-gcflags &quot;-N&quot;</code></li>
+<li>&#x5B58;&#x5728; defer &#x8C03;&#x7528;</li>
+<li>&#x51FD;&#x6570;&#x5185; defer &#x7684;&#x6570;&#x91CF;&#x4E0D;&#x8D85;&#x8FC7; 8 &#x4E2A;&#x3001;&#x4E14;&#x8FD4;&#x56DE;&#x8BED;&#x53E5;&#x4E0E;&#x5EF6;&#x8FDF;&#x8BED;&#x53E5;&#x4E2A;&#x6570;&#x7684;&#x4E58;&#x79EF;&#x4E0D;&#x8D85;&#x8FC7; 15</li>
+<li>&#x6CA1;&#x6709;&#x4E0E; defer &#x53D1;&#x751F;&#x5728;&#x5FAA;&#x73AF;&#x8BED;&#x53E5;&#x4E2D;</li>
+</ol>
+<h3 id="&#x5EF6;&#x8FDF;&#x6BD4;&#x7279;">&#x5EF6;&#x8FDF;&#x6BD4;&#x7279;</h3>
+<p>&#x5F53;&#x7136;&#xFF0C;&#x6B63;&#x5E38;&#x7F16;&#x5199;&#x7684; <code>defer</code> &#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x88AB;&#x7F16;&#x8BD1;&#x5668;&#x5206;&#x6790;&#x5F97;&#x51FA;&#xFF0C;&#x4F46;&#x662F;&#x5982;&#x672C;&#x8282;&#x5F00;&#x5934;&#x63D0;&#x5230;&#x7684;&#xFF0C;&#x5982;&#x679C;&#x4E00;&#x4E2A; defer &#x53D1;&#x751F;&#x5728;&#x4E00;&#x4E2A;&#x6761;&#x4EF6;&#x8BED;&#x53E5;&#x4E2D;&#xFF0C;&#x800C;&#x8FD9;&#x4E2A;&#x6761;&#x4EF6;&#x5FC5;&#x987B;&#x7B49;&#x5230;&#x8FD0;&#x884C;&#x65F6;&#x624D;&#x80FD;&#x786E;&#x5B9A;&#xFF1A;</p>
+<table>
+<thead>
+<tr>
+<th><code>1 2 3</code></th>
+<th><code>if rand.Intn(100) &lt; 42 { defer fmt.Println(&quot;meaning-of-life&quot;) }</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&#x90A3;&#x4E48;&#x5982;&#x4F55;&#x624D;&#x80FD;&#x4F7F;&#x7528;&#x6700;&#x5C0F;&#x7684;&#x6210;&#x672C;&#xFF0C;&#x8BA9;&#x63D2;&#x5165;&#x5230;&#x51FD;&#x6570;&#x672B;&#x5C3E;&#x7684;&#x5EF6;&#x8FDF;&#x8BED;&#x53E5;&#xFF0C;&#x5728;&#x6761;&#x4EF6;&#x6210;&#x7ACB;&#x65F6;&#x5019;&#x88AB;&#x6B63;&#x786E;&#x6267;&#x884C;&#x5462;&#xFF1F; &#x8FD9;&#x4FBF;&#x9700;&#x8981;&#x4E00;&#x79CD;&#x673A;&#x5236;&#xFF0C;&#x80FD;&#x591F;&#x8BB0;&#x5F55;&#x5B58;&#x5728;&#x5EF6;&#x8FDF;&#x8BED;&#x53E5;&#x7684;&#x6761;&#x4EF6;&#x5206;&#x652F;&#x662F;&#x5426;&#x88AB;&#x6267;&#x884C;&#xFF0C; &#x8FD9;&#x79CD;&#x673A;&#x5236;&#x5728; Go &#x4E2D;&#x5229;&#x7528;&#x4E86;&#x5EF6;&#x8FDF;&#x6BD4;&#x7279;&#xFF08;defer bit&#xFF09;&#x3002;&#x8FD9;&#x79CD;&#x505A;&#x6CD5;&#x975E;&#x5E38;&#x5DE7;&#x5999;&#xFF0C;&#x4F46;&#x539F;&#x7406;&#x5374;&#x975E;&#x5E38;&#x7B80;&#x5355;&#x3002;</p>
+<p>&#x5BF9;&#x4E8E;&#x4E0B;&#x9762;&#x7684;&#x4EE3;&#x7801;&#x800C;&#x8A00;&#xFF1A;</p>
+<table>
+<thead>
+<tr>
+<th><code>1 2 3 4 5</code></th>
+<th><code>defer f1(a1) if cond { defer f2(a2) } ...</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&#x4F7F;&#x7528;&#x5EF6;&#x8FDF;&#x6BD4;&#x7279;&#x7684;&#x6838;&#x5FC3;&#x601D;&#x60F3;&#x53EF;&#x4EE5;&#x7528;&#x4E0B;&#x9762;&#x7684;&#x4F2A;&#x4EE3;&#x7801;&#x6765;&#x6982;&#x62EC;&#x3002; &#x5728;&#x521B;&#x5EFA;&#x5EF6;&#x8FDF;&#x8C03;&#x7528;&#x7684;&#x9636;&#x6BB5;&#xFF0C;&#x9996;&#x5148;&#x901A;&#x8FC7;&#x5EF6;&#x8FDF;&#x6BD4;&#x7279;&#x7684;&#x7279;&#x5B9A;&#x4F4D;&#x7F6E;&#x8BB0;&#x5F55;&#x54EA;&#x4E9B;&#x5E26;&#x6761;&#x4EF6;&#x7684; defer &#x88AB;&#x89E6;&#x53D1;&#x3002; &#x8FD9;&#x4E2A;&#x5EF6;&#x8FDF;&#x6BD4;&#x7279;&#x662F;&#x4E00;&#x4E2A;&#x957F;&#x5EA6;&#x4E3A; 8 &#x4F4D;&#x7684;&#x4E8C;&#x8FDB;&#x5236;&#x7801;&#xFF08;&#x4E5F;&#x662F;&#x786C;&#x4EF6;&#x67B6;&#x6784;&#x91CC;&#x6700;&#x5C0F;&#x3001;&#x6700;&#x901A;&#x7528;&#x7684;&#x60C5;&#x51B5;&#xFF09;&#xFF0C; &#x4EE5;&#x6BCF;&#x4E00;&#x4F4D;&#x662F;&#x5426;&#x88AB;&#x8BBE;&#x7F6E;&#x4E3A; 1&#xFF0C;&#x6765;&#x5224;&#x65AD;&#x5EF6;&#x8FDF;&#x8BED;&#x53E5;&#x662F;&#x5426;&#x5728;&#x8FD0;&#x884C;&#x65F6;&#x88AB;&#x8BBE;&#x7F6E;&#xFF0C;&#x5982;&#x679C;&#x8BBE;&#x7F6E;&#xFF0C;&#x5219;&#x53D1;&#x751F;&#x8C03;&#x7528;&#x3002; &#x5426;&#x5219;&#x5219;&#x4E0D;&#x8C03;&#x7528;&#xFF1A;</p>
+<table>
+<thead>
+<tr>
+<th><code>1 2 3 4 5 6 7 8 9 10</code></th>
+<th>`deferBits = 0           // &#x521D;&#x59CB;&#x503C; 00000000 deferBits</th>
+<th>= 1 &lt;&lt; 0     // &#x9047;&#x5230;&#x7B2C;&#x4E00;&#x4E2A; defer&#xFF0C;&#x8BBE;&#x7F6E;&#x4E3A; 00000001 _f1 = f1 _a1 = a1 if cond { // &#x5982;&#x679C;&#x7B2C;&#x4E8C;&#x4E2A; defer &#x88AB;&#x8BBE;&#x7F6E;&#xFF0C;&#x5219;&#x8BBE;&#x7F6E;&#x4E3A; 00000011&#xFF0C;&#x5426;&#x5219;&#x4F9D;&#x7136;&#x4E3A; 00000001 deferBits</th>
+<th>= 1 &lt;&lt; 1 _f2 = f2 _a2 = a2 } `</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&#x5728;&#x9000;&#x51FA;&#x4F4D;&#x7F6E;&#xFF0C;&#x518D;&#x91CD;&#x65B0;&#x6839;&#x636E;&#x88AB;&#x6807;&#x8BB0;&#x7684;&#x5EF6;&#x8FDF;&#x6BD4;&#x7279;&#xFF0C;&#x53CD;&#x5411;&#x63A8;&#x5BFC;&#x54EA;&#x4E9B;&#x4F4D;&#x7F6E;&#x7684; defer &#x9700;&#x8981;&#x88AB;&#x89E6;&#x53D1;&#xFF0C;&#x4ECE;&#x800C; &#x6267;&#x884C;&#x5EF6;&#x8FDF;&#x8C03;&#x7528;&#xFF1A;</p>
+<table>
+<thead>
+<tr>
+<th><code>1 2 3 4 5 6 7 8 9 10 11 12 13 14</code></th>
+<th><code>exit: // &#x6309;&#x987A;&#x5E8F;&#x5012;&#x5E8F;&#x68C0;&#x67E5;&#x5EF6;&#x8FDF;&#x6BD4;&#x7279;&#x3002;&#x5982;&#x679C;&#x7B2C;&#x4E8C;&#x4E2A; defer &#x88AB;&#x8BBE;&#x7F6E;&#xFF0C;&#x5219; //   00000011 &amp; 00000010 == 00000010&#xFF0C;&#x5373;&#x5EF6;&#x8FDF;&#x6BD4;&#x7279;&#x4E0D;&#x4E3A;&#x96F6;&#xFF0C;&#x5E94;&#x8BE5;&#x8C03;&#x7528; f2&#x3002; // &#x5982;&#x679C;&#x7B2C;&#x4E8C;&#x4E2A; defer &#x6CA1;&#x6709;&#x88AB;&#x8BBE;&#x7F6E;&#xFF0C;&#x5219;  //   00000001 &amp; 00000010 == 00000000&#xFF0C;&#x5373;&#x5EF6;&#x8FDF;&#x6BD4;&#x7279;&#x4E3A;&#x96F6;&#xFF0C;&#x4E0D;&#x5E94;&#x8BE5;&#x8C03;&#x7528; f2&#x3002; if deferBits &amp; 1 &lt;&lt; 1 != 0 { // 00000011 &amp; 00000010 != 0 deferBits &amp;^= 1&lt;&lt;1       // 00000001 _f2(_a2) } // &#x540C;&#x7406;&#xFF0C;&#x7531;&#x4E8E; 00000001 &amp; 00000001 == 00000001&#xFF0C;&#x56E0;&#x6B64;&#x5EF6;&#x8FDF;&#x6BD4;&#x7279;&#x4E0D;&#x4E3A;&#x96F6;&#xFF0C;&#x5E94;&#x8BE5;&#x8C03;&#x7528; f1 if deferBits &amp;&amp; 1 &lt;&lt; 0 != 0 { deferBits &amp;^= 1&lt;&lt;0 _f1(_a1) }</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&#x5728;&#x5B9E;&#x9645;&#x7684;&#x5B9E;&#x73B0;&#x4E2D;&#xFF0C;&#x53EF;&#x4EE5;&#x770B;&#x5230;&#xFF0C;&#x5F53;&#x53EF;&#x4EE5;&#x8BBE;&#x7F6E;&#x5F00;&#x653E;&#x7F16;&#x7801;&#x5F0F; defer &#x65F6;&#xFF0C;<code>buildssa</code> &#x4F1A;&#x9996;&#x5148;&#x521B;&#x5EFA;&#x4E00;&#x4E2A; &#x957F;&#x5EA6;&#x4F4D; 8 &#x4F4D;&#x7684;&#x4E34;&#x65F6;&#x53D8;&#x91CF;&#xFF1A;</p>
+<table>
+<thead>
+<tr>
+<th><code>1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19</code></th>
+<th><code>// src/cmd/compile/internal/gc/ssa.go func buildssa(fn *Node, worker int) *ssa.Func { ... if s.hasOpenDefers {     // &#x521B;&#x5EFA; deferBits &#x4E34;&#x65F6;&#x53D8;&#x91CF;     deferBitsTemp := tempAt(src.NoXPos, s.curfn, types.Types[TUINT8])     s.deferBitsTemp = deferBitsTemp     // deferBits &#x88AB;&#x8BBE;&#x8BA1;&#x4E3A; 8 &#x4F4D;&#x4E8C;&#x8FDB;&#x5236;&#xFF0C;&#x56E0;&#x6B64;&#x53EF;&#x4EE5;&#x88AB;&#x5F00;&#x653E;&#x7F16;&#x7801;&#x7684; defer &#x6570;&#x91CF;&#x4E0D;&#x80FD;&#x8D85;&#x8FC7; 8 &#x4E2A;     // &#x6B64;&#x5904;&#x8FD8;&#x5C06;&#x8D77;&#x59CB; deferBits &#x8BBE;&#x7F6E;&#x4E3A;&#x96F6;     startDeferBits := s.entryNewValue0(ssa.OpConst8, types.Types[TUINT8])     s.vars[&amp;deferBitsVar] = startDeferBits     s.deferBitsAddr = s.addr(deferBitsTemp, false)     s.store(types.Types[TUINT8], s.deferBitsAddr, startDeferBits)     ... } ... s.stmtList(fn.Nbody) // &#x8C03;&#x7528; s.stmt ... }</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&#x968F;&#x540E;&#x9488;&#x5BF9;&#x51FA;&#x73B0; defer &#x7684;&#x8BED;&#x53E5;&#xFF0C;&#x8FDB;&#x884C;&#x7F16;&#x7801;&#xFF1A;</p>
+<table>
+<thead>
+<tr>
+<th><code>1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64</code></th>
+<th>`// src/cmd/compile/internal/gc/ssa.go func (s <em>state) stmt(n </em>Node) { ... switch n.Op { case ODEFER:     // &#x5F00;&#x653E;&#x7F16;&#x7801;&#x5F0F; defer     if s.hasOpenDefers {         s.openDeferRecord(n.Left)     } else { ... } case ... } ... } // &#x5B58;&#x50A8;&#x4E00;&#x4E2A; defer &#x8C03;&#x7528;&#x7684;&#x76F8;&#x5173;&#x4FE1;&#x606F;&#xFF0C;&#x4F8B;&#x5982;&#x6240;&#x5728;&#x7684;&#x8BED;&#x6CD5;&#x6811;&#x7ED3;&#x70B9;&#x3001;&#x88AB;&#x5EF6;&#x8FDF;&#x7684;&#x8C03;&#x7528;&#x3001;&#x53C2;&#x6570;&#x7B49;&#x7B49; type openDeferInfo struct { n           <em>Node closure     </em>ssa.Value closureNode <em>Node ... argVals     []</em>ssa.Value argNodes    []<em>Node } func (s </em>state) openDeferRecord(n <em>Node) { ... var args []</em>ssa.Value var argNodes []<em>Node     // &#x8BB0;&#x5F55;&#x4E0E; defer &#x76F8;&#x5173;&#x7684;&#x5165;&#x53E3;&#x5730;&#x5740;&#x4E0E;&#x53C2;&#x6570;&#x4FE1;&#x606F; opendefer := &amp;openDeferInfo{n: n} fn := n.Left // &#x8BB0;&#x5F55;&#x51FD;&#x6570;&#x5165;&#x53E3;&#x5730;&#x5740; if n.Op == OCALLFUNC {     closureVal := s.expr(fn)     closure := s.openDeferSave(nil, fn.Type, closureVal)     opendefer.closureNode = closure.Aux.(</em>Node)     if !(fn.Op == ONAME &amp;&amp; fn.Class() == PFUNC) {         opendefer.closure = closure     } } else {     ... } // &#x8BB0;&#x5F55;&#x9700;&#x8981;&#x7ACB;&#x5373;&#x6C42;&#x503C;&#x7684;&#x7684;&#x53C2;&#x6570; for _, argn := range n.Rlist.Slice() {     var v <em>ssa.Value     if canSSAType(argn.Type) {         v = s.openDeferSave(nil, argn.Type, s.expr(argn))     } else {         v = s.openDeferSave(argn, argn.Type, nil)     }     args = append(args, v)     argNodes = append(argNodes, v.Aux.(</em>Node)) } opendefer.argVals = args opendefer.argNodes = argNodes     // &#x6BCF;&#x591A;&#x51FA;&#x73B0;&#x4E00;&#x4E2A; defer&#xFF0C;len(defers) &#x4F1A;&#x589E;&#x52A0;&#xFF0C;&#x8FDB;&#x800C;  // &#x5EF6;&#x8FDF;&#x6BD4;&#x7279; deferBits \</th>
+<th>= 1&lt;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&#x5728;&#x51FD;&#x6570;&#x8FD4;&#x56DE;&#x9000;&#x51FA;&#x524D;&#xFF0C;<code>state</code> &#x7684; <code>exit</code> &#x51FD;&#x6570;&#x4F1A;&#x4F9D;&#x6B21;&#x5012;&#x5E8F;&#x521B;&#x5EFA;&#x5BF9;&#x5EF6;&#x8FDF;&#x6BD4;&#x7279;&#x7684;&#x68C0;&#x67E5;&#x4EE3;&#x7801;&#xFF0C; &#x4ECE;&#x800C;&#x987A;&#x5E8F;&#x8C03;&#x7528;&#x88AB;&#x5EF6;&#x8FDF;&#x7684;&#x51FD;&#x6570;&#x8C03;&#x7528;&#xFF1A;</p>
+<table>
+<thead>
+<tr>
+<th><code>1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72</code></th>
+<th>`// src/cmd/compile/internal/gc/ssa.go func (s <em>state) exit() </em>ssa.Block { if s.hasdefer {     if s.hasOpenDefers {         ...         s.openDeferExit()     } else {         ...     } } ... } func (s *state) openDeferExit() { deferExit := s.f.NewBlock(ssa.BlockPlain) s.endBlock().AddEdgeTo(deferExit) s.startBlock(deferExit) s.lastDeferExit = deferExit s.lastDeferCount = len(s.openDefers) zeroval := s.constInt8(types.Types[TUINT8], 0) // &#x5012;&#x5E8F;&#x68C0;&#x67E5; defer for i := len(s.openDefers) - 1; i &gt;= 0; i-- {     r := s.openDefers[i]     bCond := s.f.NewBlock(ssa.BlockPlain)     bEnd := s.f.NewBlock(ssa.BlockPlain)         // &#x68C0;&#x67E5; deferBits     deferBits := s.variable(&amp;deferBitsVar, types.Types[TUINT8])     // &#x521B;&#x5EFA; if deferBits &amp; 1 &lt;&lt; len(defer) != 0 { ... }     bitval := s.constInt8(types.Types[TUINT8], 1&lt;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&#x4ECE;&#x6574;&#x4E2A;&#x8FC7;&#x7A0B;&#x4E2D;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x770B;&#x5230;&#xFF0C;&#x5F00;&#x653E;&#x7F16;&#x7801;&#x5F0F; defer &#x5E76;&#x4E0D;&#x662F;&#x7EDD;&#x5BF9;&#x7684;&#x96F6;&#x6210;&#x672C;&#xFF0C;&#x5C3D;&#x7BA1;&#x7F16;&#x8BD1;&#x5668;&#x80FD;&#x591F;&#x505A;&#x5230;&#x5C06; &#x5EF6;&#x8FDF;&#x8C03;&#x7528;&#x76F4;&#x63A5;&#x63D2;&#x5165;&#x8FD4;&#x56DE;&#x8BED;&#x53E5;&#x4E4B;&#x524D;&#xFF0C;&#x4F46;&#x51FA;&#x4E8E;&#x8BED;&#x4E49;&#x7684;&#x8003;&#x8651;&#xFF0C;&#x9700;&#x8981;&#x5728;&#x6808;&#x4E0A;&#x5BF9;&#x53C2;&#x4E0E;&#x5EF6;&#x8FDF;&#x8C03;&#x7528;&#x7684;&#x53C2;&#x6570;&#x8FDB;&#x884C;&#x4E00;&#x6B21;&#x6C42;&#x503C;&#xFF1B; &#x540C;&#x65F6;&#x51FA;&#x4E8E;&#x6761;&#x4EF6;&#x8BED;&#x53E5;&#x4E2D;&#x53EF;&#x80FD;&#x5B58;&#x5728;&#x7684; defer&#xFF0C;&#x8FD8;&#x989D;&#x5916;&#x9700;&#x8981;&#x901A;&#x8FC7;&#x5EF6;&#x8FDF;&#x6BD4;&#x7279;&#x6765;&#x8BB0;&#x5F55;&#x4E00;&#x4E2A;&#x5EF6;&#x8FDF;&#x8BED;&#x53E5;&#x662F;&#x5426;&#x5728;&#x8FD0;&#x884C;&#x65F6; &#x88AB;&#x8BBE;&#x7F6E;&#x3002; &#x56E0;&#x6B64;&#xFF0C;&#x5F00;&#x653E;&#x7F16;&#x7801;&#x5F0F; defer &#x7684;&#x6210;&#x672C;&#x4F53;&#x73B0;&#x5728;&#x975E;&#x5E38;&#x5C11;&#x91CF;&#x7684;&#x6307;&#x4EE4;&#x548C;&#x4F4D;&#x8FD0;&#x7B97;&#x6765;&#x914D;&#x5408;&#x5728;&#x8FD0;&#x884C;&#x65F6;&#x5224;&#x65AD; &#x662F;&#x5426;&#x5B58;&#x5728;&#x9700;&#x8981;&#x88AB;&#x5EF6;&#x8FDF;&#x8C03;&#x7528;&#x7684; defer&#x3002;</p>
+<h2 id="924-defer-&#x7684;&#x4F18;&#x5316;&#x4E4B;&#x8DEF;">9.2.4 <code>defer</code> &#x7684;&#x4F18;&#x5316;&#x4E4B;&#x8DEF;</h2>
+<p>&#x6211;&#x4EEC;&#x6700;&#x540E;&#x6765;&#x56DE;&#x987E;&#x4E00;&#x4E0B;&#x5EF6;&#x8FDF;&#x8BED;&#x53E5;&#x7684;&#x6574;&#x4E2A;&#x6F14;&#x8FDB;&#x8FC7;&#x7A0B;&#x3002;</p>
+<p>defer &#x7684;&#x65E9;&#x671F;&#x5B9E;&#x73B0;&#x5176;&#x5B9E;&#x662F;&#x975E;&#x5E38;&#x7684;&#x7C97;&#x7CD9;&#x7684;&#x3002;&#x6BCF;&#x5F53;&#x51FA;&#x73B0;&#x4E00;&#x4E2A; defer &#x8C03;&#x7528;&#xFF0C;&#x90FD;&#x4F1A;&#x5728;&#x5806;&#x4E0A;&#x5206;&#x914D; defer &#x8BB0;&#x5F55;&#xFF0C; &#x5E76;&#x5BF9;&#x53C2;&#x4E0E;&#x8C03;&#x7528;&#x7684;&#x53C2;&#x6570;&#x5B9E;&#x65BD;&#x4E00;&#x6B21;&#x62F7;&#x8D1D;&#x64CD;&#x4F5C;&#xFF0C;&#x7136;&#x540E;&#x5C06;&#x5176;&#x52A0;&#x5165;&#x5230; defer &#x94FE;&#x8868;&#x4E0A;&#xFF1B;&#x5F53;&#x51FD;&#x6570;&#x8FD4;&#x56DE;&#x9700;&#x8981;&#x89E6;&#x53D1; defer &#x8C03;&#x7528;&#x65F6;&#xFF0C; &#x4F9D;&#x6B21;&#x5C06; defer &#x4ECE;&#x94FE;&#x8868;&#x4E2D;&#x53D6;&#x51FA;&#xFF0C;&#x5B8C;&#x6210;&#x8C03;&#x7528;&#x3002;&#x5F53;&#x7136;&#x6700;&#x521D;&#x7684;&#x5B9E;&#x73B0;&#x5E76;&#x4E0D;&#x9700;&#x8981;&#x5B8C;&#x7F8E;&#xFF0C;&#x672A;&#x6765;&#x603B;&#x662F;&#x53EF;&#x4EE5;&#x8FED;&#x4EE3;&#x5176;&#x6027;&#x80FD;&#x95EE;&#x9898;&#x3002;</p>
+<p>&#x5728; Go 1.1 &#x7684;&#x5F00;&#x53D1;&#x9636;&#x6BB5;&#xFF0C;defer &#x83B7;&#x5F97;&#x4E86;&#x5B83;&#x7684;&#x7B2C;&#x4E00;&#x6B21;&#x4F18;&#x5316; [Cox, 2011]&#x3002;Russ Cox &#x610F;&#x8BC6;&#x5230; defer &#x6027;&#x80FD;&#x95EE;&#x9898;&#x7684;&#x6839;&#x6E90;&#x662F;&#x5F53;&#x4EA7;&#x751F;&#x591A;&#x4E2A; defer &#x8C03;&#x7528;&#x65F6;&#xFF0C;&#x9020;&#x6210;&#x7684;&#x8FC7;&#x591A;&#x7684;&#x5185;&#x5B58;&#x5206;&#x914D;&#x4E0E;&#x62F7;&#x8D1D;&#x64CD;&#x4F5C;&#xFF0C; &#x8FDB;&#x800C;&#x63D0;&#x51FA;&#x5C06; defer &#x7684;&#x5206;&#x914D;&#x548C;&#x91CA;&#x653E;&#x8FC7;&#x7A0B;&#x5728;&#x6BCF;&#x4E2A; Goroutine &#x5185;&#x8FDB;&#x884C;&#x6279;&#x91CF;&#x5904;&#x7406;&#x3002;&#x5F53;&#x65F6; Dmitry Vyukov &#x5219;&#x63D0;&#x8BAE;&#x5728;&#x6808;&#x4E0A;&#x5206;&#x914D;&#x4F1A;&#x66F4;&#x52A0;&#x6709;&#x6548;&#xFF0C;&#x4F46; Russ Cox &#x9519;&#x8BEF;&#x7684;&#x8BA4;&#x4E3A;&#x5728;&#x6267;&#x884C;&#x6808;&#x4E0A;&#x5206;&#x914D; defer &#x8BB0;&#x5F55;&#x4E0E; &#x5728;&#x5176;&#x4ED6;&#x5730;&#x65B9;&#x8FDB;&#x884C;&#x5206;&#x914D;&#x5E76;&#x6CA1;&#x6709;&#x5E26;&#x6765;&#x592A;&#x591A;&#x6536;&#x76CA;&#xFF0C;&#x6700;&#x7EC8;&#x5B9E;&#x73B0;&#x4E86; per-G &#x6279;&#x91CF;&#x5F0F;&#x5206;&#x914D;&#x7684; defer &#x673A;&#x5236;&#x3002;</p>
+<p>&#x7531;&#x4E8E;&#x540E;&#x7EED;&#x8C03;&#x5EA6;&#x5668;&#x7684;&#x6539;&#x8FDB;&#xFF0C;&#x5DE5;&#x4F5C;&#x7A83;&#x53D6;&#x8C03;&#x5EA6;&#x7684;&#x5F15;&#x5165;&#xFF0C;&#x8FD0;&#x884C;&#x65F6;&#x5F00;&#x59CB;&#x652F;&#x6301; per-P &#x7684;&#x5C40;&#x90E8;&#x8D44;&#x6E90;&#x6C60;&#xFF0C; defer &#x4F5C;&#x4E3A;&#x53D1;&#x751F;&#x5728; Goroutine &#x5185;&#x7684;&#x8C03;&#x7528;&#xFF0C;&#x6240;&#x9700;&#x7684;&#x5185;&#x5B58;&#x81EA;&#x7136;&#x4E5F;&#x662F;&#x4E00;&#x7C7B;&#x53EF;&#x4EE5;&#x88AB;&#x89C6;&#x4F5C;&#x5C40;&#x90E8;&#x6301;&#x6709;&#x7684;&#x8D44;&#x6E90;&#x3002; &#x56E0;&#x6B64;&#x5206;&#x914D;&#x548C;&#x91CA;&#x653E; defer &#x7684;&#x8D44;&#x6E90;&#x5728; Go 1.3 &#x65F6;&#x5F97;&#x5230;&#x4F18;&#x5316; [Vyukov, 2014]&#xFF0C; Dmitry Vyukov &#x5C06; per-G &#x5206;&#x914D;&#x7684; defer &#x6539;&#x4E3A;&#x4E86;&#x4ECE; per-P &#x8D44;&#x6E90;&#x6C60;&#x5206;&#x914D;&#x7684;&#x673A;&#x5236;&#x3002;</p>
+<p>&#x7531;&#x4E8E;&#x5206;&#x914D;&#x5EF6;&#x8FDF;&#x8BB0;&#x5F55; <code>_defer</code> &#x7684;&#x8C03;&#x7528; <code>newdefer</code> &#x53EF;&#x80FD;&#x5B58;&#x5728;&#x672C;&#x5730;&#x8D44;&#x6E90;&#x6C60;&#x3001;&#x5168;&#x5C40;&#x8D44;&#x6E90;&#x6C60;&#x5747;&#x4E0D;&#x5B58;&#x5728;&#x53EF;&#x590D;&#x7528;&#x7684;&#x5185;&#x5B58;&#xFF0C; &#x8FDB;&#x800C;&#x5BFC;&#x81F4;&#x6808;&#x5206;&#x88C2;&#xFF0C;&#x66F4;&#x7CDF;&#x7CD5;&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#x751A;&#x81F3;&#x53EF;&#x80FD;&#x53D1;&#x751F;&#x62A2;&#x5360;&#xFF0C;&#x5BFC;&#x81F4; M/P &#x89E3;&#x7ED1;&#x4E0E;&#x7ED1;&#x5B9A;&#x7B49;&#x989D;&#x5916;&#x7684;&#x8C03;&#x5EA6;&#x5F00;&#x9500;&#x3002; &#x56E0;&#x6B64;&#xFF0C;Austin Clements &#x5BF9; defer &#x505A;&#x7684;&#x4E00;&#x4E2A;&#x4F18;&#x5316; [Clements, 2016] &#x662F; &#x5728;&#x6BCF;&#x4E2A; <code>deferproc</code> &#x548C; <code>deferreturn</code> &#x4E2D;&#x90FD;&#x5207;&#x6362;&#x81F3;&#x7CFB;&#x7EDF;&#x6808;&#xFF0C;&#x4ECE;&#x800C;&#x963B;&#x6B62;&#x4E86;&#x62A2;&#x5360;&#x548C;&#x6808;&#x589E;&#x957F;&#x7684;&#x53D1;&#x751F;&#xFF0C; &#x4E5F;&#x5C31;&#x4F18;&#x5316;&#x6D88;&#x9664;&#x4E86;&#x62A2;&#x5360;&#x5E26;&#x6765;&#x7684; M/P &#x7ED1;&#x5B9A;&#x6240;&#x5E26;&#x6765;&#x7684;&#x5F00;&#x9500;&#x3002;&#x9664;&#x6B64;&#x4E4B;&#x5916;&#xFF0C;&#x5BF9;&#x4E8E;&#x6BCF;&#x6B21;&#x4EA7;&#x751F;&#x8BB0;&#x5F55;&#x65F6;&#xFF0C; &#x65E0;&#x8BBA;&#x53C2;&#x6570;&#x5927;&#x5C0F;&#x5982;&#x4F55;&#x90FD;&#x6D89;&#x53CA; <code>memmove</code> &#x7CFB;&#x7EDF;&#x8C03;&#x7528;&#xFF0C;&#x4ECE;&#x800C;&#x4EA7;&#x751F;&#x4E00;&#x6B21; <code>memmove</code> &#x7684;&#x8C03;&#x7528;&#x6210;&#x672C;&#xFF0C; Austin &#x7684;&#x4F18;&#x5316;&#x4E2D;&#x8FD8;&#x7279;&#x5730;&#x9488;&#x5BF9;&#x6CA1;&#x6709;&#x53C2;&#x6570;&#x548C;&#x6307;&#x9488;&#x5927;&#x5C0F;&#x53C2;&#x6570;&#x7684;&#x8FD9;&#x4E24;&#x79CD;&#x60C5;&#x51B5;&#x8FDB;&#x884C;&#x4E86;&#x5224;&#x65AD;&#xFF0C;&#x4ECE;&#x800C;&#x8DF3;&#x8FC7;&#x4E86; &#x8FD9;&#x4E9B;&#x7279;&#x6B8A;&#x60C5;&#x51B5;&#x4E0B;&#x60C5;&#x51B5;&#x4E0B; <code>memmove</code> &#x5E26;&#x6765;&#x7684;&#x5F00;&#x9500;&#x3002;</p>
+<p>&#x540E;&#x6765;&#xFF0C;Keith Randall &#x7EC8;&#x4E8E;&#x5B9E;&#x73B0;&#x4E86; [Randall, 2013] &#x5F88;&#x65E9;&#x4E4B;&#x524D; Dmitry Vyukov &#x5C31;&#x5DF2;&#x7ECF; &#x63D0;&#x51FA;&#x7684;&#x5728;&#x6808;&#x4E0A;&#x5206;&#x914D; defer &#x7684;&#x4F18;&#x5316; [Cox, 2011]&#xFF0C;&#x7B80;&#x5355;&#x60C5;&#x51B5;&#x4E0B;&#x4E0D;&#x518D;&#x9700;&#x8981;&#x4F7F;&#x7528;&#x8FD0;&#x884C;&#x65F6;&#x5BF9;&#x5EF6;&#x8FDF;&#x8BB0;&#x5F55; &#x7684;&#x5185;&#x5B58;&#x7BA1;&#x7406;&#x3002;&#x4E3A; Go 1.13 &#x8FDB;&#x4E00;&#x6B65;&#x63D0;&#x5347;&#x4E86; defer &#x7684;&#x6027;&#x80FD;&#x3002;</p>
+<p>&#x5728; Go 1.14 &#x4E2D;&#xFF0C;Dan Scales &#x4F5C;&#x4E3A; Go &#x56E2;&#x961F;&#x7684;&#x65B0;&#x6210;&#x5458;&#xFF0C;defer &#x7684;&#x4F18;&#x5316;&#x6210;&#x4E3A;&#x4E86;&#x4ED6;&#x7684;&#x7B2C;&#x4E00;&#x4E2A;&#x9879;&#x76EE;&#x3002; &#x4ED6;&#x63D0;&#x51FA;&#x5F00;&#x653E;&#x5F0F;&#x7F16;&#x7801; defer [Scales, 2019]&#xFF0C;&#x901A;&#x8FC7;&#x7F16;&#x8BD1;&#x5668;&#x8F85;&#x52A9;&#x4FE1;&#x606F;&#x548C;&#x5EF6;&#x8FDF;&#x6BD4;&#x7279;&#x5728;&#x51FD;&#x6570;&#x672B;&#x5C3E;&#x5904; &#x76F4;&#x63A5;&#x83B7;&#x53D6;&#x8C03;&#x7528;&#x51FD;&#x6570;&#x53CA;&#x53C2;&#x6570;&#xFF0C;&#x5B8C;&#x6210;&#x4E86;&#x8FD1;&#x4E4E;&#x96F6;&#x6210;&#x672C;&#x7684; defer &#x8C03;&#x7528;&#xFF0C;&#x6210;&#x4E3A;&#x4E86; Go 1.14 &#x4E2D;&#x51E0;&#x4E2A;&#x51FA;&#x8272;&#x7684; &#x8FD0;&#x884C;&#x65F6;&#x6027;&#x80FD;&#x4F18;&#x5316;&#x4E4B;&#x4E00;&#x3002;</p>
+<p>&#x81F3;&#x6B64;&#xFF0C;defer &#x7684;&#x4F18;&#x5316;&#x4E4B;&#x8DEF;&#x6B63;&#x5F0F;&#x544A;&#x4E00;&#x6BB5;&#x843D;&#x3002;</p>
+<table>
+<thead>
+<tr>
+<th>&#x7248;&#x672C;</th>
+<th>&#x5185;&#x5BB9;</th>
+<th>&#x4F5C;&#x8005;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1.0 &#x53CA;&#x4E4B;&#x524D;</td>
+<td>&#x5236;&#x5B9A; defer &#x7684;&#x8BED;&#x8A00;&#x89C4;&#x8303;&#xFF0C;&#x9996;&#x6B21;&#x5B9E;&#x73B0;&#xFF0C;&#x5728;&#x5806;&#x4E0A;&#x5206;&#x914D;</td>
+<td>Robert Griesemer, Ken Thompson</td>
+</tr>
+<tr>
+<td>1.1</td>
+<td>&#x5C06; defer &#x7684;&#x5206;&#x914D;&#x4E0E;&#x91CA;&#x653E;&#x65B9;&#x5F0F;&#x6539;&#x4E3A; per-G &#x6279;&#x91CF;&#x5904;&#x7406;</td>
+<td>Russ Cox</td>
+</tr>
+<tr>
+<td>1.3</td>
+<td>&#x5C06; defer &#x7684;&#x5206;&#x914D;&#x4E0E;&#x91CA;&#x653E;&#x65B9;&#x5F0F;&#x6539;&#x4E3A; per-P &#x6C60;&#x5316;&#x5904;&#x7406;</td>
+<td>Dmitry Vyukov</td>
+</tr>
+<tr>
+<td>1.8</td>
+<td>&#x5C06; defer &#x7684;&#x6267;&#x884C;&#x8FC7;&#x7A0B;&#x5207;&#x6362;&#x5230;&#x7CFB;&#x7EDF;&#x6808;&#x4E2D;&#xFF0C;&#x963B;&#x6B62;&#x62A2;&#x5360;&#x548C;&#x6808;&#x589E;&#x957F;&#x5E26;&#x6765;&#x7684;&#x6210;&#x672C;</td>
+<td>Austin Clements</td>
+</tr>
+<tr>
+<td>1.13</td>
+<td>&#x5B9E;&#x73B0;&#x5728;&#x6267;&#x884C;&#x6808;&#x4E0A;&#x5206;&#x914D; defer&#xFF0C;&#x6D88;&#x9664;&#x4E86;&#x5E38;&#x89C1;&#x7684;&#x7B80;&#x5355;&#x60C5;&#x51B5;&#x4E0B;&#x5806;&#x4E0A;&#x5206;&#x914D;&#x5E26;&#x6765;&#x7684;&#x5F00;&#x9500;</td>
+<td>Keith Randall</td>
+</tr>
+<tr>
+<td>1.14</td>
+<td>&#x5B9E;&#x73B0;&#x5F00;&#x653E;&#x5F0F;&#x7F16;&#x7801; defer&#xFF0C;&#x652F;&#x6301;&#x5728;&#x51FD;&#x6570;&#x672B;&#x5C3E;&#x5904;&#x76F4;&#x63A5;&#x63D2;&#x5165; defer &#x8C03;&#x7528;&#xFF0C;&#x5F15;&#x5165;&#x51E0;&#x4E4E;&#x96F6;&#x6210;&#x672C; defer</td>
+<td>Dan Scales</td>
+</tr>
+</tbody>
+</table>
+<h2 id="925-&#x5C0F;&#x7ED3;">9.2.5 &#x5C0F;&#x7ED3;</h2>
+<p><img src="https://changkun.de/golang/assets/defer-perf.png" alt="img"><strong>&#x56FE; 9.2.2&#xFF1A;&#x4E0D;&#x540C;&#x7C7B;&#x578B; defer &#x7684;&#x7F16;&#x8BD1;&#x4E0E;&#x8FD0;&#x884C;&#x65F6;&#x6210;&#x672C;&#x4E4B;&#x95F4;&#x7684;&#x53D6;&#x820D;</strong></p>
+<p>&#x6211;&#x4EEC;&#x6700;&#x540E;&#x6765;&#x603B;&#x7ED3;&#x4E00;&#x4E0B; defer &#x7684;&#x57FA;&#x672C;&#x5DE5;&#x4F5C;&#x539F;&#x7406;&#x4EE5;&#x53CA;&#x4E09;&#x79CD; defer &#x7684;&#x6027;&#x80FD;&#x53D6;&#x820D;&#xFF0C;&#x89C1;&#x56FE; 9.2.2&#x3002;</p>
+<ol>
+<li>&#x5BF9;&#x4E8E;&#x5F00;&#x653E;&#x7F16;&#x7801;&#x5F0F; defer &#x800C;&#x8A00;&#xFF1A;<ul>
+<li>&#x7F16;&#x8BD1;&#x5668;&#x4F1A;&#x76F4;&#x63A5;&#x5C06;&#x6240;&#x9700;&#x7684;&#x53C2;&#x6570;&#x8FDB;&#x884C;&#x5B58;&#x50A8;&#xFF0C;&#x5E76;&#x5728;&#x8FD4;&#x56DE;&#x8BED;&#x53E5;&#x7684;&#x672B;&#x5C3E;&#x63D2;&#x5165;&#x88AB;&#x5EF6;&#x8FDF;&#x7684;&#x8C03;&#x7528;&#xFF1B;</li>
+<li>&#x5F53;&#x6574;&#x4E2A;&#x8C03;&#x7528;&#x4E2D;&#x903B;&#x8F91;&#x4E0A;&#x4F1A;&#x6267;&#x884C;&#x7684; defer &#x4E0D;&#x8D85;&#x8FC7; 15 &#x4E2A;&#xFF08;&#x4F8B;&#x5982;&#x4E03;&#x4E2A; defer &#x4F5C;&#x7528;&#x5728;&#x4E24;&#x4E2A;&#x8FD4;&#x56DE;&#x8BED;&#x53E5;&#xFF09;&#x3001;&#x603B; defer &#x6570;&#x91CF;&#x4E0D;&#x8D85;&#x8FC7; 8 &#x4E2A;&#x3001;&#x4E14;&#x6CA1;&#x6709;&#x51FA;&#x73B0;&#x5728;&#x5FAA;&#x73AF;&#x8BED;&#x53E5;&#x4E2D;&#x65F6;&#xFF0C;&#x4F1A;&#x6FC0;&#x6D3B;&#x4F7F;&#x7528;&#x6B64;&#x7C7B; defer&#xFF1B;</li>
+<li>&#x6B64;&#x7C7B; defer &#x7684;&#x552F;&#x4E00;&#x7684;&#x8FD0;&#x884C;&#x65F6;&#x6210;&#x672C;&#x5C31;&#x662F;&#x5B58;&#x50A8;&#x53C2;&#x4E0E;&#x5EF6;&#x8FDF;&#x8C03;&#x7528;&#x7684;&#x76F8;&#x5173;&#x4FE1;&#x606F;&#xFF0C;&#x8FD0;&#x884C;&#x65F6;&#x6027;&#x80FD;&#x6700;&#x597D;&#x3002;</li>
+</ul>
+</li>
+<li>&#x5BF9;&#x4E8E;&#x6808;&#x4E0A;&#x5206;&#x914D;&#x7684; defer &#x800C;&#x8A00;&#xFF1A;<ul>
+<li>&#x7F16;&#x8BD1;&#x5668;&#x4F1A;&#x76F4;&#x63A5;&#x5728;&#x6808;&#x4E0A;&#x8BB0;&#x5F55;&#x4E00;&#x4E2A; <code>_defer</code> &#x8BB0;&#x5F55;&#xFF0C;&#x8BE5;&#x8BB0;&#x5F55;&#x4E0D;&#x6D89;&#x53CA;&#x5185;&#x5B58;&#x5206;&#x914D;&#xFF0C;&#x5E76;&#x5C06;&#x5176;&#x4F5C;&#x4E3A;&#x53C2;&#x6570;&#xFF0C;&#x4F20;&#x5165;&#x88AB;&#x7FFB;&#x8BD1;&#x4E3A; <code>deferprocStack</code> &#x7684;&#x5EF6;&#x8FDF;&#x8BED;&#x53E5;&#xFF0C;&#x5728;&#x5EF6;&#x8FDF;&#x8C03;&#x7528;&#x7684;&#x4F4D;&#x7F6E;&#x5C06; <code>_defer</code> &#x538B;&#x5165; Goroutine &#x5BF9;&#x5E94;&#x7684;&#x5EF6;&#x8FDF;&#x8C03;&#x7528;&#x94FE;&#x8868;&#x4E2D;&#xFF1B;</li>
+<li>&#x5728;&#x51FD;&#x6570;&#x672B;&#x5C3E;&#x5904;&#xFF0C;&#x901A;&#x8FC7;&#x7F16;&#x8BD1;&#x5668;&#x7684;&#x914D;&#x5408;&#xFF0C;&#x5728;&#x8C03;&#x7528;&#x88AB; defer &#x7684;&#x51FD;&#x6570;&#x524D;&#xFF0C;&#x8C03;&#x7528; <code>deferreturn</code>&#xFF0C;&#x5C06;&#x88AB;&#x5EF6;&#x8FDF;&#x7684;&#x8C03;&#x7528;&#x51FA;&#x6808;&#x5E76;&#x6267;&#x884C;&#xFF1B;</li>
+<li>&#x6B64;&#x7C7B; defer &#x7684;&#x552F;&#x4E00;&#x8FD0;&#x884C;&#x65F6;&#x6210;&#x672C;&#x662F;&#x4ECE; <code>_defer</code> &#x8BB0;&#x5F55;&#x4E2D;&#x5C06;&#x53C2;&#x6570;&#x590D;&#x5236;&#x51FA;&#xFF0C;&#x4EE5;&#x53CA;&#x4ECE;&#x5EF6;&#x8FDF;&#x8C03;&#x7528;&#x8BB0;&#x5F55;&#x94FE;&#x8868;&#x51FA;&#x6808;&#x7684;&#x6210;&#x672C;&#xFF0C;&#x8FD0;&#x884C;&#x65F6;&#x6027;&#x80FD;&#x5176;&#x6B21;&#x3002;</li>
+</ul>
+</li>
+<li>&#x5BF9;&#x4E8E;&#x5806;&#x4E0A;&#x5206;&#x914D;&#x7684; defer &#x800C;&#x8A00;&#xFF1A;<ul>
+<li>&#x7F16;&#x8BD1;&#x5668;&#x9996;&#x5148;&#x4F1A;&#x5C06;&#x5EF6;&#x8FDF;&#x8BED;&#x53E5;&#x7FFB;&#x8BD1;&#x4E3A;&#x4E00;&#x4E2A; <code>deferproc</code> &#x8C03;&#x7528;&#xFF0C;&#x8FDB;&#x800C;&#x4ECE;&#x8FD0;&#x884C;&#x65F6;&#x5206;&#x914D;&#x4E00;&#x4E2A;&#x7528;&#x4E8E;&#x8BB0;&#x5F55;&#x88AB;&#x5EF6;&#x8FDF;&#x8C03;&#x7528;&#x7684; <code>_defer</code> &#x8BB0;&#x5F55;&#xFF0C;&#x5E76;&#x5C06;&#x88AB;&#x5EF6;&#x8FDF;&#x7684;&#x8C03;&#x7528;&#x7684;&#x5165;&#x53E3;&#x5730;&#x5740;&#x53CA;&#x5176;&#x53C2;&#x6570;&#x590D;&#x5236;&#x4FDD;&#x5B58;&#xFF0C;&#x5165;&#x6808;&#x5230; Goroutine &#x5BF9;&#x5E94;&#x7684;&#x5EF6;&#x8FDF;&#x8C03;&#x7528;&#x94FE;&#x8868;&#x4E2D;&#xFF1B;</li>
+<li>&#x5728;&#x51FD;&#x6570;&#x672B;&#x5C3E;&#x5904;&#xFF0C;&#x901A;&#x8FC7;&#x7F16;&#x8BD1;&#x5668;&#x7684;&#x914D;&#x5408;&#xFF0C;&#x5728;&#x8C03;&#x7528;&#x88AB; defer &#x7684;&#x51FD;&#x6570;&#x524D;&#xFF0C;&#x8C03;&#x7528; <code>deferreturn</code>&#xFF0C;&#x4ECE;&#x800C;&#x5C06; <code>_defer</code> &#x5B9E;&#x4F8B;&#x5F52;&#x8FD8;&#x5230;&#x8D44;&#x6E90;&#x6C60;&#xFF0C;&#x800C;&#x540E;&#x901A;&#x8FC7;&#x6A21;&#x62DF;&#x5C3E;&#x9012;&#x5F52;&#x7684;&#x65B9;&#x5F0F;&#x6765;&#x5BF9;&#x9700;&#x8981; defer &#x7684;&#x51FD;&#x6570;&#x8FDB;&#x884C;&#x8C03;&#x7528;&#x3002;</li>
+<li>&#x6B64;&#x7C7B; defer &#x7684;&#x4E3B;&#x8981;&#x6027;&#x80FD;&#x95EE;&#x9898;&#x5B58;&#x5728;&#x4E8E;&#x6BCF;&#x4E2A; defer &#x8BED;&#x53E5;&#x4EA7;&#x751F;&#x8BB0;&#x5F55;&#x65F6;&#x7684;&#x5185;&#x5B58;&#x5206;&#x914D;&#xFF0C;&#x8BB0;&#x5F55;&#x53C2;&#x6570;&#x548C;&#x5B8C;&#x6210;&#x8C03;&#x7528;&#x65F6;&#x7684;&#x53C2;&#x6570;&#x79FB;&#x52A8;&#x65F6;&#x7684;&#x7CFB;&#x7EDF;&#x8C03;&#x7528;&#xFF0C;&#x8FD0;&#x884C;&#x65F6;&#x6027;&#x80FD;&#x6700;&#x5DEE;&#x3002;</li>
+</ul>
+</li>
+</ol>
+<h2 id="&#x8FDB;&#x4E00;&#x6B65;&#x9605;&#x8BFB;&#x7684;&#x53C2;&#x8003;&#x6587;&#x732E;">&#x8FDB;&#x4E00;&#x6B65;&#x9605;&#x8BFB;&#x7684;&#x53C2;&#x8003;&#x6587;&#x732E;</h2>
+<ul>
+<li>[Griesemer, 2009] Robert Griesemer. defer statement. Jan 27, 2009. <a href="https://github.com/golang/go/commit/4a903e0b32be5a590880ceb7379e68790602c29d" target="_blank">https://github.com/golang/go/commit/4a903e0b32be5a590880ceb7379e68790602c29d</a></li>
+<li>[Thompson, 2009] Ken Thompson. defer. Jan 27, 2009. <a href="https://github.com/golang/go/commit/1e1cc4eb570aa6fec645ff4faf13431847b99db8" target="_blank">https://github.com/golang/go/commit/1e1cc4eb570aa6fec645ff4faf13431847b99db8</a></li>
+<li>[Cox, 2011] Russ Cox. runtime: aggregate defer. Oct, 2011. <a href="https://github.com/golang/go/issues/2364" target="_blank">https://github.com/golang/go/issues/2364</a></li>
+<li>[Clements, 2016] Austin Clements. runtime: optimize defer code. Sep, 2016. <a href="https://github.com/golang/go/commit/4c308188cc05d6c26f2a2eb30631f9a368aaa737" target="_blank">https://github.com/golang/go/commit/4c308188cc05d6c26f2a2eb30631f9a368aaa737</a></li>
+<li>[Ma, 2016] Minux Ma. runtime: defer is slow. Mar, 2016. <a href="https://github.com/golang/go/issues/14939" target="_blank">https://github.com/golang/go/issues/14939</a></li>
+<li>[Randall, 2013] Keith Randall. cmd/compile: allocate some defers in stack frames. Dec, 2013. <a href="https://github.com/golang/go/issues/6980" target="_blank">https://github.com/golang/go/issues/6980</a></li>
+<li>[Vyukov, 2014] Dmitry Vyukov. runtime: per-P defer pool. Jan, 2014. <a href="https://github.com/golang/go/commit/1ba04c171a3c3a1ea0e5157e8340b606ec9d8949" target="_blank">https://github.com/golang/go/commit/1ba04c171a3c3a1ea0e5157e8340b606ec9d8949</a></li>
+<li>[Scales, 2019] Dan Scales, Keith Randall, and Austin Clements. Proposal: Low-cost defers through inline code, and extra funcdata to manage the panic case. Sep, 2019. <a href="https://go.googlesource.com/proposal/+/refs/heads/master/design/34481-opencoded-defers" target="_blank">https://go.googlesource.com/proposal/+/refs/heads/master/design/34481-opencoded-defers</a></li>
+</ul>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Go语言原本-延迟语句","level":"3.11","depth":1,"next":{"title":"2020-04-13","level":"3.12","depth":1,"ref":"","articles":[]},"previous":{"title":"2020-04-12","level":"3.10","depth":1,"ref":"","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"2020-04-12/Go语言原本-延迟语句.md","mtime":"2020-04-15T06:14:50.220Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-04-15T06:15:30.771Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
