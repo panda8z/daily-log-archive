@@ -1,0 +1,781 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>leetcode-day01 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    2020年Panda8z的面试笔记
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../2020-03-18/面试准备Day01.html">
+            
+                <a href="../2020-03-18/面试准备Day01.html">
+            
+                    
+                    面试准备Day01
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../2020-03-18/gitbook工具使用指南.html">
+            
+                <a href="../2020-03-18/gitbook工具使用指南.html">
+            
+                    
+                    gitbook工具使用指南
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../2020-04-05/Goroutine是怎么开始和退出的.html">
+            
+                <a href="../2020-04-05/Goroutine是怎么开始和退出的.html">
+            
+                    
+                    Goroutine是怎么开始和退出的
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" >
+            
+                <span>
+            
+                    
+                    2020-04-07
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="../2020-04-07/defer的前世今生.html">
+            
+                <a href="../2020-04-07/defer的前世今生.html">
+            
+                    
+                    defer的前世今生
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" data-path="../2020-04-07/Go中defer.html">
+            
+                <a href="../2020-04-07/Go中defer.html">
+            
+                    
+                    Go中defer
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4" data-path="../2020-04-07/Go中defer7个知识点.html">
+            
+                <a href="../2020-04-07/Go中defer7个知识点.html">
+            
+                    
+                    Go中defer7个知识点
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.5" data-path="../2020-04-07/Go实现LeetCode全集.html">
+            
+                <a href="../2020-04-07/Go实现LeetCode全集.html">
+            
+                    
+                    Go实现LeetCode全集
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.6" data-path="../2020-04-07/如何成为Go语言代码贡献者.html">
+            
+                <a href="../2020-04-07/如何成为Go语言代码贡献者.html">
+            
+                    
+                    如何成为Go语言代码贡献者
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.7" data-path="../2020-04-07/读书笔记-2020-04-07.html">
+            
+                <a href="../2020-04-07/读书笔记-2020-04-07.html">
+            
+                    
+                    读书笔记-2020-04-07
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="3.1" >
+            
+                <span>
+            
+                    
+                    2020-04-08
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2" data-path="../2020-04-08/go编译器-编译指示.html">
+            
+                <a href="../2020-04-08/go编译器-编译指示.html">
+            
+                    
+                    编译指示
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3" data-path="../2020-04-08/go做一个小型http服务器并优化实战.html">
+            
+                <a href="../2020-04-08/go做一个小型http服务器并优化实战.html">
+            
+                    
+                    go做一个小型http服务器并优化实战
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.4" >
+            
+                <span>
+            
+                    
+                    2020-04-09
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.5" data-path="../2020-04-09/Go语言原本-调度器.html">
+            
+                <a href="../2020-04-09/Go语言原本-调度器.html">
+            
+                    
+                    Go语言原本-调度器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.6" >
+            
+                <span>
+            
+                    
+                    2020-04-10
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.7" data-path="../2020-04-10/go垃圾回收.html">
+            
+                <a href="../2020-04-10/go垃圾回收.html">
+            
+                    
+                    go垃圾回收
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.8" >
+            
+                <span>
+            
+                    
+                    2020-04-11
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.9" data-path="../2020-04-11/2020-04-11-日志.html">
+            
+                <a href="../2020-04-11/2020-04-11-日志.html">
+            
+                    
+                    2020-04-11-日志
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.10" >
+            
+                <span>
+            
+                    
+                    2020-04-12
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.11" data-path="../2020-04-12/Go语言原本-延迟语句.html">
+            
+                <a href="../2020-04-12/Go语言原本-延迟语句.html">
+            
+                    
+                    Go语言原本-延迟语句
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.12" >
+            
+                <span>
+            
+                    
+                    2020-04-13
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.13" data-path="../2020-04-13/Go语言原本-channel.html">
+            
+                <a href="../2020-04-13/Go语言原本-channel.html">
+            
+                    
+                    Go语言原本-channel
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.14" data-path="../2020-04-13/2020-04-13-日志.html">
+            
+                <a href="../2020-04-13/2020-04-13-日志.html">
+            
+                    
+                    2020-04-13-日志
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="4.1" >
+            
+                <span>
+            
+                    
+                    2020-04-14
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2" data-path="../2020-04-14/G0是怎么创建的.html">
+            
+                <a href="../2020-04-14/G0是怎么创建的.html">
+            
+                    
+                    G0是怎么创建的
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.3" data-path="../2020-04-14/从0构建亿级微服务架构.html">
+            
+                <a href="../2020-04-14/从0构建亿级微服务架构.html">
+            
+                    
+                    从0构建亿级微服务架构
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.4" >
+            
+                <span>
+            
+                    
+                    2020-04-15
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="4.5" data-path="go-leetcode-TwoSum.html">
+            
+                <a href="go-leetcode-TwoSum.html">
+            
+                    
+                    leetcode-day01
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >leetcode-day01</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h2 id="1-&#x4E24;&#x6570;&#x4E4B;&#x548C;"><a href="https://leetcode-cn.com/problems/two-sum/" target="_blank">1. &#x4E24;&#x6570;&#x4E4B;&#x548C;</a></h2>
+<p>&#x96BE;&#x5EA6;&#x7B80;&#x5355;8044&#x6536;&#x85CF;&#x5206;&#x4EAB;&#x5207;&#x6362;&#x4E3A;&#x82F1;&#x6587;&#x5173;&#x6CE8;&#x53CD;&#x9988;</p>
+<p>&#x7ED9;&#x5B9A;&#x4E00;&#x4E2A;&#x6574;&#x6570;&#x6570;&#x7EC4; <code>nums</code> &#x548C;&#x4E00;&#x4E2A;&#x76EE;&#x6807;&#x503C; <code>target</code>&#xFF0C;&#x8BF7;&#x4F60;&#x5728;&#x8BE5;&#x6570;&#x7EC4;&#x4E2D;&#x627E;&#x51FA;&#x548C;&#x4E3A;&#x76EE;&#x6807;&#x503C;&#x7684;&#x90A3; <strong>&#x4E24;&#x4E2A;</strong> &#x6574;&#x6570;&#xFF0C;&#x5E76;&#x8FD4;&#x56DE;&#x4ED6;&#x4EEC;&#x7684;&#x6570;&#x7EC4;&#x4E0B;&#x6807;&#x3002;</p>
+<p>&#x4F60;&#x53EF;&#x4EE5;&#x5047;&#x8BBE;&#x6BCF;&#x79CD;&#x8F93;&#x5165;&#x53EA;&#x4F1A;&#x5BF9;&#x5E94;&#x4E00;&#x4E2A;&#x7B54;&#x6848;&#x3002;&#x4F46;&#x662F;&#xFF0C;&#x4F60;&#x4E0D;&#x80FD;&#x91CD;&#x590D;&#x5229;&#x7528;&#x8FD9;&#x4E2A;&#x6570;&#x7EC4;&#x4E2D;&#x540C;&#x6837;&#x7684;&#x5143;&#x7D20;&#x3002;</p>
+<p><strong>&#x793A;&#x4F8B;:</strong></p>
+<pre><code>&#x7ED9;&#x5B9A; nums = [2, 7, 11, 15], target = 9
+
+&#x56E0;&#x4E3A; nums[0] + nums[1] = 2 + 7 = 9
+&#x6240;&#x4EE5;&#x8FD4;&#x56DE; [0, 1]
+</code></pre><h4 id="&#x89E3;&#x6CD5;2&#x3002;&#x770B;&#x4E86;&#x522B;&#x4EBA;&#x7684;&#x6A21;&#x4EFF;&#x7684;&#xFF0C;">&#x89E3;&#x6CD5;2&#x3002;&#x770B;&#x4E86;&#x522B;&#x4EBA;&#x7684;&#x6A21;&#x4EFF;&#x7684;&#xFF0C;</h4>
+<p>&#x4F7F;&#x7528;map&#x7684;key&#x5B58;item&#xFF0C;value&#x5B58;index&#xFF0C;&#x8FD9;&#x4E2A;&#x65B9;&#x5F0F;&#x5F88;&#x5BB9;&#x6613;&#x4F7F;&#x7528;map&#x8FD9;&#x4E2A;&#x5185;&#x7F6E;&#x7ED3;&#x6784;&#x81EA;&#x5DF1;&#x7684;&#x7279;&#x6027;&#xFF1A;&#x6839;&#x636E;&#x952E;&#x67E5;&#x627E;&#x503C;&#x3002;</p>
+<pre><code class="lang-go"><span class="hljs-keyword">func</span> twoSum(nums []<span class="hljs-keyword">int</span>, target <span class="hljs-keyword">int</span>) []<span class="hljs-keyword">int</span> {
+   m := <span class="hljs-keyword">map</span>[<span class="hljs-keyword">int</span>]<span class="hljs-keyword">int</span>{}
+   <span class="hljs-keyword">for</span> i, v := <span class="hljs-keyword">range</span> nums {
+       <span class="hljs-keyword">if</span> k, ok := m[target-v]; ok {
+           <span class="hljs-keyword">return</span> []<span class="hljs-keyword">int</span>{k, i}
+       }
+       m[v] = i
+   }
+   <span class="hljs-keyword">return</span> <span class="hljs-literal">nil</span>
+}
+</code></pre>
+<h4 id="&#x89E3;&#x6CD5;1-&#x7B2C;&#x4E00;&#x6B21;&#x60F3;&#x5230;&#x7684;&#x8FD9;&#x79CD;">&#x89E3;&#x6CD5;1 &#x7B2C;&#x4E00;&#x6B21;&#x60F3;&#x5230;&#x7684;&#x8FD9;&#x79CD;</h4>
+<pre><code class="lang-go"><span class="hljs-keyword">func</span> twoSum(nums []<span class="hljs-keyword">int</span>, target <span class="hljs-keyword">int</span>) []<span class="hljs-keyword">int</span> {
+    <span class="hljs-keyword">for</span> index,item := <span class="hljs-keyword">range</span> nums {
+        <span class="hljs-keyword">for</span> i, a := <span class="hljs-keyword">range</span> nums {
+            <span class="hljs-keyword">if</span> i != index &amp;&amp; (item + a) == target {
+                <span class="hljs-keyword">return</span> []<span class="hljs-keyword">int</span>{index, i}
+            }
+        }
+    }
+    <span class="hljs-keyword">return</span> <span class="hljs-literal">nil</span>
+}
+</code></pre>
+<h2 id="2-&#x4E24;&#x6570;&#x76F8;&#x52A0;"><a href="https://leetcode-cn.com/problems/add-two-numbers/" target="_blank">2. &#x4E24;&#x6570;&#x76F8;&#x52A0;</a></h2>
+<p>&#x96BE;&#x5EA6;&#x4E2D;&#x7B49;4187</p>
+<p>&#x7ED9;&#x51FA;&#x4E24;&#x4E2A; <strong>&#x975E;&#x7A7A;</strong> &#x7684;&#x94FE;&#x8868;&#x7528;&#x6765;&#x8868;&#x793A;&#x4E24;&#x4E2A;&#x975E;&#x8D1F;&#x7684;&#x6574;&#x6570;&#x3002;&#x5176;&#x4E2D;&#xFF0C;&#x5B83;&#x4EEC;&#x5404;&#x81EA;&#x7684;&#x4F4D;&#x6570;&#x662F;&#x6309;&#x7167; <strong>&#x9006;&#x5E8F;</strong> &#x7684;&#x65B9;&#x5F0F;&#x5B58;&#x50A8;&#x7684;&#xFF0C;&#x5E76;&#x4E14;&#x5B83;&#x4EEC;&#x7684;&#x6BCF;&#x4E2A;&#x8282;&#x70B9;&#x53EA;&#x80FD;&#x5B58;&#x50A8; <strong>&#x4E00;&#x4F4D;</strong> &#x6570;&#x5B57;&#x3002;</p>
+<p>&#x5982;&#x679C;&#xFF0C;&#x6211;&#x4EEC;&#x5C06;&#x8FD9;&#x4E24;&#x4E2A;&#x6570;&#x76F8;&#x52A0;&#x8D77;&#x6765;&#xFF0C;&#x5219;&#x4F1A;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x65B0;&#x7684;&#x94FE;&#x8868;&#x6765;&#x8868;&#x793A;&#x5B83;&#x4EEC;&#x7684;&#x548C;&#x3002;</p>
+<p>&#x60A8;&#x53EF;&#x4EE5;&#x5047;&#x8BBE;&#x9664;&#x4E86;&#x6570;&#x5B57; 0 &#x4E4B;&#x5916;&#xFF0C;&#x8FD9;&#x4E24;&#x4E2A;&#x6570;&#x90FD;&#x4E0D;&#x4F1A;&#x4EE5; 0 &#x5F00;&#x5934;&#x3002;</p>
+<p><strong>&#x793A;&#x4F8B;&#xFF1A;</strong></p>
+<pre><code>&#x8F93;&#x5165;&#xFF1A;(2 -&gt; 4 -&gt; 3) + (5 -&gt; 6 -&gt; 4)
+&#x8F93;&#x51FA;&#xFF1A;7 -&gt; 0 -&gt; 8
+&#x539F;&#x56E0;&#xFF1A;342 + 465 = 807
+</code></pre><h4 id="golang&#x89E3;&#x6CD5;&#x9898;&#x89E3;&#x601D;&#x8DEF;&#x6E90;&#x7801;&#x6CE8;&#x91CA;">Golang&#x89E3;&#x6CD5;+&#x9898;&#x89E3;+&#x601D;&#x8DEF;+&#x6E90;&#x7801;+&#x6CE8;&#x91CA;</h4>
+<p><a href="https://leetcode-cn.com/u/iphpt/" target="_blank">&#x53F6;&#x843D;&#x5C71;&#x57CE;</a>&#x53D1;&#x5E03;&#x4E8E; 7 &#x4E2A;&#x6708;&#x524D;1.2kGo</p>
+<h4 id="&#x9898;&#x89E3;">&#x9898;&#x89E3;:</h4>
+<ul>
+<li>&#x4E24;&#x6570;&#x76F8;&#x52A0;&#x5176;&#x5B9E;&#x662F;&#x4E24;&#x94FE;&#x8868;&#x76F8;&#x52A0;</li>
+<li>&#x6839;&#x636E;&#x793A;&#x4F8B;&#x53EF;&#x4EE5;&#x770B;&#x51FA;,&#x662F;&#x628A;&#x4E24;&#x94FE;&#x8868;&#x4ECE;&#x6700;&#x540E;&#x7684;&#x8282;&#x70B9;&#x5F80;&#x524D;&#x7B97;,&#x51D1;&#x6210;&#x4E00;&#x4E2A;&#x6574;&#x6570;,&#x7136;&#x540E;&#x4E24;&#x4E2A;&#x6574;&#x6570;&#x76F8;&#x52A0;,&#x5F97;&#x51FA;&#x7684;&#x7ED3;&#x679C; &#x4ECE; &#x4E2A;&#x4F4D;&#x6570;&#x5F00;&#x59CB;&#x62C6;&#x6210;&#x4E00;&#x4E2A;&#x94FE;&#x8868;</li>
+<li>&#x4E0D;&#x8FC7;&#x4E00;&#x5B9A;&#x8981;&#x6CE8;&#x610F;! &#x5982;&#x679C;&#x771F;&#x7684;&#x5F53;&#x6210; &#x6574;&#x6570;&#x6765;&#x7B97;,&#x53EF;&#x80FD;&#x4F1A;&#x8D85;&#x51FA; &#x6574;&#x578B;&#x7684;&#x6700;&#x5927;&#x8303;&#x56F4;!!!!</li>
+</ul>
+<h4 id="&#x601D;&#x8DEF;">&#x601D;&#x8DEF;:</h4>
+<ul>
+<li>&#x4E00;&#x5F00;&#x59CB;&#x6211;&#x662F;&#x5148;&#x628A;&#x4E24;&#x94FE;&#x8868;&#x8F6C;&#x6362;&#x6210;&#x4E24;&#x4E2A;&#x6574;&#x6570;,&#x7136;&#x540E;&#x76F8;&#x52A0;,&#x518D;&#x628A;&#x7ED3;&#x679C;&#x7684;&#x6574;&#x6570;&#x62C6;&#x5206;&#x6210; &#x4E00;&#x4E2A;&#x94FE;&#x8868;! &#x4F46;&#x662F;&#x53EF;&#x80FD;&#x4F1A;&#x8D85;&#x957F;&#x7684;!!!!!</li>
+<li>&#x540E;&#x6765;&#x53D1;&#x73B0;&#x4E86;&#x4E00;&#x4E2A;&#x7B80;&#x5355;&#x7684;&#x65B9;&#x6CD5;</li>
+<li>&#x6BD4;&#x5982;&#x4F8B;&#x5B50;&#x5427;,&#x4ED4;&#x7EC6;&#x770B;,&#x94FE;&#x8868;1&#x4ECE;&#x503C;&#x7B49;&#x4E8E;2&#x7684;&#x5F00;&#x59CB;,&#x94FE;&#x8868;2&#x4ECE;&#x503C;&#x7B49;&#x4E8E;5&#x5F00;&#x59CB;,&#x6839;&#x636E;&#x793A;&#x4F8B;&#x91CC;&#x7684;<code>&#x539F;&#x56E0;</code>,&#x662F;<code>342 + 465</code>,&#x6B63;&#x5E38;&#x7684;&#x4E24;&#x6570;&#x76F8;&#x52A0;&#x4E5F;&#x662F;&#x4ECE;&#x5404;&#x4F4D;&#x5F00;&#x59CB;&#x7684;,&#x4ED4;&#x7EC6;&#x770B;,&#x4E2A;&#x4F4D;&#x6570;&#x662F;&#x4E0D;&#x662F;&#x5C31;&#x662F;<code>2</code>&#x548C;<code>5</code></li>
+<li>&#x518D;&#x770B;&#x793A;&#x4F8B;&#x7ED3;&#x679C;,&#x4E2A;&#x4F4D;&#x6570;&#x662F;&#x5728;&#x7ED3;&#x679C;&#x7684;&#x94FE;&#x8868;&#x7684;&#x5934;&#x8282;&#x70B9;&#x7684;! &#x4E5F;&#x5C31;&#x662F;&#x8BF4; <code>7</code> &#x662F;&#x5728;&#x6392;&#x5728;&#x6700;&#x524D;&#x9762;&#x7684;</li>
+</ul>
+<pre><code>1-&gt;0-&gt;0-&gt;0-&gt;0-&gt;1
+2-&gt;3-&gt;4
+
+&#x7ED3;&#x679C;&#x662F;
+
+3-&gt;3-&gt;4-&gt;0-&gt;0-&gt;1
+</code></pre><ul>
+<li>&#x770B;&#x4E0A;&#x9762;&#x7684;&#x4E24;&#x4E2A;&#x94FE;&#x8868;&#x76F8;&#x52A0;,&#x660E;&#x663E;&#x4E86;&#x5427;,&#x53EA;&#x8981;&#x4F9D;&#x6B21;&#x6B63;&#x5E38;&#x904D;&#x5386;&#x94FE;&#x8868;,&#x7136;&#x540E;&#x6309;&#x7167;&#x5BF9;&#x5E94;&#x4F4D;&#x7F6E;&#x4E24;&#x6570;&#x76F8;&#x52A0;, &#x5982;&#x679C;&#x8D85;&#x8FC7;<code>10</code>,&#x5219;&#x53D6;&#x7ED3;&#x679C;&#x7684;<code>&#x4E2A;&#x4F4D;&#x6570;(&#x7ED3;&#x679C;-10)</code>,&#x4E0B;&#x4E00;&#x4F4D;&#x5C31;<code>+1</code></li>
+<li>&#x6CE8;&#x610F;,&#x5982;&#x679C;&#x4E00;&#x4E2A;&#x94FE;&#x8868;&#x6BD4;&#x8F83;&#x77ED;,&#x90A3;&#x4E48; &#x957F;&#x94FE;&#x8868;&#x53EF;&#x4EE5; <code>+ 0</code></li>
+<li>&#x53E6;&#x5916;&#x6CE8;&#x610F; &#x5982;&#x679C;&#x6700;&#x540E;&#x4E00;&#x4F4D;&#x76F8;&#x52A0;&#x4E4B;&#x548C;<code>&#x5927;&#x4E8E;10</code>,&#x90A3;&#x4E48;,&#x6700;&#x540E;&#x8FD8;&#x8981;&#x518D;&#x52A0;&#x4E00;&#x4E2A;<code>1</code>&#x7684;&#x8282;&#x70B9; (&#x6BD4;&#x5982; <code>9-&gt;9-&gt;9</code> + <code>9-&gt;9-&gt;9</code>)</li>
+</ul>
+<h4 id="&#x4EE3;&#x7801;">&#x4EE3;&#x7801;:</h4>
+<pre><code>func addTwoNumbers(l1 *ListNode, l2 *ListNode) *ListNode {
+
+    // &#x5B9A;&#x4E49;&#x4E00;&#x4E2A; i &#x8868;&#x793A; &#x4E24;&#x6570;&#x76F8;&#x52A0;&#x662F;&#x5426;&#x5927;&#x4E8E;10, &#x5B9A;&#x4E49;&#x4E00;&#x4E2A;s&#x8868;&#x793A;&#x4E24;&#x6570;&#x4E24;&#x52A0;&#x4E4B;&#x548C;
+    var i,s int
+    // &#x5B9A;&#x4E49;&#x4E00;&#x4E2A;&#x5934;&#x8282;&#x70B9;
+    res := &amp;ListNode{Val:0}
+    // &#x5B9A;&#x4E49;&#x4E00;&#x4E2A;&#x5F53;&#x524D;&#x8282;&#x70B9;
+    now := res
+
+    // &#x65E0;&#x9650;&#x5FAA;&#x73AF;,&#x5185;&#x90E8;&#x52A0;&#x6761;&#x4EF6;&#x8DF3;&#x51FA;
+    for true {
+        // &#x5982;&#x679C; i &gt;0 &#x8868;&#x793A;&#x524D;&#x9762;&#x7684;&#x6570;&#x4E4B;&#x548C;&#x5927;&#x4E8E;10&#x4E86;,&#x6240;&#x4EE5;&#x5F53;&#x524D;&#x7684;&#x548C;&#x8981;&#x52A0;1,&#x5426;&#x5219;&#x4E0D;&#x52A0;
+        if i &gt; 0 {
+            s = l1.Val + l2.Val + 1
+        } else {
+            s = l1.Val + l2.Val
+        }
+        // &#x5982;&#x679C; &#x4E24;&#x6570;&#x4E4B;&#x548C;&#x5927;&#x4E8E;10,&#x90A3;&#x4E48;&#x8BE5;&#x4F4D;&#x7684;&#x503C;&#x5E94;&#x8BE5;&#x662F; s - 10 ,&#x5426;&#x5219;&#x5C31;&#x662F; &#x548C; &#x672C;&#x8EAB;,&#x5E76;&#x8BBE;&#x7F6E; i &#x6807;&#x8BB0;
+        if s &gt;= 10 {
+            now.Next = &amp;ListNode{Val:s - 10}
+            i = 1
+        } else {
+            now.Next = &amp;ListNode{Val:s}
+            i = 0
+        }
+        // &#x5C06; &#x5F53;&#x524D;&#x8282;&#x70B9;&#x79FB;&#x52A8;&#x5230;&#x4E0B;&#x4E00;&#x6307;&#x9488;
+        now = now.Next
+
+        // &#x5F53;l1 &#x548C; l2 &#x90FD;&#x79FB;&#x52A8;&#x5230;&#x6700;&#x540E;&#x4E86;,&#x51C6;&#x5907;&#x8DF3;&#x51FA;&#x5FAA;&#x73AF;
+        if l1.Next == nil &amp;&amp; l2.Next == nil {
+            // &#x5982;&#x679C;l1 &#x548C; l2 &#x6700;&#x540E;&#x7684;&#x548C;&#x5927;&#x4E8E;10,&#x5373; i == 1, &#x90A3;&#x4E48;&#x540E;&#x9762;&#x8FD8;&#x9700;&#x8981;&#x6DFB;&#x52A0;&#x4E00;&#x4E2A; 1 (&#x5C0F;&#x5B66;&#x6570;&#x5B66;&#x95EE;&#x9898;,&#x4E0D;&#x7528;&#x89E3;&#x91CA;&#x4E3A;&#x4EC0;&#x4E48;&#x662F;1&#x5427;)
+            if i == 1 {
+                now.Next = &amp;ListNode{Val:1}
+            }
+            // &#x8DF3;&#x51FA;&#x5FAA;&#x73AF;
+            break
+        }
+        // &#x5982;&#x679C; l1&#x8D70;&#x5230;&#x4E86;&#x6700;&#x540E;,&#x53EF;&#x80FD;l2 &#x8FD8;&#x6CA1;&#x7ED3;&#x675F;,&#x6240;&#x4EE5;&#x628A;l1&#x7684;&#x5F53;&#x524D;&#x8282;&#x70B9;&#x503C;&#x8BBE;&#x7F6E;&#x6210;0,&#x7EE7;&#x7EED;&#x8DDF;l2&#x76F8;&#x52A0;,&#x5426;&#x5219;&#x79FB;&#x52A8;&#x5230;&#x4E0B;&#x4E00;&#x6307;&#x9488;
+        if l1.Next == nil {
+            l1.Val = 0
+        } else {
+            l1 = l1.Next
+        }
+        // &#x5982;&#x679C; l2&#x8D70;&#x5230;&#x4E86;&#x6700;&#x540E;,&#x53EF;&#x80FD;l1 &#x8FD8;&#x6CA1;&#x7ED3;&#x675F;,&#x6240;&#x4EE5;&#x628A;l2&#x7684;&#x5F53;&#x524D;&#x8282;&#x70B9;&#x503C;&#x8BBE;&#x7F6E;&#x6210;0,&#x7EE7;&#x7EED;&#x8DDF;l1&#x76F8;&#x52A0;,&#x5426;&#x5219;&#x79FB;&#x52A8;&#x5230;&#x4E0B;&#x4E00;&#x6307;&#x9488;
+        if l2.Next == nil {
+            l2.Val = 0
+        } else {
+            l2 = l2.Next
+        }
+    }
+
+    // &#x8FD4;&#x56DE;&#x5934;&#x8282;&#x70B9;&#x7684;&#x4E0B;&#x4E00;&#x4E2A;&#x8282;&#x70B9;&#x6307;&#x9488;,&#x56E0;&#x4E3A;&#x5934;&#x8282;&#x70B9;&#x662F;&#x6211;&#x8BBE;&#x7F6E;&#x6210;0&#x7684;
+    return res.Next
+}
+</code></pre><p>&#xA9; &#x8457;&#x4F5C;&#x6743;&#x5F52;&#x4F5C;&#x8005;&#x6240;&#x6709;</p>
+<h2 id="7-&#x6574;&#x6570;&#x53CD;&#x8F6C;"><a href="https://leetcode-cn.com/problems/reverse-integer/" target="_blank">7. &#x6574;&#x6570;&#x53CD;&#x8F6C;</a></h2>
+<p>&#x96BE;&#x5EA6;&#x7B80;&#x5355;1822&#x6536;&#x85CF;&#x5206;&#x4EAB;&#x5207;&#x6362;&#x4E3A;&#x82F1;&#x6587;&#x5173;&#x6CE8;&#x53CD;&#x9988;</p>
+<p>&#x7ED9;&#x51FA;&#x4E00;&#x4E2A; 32 &#x4F4D;&#x7684;&#x6709;&#x7B26;&#x53F7;&#x6574;&#x6570;&#xFF0C;&#x4F60;&#x9700;&#x8981;&#x5C06;&#x8FD9;&#x4E2A;&#x6574;&#x6570;&#x4E2D;&#x6BCF;&#x4F4D;&#x4E0A;&#x7684;&#x6570;&#x5B57;&#x8FDB;&#x884C;&#x53CD;&#x8F6C;&#x3002;</p>
+<p><strong>&#x793A;&#x4F8B; 1:</strong></p>
+<pre><code>&#x8F93;&#x5165;: 123
+&#x8F93;&#x51FA;: 321
+</code></pre><p> <strong>&#x793A;&#x4F8B; 2:</strong></p>
+<pre><code>&#x8F93;&#x5165;: -123
+&#x8F93;&#x51FA;: -321
+</code></pre><p><strong>&#x793A;&#x4F8B; 3:</strong></p>
+<pre><code>&#x8F93;&#x5165;: 120
+&#x8F93;&#x51FA;: 21
+</code></pre><p><strong>&#x6CE8;&#x610F;:</strong></p>
+<h4 id="&#x89E3;&#x6CD5;1&#xFF0C;&#x6211;&#x662F;&#x6CA1;&#x4EC0;&#x4E48;&#x60F3;&#x6CD5;&#x770B;&#x4E86;&#x522B;&#x4EBA;&#x7684;&#x624D;&#x60F3;&#x8D77;&#x6765;&#x3002;">&#x89E3;&#x6CD5;1&#xFF0C;&#x6211;&#x662F;&#x6CA1;&#x4EC0;&#x4E48;&#x60F3;&#x6CD5;&#x770B;&#x4E86;&#x522B;&#x4EBA;&#x7684;&#x624D;&#x60F3;&#x8D77;&#x6765;&#x3002;</h4>
+<pre><code class="lang-go"><span class="hljs-keyword">package</span> main
+
+<span class="hljs-keyword">import</span> (
+    <span class="hljs-string">&quot;fmt&quot;</span>
+)
+
+<span class="hljs-keyword">func</span> reverse(x <span class="hljs-keyword">int</span>) <span class="hljs-keyword">int</span> {
+    <span class="hljs-keyword">var</span> y <span class="hljs-keyword">int</span>
+    <span class="hljs-keyword">for</span> x != <span class="hljs-number">0</span> {
+        y = y*<span class="hljs-number">10</span> + x%<span class="hljs-number">10</span>
+        <span class="hljs-keyword">if</span> y &lt;= -(<span class="hljs-number">1</span>&lt;&lt;<span class="hljs-number">31</span>) || y &gt;= (<span class="hljs-number">1</span>&lt;&lt;<span class="hljs-number">31</span>)<span class="hljs-number">-1</span> {
+            <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>
+        }
+        x /= <span class="hljs-number">10</span>
+    }
+    <span class="hljs-keyword">return</span> y
+}
+
+<span class="hljs-keyword">func</span> main() {
+
+    fmt.Println(reverse(<span class="hljs-number">2340</span>))
+    fmt.Println(reverse(<span class="hljs-number">1534236469</span>))
+    fmt.Println(reverse(<span class="hljs-number">-2340</span>))
+}
+</code></pre>
+<p><img src="go-leetcode-TwoSum/image-20200415192402085.png" alt="image-20200415192402085"></p>
+<p>&#x611F;&#x89C9;&#x8FD8;&#x8981;&#x5904;&#x7406;&#x8FDB;&#x4F4D;&#x95EE;&#x9898;&#x3002;</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"leetcode-day01","level":"4.5","depth":1,"previous":{"title":"2020-04-15","level":"4.4","depth":1,"ref":"","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"2020-04-15/go-leetcode-TwoSum.md","mtime":"2020-04-15T11:37:06.320Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-04-15T11:37:50.143Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
