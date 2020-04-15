@@ -25,23 +25,15 @@ func randomDefers() {
 
 
 - defer 的类型
-
 - 在堆上分配的 defer
-
-- - 编译阶段
+  - 编译阶段
   - 运行阶段
-
 - 在栈上创建 defer
-
 - 开放编码式 defer
-
-- - 产生条件
+  - 产生条件
   - 延迟比特
-
 - defer 的优化之路
-
 - 小结
-
 - 进一步阅读的参考文献
 
 
@@ -113,38 +105,104 @@ func (s *state) stmt(n *Node) {
 
 
 ```go
+
 // src/cmd/compile/internal/gc/ssa.go
-func (s *state) call(n *Node, k callKind) *ssa.Value {  ...  var call *ssa.Value  if k == callDeferStack {    ...  } else {    // 在堆上创建 defer    
-argStart := Ctxt.FixedFrameSize()    // Defer 参数    
-if k != callNormal {      // 记录 deferproc 的参数     
- argsize := s.constInt32(types.Types[TUINT32], int32(stksize))      
- addr := s.constOffPtrSP(s.f.Config.Types.UInt32Ptr, argStart)      
- s.store(types.Types[TUINT32], addr, argsize)  // 保存参数大小 siz     
-  addr = s.constOffPtrSP(s.f.Config.Types.UintptrPtr, argStart+int64(Widthptr))      s.store(types.Types[TUINTPTR], addr, closure)  // 保存函数地址 fn      
-  stksize += 2 * int64(Widthptr)      argStart += 2 * int64(Widthptr)    }    ...
-    // 创建 deferproc 调用    
-    switch {    case k == callDefer:      call = s.newValue1A(ssa.OpStaticCall, types.TypeMem, deferproc, s.mem())    ...    }    ...  }  ...
-  // 结束 defer 块  
-  if k == callDefer || k == callDeferStack {    s.exit()    ...  }  ...}
-  func (s *state) exit() *ssa.Block {  if s.hasdefer {    if s.hasOpenDefers {      ...    } else {      // 调用 deferreturn     
-   s.rtcall(Deferreturn, true, nil)    }  }  ...}
+func (s *state) call(n *Node, k callKind) *ssa.Value {
+  ...
+  var call *ssa.Value
+  if k == callDeferStack {
+    ...
+  } else {
+    // 在堆上创建 defer
+    argStart := Ctxt.FixedFrameSize()
+    // Defer 参数
+    if k != callNormal {
+      // 记录 deferproc 的参数
+      argsize := s.constInt32(types.Types[TUINT32], int32(stksize))
+      addr := s.constOffPtrSP(s.f.Config.Types.UInt32Ptr, argStart)
+      s.store(types.Types[TUINT32], addr, argsize)  // 保存参数大小 siz
+      addr = s.constOffPtrSP(s.f.Config.Types.UintptrPtr, argStart+int64(Widthptr))
+      s.store(types.Types[TUINTPTR], addr, closure)  // 保存函数地址 fn
+      stksize += 2 * int64(Widthptr)
+      argStart += 2 * int64(Widthptr)
+    }
+    ...
+
+    // 创建 deferproc 调用
+    switch {
+    case k == callDefer:
+      call = s.newValue1A(ssa.OpStaticCall, types.TypeMem, deferproc, s.mem())
+    ...
+    }
+    ...
+  }
+  ...
+
+  // 结束 defer 块
+  if k == callDefer || k == callDeferStack {
+    s.exit()
+    ...
+  }
+  ...
+}
+func (s *state) exit() *ssa.Block {
+  if s.hasdefer {
+    if s.hasOpenDefers {
+      ...
+    } else {
+      // 调用 deferreturn
+      s.rtcall(Deferreturn, true, nil)
+    }
+  }
+  ...
+}
 ```
 
 例如，对于一个纯粹的 `defer` 调用而言：
 
 
-```
+```go
+
 package main
-func foo() {  return}
-func main() {  defer foo()  return}
+
+func foo() {
+  return
+}
+
+func main() {
+  defer foo()
+  return
+}
 ```
 
 如果我们将其强制编译为在堆上分配的形式，可以观察到如下的汇编代码。其中 `defer foo()`被转化为了 `deferproc` 调用，并在函数返回前，调用了 `deferreturn`：
 
 
-```
-TEXT main.foo(SB) /Users/changkun/Desktop/defer/ssa/main.go  return  0x104ea20    c3      RET      
-TEXT main.main(SB) /Users/changkun/Desktop/defer/ssa/main.gofunc main() {  ...  // 将 defer foo() { ... }() 转化为一个 deferproc 调用  // 在调用 deferproc 前完成参数的准备工作，这个例子中没有参数  0x104ea4d    c7042400000000    MOVL $0x0, 0(SP)      0x104ea54    488d0585290200    LEAQ go.func.*+60(SB), AX    0x104ea5b    4889442408    MOVQ AX, 0x8(SP)      0x104ea60    e8bb31fdff    CALL runtime.deferproc(SB)    ...  // 函数返回指令 RET 前插入的 deferreturn 语句  0x104ea7b    90      NOPL          0x104ea7c    e82f3afdff    CALL runtime.deferreturn(SB)    0x104ea81    488b6c2410    MOVQ 0x10(SP), BP      0x104ea86    4883c418    ADDQ $0x18, SP        0x104ea8a    c3      RET          // 函数的尾声  0x104ea8b    e8d084ffff    CALL runtime.morestack_noctxt(SB)    0x104ea90    eb9e      JMP main.main(SB)
+```assembly
+TEXT main.foo(SB) /Users/changkun/Desktop/defer/ssa/main.go
+  return
+  0x104ea20    c3      RET      
+
+TEXT main.main(SB) /Users/changkun/Desktop/defer/ssa/main.go
+func main() {
+  ...
+  // 将 defer foo() { ... }() 转化为一个 deferproc 调用
+  // 在调用 deferproc 前完成参数的准备工作，这个例子中没有参数
+  0x104ea4d    c7042400000000    MOVL $0x0, 0(SP)    
+  0x104ea54    488d0585290200    LEAQ go.func.*+60(SB), AX  
+  0x104ea5b    4889442408    MOVQ AX, 0x8(SP)    
+  0x104ea60    e8bb31fdff    CALL runtime.deferproc(SB)  
+  ...
+  // 函数返回指令 RET 前插入的 deferreturn 语句
+  0x104ea7b    90      NOPL        
+  0x104ea7c    e82f3afdff    CALL runtime.deferreturn(SB)  
+  0x104ea81    488b6c2410    MOVQ 0x10(SP), BP    
+  0x104ea86    4883c418    ADDQ $0x18, SP      
+  0x104ea8a    c3      RET        
+  // 函数的尾声
+  0x104ea8b    e8d084ffff    CALL runtime.morestack_noctxt(SB)  
+  0x104ea90    eb9e      JMP main.main(SB)
+
 ```
 
 ### 运行阶段
@@ -152,13 +210,31 @@ TEXT main.main(SB) /Users/changkun/Desktop/defer/ssa/main.gofunc main() {  ...  
 一个函数中的延迟语句会被保存为一个 `_defer` 记录的链表，附着在一个 Goroutine 上。`_defer` 记录的具体结构也非常简单，主要包含了参与调用的参数大小、当前 defer 语句所在函数的 PC 和 SP 寄存器、被 defer 的函数的入口地址以及串联多个 defer 的 link 链表，该链表指向下一个需要执行的 defer，如图 9.2.1 所示。
 
 
+```go
+
+// src/runtime/panic.go
+type _defer struct {
+  siz       int32
+  heap      bool
+  sp        uintptr
+  pc        uintptr
+  fn        *funcval
+  link      *_defer
+  ...
+}
+// src/runtime/runtime2.go
+type g struct {
+  ...
+  _defer *_defer
+  ...
+}
 ```
-// src/runtime/panic.gotype _defer struct {  siz       int32  heap      bool  sp        uintptr  pc        uintptr  fn        *funcval  link      *_defer  ...}// src/runtime/runtime2.gotype g struct {  ...  _defer *_defer  ...}
-```
 
 
 
-![img](data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==)附着在 Goroutine 上的 _defer 记录的链表
+![img](defer的前世今生/640-20200415133040498.png)
+
+> 附着在 Goroutine 上的 _defer 记录的链表
 
 现在我们知道，一个在堆上分配的延迟语句被编译为了 `deferproc`，用于记录被延迟的函数调用；在函数的尾声，会插入 `deferreturn` 调用，用于执行被延迟的调用。
 
@@ -168,13 +244,29 @@ TEXT main.main(SB) /Users/changkun/Desktop/defer/ssa/main.gofunc main() {  ...  
 
 
 ```go
-//go:nosplitfunc 
-deferproc(siz int32, fn *funcval) {  ...  sp := getcallersp()  argp := uintptr(unsafe.Pointer(&fn)) + unsafe.Sizeof(fn)  callerpc := getcallerpc()
-  d := newdefer(siz)  d.fn = fn  d.pc = callerpc  d.sp = sp
-  // 将参数保存到 _defer 记录中  
-  switch siz {  case 0: // 什么也不做  
-  case sys.PtrSize:    *(*uintptr)(deferArgs(d)) = *(*uintptr)(unsafe.Pointer(argp))  default:    memmove(deferArgs(d), unsafe.Pointer(argp), uintptr(siz))  }
-  return0()}
+//go:nosplit
+func deferproc(siz int32, fn *funcval) {
+  ...
+  sp := getcallersp()
+  argp := uintptr(unsafe.Pointer(&fn)) + unsafe.Sizeof(fn)
+  callerpc := getcallerpc()
+
+  d := newdefer(siz)
+  d.fn = fn
+  d.pc = callerpc
+  d.sp = sp
+
+  // 将参数保存到 _defer 记录中
+  switch siz {
+  case 0: // 什么也不做
+  case sys.PtrSize:
+    *(*uintptr)(deferArgs(d)) = *(*uintptr)(unsafe.Pointer(argp))
+  default:
+    memmove(deferArgs(d), unsafe.Pointer(argp), uintptr(siz))
+  }
+
+  return0()
+}
 ```
 
 这段代码中，本质上只是在做一些简单参数处理，比如 `fn` 保存了 `defer` 所调用函数的调用地址，`siz` 确定了其参数的大小。并且通过 `newdefer` 来创建一个新的 `_defer` 实例，然后由 `fn`、`callerpc` 和 `sp` 来保存调用该 defer 的 Goroutine 上下文。
@@ -187,35 +279,135 @@ deferproc(siz int32, fn *funcval) {  ...  sp := getcallersp()  argp := uintptr(u
 
 
 ```go
-// src/runtime/runtime2.gotype p struct {  ...  // 不同大小的本地 defer 池  deferpool    [5][]*_defer  deferpoolbuf [5][32]*_defer  ...}type schedt struct {  ...  // 不同大小的全局 defer 池  deferlock mutex  deferpool [5]*_defer  ...}
+
+// src/runtime/runtime2.go
+type p struct {
+  ...
+  // 不同大小的本地 defer 池
+  deferpool    [5][]*_defer
+  deferpoolbuf [5][32]*_defer
+  ...
+}
+type schedt struct {
+  ...
+  // 不同大小的全局 defer 池
+  deferlock mutex
+  deferpool [5]*_defer
+  ...
+}
 ```
 
 对于新建的 `_defer` 实例而言，会将其加入到 Goroutine 所保留的 defer 链表上，通过 `link` 字段串联。
 
 
 ```go
+
 // src/runtime/panic.go
-//go:nosplitfunc newdefer(siz int32) *_defer {  var d *_defer  sc := deferclass(uintptr(siz))  gp := getg()  // 检查 defer 参数的大小是否从 p 的 deferpool 直接分配  if sc < uintptr(len(p{}.deferpool)) {    pp := gp.m.p.ptr()
-    // 如果 p 本地无法分配，则从全局池中获取一半 defer，来填充 P 的本地资源池    if len(pp.deferpool[sc]) == 0 && sched.deferpool[sc] != nil {      // 出于性能考虑，如果发生栈的增长，则会调用 morestack，      // 进一步降低 defer 的性能。因此切换到系统栈上执行，进而不会发生栈的增长。      systemstack(func() {        lock(&sched.deferlock)        for len(pp.deferpool[sc]) < cap(pp.deferpool[sc])/2 && sched.deferpool[sc] != nil {          d := sched.deferpool[sc]          sched.deferpool[sc] = d.link          d.link = nil          pp.deferpool[sc] = append(pp.deferpool[sc], d)        }        unlock(&sched.deferlock)      })    }
-    // 从 P 本地进行分配    if n := len(pp.deferpool[sc]); n > 0 {      d = pp.deferpool[sc][n-1]      pp.deferpool[sc][n-1] = nil      pp.deferpool[sc] = pp.deferpool[sc][:n-1]    }  }  // 没有可用的缓存，直接从堆上分配新的 defer 和 args  if d == nil {    systemstack(func() {      total := roundupsize(totaldefersize(uintptr(siz)))      d = (*_defer)(mallocgc(total, deferType, true))    })  }  // 将 _defer 实例添加到 Goroutine 的 _defer 链表上。  d.siz = siz  d.heap = true  d.link = gp._defer  gp._defer = d  return d}
+
+//go:nosplit
+func newdefer(siz int32) *_defer {
+  var d *_defer
+  sc := deferclass(uintptr(siz))
+  gp := getg()
+  // 检查 defer 参数的大小是否从 p 的 deferpool 直接分配
+  if sc < uintptr(len(p{}.deferpool)) {
+    pp := gp.m.p.ptr()
+
+    // 如果 p 本地无法分配，则从全局池中获取一半 defer，来填充 P 的本地资源池
+    if len(pp.deferpool[sc]) == 0 && sched.deferpool[sc] != nil {
+      // 出于性能考虑，如果发生栈的增长，则会调用 morestack，
+      // 进一步降低 defer 的性能。因此切换到系统栈上执行，进而不会发生栈的增长。
+      systemstack(func() {
+        lock(&sched.deferlock)
+        for len(pp.deferpool[sc]) < cap(pp.deferpool[sc])/2 && sched.deferpool[sc] != nil {
+          d := sched.deferpool[sc]
+          sched.deferpool[sc] = d.link
+          d.link = nil
+          pp.deferpool[sc] = append(pp.deferpool[sc], d)
+        }
+        unlock(&sched.deferlock)
+      })
+    }
+
+    // 从 P 本地进行分配
+    if n := len(pp.deferpool[sc]); n > 0 {
+      d = pp.deferpool[sc][n-1]
+      pp.deferpool[sc][n-1] = nil
+      pp.deferpool[sc] = pp.deferpool[sc][:n-1]
+    }
+  }
+  // 没有可用的缓存，直接从堆上分配新的 defer 和 args
+  if d == nil {
+    systemstack(func() {
+      total := roundupsize(totaldefersize(uintptr(siz)))
+      d = (*_defer)(mallocgc(total, deferType, true))
+    })
+  }
+  // 将 _defer 实例添加到 Goroutine 的 _defer 链表上。
+  d.siz = siz
+  d.heap = true
+  d.link = gp._defer
+  gp._defer = d
+  return d
+}
 ```
 
 `deferreturn` 被编译器插入到函数末尾，当跳转到它时，会将需要被 defer 的入口地址取出，然后跳转并执行：
 
 
 ```go
+
 // src/runtime/panic.go
-//go:nosplitfunc deferreturn(arg0 uintptr) {  gp := getg()  d := gp._defer  if d == nil {    return  }  // 确定 defer 的调用方是不是当前 deferreturn 的调用方  sp := getcallersp()  if d.sp != sp {    return  }  ...
-  // 将参数复制出 _defer 记录外  switch d.siz {  case 0: // 什么也不做  case sys.PtrSize:    *(*uintptr)(unsafe.Pointer(&arg0)) = *(*uintptr)(deferArgs(d))  default:    memmove(unsafe.Pointer(&arg0), deferArgs(d), uintptr(d.siz))  }  // 获得被延迟的调用 fn 的入口地址，并随后立即将 _defer 释放掉  fn := d.fn  d.fn = nil  gp._defer = d.link  freedefer(d)
-  // 调用，并跳转到下一个 defer  jmpdefer(fn, uintptr(unsafe.Pointer(&arg0)))}
+
+//go:nosplit
+func deferreturn(arg0 uintptr) {
+  gp := getg()
+  d := gp._defer
+  if d == nil {
+    return
+  }
+  // 确定 defer 的调用方是不是当前 deferreturn 的调用方
+  sp := getcallersp()
+  if d.sp != sp {
+    return
+  }
+  ...
+
+  // 将参数复制出 _defer 记录外
+  switch d.siz {
+  case 0: // 什么也不做
+  case sys.PtrSize:
+    *(*uintptr)(unsafe.Pointer(&arg0)) = *(*uintptr)(deferArgs(d))
+  default:
+    memmove(unsafe.Pointer(&arg0), deferArgs(d), uintptr(d.siz))
+  }
+  // 获得被延迟的调用 fn 的入口地址，并随后立即将 _defer 释放掉
+  fn := d.fn
+  d.fn = nil
+  gp._defer = d.link
+  freedefer(d)
+
+  // 调用，并跳转到下一个 defer
+  jmpdefer(fn, uintptr(unsafe.Pointer(&arg0)))
+}
 ```
 
 在这个函数中，会在需要时对 `defer` 的参数再次进行拷贝，多个 `defer` 函数以 `jmpdefer` 尾调用形式被实现。在跳转到 `fn` 之前，`_defer` 实例被释放归还，`jmpdefer` 真正需要的仅仅只是函数的入口地址和参数，以及它的调用方 `deferreturn` 的 SP：
 
 
-```
+```assembly
+
 // src/runtime/asm_amd64.s
-// func jmpdefer(fv *funcval, argp uintptr)TEXT runtime·jmpdefer(SB), NOSPLIT, $0-16  MOVQ  fv+0(FP), DX  // DX = fn  MOVQ  argp+8(FP), BX  // 调用方 SP  LEAQ  -8(BX), SP    // CALL 后的调用方 SP  MOVQ  -8(SP), BP    // 恢复 BP，好像 deferreturn 返回  SUBQ  $5, (SP)    // 再次返回到 CALL  MOVQ  0(DX), BX    // BX = DX  JMP  BX          // 最后才运行被 defer 的函数
+
+// func jmpdefer(fv *funcval, argp uintptr)
+TEXT runtime·jmpdefer(SB), NOSPLIT, $0-16
+  MOVQ  fv+0(FP), DX  // DX = fn
+  MOVQ  argp+8(FP), BX  // 调用方 SP
+  LEAQ  -8(BX), SP    // CALL 后的调用方 SP
+  MOVQ  -8(SP), BP    // 恢复 BP，好像 deferreturn 返回
+  SUBQ  $5, (SP)    // 再次返回到 CALL
+  MOVQ  0(DX), BX    // BX = DX
+  JMP  BX          // 最后才运行被 defer 的函数
 ```
 
 这个 `jmpdefer` 巧妙的地方在于，它通过调用方 SP 来推算了 `deferreturn` 的入口地址，从而在完成某个 `defer` 调用后，由于被 defer 的函数返回时会出栈，会再次回到 `deferreturn` 的初始位置，进而继续反复调用，从而模拟 `deferreturn` 不断地对自己进行尾递归的假象。
@@ -225,9 +417,51 @@ deferproc(siz int32, fn *funcval) {  ...  sp := getcallersp()  argp := uintptr(u
 
 ```go
 // src/runtime/panic.go
-//go:nosplitfunc freedefer(d *_defer) {  ...  sc := deferclass(uintptr(d.siz))  if sc >= uintptr(len(p{}.deferpool)) {    return  }  pp := getg().m.p.ptr()  // 如果 P 本地池已满，则将一半资源放入全局池，同样也是出于性能考虑  // 操作会切换到系统栈上执行。  if len(pp.deferpool[sc]) == cap(pp.deferpool[sc]) {    systemstack(func() {      var first, last *_defer      for len(pp.deferpool[sc]) > cap(pp.deferpool[sc])/2 {        n := len(pp.deferpool[sc])        d := pp.deferpool[sc][n-1]        pp.deferpool[sc][n-1] = nil        pp.deferpool[sc] = pp.deferpool[sc][:n-1]        if first == nil {          first = d        } else {          last.link = d        }        last = d      }      lock(&sched.deferlock)      last.link = sched.deferpool[sc]      sched.deferpool[sc] = first      unlock(&sched.deferlock)    })  }
-  // 恢复 _defer 的零值，即 *d = _defer{}  d.siz = 0  ...  d.sp = 0  d.pc = 0  d.framepc = 0  ...  d.link = nil
-  // 放入 P 本地资源池  pp.deferpool[sc] = append(pp.deferpool[sc], d)}
+
+//go:nosplit
+func freedefer(d *_defer) {
+  ...
+  sc := deferclass(uintptr(d.siz))
+  if sc >= uintptr(len(p{}.deferpool)) {
+    return
+  }
+  pp := getg().m.p.ptr()
+  // 如果 P 本地池已满，则将一半资源放入全局池，同样也是出于性能考虑
+  // 操作会切换到系统栈上执行。
+  if len(pp.deferpool[sc]) == cap(pp.deferpool[sc]) {
+    systemstack(func() {
+      var first, last *_defer
+      for len(pp.deferpool[sc]) > cap(pp.deferpool[sc])/2 {
+        n := len(pp.deferpool[sc])
+        d := pp.deferpool[sc][n-1]
+        pp.deferpool[sc][n-1] = nil
+        pp.deferpool[sc] = pp.deferpool[sc][:n-1]
+        if first == nil {
+          first = d
+        } else {
+          last.link = d
+        }
+        last = d
+      }
+      lock(&sched.deferlock)
+      last.link = sched.deferpool[sc]
+      sched.deferpool[sc] = first
+      unlock(&sched.deferlock)
+    })
+  }
+
+  // 恢复 _defer 的零值，即 *d = _defer{}
+  d.siz = 0
+  ...
+  d.sp = 0
+  d.pc = 0
+  d.framepc = 0
+  ...
+  d.link = nil
+
+  // 放入 P 本地资源池
+  pp.deferpool[sc] = append(pp.deferpool[sc], d)
+}
 ```
 
 ## 在栈上创建 defer
@@ -238,12 +472,52 @@ deferproc(siz int32, fn *funcval) {  ...  sp := getcallersp()  argp := uintptr(u
 
 
 ```go
-// src/cmd/compile/internal/gc/ssa.gofunc (s *state) call(n *Node, k callKind) *ssa.Value {  ...  var call *ssa.Value  if k == callDeferStack {    // 直接在栈上创建 defer 记录    t := deferstruct(stksize) // 从编译器角度构造 _defer 结构    d := tempAt(n.Pos, s.curfn, t)
-    s.vars[&memVar] = s.newValue1A(ssa.OpVarDef, types.TypeMem, d, s.mem())    addr := s.addr(d, false)
-    // 在栈上预留记录 _defer 的各个字段的空间    s.store(types.Types[TUINT32],      s.newValue1I(ssa.OpOffPtr, types.Types[TUINT32].PtrTo(), t.FieldOff(0), addr),      s.constInt32(types.Types[TUINT32], int32(stksize)))    s.store(closure.Type,      s.newValue1I(ssa.OpOffPtr, closure.Type.PtrTo(), t.FieldOff(6), addr),      closure)
-    // 记录参与 defer 调用的函数参数    ft := fn.Type    off := t.FieldOff(12)    args := n.Rlist.Slice()
-    // 调用 deferprocStack，以 _defer 记录的指针作为参数传递    arg0 := s.constOffPtrSP(types.Types[TUINTPTR], Ctxt.FixedFrameSize())    s.store(types.Types[TUINTPTR], arg0, addr)    call = s.newValue1A(ssa.OpStaticCall, types.TypeMem, deferprocStack, s.mem())    ...  } else { ... }
-  // 函数尾声与堆上分配的栈一样，调用 deferreturn  if k == callDefer || k == callDeferStack {    ...    s.exit()  }  ...}
+// src/runtime/panic.go
+
+//go:nosplit
+func freedefer(d *_defer) {
+  ...
+  sc := deferclass(uintptr(d.siz))
+  if sc >= uintptr(len(p{}.deferpool)) {
+    return
+  }
+  pp := getg().m.p.ptr()
+  // 如果 P 本地池已满，则将一半资源放入全局池，同样也是出于性能考虑
+  // 操作会切换到系统栈上执行。
+  if len(pp.deferpool[sc]) == cap(pp.deferpool[sc]) {
+    systemstack(func() {
+      var first, last *_defer
+      for len(pp.deferpool[sc]) > cap(pp.deferpool[sc])/2 {
+        n := len(pp.deferpool[sc])
+        d := pp.deferpool[sc][n-1]
+        pp.deferpool[sc][n-1] = nil
+        pp.deferpool[sc] = pp.deferpool[sc][:n-1]
+        if first == nil {
+          first = d
+        } else {
+          last.link = d
+        }
+        last = d
+      }
+      lock(&sched.deferlock)
+      last.link = sched.deferpool[sc]
+      sched.deferpool[sc] = first
+      unlock(&sched.deferlock)
+    })
+  }
+
+  // 恢复 _defer 的零值，即 *d = _defer{}
+  d.siz = 0
+  ...
+  d.sp = 0
+  d.pc = 0
+  d.framepc = 0
+  ...
+  d.link = nil
+
+  // 放入 P 本地资源池
+  pp.deferpool[sc] = append(pp.deferpool[sc], d)
+}
 ```
 
 可见，在编译阶段，一个 `_defer` 记录的空间已经在栈上得到保留，`deferprocStack` 的作用就仅仅承担了运行时对该记录的初始化这一功能：
@@ -251,51 +525,108 @@ deferproc(siz int32, fn *funcval) {  ...  sp := getcallersp()  argp := uintptr(u
 
 ```go
 // src/runtime/panic.go
-//go:nosplitfunc deferprocStack(d *_defer) {  gp := getg()  // 注意，siz 和 fn 已经在编译阶段完成设置，这里只初始化了其他字段  d.started = false  d.heap = false    // 可见此时 defer 被标记为不在堆上分配  d.openDefer = false  d.sp = getcallersp()  d.pc = getcallerpc()  ...  // 尽管在栈上进行分配，仍然需要将多个 _defer 记录通过链表进行串联，  // 以便在 deferreturn 中找到被延迟的函数的入口地址：  //   d.link = gp._defer  //   gp._defer = d  *(*uintptr)(unsafe.Pointer(&d.link)) = uintptr(unsafe.Pointer(gp._defer))  *(*uintptr)(unsafe.Pointer(&gp._defer)) = uintptr(unsafe.Pointer(d))  return0()}
+
+//go:nosplit
+func deferprocStack(d *_defer) {
+  gp := getg()
+  // 注意，siz 和 fn 已经在编译阶段完成设置，这里只初始化了其他字段
+  d.started = false
+  d.heap = false    // 可见此时 defer 被标记为不在堆上分配
+  d.openDefer = false
+  d.sp = getcallersp()
+  d.pc = getcallerpc()
+  ...
+  // 尽管在栈上进行分配，仍然需要将多个 _defer 记录通过链表进行串联，
+  // 以便在 deferreturn 中找到被延迟的函数的入口地址：
+  //   d.link = gp._defer
+  //   gp._defer = d
+  *(*uintptr)(unsafe.Pointer(&d.link)) = uintptr(unsafe.Pointer(gp._defer))
+  *(*uintptr)(unsafe.Pointer(&gp._defer)) = uintptr(unsafe.Pointer(d))
+  return0()
+}
 ```
 
 至于函数尾声的行为，与在堆上进行分配的操作同样是调用 `deferreturn`，我们就不再重复说明了。当然，里面涉及的 `freedefer` 调用由于不需要释放任何内存，也就早早返回了：
 
 
-```
-// src/runtime/panic.gofunc freedefer(d *_defer) {  if !d.heap { return }  ...}
+```go
+
+// src/runtime/panic.go
+func freedefer(d *_defer) {
+  if !d.heap { return }
+  ...
+}
 ```
 
 ## 开放编码式 defer
 
-正如本文最初所描述的那样，defer 给我们的第一感觉其实是一个编译期特性。前面我们讨论了为什么 defer 会需要运行时的支持，以及需要运行时的 defer 是如何工作的。现在我们来探究一下什么情况下能够让 defer 进化为一个仅编译期特性，即在函数末尾直接对延迟函数进行调用，做到几乎不需要额外的开销。这类几乎不需要额外运行时性能开销的 defer，正是开放编码式 defer。这类 defer 与直接调用产生的性能差异有多大呢？我们不妨编写两个性能测试：
+正如本文最初所描述的那样，defer 给我们的第一感觉其实是一个编译期特性。前面我们讨论了为什么 defer 会需要运行时的支持，以及需要运行时的 defer 是如何工作的。现在我们来探究一下什么情况下能够让 defer 进化为一个仅编译期特性，**即在函数末尾直接对延迟函数进行调用**，做到几乎不需要额外的开销。这类几乎不需要额外运行时性能开销的 defer，**正是开放编码式 defer**。这类 defer 与直接调用产生的性能差异有多大呢？我们不妨编写两个性能测试：
 
 
 ```go
-func call()      { func() {}() }func callDefer() { defer func() {}() }func BenchmarkDefer(b *testing.B) {  for i := 0; i < b.N; i++ {    call() // 第二次运行时替换为 callDefer  }}
+
+func call()      { func() {}() }
+func callDefer() { defer func() {}() }
+func BenchmarkDefer(b *testing.B) {
+  for i := 0; i < b.N; i++ {
+    call() // 第二次运行时替换为 callDefer
+  }
+}
 ```
 
 在 Go 1.14 版本下，读者可以获得类似下方的性能估计，其中使用 `callDefer` 后，性能损耗大约为 1 ns。这种纳秒级的性能损耗不到一个 CPU 时钟周期，我们已经可以认为开放编码式 defer 几乎没有了性能开销：
 
 
 ```bash
-name      old time/op  new time/op  deltaDefer-12  1.24ns ± 1%  2.23ns ± 1%  +80.06%  (p=0.000 n=10+9)
+name      old time/op  new time/op  delta
+Defer-12  1.24ns ± 1%  2.23ns ± 1%  +80.06%  (p=0.000 n=10+9)
 ```
 
 我们再来观察一下开放编码式 defer 最终被编译的形式：
 
 
 ```bash
-$ go build -gcflags "-l" -ldflags=-compressdwarf=false -o main.out main.go$ go tool objdump -S main.out > main.s
+$ go build -gcflags "-l" -ldflags=-compressdwarf=false -o main.out main.go
+$ go tool objdump -S main.out > main.s
 ```
 
 对于如下形式的函数调用：
 
 
 ```go
-var mu sync.Mutexfunc callDefer() {  mu.Lock()  defer mu.Unlock()}
+
+var mu sync.Mutex
+func callDefer() {
+  mu.Lock()
+  defer mu.Unlock()
+}
 ```
 
 整个调用最终编译结果既没有 `deferproc` 或者 `deferprocStack`，也没有了 `deferreturn`。延迟语句被直接插入到了函数的末尾：
 
 
-```bash
-TEXT main.callDefer(SB) /Users/changkun/Desktop/defer/main.gofunc callDefer() {  ...  mu.Lock()  0x105794a    488d05071f0a00    LEAQ main.mu(SB), AX      0x1057951    48890424    MOVQ AX, 0(SP)        0x1057955    e8f6f8ffff    CALL sync.(*Mutex).Lock(SB)    defer mu.Unlock()  0x105795a    488d057f110200    LEAQ go.func.*+1064(SB), AX    0x1057961    4889442418    MOVQ AX, 0x18(SP)      0x1057966    488d05eb1e0a00    LEAQ main.mu(SB), AX      0x105796d    4889442410    MOVQ AX, 0x10(SP)    }  0x1057972    c644240f00    MOVB $0x0, 0xf(SP)      0x1057977    488b442410    MOVQ 0x10(SP), AX      0x105797c    48890424    MOVQ AX, 0(SP)        0x1057980    e8ebfbffff    CALL sync.(*Mutex).Unlock(SB)    0x1057985    488b6c2420    MOVQ 0x20(SP), BP      0x105798a    4883c428    ADDQ $0x28, SP        0x105798e    c3      RET          ...
+```assembly
+TEXT main.callDefer(SB) /Users/changkun/Desktop/defer/main.go
+func callDefer() {
+  ...
+  mu.Lock()
+  0x105794a    488d05071f0a00    LEAQ main.mu(SB), AX    
+  0x1057951    48890424    MOVQ AX, 0(SP)      
+  0x1057955    e8f6f8ffff    CALL sync.(*Mutex).Lock(SB)  
+  defer mu.Unlock()
+  0x105795a    488d057f110200    LEAQ go.func.*+1064(SB), AX  
+  0x1057961    4889442418    MOVQ AX, 0x18(SP)    
+  0x1057966    488d05eb1e0a00    LEAQ main.mu(SB), AX    
+  0x105796d    4889442410    MOVQ AX, 0x10(SP)    
+}
+  0x1057972    c644240f00    MOVB $0x0, 0xf(SP)    
+  0x1057977    488b442410    MOVQ 0x10(SP), AX    
+  0x105797c    48890424    MOVQ AX, 0(SP)      
+  0x1057980    e8ebfbffff    CALL sync.(*Mutex).Unlock(SB)  
+  0x1057985    488b6c2420    MOVQ 0x20(SP), BP    
+  0x105798a    4883c428    ADDQ $0x28, SP      
+  0x105798e    c3      RET        
+  ...
 ```
 
 那么开放编码式 defer 是怎么实现的？所有的 defer 都是开放编码式的吗？什么情况下，开放编码式 defer 会退化为一个依赖运行时的特性？
@@ -306,8 +637,47 @@ TEXT main.callDefer(SB) /Users/changkun/Desktop/defer/main.gofunc callDefer() { 
 
 
 ```go
-// src/cmd/compile/internal/gc/ssa.goconst maxOpenDefers = 8func walkstmt(n *Node) *Node {  ...  switch n.Op {  case ODEFER:    Curfn.Func.SetHasDefer(true)    Curfn.Func.numDefers++    // 超过 8 个 defer 时，禁用对 defer 进行开放编码    if Curfn.Func.numDefers > maxOpenDefers {      Curfn.Func.SetOpenCodedDeferDisallowed(true)    }    // 存在循环语句中的 defer，禁用对 defer 进行开放编码。    // 是否有 defer 发生在循环语句内，会在 SSA 之前的逃逸分析中进行判断，    // 逃逸分析会检查是否存在循环（loopDepth）：    // if where.Op == ODEFER && e.loopDepth == 1 {    //   where.Esc = EscNever    //   ...    // }    if n.Esc != EscNever {      Curfn.Func.SetOpenCodedDeferDisallowed(true)    }  case ...  }  ...}
-func buildssa(fn *Node, worker int) *ssa.Func {  ...  var s state  ...  s.hasdefer = fn.Func.HasDefer()  ...  // 可以对 defer 进行开放编码的条件  s.hasOpenDefers = Debug['N'] == 0 && s.hasdefer && !s.curfn.Func.OpenCodedDeferDisallowed()  if s.hasOpenDefers &&    s.curfn.Func.numReturns*s.curfn.Func.numDefers > 15 {    s.hasOpenDefers = false  }  ...}
+// src/cmd/compile/internal/gc/ssa.go
+const maxOpenDefers = 8
+func walkstmt(n *Node) *Node {
+  ...
+  switch n.Op {
+  case ODEFER:
+    Curfn.Func.SetHasDefer(true)
+    Curfn.Func.numDefers++
+    // 超过 8 个 defer 时，禁用对 defer 进行开放编码
+    if Curfn.Func.numDefers > maxOpenDefers {
+      Curfn.Func.SetOpenCodedDeferDisallowed(true)
+    }
+    // 存在循环语句中的 defer，禁用对 defer 进行开放编码。
+    // 是否有 defer 发生在循环语句内，会在 SSA 之前的逃逸分析中进行判断，
+    // 逃逸分析会检查是否存在循环（loopDepth）：
+    // if where.Op == ODEFER && e.loopDepth == 1 {
+    //   where.Esc = EscNever
+    //   ...
+    // }
+    if n.Esc != EscNever {
+      Curfn.Func.SetOpenCodedDeferDisallowed(true)
+    }
+  case ...
+  }
+  ...
+}
+
+func buildssa(fn *Node, worker int) *ssa.Func {
+  ...
+  var s state
+  ...
+  s.hasdefer = fn.Func.HasDefer()
+  ...
+  // 可以对 defer 进行开放编码的条件
+  s.hasOpenDefers = Debug['N'] == 0 && s.hasdefer && !s.curfn.Func.OpenCodedDeferDisallowed()
+  if s.hasOpenDefers &&
+    s.curfn.Func.numReturns*s.curfn.Func.numDefers > 15 {
+    s.hasOpenDefers = false
+  }
+  ...
+}
 ```
 
 这样，我们得到了允许进行 defer 的开放编码的主要条件（此处略去了一些常见生产环境无关的条件，例如启用竞争检查时也不能对 defer 进行开放编码）：
@@ -323,7 +693,9 @@ func buildssa(fn *Node, worker int) *ssa.Func {  ...  var s state  ...  s.hasdef
 
 
 ```go
-if rand.Intn(100) < 42 {  defer fmt.Println("meaning-of-life")}
+if rand.Intn(100) < 42 { 
+  defer fmt.Println("meaning-of-life")
+}
 ```
 
 那么如何才能使用最小的成本，让插入到函数末尾的延迟语句，在条件成立时候被正确执行呢？这便需要一种机制，能够记录存在延迟语句的条件分支是否被执行，这种机制在 Go 中利用了延迟比特（defer bit）。这种做法非常巧妙，但原理却非常简单。
@@ -332,49 +704,226 @@ if rand.Intn(100) < 42 {  defer fmt.Println("meaning-of-life")}
 
 
 ```go
-defer f1(a1)if cond {  defer f2(a2)}...
+
+defer f1(a1)
+if cond {
+  defer f2(a2)
+}
+...
 ```
 
 使用延迟比特的核心思想可以用下面的伪代码来概括。在创建延迟调用的阶段，首先通过延迟比特的特定位置记录哪些带条件的 defer 被触发。这个延迟比特是一个长度为 8 位的二进制码（也是硬件架构里最小、最通用的情况），以每一位是否被设置为 1，来判断延迟语句是否在运行时被设置，如果设置，则发生调用。否则则不调用：
 
 
 ```go
-deferBits = 0           // 初始值 00000000deferBits |= 1 << 0     // 遇到第一个 defer，设置为 00000001_f1 = f1_a1 = a1if cond {  // 如果第二个 defer 被设置，则设置为 00000011，否则依然为 00000001  deferBits |= 1 << 1  _f2 = f2  _a2 = a2}
+
+deferBits = 0           // 初始值 00000000
+deferBits |= 1 << 0     // 遇到第一个 defer，设置为 00000001
+_f1 = f1
+_a1 = a1
+if cond {
+  // 如果第二个 defer 被设置，则设置为 00000011，否则依然为 00000001
+  deferBits |= 1 << 1
+  _f2 = f2
+  _a2 = a2
+}
 ```
 
 在退出位置，再重新根据被标记的延迟比特，反向推导哪些位置的 defer 需要被触发，从而执行延迟调用：
 
 
-```bash
-exit:// 按顺序倒序检查延迟比特。如果第二个 defer 被设置，则//   00000011 & 00000010 == 00000010，即延迟比特不为零，应该调用 f2。// 如果第二个 defer 没有被设置，则 //   00000001 & 00000010 == 00000000，即延迟比特为零，不应该调用 f2。if deferBits & 1 << 1 != 0 { // 00000011 & 00000010 != 0  deferBits &^= 1<<1       // 00000001  _f2(_a2)}// 同理，由于 00000001 & 00000001 == 00000001，因此延迟比特不为零，应该调用 f1if deferBits && 1 << 0 != 0 {  deferBits &^= 1<<0  _f1(_a1)}
+```go
+
+exit:
+// 按顺序倒序检查延迟比特。如果第二个 defer 被设置，则
+//   00000011 & 00000010 == 00000010，即延迟比特不为零，应该调用 f2。
+// 如果第二个 defer 没有被设置，则 
+//   00000001 & 00000010 == 00000000，即延迟比特为零，不应该调用 f2。
+if deferBits & 1 << 1 != 0 { // 00000011 & 00000010 != 0
+  deferBits &^= 1<<1       // 00000001
+  _f2(_a2)
+}
+// 同理，由于 00000001 & 00000001 == 00000001，因此延迟比特不为零，应该调用 f1
+if deferBits && 1 << 0 != 0 {
+  deferBits &^= 1<<0
+  _f1(_a1)
+}
 ```
 
 在实际的实现中，可以看到，当可以设置开放编码式 defer 时，`buildssa` 会首先创建一个长度位 8 位的临时变量：
 
 
 ```go
-// src/cmd/compile/internal/gc/ssa.gofunc buildssa(fn *Node, worker int) *ssa.Func {  ...  if s.hasOpenDefers {    // 创建 deferBits 临时变量    deferBitsTemp := tempAt(src.NoXPos, s.curfn, types.Types[TUINT8])    s.deferBitsTemp = deferBitsTemp    // deferBits 被设计为 8 位二进制，因此可以被开放编码的 defer 数量不能超过 8 个    // 此处还将起始 deferBits 设置为零    startDeferBits := s.entryNewValue0(ssa.OpConst8, types.Types[TUINT8])    s.vars[&deferBitsVar] = startDeferBits    s.deferBitsAddr = s.addr(deferBitsTemp, false)    s.store(types.Types[TUINT8], s.deferBitsAddr, startDeferBits)    ...  }  ...  s.stmtList(fn.Nbody) // 调用 s.stmt  ...}
+// src/cmd/compile/internal/gc/ssa.go
+func buildssa(fn *Node, worker int) *ssa.Func {
+  ...
+  if s.hasOpenDefers {
+    // 创建 deferBits 临时变量
+    deferBitsTemp := tempAt(src.NoXPos, s.curfn, types.Types[TUINT8])
+    s.deferBitsTemp = deferBitsTemp
+    // deferBits 被设计为 8 位二进制，因此可以被开放编码的 defer 数量不能超过 8 个
+    // 此处还将起始 deferBits 设置为零
+    startDeferBits := s.entryNewValue0(ssa.OpConst8, types.Types[TUINT8])
+    s.vars[&deferBitsVar] = startDeferBits
+    s.deferBitsAddr = s.addr(deferBitsTemp, false)
+    s.store(types.Types[TUINT8], s.deferBitsAddr, startDeferBits)
+    ...
+  }
+  ...
+  s.stmtList(fn.Nbody) // 调用 s.stmt
+  ...
+}
 ```
 
 随后针对出现 defer 的语句，进行编码：
 
 
 ```go
-// src/cmd/compile/internal/gc/ssa.gofunc (s *state) stmt(n *Node) {  ...  switch n.Op {  case ODEFER:    // 开放编码式 defer    if s.hasOpenDefers {      s.openDeferRecord(n.Left)    } else { ... }  case ...  }  ...}
-// 存储一个 defer 调用的相关信息，例如所在的语法树结点、被延迟的调用、参数等等type openDeferInfo struct {  n           *Node  closure     *ssa.Value  closureNode *Node  ...  argVals     []*ssa.Value  argNodes    []*Node}func (s *state) openDeferRecord(n *Node) {  ...  var args []*ssa.Value  var argNodes []*Node
-  // 记录与 defer 相关的入口地址与参数信息  opendefer := &openDeferInfo{n: n}  fn := n.Left  // 记录函数入口地址  if n.Op == OCALLFUNC {    closureVal := s.expr(fn)    closure := s.openDeferSave(nil, fn.Type, closureVal)    opendefer.closureNode = closure.Aux.(*Node)    if !(fn.Op == ONAME && fn.Class() == PFUNC) {      opendefer.closure = closure    }  } else {    ...  }  // 记录需要立即求值的的参数  for _, argn := range n.Rlist.Slice() {    var v *ssa.Value    if canSSAType(argn.Type) {      v = s.openDeferSave(nil, argn.Type, s.expr(argn))    } else {      v = s.openDeferSave(argn, argn.Type, nil)    }    args = append(args, v)    argNodes = append(argNodes, v.Aux.(*Node))  }  opendefer.argVals = args  opendefer.argNodes = argNodes
-  // 每多出现一个 defer，len(defers) 会增加，进而   // 延迟比特 deferBits |= 1<<len(defers) 被设置在不同的位上  index := len(s.openDefers)  s.openDefers = append(s.openDefers, opendefer)  bitvalue := s.constInt8(types.Types[TUINT8], 1<<uint(index))  newDeferBits := s.newValue2(ssa.OpOr8, types.Types[TUINT8], s.variable(&deferBitsVar, types.Types[TUINT8]), bitvalue)  s.vars[&deferBitsVar] = newDeferBits  s.store(types.Types[TUINT8], s.deferBitsAddr, newDeferBits)}
+// src/cmd/compile/internal/gc/ssa.go
+func (s *state) stmt(n *Node) {
+  ...
+  switch n.Op {
+  case ODEFER:
+    // 开放编码式 defer
+    if s.hasOpenDefers {
+      s.openDeferRecord(n.Left)
+    } else { ... }
+  case ...
+  }
+  ...
+}
+
+// 存储一个 defer 调用的相关信息，例如所在的语法树结点、被延迟的调用、参数等等
+type openDeferInfo struct {
+  n           *Node
+  closure     *ssa.Value
+  closureNode *Node
+  ...
+  argVals     []*ssa.Value
+  argNodes    []*Node
+}
+func (s *state) openDeferRecord(n *Node) {
+  ...
+  var args []*ssa.Value
+  var argNodes []*Node
+
+  // 记录与 defer 相关的入口地址与参数信息
+  opendefer := &openDeferInfo{n: n}
+  fn := n.Left
+  // 记录函数入口地址
+  if n.Op == OCALLFUNC {
+    closureVal := s.expr(fn)
+    closure := s.openDeferSave(nil, fn.Type, closureVal)
+    opendefer.closureNode = closure.Aux.(*Node)
+    if !(fn.Op == ONAME && fn.Class() == PFUNC) {
+      opendefer.closure = closure
+    }
+  } else {
+    ...
+  }
+  // 记录需要立即求值的的参数
+  for _, argn := range n.Rlist.Slice() {
+    var v *ssa.Value
+    if canSSAType(argn.Type) {
+      v = s.openDeferSave(nil, argn.Type, s.expr(argn))
+    } else {
+      v = s.openDeferSave(argn, argn.Type, nil)
+    }
+    args = append(args, v)
+    argNodes = append(argNodes, v.Aux.(*Node))
+  }
+  opendefer.argVals = args
+  opendefer.argNodes = argNodes
+
+  // 每多出现一个 defer，len(defers) 会增加，进而 
+  // 延迟比特 deferBits |= 1<<len(defers) 被设置在不同的位上
+  index := len(s.openDefers)
+  s.openDefers = append(s.openDefers, opendefer)
+  bitvalue := s.constInt8(types.Types[TUINT8], 1<<uint(index))
+  newDeferBits := s.newValue2(ssa.OpOr8, types.Types[TUINT8], s.variable(&deferBitsVar, types.Types[TUINT8]), bitvalue)
+  s.vars[&deferBitsVar] = newDeferBits
+  s.store(types.Types[TUINT8], s.deferBitsAddr, newDeferBits)
+}
 ```
 
 在函数返回退出前，`state` 的 `exit` 函数会依次倒序创建对延迟比特的检查代码，从而顺序调用被延迟的函数调用：
 
 
 ```go
-// src/cmd/compile/internal/gc/ssa.gofunc (s *state) exit() *ssa.Block {  if s.hasdefer {    if s.hasOpenDefers {      ...      s.openDeferExit()    } else {      ...    }  }  ...}
-func (s *state) openDeferExit() {  deferExit := s.f.NewBlock(ssa.BlockPlain)  s.endBlock().AddEdgeTo(deferExit)  s.startBlock(deferExit)  s.lastDeferExit = deferExit  s.lastDeferCount = len(s.openDefers)  zeroval := s.constInt8(types.Types[TUINT8], 0)  // 倒序检查 defer  for i := len(s.openDefers) - 1; i >= 0; i-- {    r := s.openDefers[i]    bCond := s.f.NewBlock(ssa.BlockPlain)    bEnd := s.f.NewBlock(ssa.BlockPlain)
-    // 检查 deferBits    deferBits := s.variable(&deferBitsVar, types.Types[TUINT8])    // 创建 if deferBits & 1 << len(defer) != 0 { ... }    bitval := s.constInt8(types.Types[TUINT8], 1<<uint(i))    andval := s.newValue2(ssa.OpAnd8, types.Types[TUINT8], deferBits, bitval)    eqVal := s.newValue2(ssa.OpEq8, types.Types[TBOOL], andval, zeroval)    b := s.endBlock()    b.Kind = ssa.BlockIf    b.SetControl(eqVal)    b.AddEdgeTo(bEnd)    b.AddEdgeTo(bCond)    bCond.AddEdgeTo(bEnd)    s.startBlock(bCond)
-    // 如果创建的条件分支被触发，则清空当前的延迟比特: deferBits &^= 1 << len(defers)    nbitval := s.newValue1(ssa.OpCom8, types.Types[TUINT8], bitval)    maskedval := s.newValue2(ssa.OpAnd8, types.Types[TUINT8], deferBits, nbitval)    s.store(types.Types[TUINT8], s.deferBitsAddr, maskedval)    s.vars[&deferBitsVar] = maskedval
-    // 处理被延迟的函数调用，取出保存的入口地址、参数信息    argStart := Ctxt.FixedFrameSize()    fn := r.n.Left    stksize := fn.Type.ArgWidth()    ...    for j, argAddrVal := range r.argVals {      f := getParam(r.n, j)      pt := types.NewPtr(f.Type)      addr := s.constOffPtrSP(pt, argStart+f.Offset)      if !canSSAType(f.Type) {        s.move(f.Type, addr, argAddrVal)      } else {        argVal := s.load(f.Type, argAddrVal)        s.storeType(f.Type, addr, argVal, 0, false)      }    }    // 调用    var call *ssa.Value    ...    call = s.newValue1A(ssa.OpStaticCall, types.TypeMem, fn.Sym.Linksym(), s.mem())    call.AuxInt = stksize    s.vars[&memVar] = call    ...    s.endBlock()    s.startBlock(bEnd)  }}
+
+// src/cmd/compile/internal/gc/ssa.go
+func (s *state) exit() *ssa.Block {
+  if s.hasdefer {
+    if s.hasOpenDefers {
+      ...
+      s.openDeferExit()
+    } else {
+      ...
+    }
+  }
+  ...
+}
+
+func (s *state) openDeferExit() {
+  deferExit := s.f.NewBlock(ssa.BlockPlain)
+  s.endBlock().AddEdgeTo(deferExit)
+  s.startBlock(deferExit)
+  s.lastDeferExit = deferExit
+  s.lastDeferCount = len(s.openDefers)
+  zeroval := s.constInt8(types.Types[TUINT8], 0)
+  // 倒序检查 defer
+  for i := len(s.openDefers) - 1; i >= 0; i-- {
+    r := s.openDefers[i]
+    bCond := s.f.NewBlock(ssa.BlockPlain)
+    bEnd := s.f.NewBlock(ssa.BlockPlain)
+
+    // 检查 deferBits
+    deferBits := s.variable(&deferBitsVar, types.Types[TUINT8])
+    // 创建 if deferBits & 1 << len(defer) != 0 { ... }
+    bitval := s.constInt8(types.Types[TUINT8], 1<<uint(i))
+    andval := s.newValue2(ssa.OpAnd8, types.Types[TUINT8], deferBits, bitval)
+    eqVal := s.newValue2(ssa.OpEq8, types.Types[TBOOL], andval, zeroval)
+    b := s.endBlock()
+    b.Kind = ssa.BlockIf
+    b.SetControl(eqVal)
+    b.AddEdgeTo(bEnd)
+    b.AddEdgeTo(bCond)
+    bCond.AddEdgeTo(bEnd)
+    s.startBlock(bCond)
+
+    // 如果创建的条件分支被触发，则清空当前的延迟比特: deferBits &^= 1 << len(defers)
+    nbitval := s.newValue1(ssa.OpCom8, types.Types[TUINT8], bitval)
+    maskedval := s.newValue2(ssa.OpAnd8, types.Types[TUINT8], deferBits, nbitval)
+    s.store(types.Types[TUINT8], s.deferBitsAddr, maskedval)
+    s.vars[&deferBitsVar] = maskedval
+
+    // 处理被延迟的函数调用，取出保存的入口地址、参数信息
+    argStart := Ctxt.FixedFrameSize()
+    fn := r.n.Left
+    stksize := fn.Type.ArgWidth()
+    ...
+    for j, argAddrVal := range r.argVals {
+      f := getParam(r.n, j)
+      pt := types.NewPtr(f.Type)
+      addr := s.constOffPtrSP(pt, argStart+f.Offset)
+      if !canSSAType(f.Type) {
+        s.move(f.Type, addr, argAddrVal)
+      } else {
+        argVal := s.load(f.Type, argAddrVal)
+        s.storeType(f.Type, addr, argVal, 0, false)
+      }
+    }
+    // 调用
+    var call *ssa.Value
+    ...
+    call = s.newValue1A(ssa.OpStaticCall, types.TypeMem, fn.Sym.Linksym(), s.mem())
+    call.AuxInt = stksize
+    s.vars[&memVar] = call
+    ...
+    s.endBlock()
+    s.startBlock(bEnd)
+  }
+}
 ```
 
 从整个过程中我们可以看到，开放编码式 defer 并不是绝对的零成本，尽管编译器能够做到将延迟调用直接插入返回语句之前，但出于语义的考虑，需要在栈上对参与延迟调用的参数进行一次求值；同时出于条件语句中可能存在的 defer，还额外需要通过延迟比特来记录一个延迟语句是否在运行时被设置。因此，开放编码式 defer 的成本体现在非常少量的指令和位运算来配合在运行时判断是否存在需要被延迟调用的 defer。
@@ -414,20 +963,19 @@ defer 的早期实现其实是非常的粗糙的。每当出现一个 defer 调�
 不同类型 defer 的编译与运行时成本之间的取舍
 
 1. 对于开放编码式 defer 而言：
-
-2. - 编译器会直接将所需的参数进行存储，并在返回语句的末尾插入被延迟的调用；
+   - 编译器会直接将所需的参数进行存储，并在返回语句的末尾插入被延迟的调用；
    - 当整个调用中逻辑上会执行的 defer 不超过 15 个（例如 7 个 defer 作用在 2 个返回语句）、总 defer 数量不超过 8 个、且没有出现在循环语句中时，会激活使用此类 defer；
    - 此类 defer 的唯一的运行时成本就是存储参与延迟调用的相关信息，运行时性能最好。
 
-3. 对于栈上分配的 defer 而言：
+2. 对于栈上分配的 defer 而言：
 
-4. - 编译器会直接在栈上记录一个 `_defer` 记录，该记录不涉及内存分配，并将其作为参数，传入被翻译为 `deferprocStack` 的延迟语句，在延迟调用的位置将 `_defer` 压入 Goroutine 对应的延迟调用链表中；
+  - 编译器会直接在栈上记录一个 `_defer` 记录，该记录不涉及内存分配，并将其作为参数，传入被翻译为 `deferprocStack` 的延迟语句，在延迟调用的位置将 `_defer` 压入 Goroutine 对应的延迟调用链表中；
+
    - 在函数末尾处，通过编译器的配合，在调用被 defer 的函数前，调用 `deferreturn`，将被延迟的调用出栈并执行；
    - 此类 defer 的唯一运行时成本是从 `_defer` 记录中将参数复制出，以及从延迟调用记录链表出栈的成本，运行时性能其次。
 
-5. 对于堆上分配的 defer 而言：
-
-6. - 编译器首先会将延迟语句翻译为一个 `deferproc` 调用，进而从运行时分配一个用于记录被延迟调用的 `_defer` 记录，并将被延迟的调用的入口地址及其参数复制保存，入栈到 Goroutine 对应的延迟调用链表中；
+3. 对于堆上分配的 defer 而言：
+   - 编译器首先会将延迟语句翻译为一个 `deferproc` 调用，进而从运行时分配一个用于记录被延迟调用的 `_defer` 记录，并将被延迟的调用的入口地址及其参数复制保存，入栈到 Goroutine 对应的延迟调用链表中；
    - 在函数末尾处，通过编译器的配合，在调用被 defer 的函数前，调用 `deferreturn`，从而将 `_defer` 实例归还到资源池，而后通过模拟尾递归的方式来对需要 defer 的函数进行调用。
    - 此类 defer 的主要性能问题存在于每个 defer 语句产生记录时的内存分配，记录参数和完成调用时的参数移动时的系统调用，运行时性能最差。
 
