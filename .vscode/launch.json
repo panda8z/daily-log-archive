@@ -9,7 +9,7 @@
             "type": "go",
             "request": "launch",
             "mode": "debug",
-            "program": "/Users/zcj/panda/git4me/daily-log-archive/2020-04-17/demo01/main.go",
+            "program": "/Users/zcj/panda/git4me/daily-log-archive/2020-04-21/demo05/main.go",
             "env": {},
             "args": []
         }
