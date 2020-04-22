@@ -1,0 +1,34 @@
+{
+    "title": "Panda8z Go Dairy Archive",
+    "author": "Panda8z",
+    "description": "Computer System",
+    "language": "zh-hans",
+    "gitbook": "3.2.3",
+    "structure": {
+        "readme": "README.md"
+    },
+    "links": {
+        "sidebar": {
+            "GitHub托管的CSBlog": "https://moreme.top"
+        }
+    },
+    "plugins": [
+        "expandable-chapters-small",
+        "favicon",
+        "github"
+    ],
+    "pluginsConfig": {
+        "github": {
+            "url": "https://github.com/panda8z"
+        },
+        "favicon": {
+            "shortcut": "assets/images/favicon.ico",
+            "bookmark": "assets/images/favicon.ico",
+            "appleTouch": "assets/images/apple-touch-icon.png",
+            "appleTouchMore": {
+                "120x120": "assets/images/apple-touch-icon-120x120.png",
+                "180x180": "assets/images/apple-touch-icon-120x120.png"
+            }
+        }
+    }
+}
