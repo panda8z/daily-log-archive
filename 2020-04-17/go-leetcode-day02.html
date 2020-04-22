@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>2020-04-13-日志 · GitBook</title>
+        <title>go-leetcode-day02 · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -57,8 +57,6 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    
-    <link rel="prev" href="Go语言原本-channel.html" />
     
 
     </head>
@@ -510,9 +508,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="8.1.1" data-path="Go语言原本-channel.html">
+        <li class="chapter " data-level="8.1.1" data-path="../2020-04-13/Go语言原本-channel.html">
             
-                <a href="Go语言原本-channel.html">
+                <a href="../2020-04-13/Go语言原本-channel.html">
             
                     
                     Go语言原本-channel
@@ -523,9 +521,9 @@
             
         </li>
     
-        <li class="chapter active" data-level="8.1.2" data-path="2020-04-13-日志.html">
+        <li class="chapter " data-level="8.1.2" data-path="../2020-04-13/2020-04-13-日志.html">
             
-                <a href="2020-04-13-日志.html">
+                <a href="../2020-04-13/2020-04-13-日志.html">
             
                     
                     2020-04-13-日志
@@ -653,9 +651,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="11.1.1" data-path="../2020-04-17/go-leetcode-day02.html">
+        <li class="chapter active" data-level="11.1.1" data-path="go-leetcode-day02.html">
             
-                <a href="../2020-04-17/go-leetcode-day02.html">
+                <a href="go-leetcode-day02.html">
             
                     
                     go-leetcode-day02
@@ -850,7 +848,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >2020-04-13-日志</a>
+        <a href=".." >go-leetcode-day02</a>
     </h1>
 </div>
 
@@ -865,14 +863,75 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <ul>
-<li><p>&#x4E3A;&#x6559;&#x80B2;&#x4E8B;&#x4E1A;&#x51FA;&#x529B;</p>
-</li>
-<li><p>&#x6BCF;&#x5929;10&#x9875;&#x5B57;&#x5178;</p>
-</li>
-<li>&#x6BCF;&#x5929;&#x8BFB;&#x4E66;</li>
-<li>&#x6BCF;&#x5929;&#x5199;&#x4EE3;&#x7801;</li>
-</ul>
+                                <p><strong>&#x7B2C;&#x4E00;&#x904D;&#xFF1A;&#x5F92;&#x624B;&#x5199;&#x7684;&#xFF0C;&#x9519;&#x8BEF;&#x8FDE;&#x7BC7;</strong></p>
+<pre><code class="lang-go"><span class="hljs-keyword">package</span> main
+
+<span class="hljs-keyword">import</span> <span class="hljs-string">&quot;fmt&quot;</span>
+
+<span class="hljs-keyword">func</span> addTwo(nums []<span class="hljs-keyword">int</span>, target <span class="hljs-keyword">int</span>) []<span class="hljs-keyword">int</span> {
+  <span class="hljs-keyword">var</span> m <span class="hljs-keyword">map</span>[<span class="hljs-keyword">int</span>]<span class="hljs-keyword">int</span>
+  <span class="hljs-keyword">for</span> i, v := <span class="hljs-keyword">range</span> nums {
+    <span class="hljs-keyword">if</span> j,ok := m[target-v]; ok {
+      <span class="hljs-keyword">return</span> [i,j]
+    }
+    m[v] = i
+  }
+  <span class="hljs-keyword">return</span> <span class="hljs-literal">nil</span>
+}
+
+<span class="hljs-keyword">func</span> main() {
+  fmt.Println(addTwo([]<span class="hljs-keyword">int</span>{<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>,<span class="hljs-number">5</span>,<span class="hljs-number">6</span>}, <span class="hljs-number">7</span>))
+  fmt.Println(addTwo([]<span class="hljs-keyword">int</span>{<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>,<span class="hljs-number">5</span>,<span class="hljs-number">6</span>}, <span class="hljs-number">9</span>))
+}
+</code></pre>
+<p><strong>&#x6B63;&#x786E;&#x7684;&#x8DD1;&#x901A;&#x7684;&#x5982;&#x4E0B;</strong></p>
+<pre><code class="lang-go"><span class="hljs-keyword">package</span> main
+
+<span class="hljs-keyword">import</span> <span class="hljs-string">&quot;fmt&quot;</span>
+
+<span class="hljs-keyword">func</span> addTwo(nums []<span class="hljs-keyword">int</span>, target <span class="hljs-keyword">int</span>) []<span class="hljs-keyword">int</span> {
+    m := <span class="hljs-keyword">map</span>[<span class="hljs-keyword">int</span>]<span class="hljs-keyword">int</span>{}
+    <span class="hljs-keyword">for</span> i, v := <span class="hljs-keyword">range</span> nums {
+        <span class="hljs-keyword">if</span> j, ok := m[target-v]; ok {
+            <span class="hljs-keyword">return</span> []<span class="hljs-keyword">int</span>{i, j}
+        }
+        m[v] = i
+    }
+    <span class="hljs-keyword">return</span> <span class="hljs-literal">nil</span>
+}
+
+<span class="hljs-keyword">func</span> main() {
+    fmt.Println(addTwo([]<span class="hljs-keyword">int</span>{<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>, <span class="hljs-number">6</span>}, <span class="hljs-number">7</span>))
+    fmt.Println(addTwo([]<span class="hljs-keyword">int</span>{<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>, <span class="hljs-number">6</span>}, <span class="hljs-number">9</span>))
+}
+</code></pre>
+<p><strong>&#x7B2C;&#x4E8C;&#x904D;&#xFF1A;&#x5F92;&#x624B;&#x5199;</strong></p>
+<pre><code class="lang-go">
+<span class="hljs-keyword">package</span> main
+
+<span class="hljs-keyword">import</span> <span class="hljs-string">&quot;fmt&quot;</span>
+
+<span class="hljs-keyword">func</span> addTwo(nums []<span class="hljs-keyword">int</span>, target <span class="hljs-keyword">int</span>) []<span class="hljs-keyword">int</span> {
+  m := <span class="hljs-keyword">map</span>[<span class="hljs-keyword">int</span>]<span class="hljs-keyword">int</span>{}
+
+  <span class="hljs-keyword">for</span> i, v := <span class="hljs-keyword">range</span> nums {
+      <span class="hljs-keyword">if</span> j, ok := <span class="hljs-keyword">map</span>[target-v]; ok {
+        <span class="hljs-keyword">return</span> []<span class="hljs-keyword">int</span>{i,j}
+      }
+      m[v] = i
+  }
+  <span class="hljs-keyword">return</span> <span class="hljs-literal">nil</span>
+}
+
+<span class="hljs-keyword">func</span> main() {
+  fmt.Println([]<span class="hljs-keyword">int</span>{<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>,<span class="hljs-number">5</span>,<span class="hljs-number">6</span>,<span class="hljs-number">7</span>,<span class="hljs-number">8</span>,<span class="hljs-number">9</span>}, <span class="hljs-number">10</span>)
+  fmt.Println([]<span class="hljs-keyword">int</span>{<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>,<span class="hljs-number">5</span>,<span class="hljs-number">6</span>,<span class="hljs-number">7</span>,<span class="hljs-number">8</span>,<span class="hljs-number">9</span>}, <span class="hljs-number">7</span>)
+}
+
+<span class="hljs-comment">//&#x8FD9;&#x4E00;&#x904D;</span>
+<span class="hljs-comment">// # command-line-arguments</span>
+<span class="hljs-comment">// 2020-04-17/demo02/main.go:9:29: syntax error: unexpected -, expecting ]</span>
+</code></pre>
 
                                 
                                 </section>
@@ -900,10 +959,6 @@
 
             
                 
-                <a href="Go语言原本-channel.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: Go语言原本-channel">
-                    <i class="fa fa-angle-left"></i>
-                </a>
-                
                 
             
         
@@ -912,7 +967,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"2020-04-13-日志","level":"8.1.2","depth":2,"next":{"title":"2020-04-14","level":"9.1","depth":1,"ref":"","articles":[{"title":"G0是怎么创建的","level":"9.1.1","depth":2,"path":"2020-04-14/G0是怎么创建的.md","ref":"2020-04-14/G0是怎么创建的.md","articles":[]},{"title":"从0构建亿级微服务架构","level":"9.1.2","depth":2,"path":"2020-04-14/从0构建亿级微服务架构.md","ref":"2020-04-14/从0构建亿级微服务架构.md","articles":[]}]},"previous":{"title":"Go语言原本-channel","level":"8.1.1","depth":2,"path":"2020-04-13/Go语言原本-channel.md","ref":"2020-04-13/Go语言原本-channel.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"2020-04-13/2020-04-13-日志.md","mtime":"2020-04-22T03:29:42.928Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-04-22T03:30:24.150Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"go-leetcode-day02","level":"11.1.1","depth":2,"next":{"title":"2020-04-18","level":"12.1","depth":1,"ref":"","articles":[{"title":"go-leetcode-day03","level":"12.1.1","depth":2,"path":"2020-04-18/go-leetcode-day03.md","ref":"2020-04-18/go-leetcode-day03.md","articles":[]},{"title":"timepill-api分析","level":"12.1.2","depth":2,"path":"2020-04-18/timepill-api分析.md","ref":"2020-04-18/timepill-api分析.md","articles":[]}]},"previous":{"title":"2020-04-17","level":"11.1","depth":1,"ref":"","articles":[{"title":"go-leetcode-day02","level":"11.1.1","depth":2,"path":"2020-04-17/go-leetcode-day02.md","ref":"2020-04-17/go-leetcode-day02.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"2020-04-17/go-leetcode-day02.md","mtime":"2020-04-22T03:29:43.004Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-04-22T03:30:24.150Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
