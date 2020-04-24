@@ -1,0 +1,1238 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-hans" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Day01-命令行 · Panda8z Go Dairy Archive</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="Panda8z">
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-katex/katex.min.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="Go-基础-上-Day02-怎么书写Go程序.html" />
+    
+    
+    <link rel="prev" href="Go语言基础学习-目录.html" />
+    
+
+    
+        <link rel="shortcut icon" href='../../assets/images/favicon.ico' type="image/x-icon">
+    
+    
+        <link rel="bookmark" href='../../assets/images/favicon.ico' type="image/x-icon">
+    
+    
+        <link rel="apple-touch-icon" href='../../assets/images/apple-touch-icon.png'>
+    
+    
+        
+        <link rel="apple-touch-icon" sizes="120x120" href="../../assets/images/apple-touch-icon-120x120.png">
+        
+        <link rel="apple-touch-icon" sizes="180x180" href="../../assets/images/apple-touch-icon-120x120.png">
+        
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="输入并搜索" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+    
+        
+        <li>
+            <a href="https://moreme.top" target="_blank" class="custom-link">GitHub托管的CSBlog</a>
+        </li>
+    
+    
+
+    
+    <li class="divider"></li>
+    
+
+    
+        
+        <li class="header">Golang工程师养成计划</li>
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="Go语言基础学习-目录.html">
+            
+                <a href="Go语言基础学习-目录.html">
+            
+                    
+                    Go语言基础-上
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter active" data-level="1.1.1" data-path="Go-基础-上-Day01-命令行.html">
+            
+                <a href="Go-基础-上-Day01-命令行.html">
+            
+                    
+                    Day01-命令行
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.2" data-path="Go-基础-上-Day02-怎么书写Go程序.html">
+            
+                <a href="Go-基础-上-Day02-怎么书写Go程序.html">
+            
+                    
+                    Day02-怎么书写Go程序
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.3" data-path="Go-基础-上-Day03-开始Go语言旅行.html">
+            
+                <a href="Go-基础-上-Day03-开始Go语言旅行.html">
+            
+                    
+                    Day03-开始Go语言旅行
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../Go语言标准库/Go语言标准库学习-目录.html">
+            
+                <a href="../Go语言标准库/Go语言标准库学习-目录.html">
+            
+                    
+                    Go语言标准库学习
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../Go语言标准库/container-heap.html">
+            
+                <a href="../Go语言标准库/container-heap.html">
+            
+                    
+                    container-heap 笔记
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="header">日志</li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="../../">
+            
+                <a href="../../">
+            
+                    
+                    张向北的笔记本📒
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">2020-03-18</li>
+        
+        
+    
+        <li class="chapter " data-level="3.1" data-path="../../2020-03-18/面试准备Day01.html">
+            
+                <a href="../../2020-03-18/面试准备Day01.html">
+            
+                    
+                    工作展望
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2" data-path="../../2020-03-18/gitbook工具使用指南.html">
+            
+                <a href="../../2020-03-18/gitbook工具使用指南.html">
+            
+                    
+                    gitbook工具使用指南
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">2020-04-05</li>
+        
+        
+    
+        <li class="chapter " data-level="4.1" data-path="../../2020-04-05/Goroutine是怎么开始和退出的.html">
+            
+                <a href="../../2020-04-05/Goroutine是怎么开始和退出的.html">
+            
+                    
+                    Goroutine是怎么开始和退出的
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">2020-04-07</li>
+        
+        
+    
+        <li class="chapter " data-level="5.1" data-path="../../2020-04-07/defer的前世今生.html">
+            
+                <a href="../../2020-04-07/defer的前世今生.html">
+            
+                    
+                    defer的前世今生
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="5.1.1" data-path="../../2020-04-07/Go中defer.html">
+            
+                <a href="../../2020-04-07/Go中defer.html">
+            
+                    
+                    Go中defer
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.2" data-path="../../2020-04-07/Go中defer7个知识点.html">
+            
+                <a href="../../2020-04-07/Go中defer7个知识点.html">
+            
+                    
+                    Go中defer7个知识点
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="5.2" data-path="../../2020-04-07/Go实现LeetCode全集.html">
+            
+                <a href="../../2020-04-07/Go实现LeetCode全集.html">
+            
+                    
+                    Go实现LeetCode全集
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.3" data-path="../../2020-04-07/如何成为Go语言代码贡献者.html">
+            
+                <a href="../../2020-04-07/如何成为Go语言代码贡献者.html">
+            
+                    
+                    如何成为Go语言代码贡献者
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.4" data-path="../../2020-04-07/读书笔记-2020-04-07.html">
+            
+                <a href="../../2020-04-07/读书笔记-2020-04-07.html">
+            
+                    
+                    读书笔记-2020-04-07
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">2020-04-08</li>
+        
+        
+    
+        <li class="chapter " data-level="6.1" data-path="../../2020-04-08/go编译器-编译指示.html">
+            
+                <a href="../../2020-04-08/go编译器-编译指示.html">
+            
+                    
+                    编译指示
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.2" data-path="../../2020-04-08/go做一个小型http服务器并优化实战.html">
+            
+                <a href="../../2020-04-08/go做一个小型http服务器并优化实战.html">
+            
+                    
+                    go做一个小型http服务器并优化实战
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">2020-04-09</li>
+        
+        
+    
+        <li class="chapter " data-level="7.1" data-path="../../2020-04-09/Go语言原本-调度器.html">
+            
+                <a href="../../2020-04-09/Go语言原本-调度器.html">
+            
+                    
+                    Go语言原本-调度器
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">2020-04-10</li>
+        
+        
+    
+        <li class="chapter " data-level="8.1" data-path="../../2020-04-10/go垃圾回收.html">
+            
+                <a href="../../2020-04-10/go垃圾回收.html">
+            
+                    
+                    go垃圾回收
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">2020-04-11</li>
+        
+        
+    
+        <li class="chapter " data-level="9.1" data-path="../../2020-04-11/2020-04-11-日志.html">
+            
+                <a href="../../2020-04-11/2020-04-11-日志.html">
+            
+                    
+                    2020-04-11-日志
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">2020-04-12</li>
+        
+        
+    
+        <li class="chapter " data-level="10.1" data-path="../../2020-04-12/Go语言原本-延迟语句.html">
+            
+                <a href="../../2020-04-12/Go语言原本-延迟语句.html">
+            
+                    
+                    Go语言原本-延迟语句
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">2020-04-13</li>
+        
+        
+    
+        <li class="chapter " data-level="11.1" data-path="../../2020-04-13/Go语言原本-channel.html">
+            
+                <a href="../../2020-04-13/Go语言原本-channel.html">
+            
+                    
+                    Go语言原本-channel
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="11.2" data-path="../../2020-04-13/2020-04-13-日志.html">
+            
+                <a href="../../2020-04-13/2020-04-13-日志.html">
+            
+                    
+                    2020-04-13-日志
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">2020-04-14</li>
+        
+        
+    
+        <li class="chapter " data-level="12.1" data-path="../../2020-04-14/G0是怎么创建的.html">
+            
+                <a href="../../2020-04-14/G0是怎么创建的.html">
+            
+                    
+                    G0是怎么创建的
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="12.2" data-path="../../2020-04-14/从0构建亿级微服务架构.html">
+            
+                <a href="../../2020-04-14/从0构建亿级微服务架构.html">
+            
+                    
+                    从0构建亿级微服务架构
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">2020-04-15</li>
+        
+        
+    
+        <li class="chapter " data-level="13.1" data-path="../../2020-04-15/go-leetcode-TwoSum.html">
+            
+                <a href="../../2020-04-15/go-leetcode-TwoSum.html">
+            
+                    
+                    leetcode-day01
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">2020-04-17</li>
+        
+        
+    
+        <li class="chapter " data-level="14.1" data-path="../../2020-04-17/go-leetcode-day02.html">
+            
+                <a href="../../2020-04-17/go-leetcode-day02.html">
+            
+                    
+                    go-leetcode-day02
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">2020-04-18</li>
+        
+        
+    
+        <li class="chapter " data-level="15.1" data-path="../../2020-04-18/go-leetcode-day03.html">
+            
+                <a href="../../2020-04-18/go-leetcode-day03.html">
+            
+                    
+                    go-leetcode-day03
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="15.2" data-path="../../2020-04-18/timepill-api分析.html">
+            
+                <a href="../../2020-04-18/timepill-api分析.html">
+            
+                    
+                    timepill-api分析
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">2020-04-21</li>
+        
+        
+    
+        <li class="chapter " data-level="16.1" data-path="../../2020-04-21/Go-leetcode-day04.html">
+            
+                <a href="../../2020-04-21/Go-leetcode-day04.html">
+            
+                    
+                    Go-leetcode-day04
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="16.2" data-path="../../2020-04-21/Go-VScode-debug-go-program.html">
+            
+                <a href="../../2020-04-21/Go-VScode-debug-go-program.html">
+            
+                    
+                    Go-VScode-debug-go-program
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="16.3" data-path="../../2020-04-21/数据结构-二叉树时间复杂度.html">
+            
+                <a href="../../2020-04-21/数据结构-二叉树时间复杂度.html">
+            
+                    
+                    数据结构-二叉树时间复杂度
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">2020-04-22</li>
+        
+        
+    
+        <li class="chapter " data-level="17.1" data-path="../../2020-04-22/2020-04-22-笔记.html">
+            
+                <a href="../../2020-04-22/2020-04-22-笔记.html">
+            
+                    
+                    2020-04-22-笔记
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="17.2" data-path="../../2020-04-23/2020-04-23-笔记.html">
+            
+                <a href="../../2020-04-23/2020-04-23-笔记.html">
+            
+                    
+                    2020-04-23
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="18.1" data-path="../../2020-04-24/2020-04-24-笔记.html">
+            
+                <a href="../../2020-04-24/2020-04-24-笔记.html">
+            
+                    
+                    2020-04-24
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本书使用 GitBook 发布
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../.." >Day01-命令行</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="go&#x8BED;&#x8A00;&#x57FA;&#x7840;-&#x4E0A;-day01-go&#x547D;&#x4EE4;&#x884C;">Go&#x8BED;&#x8A00;&#x57FA;&#x7840;-&#x4E0A;-Day01-Go&#x547D;&#x4EE4;&#x884C;</h1>
+<blockquote>
+<p>&#x5173;&#x4E8E;&#x547D;&#x4EE4;&#x884C;&#x547D;&#x4EE4;&#x7684;&#x4F7F;&#x7528;&#x8FD9;&#x91CC;&#x6709;&#x5B8C;&#x6574;&#x7684;&#x5B98;&#x65B9;&#x6587;&#x6863;&#xFF1A;<a href="https://golang.google.cn/cmd/go/#hdr-Initialize_new_module_in_current_directory" target="_blank">go - The Go Programming Language</a></p>
+</blockquote>
+<h2 id="1-go-&#x547D;&#x4EE4;">1. <code>go</code> &#x547D;&#x4EE4;</h2>
+<h4 id="11--go-&#x547D;&#x4EE4;&#x8BE6;&#x60C5;">1.1  go &#x547D;&#x4EE4;&#x8BE6;&#x60C5;</h4>
+<p><strong><code>go</code>&#x662F;&#x4E00;&#x4E2A;&#x7BA1;&#x7406;Go&#x8BED;&#x8A00;&#x6E90;&#x7801;&#x7684;&#x5DE5;&#x5177;</strong></p>
+<pre><code class="lang-bash">$ go 
+Go is a tool <span class="hljs-keyword">for</span> managing Go <span class="hljs-built_in">source</span> code.
+
+Usage:
+
+        go &lt;<span class="hljs-built_in">command</span>&gt; [arguments]
+
+The commands are:
+
+        bug         start a bug report
+        build       compile packages and dependencies
+        clean       remove object files and cached files
+        doc         show documentation <span class="hljs-keyword">for</span> package or symbol
+        env         <span class="hljs-built_in">print</span> Go environment information
+        fix         update packages to use new APIs
+        fmt         gofmt (reformat) package sources
+        generate    generate Go files by processing <span class="hljs-built_in">source</span>
+        get         add dependencies to current module and install them
+        install     compile and install packages and dependencies
+        list        list packages or modules
+        mod         module maintenance
+        run         compile and run Go program
+        <span class="hljs-built_in">test</span>        <span class="hljs-built_in">test</span> packages
+        tool        run specified go tool
+        version     <span class="hljs-built_in">print</span> Go version
+        vet         report likely mistakes <span class="hljs-keyword">in</span> packages
+
+Use <span class="hljs-string">&quot;go help &lt;command&gt;&quot;</span> <span class="hljs-keyword">for</span> more information about a command.
+
+Additional <span class="hljs-built_in">help</span> topics:
+
+        buildmode   build modes
+        c           calling between Go and C
+        cache       build and <span class="hljs-built_in">test</span> caching
+        environment environment variables
+        filetype    file types
+        go.mod      the go.mod file
+        gopath      GOPATH environment variable
+        gopath-get  legacy GOPATH go get
+        goproxy     module proxy protocol
+        importpath  import path syntax
+        modules     modules, module versions, and more
+        module-get  module-aware go get
+        module-auth module authentication using go.sum
+        module-private module configuration <span class="hljs-keyword">for</span> non-public modules
+        packages    package lists and patterns
+        testflag    testing flags
+        testfunc    testing <span class="hljs-built_in">functions</span>
+
+Use <span class="hljs-string">&quot;go help &lt;topic&gt;&quot;</span> <span class="hljs-keyword">for</span> more information about that topic.
+</code></pre>
+<p>&#x4F7F;&#x7528;&#x547D;&#x4EE4; <code>go help &#x3010;&#x4E3B;&#x9898;&#x540D;&#x3011;</code> &#x53EF;&#x4EE5;&#x83B7;&#x5F97;&#x5176;&#x4ED6;&#x5E2E;&#x52A9;&#x4FE1;&#x606F;&#x3002;</p>
+<p>&#x4F7F;&#x7528;&#x547D;&#x4EE4; <code>go help [&#x547D;&#x4EE4;&#x540D;]</code> &#x53EF;&#x4EE5;&#x67E5;&#x770B;&#x547D;&#x4EE4;&#x7684;&#x8BE6;&#x7EC6;&#x4F7F;&#x7528;&#x4FE1;&#x606F;</p>
+<h4 id="12-go-&#x547D;&#x4EE4;&#x884C;&#x4F7F;&#x7528;&#x683C;&#x5F0F;">1.2 go &#x547D;&#x4EE4;&#x884C;&#x4F7F;&#x7528;&#x683C;&#x5F0F;</h4>
+<p><code>go  [&#x547D;&#x4EE4;] [&#x53C2;&#x6570;]</code> </p>
+<h4 id="13-&#x547D;&#x4EE4;&#x89E3;&#x6790;">1.3 &#x547D;&#x4EE4;&#x89E3;&#x6790;</h4>
+<table>
+<thead>
+<tr>
+<th>&#x547D;&#x4EE4;</th>
+<th>en</th>
+<th>zh-cn</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>bug</td>
+<td>start a bug report</td>
+<td>&#x5F00;&#x59CB;&#x4E00;&#x4E2A;bug&#x62A5;&#x544A;</td>
+</tr>
+<tr>
+<td>build</td>
+<td>compile packages and dependencies</td>
+<td>&#x7F16;&#x8BD1;<code>&#x5305;</code>&#x53CA;&#x5176;&#x4F9D;&#x8D56;</td>
+</tr>
+<tr>
+<td>clean</td>
+<td>remove object files and cached files</td>
+<td>&#x6E05;&#x7406;<code>&#x5BF9;&#x8C61;&#x6587;&#x4EF6;</code>&#x548C;<code>&#x7F13;&#x5B58;&#x6587;&#x4EF6;</code></td>
+</tr>
+<tr>
+<td>doc</td>
+<td>show documentation for package or symbol</td>
+<td>&#x663E;&#x793A;<code>&#x5305;</code>&#x6216;<code>&#x6307;&#x5B9A;&#x6807;&#x5FD7;</code>&#x7684;<code>&#x6587;&#x6863;</code></td>
+</tr>
+<tr>
+<td>env</td>
+<td>print Go environment information</td>
+<td>&#x6253;&#x5370;&#x5F53;&#x524D;&#x8BBE;&#x5907; Go &#x7684;<code>&#x73AF;&#x5883;&#x53D8;&#x91CF;</code>&#x4FE1;&#x606F;</td>
+</tr>
+<tr>
+<td>fix</td>
+<td>update packages to use new APIs</td>
+<td>&#x5C06;<code>&#x5305;</code>&#x66F4;&#x65B0;&#x5230;&#x6700;&#x65B0;&#x7248;&#x672C;&#x4EE3;&#x7801;&#x7684;API</td>
+</tr>
+<tr>
+<td>fmt</td>
+<td>gofmt (reformat) package sources</td>
+<td><code>gofmt</code> &#x5305;&#x7684;&#x6E90;&#x7801;</td>
+</tr>
+<tr>
+<td>generate</td>
+<td>generate Go files by processing source</td>
+<td>&#x901A;&#x8FC7;<code>&#x8FC7;&#x7A0B;&#x6E90;&#x7801;</code>&#x4EA7;&#x751F; Go &#x6587;&#x4EF6;</td>
+</tr>
+<tr>
+<td>get</td>
+<td>add dependencies to current module and install them</td>
+<td>&#x5411;&#x5F53;&#x524D; module &#x6DFB;&#x52A0;&#x4F9D;&#x8D56;&#x5E76;&#x5B89;&#x88C5;&#x5B83;&#x4EEC;</td>
+</tr>
+<tr>
+<td>install</td>
+<td>compile and install packages and dependencies</td>
+<td>&#x7F16;&#x8BD1;&#x5E76;&#x5B89;&#x88C5; &#x5305; &#x53CA;&#x5176;&#x4F9D;&#x8D56;</td>
+</tr>
+<tr>
+<td>list</td>
+<td>list packages or modules</td>
+<td>&#x5217;&#x51FA;&#x5305;&#x6216; module</td>
+</tr>
+<tr>
+<td>mod</td>
+<td>module maintenance</td>
+<td>module &#x7EF4;&#x62A4;</td>
+</tr>
+<tr>
+<td>run</td>
+<td>compile and run Go program</td>
+<td>&#x7F16;&#x8BD1;&#x75C5;&#x8FD0;&#x884C; Go &#x7A0B;&#x5E8F;</td>
+</tr>
+<tr>
+<td>test</td>
+<td>test packages</td>
+<td>&#x6D4B;&#x8BD5;&#x5305;</td>
+</tr>
+<tr>
+<td>tool</td>
+<td>run specified go tool</td>
+<td>&#x8FD0;&#x884C;&#x6307;&#x5B9A; go &#x5DE5;&#x5177;&#x1F6E0;</td>
+</tr>
+<tr>
+<td>version</td>
+<td>print Go version</td>
+<td>&#x6253;&#x5370; Go &#x7684;&#x7248;&#x672C;</td>
+</tr>
+<tr>
+<td>vet</td>
+<td>report likely mistakes in packages</td>
+<td>&#x62A5;&#x544A; &#x5305; &#x4E2D;&#x53EF;&#x80FD;&#x7684;&#x9519;&#x8BEF;&#x274C;</td>
+</tr>
+</tbody>
+</table>
+<h2 id="2-&#x547D;&#x4EE4;&#x7684;&#x8BE6;&#x7EC6;&#x4F7F;&#x7528;&#x8BF4;&#x660E;">2. &#x547D;&#x4EE4;&#x7684;&#x8BE6;&#x7EC6;&#x4F7F;&#x7528;&#x8BF4;&#x660E;</h2>
+<h3 id="21-bug---bug-&#x62A5;&#x544A;">2.1 bug - bug &#x62A5;&#x544A;</h3>
+<pre><code class="lang-bash">go <span class="hljs-built_in">help</span> bug
+usage: go bug
+
+Bug opens the default browser and starts a new bug report.
+The report includes useful system information.
+</code></pre>
+<p>&#x5B9E;&#x6D4B;&#x662F;&#x7ED9; Go&#x8BED;&#x8A00;&#x5B98;&#x65B9;&#x63D0;bug&#x7684;&#x5FEB;&#x6377;&#x65B9;&#x5F0F; &#x76F4;&#x63A5;&#x6253;&#x5F00;github&#xFF1A;<a href="https://github.com/golang/go/issues/new?body=%3C%21--+Please+answer+these+questions+before+submitting+your+issue.+Thanks%21+--%3E%0A%0A%23%23%23+What+version+of+Go+are+you+using+%28%60go+version%60%29%3F%0A%0A%3Cpre%3E%0A%24+go+version%0Ago+version+go1.14.1+darwin%2Famd64%0A%3C%2Fpre%3E%0A%0A%23%23%23+Does+this+issue+reproduce+with+the+latest+release%3F%0A%0A%0A%23%23%23+What+operating+system+and+processor+architecture+are+you+using+%28%60go+env%60%29%3F%0A%0A%3Cdetails%3E%3Csummary%3E%3Ccode%3Ego+env%3C%2Fcode%3E+Output%3C%2Fsummary%3E%3Cbr%3E%3Cpre%3E%0A%24+go+env%0AGO111MODULE%3D%22on%22%0AGOARCH%3D%22amd64%22%0AGOBIN%3D%22%22%0AGOCACHE%3D%22%2FUsers%2Fzcj%2FLibrary%2FCaches%2Fgo-build%22%0AGOENV%3D%22%2FUsers%2Fzcj%2FLibrary%2FApplication+Support%2Fgo%2Fenv%22%0AGOEXE%3D%22%22%0AGOFLAGS%3D%22%22%0AGOHOSTARCH%3D%22amd64%22%0AGOHOSTOS%3D%22darwin%22%0AGOINSECURE%3D%22%22%0AGONOPROXY%3D%22%22%0AGONOSUMDB%3D%22%22%0AGOOS%3D%22darwin%22%0AGOPATH%3D%22%2FUsers%2Fzcj%2Fgopath%22%0AGOPRIVATE%3D%22%22%0AGOPROXY%3D%22https%3A%2F%2Fgoproxy.io%22%0AGOROOT%3D%22%2Fusr%2Flocal%2Fgo%22%0AGOSUMDB%3D%22sum.golang.org%22%0AGOTMPDIR%3D%22%22%0AGOTOOLDIR%3D%22%2Fusr%2Flocal%2Fgo%2Fpkg%2Ftool%2Fdarwin_amd64%22%0AGCCGO%3D%22gccgo%22%0AAR%3D%22ar%22%0ACC%3D%22clang%22%0ACXX%3D%22clang%2B%2B%22%0ACGO_ENABLED%3D%221%22%0AGOMOD%3D%22%2Fdev%2Fnull%22%0ACGO_CFLAGS%3D%22-g+-O2%22%0ACGO_CPPFLAGS%3D%22%22%0ACGO_CXXFLAGS%3D%22-g+-O2%22%0ACGO_FFLAGS%3D%22-g+-O2%22%0ACGO_LDFLAGS%3D%22-g+-O2%22%0APKG_CONFIG%3D%22pkg-config%22%0AGOGCCFLAGS%3D%22-fPIC+-m64+-pthread+-fno-caret-diagnostics+-Qunused-arguments+-fmessage-length%3D0+-fdebug-prefix-map%3D%2Fvar%2Ffolders%2F5q%2F_qqjn0l95rb46swlwq9fbxy00000gn%2FT%2Fgo-build554830363%3D%2Ftmp%2Fgo-build+-gno-record-gcc-switches+-fno-common%22%0AGOROOT%2Fbin%2Fgo+version%3A+go+version+go1.14.1+darwin%2Famd64%0AGOROOT%2Fbin%2Fgo+tool+compile+-V%3A+compile+version+go1.14.1%0Auname+-v%3A+Darwin+Kernel+Version+19.4.0%3A+Wed+Mar++4+22%3A28%3A40+PST+2020%3B+root%3Axnu-6153.101.6~15%2FRELEASE_X86_64%0AProductName%3A%09Mac+OS+X%0AProductVersion%3A%0910.15.4%0ABuildVersion%3A%0919E287%0Alldb+--version%3A+lldb-1103.0.22.8%0AApple+Swift+version+5.2.2+%28swiftlang-1103.0.32.6+clang-1103.0.32.51%29%0A%3C%2Fpre%3E%3C%2Fdetails%3E%0A%0A%23%23%23+What+did+you+do%3F%0A%0A%3C%21--%0AIf+possible%2C+provide+a+recipe+for+reproducing+the+error.%0AA+complete+runnable+program+is+good.%0AA+link+on+play.golang.org+is+best.%0A--%3E%0A%0A%0A%0A%23%23%23+What+did+you+expect+to+see%3F%0A%0A%0A%0A%23%23%23+What+did+you+see+instead%3F%0A%0A" target="_blank">New Issue &#xB7; golang/go</a></p>
+<h3 id="22-build---&#x7F16;&#x8BD1;&#x5305;&#x53CA;&#x5176;&#x4F9D;&#x8D56;">2.2 build - &#x7F16;&#x8BD1;&#x5305;&#x53CA;&#x5176;&#x4F9D;&#x8D56;</h3>
+<ul>
+<li>&#x5F88;&#x591A;flag &#x90FD;&#x662F;&#x901A;&#x7528;&#x7684;&#x3002;<em>The build flags are shared by the <code>build</code>, <code>clean</code>, <code>get</code>, <code>install</code>, <code>list</code>, <code>run</code>,
+and <code>test</code> commands</em></li>
+<li><code>-race</code> <em>enable data race detection.Supported only on linux/amd64, freebsd/amd64, darwin/amd64, windows/amd64, linux/ppc64le and linux/arm64 (only for 48-bit VMA).</em> &#x5728;&#x51E0;&#x4E2A;&#x7279;&#x5B9A;&#x7684;&#x5E73;&#x53F0;&#x4E0A;&#x80FD;&#x5F00;&#x542F;&#x6570;&#x636E;&#x7ADE;&#x4E89;&#x68C0;&#x6D4B;&#x3002;</li>
+</ul>
+<pre><code class="lang-bash">
+<span class="hljs-variable">$go</span> <span class="hljs-built_in">help</span> build
+usage: go build [-o output] [-i] [build flags] [packages]
+
+Build compiles the packages named by the import paths,
+along with their dependencies, but it does not install the results.
+
+If the arguments to build are a list of .go files from a single directory,
+build treats them as a list of <span class="hljs-built_in">source</span> files specifying a single package.
+
+When compiling packages, build ignores files that end <span class="hljs-keyword">in</span> <span class="hljs-string">&apos;_test.go&apos;</span>.
+
+When compiling a single main package, build writes
+the resulting executable to an output file named after
+the first <span class="hljs-built_in">source</span> file (<span class="hljs-string">&apos;go build ed.go rx.go&apos;</span> writes <span class="hljs-string">&apos;ed&apos;</span> or <span class="hljs-string">&apos;ed.exe&apos;</span>)
+or the <span class="hljs-built_in">source</span> code directory (<span class="hljs-string">&apos;go build unix/sam&apos;</span> writes <span class="hljs-string">&apos;sam&apos;</span> or <span class="hljs-string">&apos;sam.exe&apos;</span>).
+The <span class="hljs-string">&apos;.exe&apos;</span> suffix is added when writing a Windows executable.
+
+When compiling multiple packages or a single non-main package,
+build compiles the packages but discards the resulting object,
+serving only as a check that the packages can be built.
+
+The -o flag forces build to write the resulting executable or object
+to the named output file or directory, instead of the default behavior described
+<span class="hljs-keyword">in</span> the last two paragraphs. If the named output is a directory that exists,
+<span class="hljs-keyword">then</span> any resulting executables will be written to that directory.
+
+The -i flag installs the packages that are dependencies of the target.
+
+The build flags are shared by the build, clean, get, install, list, run,
+and <span class="hljs-built_in">test</span> commands:
+
+        <span class="hljs-_">-a</span>
+                force rebuilding of packages that are already up-to-date.
+        -n
+                <span class="hljs-built_in">print</span> the commands but <span class="hljs-keyword">do</span> not run them.
+        -p n
+                the number of programs, such as build commands or
+                <span class="hljs-built_in">test</span> binaries, that can be run <span class="hljs-keyword">in</span> parallel.
+                The default is the number of CPUs available.
+        -race
+                <span class="hljs-built_in">enable</span> data race detection.
+                Supported only on linux/amd64, freebsd/amd64, darwin/amd64, windows/amd64,
+                linux/ppc64le and linux/arm64 (only <span class="hljs-keyword">for</span> 48-bit VMA).
+        -msan
+                <span class="hljs-built_in">enable</span> interoperation with memory sanitizer.
+                Supported only on linux/amd64, linux/arm64
+                and only with Clang/LLVM as the host C compiler.
+                On linux/arm64, pie build mode will be used.
+        -v
+                <span class="hljs-built_in">print</span> the names of packages as they are compiled.
+        -work
+                <span class="hljs-built_in">print</span> the name of the temporary work directory and
+                <span class="hljs-keyword">do</span> not delete it when exiting.
+        -x
+                <span class="hljs-built_in">print</span> the commands.
+
+        -asmflags <span class="hljs-string">&apos;[pattern=]arg list&apos;</span>
+                arguments to pass on each go tool asm invocation.
+        -buildmode mode
+                build mode to use. See <span class="hljs-string">&apos;go help buildmode&apos;</span> <span class="hljs-keyword">for</span> more.
+        -compiler name
+                name of compiler to use, as <span class="hljs-keyword">in</span> runtime.Compiler (gccgo or gc).
+        -gccgoflags <span class="hljs-string">&apos;[pattern=]arg list&apos;</span>
+                arguments to pass on each gccgo compiler/linker invocation.
+        -gcflags <span class="hljs-string">&apos;[pattern=]arg list&apos;</span>
+                arguments to pass on each go tool compile invocation.
+        -installsuffix suffix
+                a suffix to use <span class="hljs-keyword">in</span> the name of the package installation directory,
+                <span class="hljs-keyword">in</span> order to keep output separate from default builds.
+                If using the -race flag, the install suffix is automatically <span class="hljs-built_in">set</span> to race
+                or, <span class="hljs-keyword">if</span> <span class="hljs-built_in">set</span> explicitly, has _race appended to it. Likewise <span class="hljs-keyword">for</span> the -msan
+                flag. Using a -buildmode option that requires non-default compile flags
+                has a similar effect.
+        -ldflags <span class="hljs-string">&apos;[pattern=]arg list&apos;</span>
+                arguments to pass on each go tool link invocation.
+        -linkshared
+                build code that will be linked against shared libraries previously
+                created with -buildmode=shared.
+        -mod mode
+                module download mode to use: <span class="hljs-built_in">readonly</span>, vendor, or mod.
+                See <span class="hljs-string">&apos;go help modules&apos;</span> <span class="hljs-keyword">for</span> more.
+        -modcacherw
+                leave newly-created directories <span class="hljs-keyword">in</span> the module cache <span class="hljs-built_in">read</span>-write
+                instead of making them <span class="hljs-built_in">read</span>-only.
+        -modfile file
+                <span class="hljs-keyword">in</span> module aware mode, <span class="hljs-built_in">read</span> (and possibly write) an alternate go.mod
+                file instead of the one <span class="hljs-keyword">in</span> the module root directory. A file named
+                <span class="hljs-string">&quot;go.mod&quot;</span> must still be present <span class="hljs-keyword">in</span> order to determine the module root
+                directory, but it is not accessed. When -modfile is specified, an
+                alternate go.sum file is also used: its path is derived from the
+                -modfile flag by trimming the <span class="hljs-string">&quot;.mod&quot;</span> extension and appending <span class="hljs-string">&quot;.sum&quot;</span>.
+        -pkgdir dir
+                install and load all packages from dir instead of the usual locations.
+                For example, when building with a non-standard configuration,
+                use -pkgdir to keep generated packages <span class="hljs-keyword">in</span> a separate location.
+        -tags tag,list
+                a comma-separated list of build tags to consider satisfied during the
+                build. For more information about build tags, see the description of
+                build constraints <span class="hljs-keyword">in</span> the documentation <span class="hljs-keyword">for</span> the go/build package.
+                (Earlier versions of Go used a space-separated list, and that form
+                is deprecated but still recognized.)
+        -trimpath
+                remove all file system paths from the resulting executable.
+                Instead of absolute file system paths, the recorded file names
+                will begin with either <span class="hljs-string">&quot;go&quot;</span> (<span class="hljs-keyword">for</span> the standard library),
+                or a module path@version (when using modules),
+                or a plain import path (when using GOPATH).
+        -toolexec <span class="hljs-string">&apos;cmd args&apos;</span>
+                a program to use to invoke toolchain programs like vet and asm.
+                For example, instead of running asm, the go <span class="hljs-built_in">command</span> will run
+                <span class="hljs-string">&apos;cmd args /path/to/asm &lt;arguments for asm&gt;&apos;</span>.
+
+The -asmflags, -gccgoflags, -gcflags, and -ldflags flags accept a
+space-separated list of arguments to pass to an underlying tool
+during the build. To embed spaces <span class="hljs-keyword">in</span> an element <span class="hljs-keyword">in</span> the list, surround
+it with either single or double quotes. The argument list may be
+preceded by a package pattern and an equal sign, <span class="hljs-built_in">which</span> restricts
+the use of that argument list to the building of packages matching
+that pattern (see <span class="hljs-string">&apos;go help packages&apos;</span> <span class="hljs-keyword">for</span> a description of package
+patterns). Without a pattern, the argument list applies only to the
+packages named on the <span class="hljs-built_in">command</span> line. The flags may be repeated
+with different patterns <span class="hljs-keyword">in</span> order to specify different arguments <span class="hljs-keyword">for</span>
+different sets of packages. If a package matches patterns given <span class="hljs-keyword">in</span>
+multiple flags, the latest match on the <span class="hljs-built_in">command</span> line wins.
+For example, <span class="hljs-string">&apos;go build -gcflags=-S fmt&apos;</span> prints the disassembly
+only <span class="hljs-keyword">for</span> package fmt, <span class="hljs-keyword">while</span> <span class="hljs-string">&apos;go build -gcflags=all=-S fmt&apos;</span>
+prints the disassembly <span class="hljs-keyword">for</span> fmt and all its dependencies.
+
+For more about specifying packages, see <span class="hljs-string">&apos;go help packages&apos;</span>.
+For more about <span class="hljs-built_in">where</span> packages and binaries are installed,
+run <span class="hljs-string">&apos;go help gopath&apos;</span>.
+For more about calling between Go and C/C++, run <span class="hljs-string">&apos;go help c&apos;</span>.
+
+Note: Build adheres to certain conventions such as those described
+by <span class="hljs-string">&apos;go help gopath&apos;</span>. Not all projects can follow these conventions,
+however. Installations that have their own conventions or that use
+a separate software build system may choose to use lower-level
+invocations such as <span class="hljs-string">&apos;go tool compile&apos;</span> and <span class="hljs-string">&apos;go tool link&apos;</span> to avoid
+some of the overheads and design decisions of the build tool.
+
+See also: go install, go get, go clean.
+</code></pre>
+<h3 id="23-clean---&#x6E05;&#x7406;&#x5305;&#x548C;&#x4F9D;&#x8D56;">2.3 clean - &#x6E05;&#x7406;&#x5305;&#x548C;&#x4F9D;&#x8D56;</h3>
+<pre><code class="lang-bash">
+<span class="hljs-variable">$go</span> <span class="hljs-built_in">help</span> clean
+usage: go clean [clean flags] [build flags] [packages]
+
+Clean removes object files from package <span class="hljs-built_in">source</span> directories.
+The go <span class="hljs-built_in">command</span> builds most objects <span class="hljs-keyword">in</span> a temporary directory,
+so go clean is mainly concerned with object files left by other
+tools or by manual invocations of go build.
+
+If a package argument is given or the -i or -r flag is <span class="hljs-built_in">set</span>,
+clean removes the following files from each of the
+<span class="hljs-built_in">source</span> directories corresponding to the import paths:
+
+        _obj/            old object directory, left from Makefiles
+        _<span class="hljs-built_in">test</span>/           old <span class="hljs-built_in">test</span> directory, left from Makefiles
+        _testmain.go     old gotest file, left from Makefiles
+        test.out         old <span class="hljs-built_in">test</span> <span class="hljs-built_in">log</span>, left from Makefiles
+        build.out        old <span class="hljs-built_in">test</span> <span class="hljs-built_in">log</span>, left from Makefiles
+        *.[568ao]        object files, left from Makefiles
+
+        DIR(.exe)        from go build
+        DIR.test(.exe)   from go <span class="hljs-built_in">test</span> -c
+        MAINFILE(.exe)   from go build MAINFILE.go
+        *.so             from SWIG
+
+In the list, DIR represents the final path element of the
+directory, and MAINFILE is the base name of any Go <span class="hljs-built_in">source</span>
+file <span class="hljs-keyword">in</span> the directory that is not included when building
+the package.
+
+The -i flag causes clean to remove the corresponding installed
+archive or binary (what <span class="hljs-string">&apos;go install&apos;</span> would create).
+
+The -n flag causes clean to <span class="hljs-built_in">print</span> the remove commands it would execute,
+but not run them.
+
+The -r flag causes clean to be applied recursively to all the
+dependencies of the packages named by the import paths.
+
+The -x flag causes clean to <span class="hljs-built_in">print</span> remove commands as it executes them.
+
+The -cache flag causes clean to remove the entire go build cache.
+
+The -testcache flag causes clean to expire all <span class="hljs-built_in">test</span> results <span class="hljs-keyword">in</span> the
+go build cache.
+
+The -modcache flag causes clean to remove the entire module
+download cache, including unpacked <span class="hljs-built_in">source</span> code of versioned
+dependencies.
+
+For more about build flags, see <span class="hljs-string">&apos;go help build&apos;</span>.
+
+For more about specifying packages, see <span class="hljs-string">&apos;go help packages&apos;</span>.
+</code></pre>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="Go语言基础学习-目录.html" class="navigation navigation-prev " aria-label="Previous page: Go语言基础-上">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="Go-基础-上-Day02-怎么书写Go程序.html" class="navigation navigation-next " aria-label="Next page: Day02-怎么书写Go程序">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Day01-命令行","level":"1.1.1","depth":2,"next":{"title":"Day02-怎么书写Go程序","level":"1.1.2","depth":2,"path":"Golang工程师养成计划/Go语言基础/Go-基础-上-Day02-怎么书写Go程序.md","ref":"Golang工程师养成计划/Go语言基础/Go-基础-上-Day02-怎么书写Go程序.md","articles":[]},"previous":{"title":"Go语言基础-上","level":"1.1","depth":1,"path":"Golang工程师养成计划/Go语言基础/Go语言基础学习-目录.md","ref":"Golang工程师养成计划/Go语言基础/Go语言基础学习-目录.md","articles":[{"title":"Day01-命令行","level":"1.1.1","depth":2,"path":"Golang工程师养成计划/Go语言基础/Go-基础-上-Day01-命令行.md","ref":"Golang工程师养成计划/Go语言基础/Go-基础-上-Day01-命令行.md","articles":[]},{"title":"Day02-怎么书写Go程序","level":"1.1.2","depth":2,"path":"Golang工程师养成计划/Go语言基础/Go-基础-上-Day02-怎么书写Go程序.md","ref":"Golang工程师养成计划/Go语言基础/Go-基础-上-Day02-怎么书写Go程序.md","articles":[]},{"title":"Day03-开始Go语言旅行","level":"1.1.3","depth":2,"path":"Golang工程师养成计划/Go语言基础/Go-基础-上-Day03-开始Go语言旅行.md","ref":"Golang工程师养成计划/Go语言基础/Go-基础-上-Day03-开始Go语言旅行.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["expandable-chapters-small","favicon","github","katex"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"github":{"url":"https://github.com/panda8z"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":{"shortcut":"assets/images/favicon.ico","bookmark":"assets/images/favicon.ico","appleTouch":"assets/images/apple-touch-icon.png","appleTouchMore":{"120x120":"assets/images/apple-touch-icon-120x120.png","180x180":"assets/images/apple-touch-icon-120x120.png"}},"expandable-chapters-small":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Panda8z","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Panda8z Go Dairy Archive","language":"zh-hans","links":{"sidebar":{"GitHub托管的CSBlog":"https://moreme.top"}},"gitbook":"3.2.3","description":"Computer System"},"file":{"path":"Golang工程师养成计划/Go语言基础/Go-基础-上-Day01-命令行.md","mtime":"2020-04-24T12:15:46.139Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-04-24T12:16:30.980Z"},"basePath":"../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-github/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

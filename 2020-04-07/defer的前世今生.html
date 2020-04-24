@@ -1,20 +1,28 @@
 
 <!DOCTYPE HTML>
-<html lang="" >
+<html lang="zh-hans" >
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>defer的前世今生 · GitBook</title>
+        <title>defer的前世今生 · Panda8z Go Dairy Archive</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
-        
+        <meta name="author" content="Panda8z">
         
         
     
     <link rel="stylesheet" href="../gitbook/style.css">
 
     
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-katex/katex.min.css">
+                
             
                 
                 <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
@@ -49,6 +57,7 @@
         
     
     
+    
     <meta name="HandheldFriendly" content="true"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -60,6 +69,25 @@
     <link rel="next" href="Go中defer.html" />
     
     
+    <link rel="prev" href="../2020-04-05/Goroutine是怎么开始和退出的.html" />
+    
+
+    
+        <link rel="shortcut icon" href='../assets/images/favicon.ico' type="image/x-icon">
+    
+    
+        <link rel="bookmark" href='../assets/images/favicon.ico' type="image/x-icon">
+    
+    
+        <link rel="apple-touch-icon" href='../assets/images/apple-touch-icon.png'>
+    
+    
+        
+        <link rel="apple-touch-icon" sizes="120x120" href="../assets/images/apple-touch-icon-120x120.png">
+        
+        <link rel="apple-touch-icon" sizes="180x180" href="../assets/images/apple-touch-icon-120x120.png">
+        
+    
 
     </head>
     <body>
@@ -69,7 +97,7 @@
         
             
 <div id="book-search-input" role="search">
-    <input type="text" placeholder="Type to search" />
+    <input type="text" placeholder="输入并搜索" />
 </div>
 
             
@@ -80,19 +108,44 @@
 <ul class="summary">
     
     
+    
+        
+        <li>
+            <a href="https://moreme.top" target="_blank" class="custom-link">GitHub托管的CSBlog</a>
+        </li>
+    
+    
 
+    
+    <li class="divider"></li>
     
 
     
         
+        <li class="header">Golang工程师养成计划</li>
+        
         
     
-        <li class="chapter " data-level="1.1" data-path="../">
+        <li class="chapter " data-level="1.1" data-path="../Golang工程师养成计划/Go语言基础/Go语言基础学习-目录.html">
             
-                <a href="../">
+                <a href="../Golang工程师养成计划/Go语言基础/Go语言基础学习-目录.html">
             
                     
-                    目录
+                    Go语言基础-上
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.1.1" data-path="../Golang工程师养成计划/Go语言基础/Go-基础-上-Day01-命令行.html">
+            
+                <a href="../Golang工程师养成计划/Go语言基础/Go-基础-上-Day01-命令行.html">
+            
+                    
+                    Day01-命令行
             
                 </a>
             
@@ -100,21 +153,97 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2" >
+        <li class="chapter " data-level="1.1.2" data-path="../Golang工程师养成计划/Go语言基础/Go-基础-上-Day02-怎么书写Go程序.html">
             
-                <span>
+                <a href="../Golang工程师养成计划/Go语言基础/Go-基础-上-Day02-怎么书写Go程序.html">
             
                     
-                    2020-03-18
+                    Day02-怎么书写Go程序
             
-                </span>
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.3" data-path="../Golang工程师养成计划/Go语言基础/Go-基础-上-Day03-开始Go语言旅行.html">
+            
+                <a href="../Golang工程师养成计划/Go语言基础/Go-基础-上-Day03-开始Go语言旅行.html">
+            
+                    
+                    Day03-开始Go语言旅行
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../Golang工程师养成计划/Go语言标准库/Go语言标准库学习-目录.html">
+            
+                <a href="../Golang工程师养成计划/Go语言标准库/Go语言标准库学习-目录.html">
+            
+                    
+                    Go语言标准库学习
+            
+                </a>
             
 
             
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.2.1" data-path="../2020-03-18/面试准备Day01.html">
+        <li class="chapter " data-level="1.2.1" data-path="../Golang工程师养成计划/Go语言标准库/container-heap.html">
+            
+                <a href="../Golang工程师养成计划/Go语言标准库/container-heap.html">
+            
+                    
+                    container-heap 笔记
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="header">日志</li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    张向北的笔记本📒
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">2020-03-18</li>
+        
+        
+    
+        <li class="chapter " data-level="3.1" data-path="../2020-03-18/面试准备Day01.html">
             
                 <a href="../2020-03-18/面试准备Day01.html">
             
@@ -127,7 +256,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.2" data-path="../2020-03-18/gitbook工具使用指南.html">
+        <li class="chapter " data-level="3.2" data-path="../2020-03-18/gitbook工具使用指南.html">
             
                 <a href="../2020-03-18/gitbook工具使用指南.html">
             
@@ -141,32 +270,13 @@
         </li>
     
 
-            </ul>
-            
-        </li>
-    
-
     
         
-        <li class="divider"></li>
+        <li class="header">2020-04-05</li>
         
         
     
-        <li class="chapter " data-level="2.1" >
-            
-                <span>
-            
-                    
-                    2020-04-05
-            
-                </span>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="2.1.1" data-path="../2020-04-05/Goroutine是怎么开始和退出的.html">
+        <li class="chapter " data-level="4.1" data-path="../2020-04-05/Goroutine是怎么开始和退出的.html">
             
                 <a href="../2020-04-05/Goroutine是怎么开始和退出的.html">
             
@@ -180,32 +290,13 @@
         </li>
     
 
-            </ul>
-            
-        </li>
-    
-
     
         
-        <li class="divider"></li>
+        <li class="header">2020-04-07</li>
         
         
     
-        <li class="chapter " data-level="3.1" >
-            
-                <span>
-            
-                    
-                    2020-04-07
-            
-                </span>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter active" data-level="3.1.1" data-path="defer的前世今生.html">
+        <li class="chapter active" data-level="5.1" data-path="defer的前世今生.html">
             
                 <a href="defer的前世今生.html">
             
@@ -216,9 +307,10 @@
             
 
             
-        </li>
+            <ul class="articles">
+                
     
-        <li class="chapter " data-level="3.1.2" data-path="Go中defer.html">
+        <li class="chapter " data-level="5.1.1" data-path="Go中defer.html">
             
                 <a href="Go中defer.html">
             
@@ -231,7 +323,7 @@
             
         </li>
     
-        <li class="chapter " data-level="3.1.3" data-path="Go中defer7个知识点.html">
+        <li class="chapter " data-level="5.1.2" data-path="Go中defer7个知识点.html">
             
                 <a href="Go中defer7个知识点.html">
             
@@ -244,7 +336,12 @@
             
         </li>
     
-        <li class="chapter " data-level="3.1.4" data-path="Go实现LeetCode全集.html">
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="5.2" data-path="Go实现LeetCode全集.html">
             
                 <a href="Go实现LeetCode全集.html">
             
@@ -257,7 +354,7 @@
             
         </li>
     
-        <li class="chapter " data-level="3.1.5" data-path="如何成为Go语言代码贡献者.html">
+        <li class="chapter " data-level="5.3" data-path="如何成为Go语言代码贡献者.html">
             
                 <a href="如何成为Go语言代码贡献者.html">
             
@@ -270,7 +367,7 @@
             
         </li>
     
-        <li class="chapter " data-level="3.1.6" data-path="读书笔记-2020-04-07.html">
+        <li class="chapter " data-level="5.4" data-path="读书笔记-2020-04-07.html">
             
                 <a href="读书笔记-2020-04-07.html">
             
@@ -284,32 +381,13 @@
         </li>
     
 
-            </ul>
-            
-        </li>
-    
-
     
         
-        <li class="divider"></li>
+        <li class="header">2020-04-08</li>
         
         
     
-        <li class="chapter " data-level="4.1" >
-            
-                <span>
-            
-                    
-                    2020-04-08
-            
-                </span>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="4.1.1" data-path="../2020-04-08/go编译器-编译指示.html">
+        <li class="chapter " data-level="6.1" data-path="../2020-04-08/go编译器-编译指示.html">
             
                 <a href="../2020-04-08/go编译器-编译指示.html">
             
@@ -322,7 +400,7 @@
             
         </li>
     
-        <li class="chapter " data-level="4.1.2" data-path="../2020-04-08/go做一个小型http服务器并优化实战.html">
+        <li class="chapter " data-level="6.2" data-path="../2020-04-08/go做一个小型http服务器并优化实战.html">
             
                 <a href="../2020-04-08/go做一个小型http服务器并优化实战.html">
             
@@ -336,32 +414,13 @@
         </li>
     
 
-            </ul>
-            
-        </li>
-    
-
     
         
-        <li class="divider"></li>
+        <li class="header">2020-04-09</li>
         
         
     
-        <li class="chapter " data-level="5.1" >
-            
-                <span>
-            
-                    
-                    2020-04-09
-            
-                </span>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="5.1.1" data-path="../2020-04-09/Go语言原本-调度器.html">
+        <li class="chapter " data-level="7.1" data-path="../2020-04-09/Go语言原本-调度器.html">
             
                 <a href="../2020-04-09/Go语言原本-调度器.html">
             
@@ -375,25 +434,13 @@
         </li>
     
 
-            </ul>
-            
-        </li>
     
-        <li class="chapter " data-level="5.2" >
-            
-                <span>
-            
-                    
-                    2020-04-10
-            
-                </span>
-            
-
-            
-            <ul class="articles">
-                
+        
+        <li class="header">2020-04-10</li>
+        
+        
     
-        <li class="chapter " data-level="5.2.1" data-path="../2020-04-10/go垃圾回收.html">
+        <li class="chapter " data-level="8.1" data-path="../2020-04-10/go垃圾回收.html">
             
                 <a href="../2020-04-10/go垃圾回收.html">
             
@@ -407,32 +454,13 @@
         </li>
     
 
-            </ul>
-            
-        </li>
-    
-
     
         
-        <li class="divider"></li>
+        <li class="header">2020-04-11</li>
         
         
     
-        <li class="chapter " data-level="6.1" >
-            
-                <span>
-            
-                    
-                    2020-04-11
-            
-                </span>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="6.1.1" data-path="../2020-04-11/2020-04-11-日志.html">
+        <li class="chapter " data-level="9.1" data-path="../2020-04-11/2020-04-11-日志.html">
             
                 <a href="../2020-04-11/2020-04-11-日志.html">
             
@@ -446,32 +474,13 @@
         </li>
     
 
-            </ul>
-            
-        </li>
-    
-
     
         
-        <li class="divider"></li>
+        <li class="header">2020-04-12</li>
         
         
     
-        <li class="chapter " data-level="7.1" >
-            
-                <span>
-            
-                    
-                    2020-04-12
-            
-                </span>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="7.1.1" data-path="../2020-04-12/Go语言原本-延迟语句.html">
+        <li class="chapter " data-level="10.1" data-path="../2020-04-12/Go语言原本-延迟语句.html">
             
                 <a href="../2020-04-12/Go语言原本-延迟语句.html">
             
@@ -485,32 +494,13 @@
         </li>
     
 
-            </ul>
-            
-        </li>
-    
-
     
         
-        <li class="divider"></li>
+        <li class="header">2020-04-13</li>
         
         
     
-        <li class="chapter " data-level="8.1" >
-            
-                <span>
-            
-                    
-                    2020-04-13
-            
-                </span>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="8.1.1" data-path="../2020-04-13/Go语言原本-channel.html">
+        <li class="chapter " data-level="11.1" data-path="../2020-04-13/Go语言原本-channel.html">
             
                 <a href="../2020-04-13/Go语言原本-channel.html">
             
@@ -523,7 +513,7 @@
             
         </li>
     
-        <li class="chapter " data-level="8.1.2" data-path="../2020-04-13/2020-04-13-日志.html">
+        <li class="chapter " data-level="11.2" data-path="../2020-04-13/2020-04-13-日志.html">
             
                 <a href="../2020-04-13/2020-04-13-日志.html">
             
@@ -537,32 +527,13 @@
         </li>
     
 
-            </ul>
-            
-        </li>
-    
-
     
         
-        <li class="divider"></li>
+        <li class="header">2020-04-14</li>
         
         
     
-        <li class="chapter " data-level="9.1" >
-            
-                <span>
-            
-                    
-                    2020-04-14
-            
-                </span>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="9.1.1" data-path="../2020-04-14/G0是怎么创建的.html">
+        <li class="chapter " data-level="12.1" data-path="../2020-04-14/G0是怎么创建的.html">
             
                 <a href="../2020-04-14/G0是怎么创建的.html">
             
@@ -575,7 +546,7 @@
             
         </li>
     
-        <li class="chapter " data-level="9.1.2" data-path="../2020-04-14/从0构建亿级微服务架构.html">
+        <li class="chapter " data-level="12.2" data-path="../2020-04-14/从0构建亿级微服务架构.html">
             
                 <a href="../2020-04-14/从0构建亿级微服务架构.html">
             
@@ -589,32 +560,13 @@
         </li>
     
 
-            </ul>
-            
-        </li>
-    
-
     
         
-        <li class="divider"></li>
+        <li class="header">2020-04-15</li>
         
         
     
-        <li class="chapter " data-level="10.1" >
-            
-                <span>
-            
-                    
-                    2020-04-15
-            
-                </span>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="10.1.1" data-path="../2020-04-15/go-leetcode-TwoSum.html">
+        <li class="chapter " data-level="13.1" data-path="../2020-04-15/go-leetcode-TwoSum.html">
             
                 <a href="../2020-04-15/go-leetcode-TwoSum.html">
             
@@ -628,32 +580,13 @@
         </li>
     
 
-            </ul>
-            
-        </li>
-    
-
     
         
-        <li class="divider"></li>
+        <li class="header">2020-04-17</li>
         
         
     
-        <li class="chapter " data-level="11.1" >
-            
-                <span>
-            
-                    
-                    2020-04-17
-            
-                </span>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="11.1.1" data-path="../2020-04-17/go-leetcode-day02.html">
+        <li class="chapter " data-level="14.1" data-path="../2020-04-17/go-leetcode-day02.html">
             
                 <a href="../2020-04-17/go-leetcode-day02.html">
             
@@ -667,32 +600,13 @@
         </li>
     
 
-            </ul>
-            
-        </li>
-    
-
     
         
-        <li class="divider"></li>
+        <li class="header">2020-04-18</li>
         
         
     
-        <li class="chapter " data-level="12.1" >
-            
-                <span>
-            
-                    
-                    2020-04-18
-            
-                </span>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="12.1.1" data-path="../2020-04-18/go-leetcode-day03.html">
+        <li class="chapter " data-level="15.1" data-path="../2020-04-18/go-leetcode-day03.html">
             
                 <a href="../2020-04-18/go-leetcode-day03.html">
             
@@ -705,7 +619,7 @@
             
         </li>
     
-        <li class="chapter " data-level="12.1.2" data-path="../2020-04-18/timepill-api分析.html">
+        <li class="chapter " data-level="15.2" data-path="../2020-04-18/timepill-api分析.html">
             
                 <a href="../2020-04-18/timepill-api分析.html">
             
@@ -719,32 +633,13 @@
         </li>
     
 
-            </ul>
-            
-        </li>
-    
-
     
         
-        <li class="divider"></li>
+        <li class="header">2020-04-21</li>
         
         
     
-        <li class="chapter " data-level="13.1" >
-            
-                <span>
-            
-                    
-                    2020-04-21
-            
-                </span>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="13.1.1" data-path="../2020-04-21/Go-leetcode-day04.html">
+        <li class="chapter " data-level="16.1" data-path="../2020-04-21/Go-leetcode-day04.html">
             
                 <a href="../2020-04-21/Go-leetcode-day04.html">
             
@@ -757,7 +652,7 @@
             
         </li>
     
-        <li class="chapter " data-level="13.1.2" data-path="../2020-04-21/Go-VScode-debug-go-program.html">
+        <li class="chapter " data-level="16.2" data-path="../2020-04-21/Go-VScode-debug-go-program.html">
             
                 <a href="../2020-04-21/Go-VScode-debug-go-program.html">
             
@@ -770,7 +665,7 @@
             
         </li>
     
-        <li class="chapter " data-level="13.1.3" data-path="../2020-04-21/数据结构-二叉树时间复杂度.html">
+        <li class="chapter " data-level="16.3" data-path="../2020-04-21/数据结构-二叉树时间复杂度.html">
             
                 <a href="../2020-04-21/数据结构-二叉树时间复杂度.html">
             
@@ -784,25 +679,13 @@
         </li>
     
 
-            </ul>
-            
-        </li>
     
-        <li class="chapter " data-level="13.2" >
-            
-                <span>
-            
-                    
-                    2020-04-22
-            
-                </span>
-            
-
-            
-            <ul class="articles">
-                
+        
+        <li class="header">2020-04-22</li>
+        
+        
     
-        <li class="chapter " data-level="13.2.1" data-path="../2020-04-22/2020-04-22-笔记.html">
+        <li class="chapter " data-level="17.1" data-path="../2020-04-22/2020-04-22-笔记.html">
             
                 <a href="../2020-04-22/2020-04-22-笔记.html">
             
@@ -815,8 +698,36 @@
             
         </li>
     
+        <li class="chapter " data-level="17.2" data-path="../2020-04-23/2020-04-23-笔记.html">
+            
+                <a href="../2020-04-23/2020-04-23-笔记.html">
+            
+                    
+                    2020-04-23
+            
+                </a>
+            
 
-            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="18.1" data-path="../2020-04-24/2020-04-24-笔记.html">
+            
+                <a href="../2020-04-24/2020-04-24-笔记.html">
+            
+                    
+                    2020-04-24
+            
+                </a>
+            
+
             
         </li>
     
@@ -827,7 +738,7 @@
 
     <li>
         <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
-            Published with GitBook
+            本书使用 GitBook 发布
         </a>
     </li>
 </ul>
@@ -1763,8 +1674,12 @@ exit:
 
             
                 
+                <a href="../2020-04-05/Goroutine是怎么开始和退出的.html" class="navigation navigation-prev " aria-label="Previous page: Goroutine是怎么开始和退出的">
+                    <i class="fa fa-angle-left"></i>
+                </a>
                 
-                <a href="Go中defer.html" class="navigation navigation-next navigation-unique" aria-label="Next page: Go中defer">
+                
+                <a href="Go中defer.html" class="navigation navigation-next " aria-label="Next page: Go中defer">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -1775,7 +1690,7 @@ exit:
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"defer的前世今生","level":"3.1.1","depth":2,"next":{"title":"Go中defer","level":"3.1.2","depth":2,"path":"2020-04-07/Go中defer.md","ref":"2020-04-07/Go中defer.md","articles":[]},"previous":{"title":"2020-04-07","level":"3.1","depth":1,"ref":"","articles":[{"title":"defer的前世今生","level":"3.1.1","depth":2,"path":"2020-04-07/defer的前世今生.md","ref":"2020-04-07/defer的前世今生.md","articles":[]},{"title":"Go中defer","level":"3.1.2","depth":2,"path":"2020-04-07/Go中defer.md","ref":"2020-04-07/Go中defer.md","articles":[]},{"title":"Go中defer7个知识点","level":"3.1.3","depth":2,"path":"2020-04-07/Go中defer7个知识点.md","ref":"2020-04-07/Go中defer7个知识点.md","articles":[]},{"title":"Go实现LeetCode全集","level":"3.1.4","depth":2,"path":"2020-04-07/Go实现LeetCode全集.md","ref":"2020-04-07/Go实现LeetCode全集.md","articles":[]},{"title":"如何成为Go语言代码贡献者","level":"3.1.5","depth":2,"path":"2020-04-07/如何成为Go语言代码贡献者.md","ref":"2020-04-07/如何成为Go语言代码贡献者.md","articles":[]},{"title":"读书笔记-2020-04-07","level":"3.1.6","depth":2,"path":"2020-04-07/读书笔记-2020-04-07.md","ref":"2020-04-07/读书笔记-2020-04-07.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"2020-04-07/defer的前世今生.md","mtime":"2020-04-22T03:29:42.924Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-04-22T03:30:24.150Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"defer的前世今生","level":"5.1","depth":1,"next":{"title":"Go中defer","level":"5.1.1","depth":2,"path":"2020-04-07/Go中defer.md","ref":"2020-04-07/Go中defer.md","articles":[]},"previous":{"title":"Goroutine是怎么开始和退出的","level":"4.1","depth":1,"path":"2020-04-05/Goroutine是怎么开始和退出的.md","ref":"./2020-04-05/Goroutine是怎么开始和退出的.md","articles":[]},"dir":"ltr"},"config":{"plugins":["expandable-chapters-small","favicon","github","katex"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"github":{"url":"https://github.com/panda8z"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":{"shortcut":"assets/images/favicon.ico","bookmark":"assets/images/favicon.ico","appleTouch":"assets/images/apple-touch-icon.png","appleTouchMore":{"120x120":"assets/images/apple-touch-icon-120x120.png","180x180":"assets/images/apple-touch-icon-120x120.png"}},"expandable-chapters-small":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Panda8z","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Panda8z Go Dairy Archive","language":"zh-hans","links":{"sidebar":{"GitHub托管的CSBlog":"https://moreme.top"}},"gitbook":"3.2.3","description":"Computer System"},"file":{"path":"2020-04-07/defer的前世今生.md","mtime":"2020-04-24T12:15:46.023Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-04-24T12:16:30.980Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -1783,6 +1698,14 @@ exit:
         
     <script src="../gitbook/gitbook.js"></script>
     <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-github/plugin.js"></script>
+        
     
         
         <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
