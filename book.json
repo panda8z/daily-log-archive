@@ -16,8 +16,7 @@
         "expandable-chapters-small",
         "favicon",
         "github",
-        "katex",
-        "mathJax"
+        "katex"
     ],
     "pluginsConfig": {
         "github": {
