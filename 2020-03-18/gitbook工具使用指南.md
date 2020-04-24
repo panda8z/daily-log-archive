@@ -128,3 +128,7 @@ info: >> plugin "favicon" installed with success
 
 ![image-20200422172345776](gitbook工具使用指南/image-20200422172345776.png)
 
+
+### 3.3  "katex" 
+
+为了支持数学公式, 我们可以使用KaTex和MathJax插件, 官网上说Katex速度要快于MathJax

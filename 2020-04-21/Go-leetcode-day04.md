@@ -4,7 +4,7 @@
 
 ## 摘要
 
-这篇文章是为中级读者而写的。它介绍了回文，动态规划以及字符串处理。请确保你理解什么是回文。回文是一个正读和反读都相同的字符串，例如，\textrm{“aba”}“aba” 是回文，而 \textrm{“abc”}“abc” 不是。
+这篇文章是为中级读者而写的。它介绍了回文，动态规划以及字符串处理。请确保你理解什么是回文。回文是一个正读和反读都相同的字符串，例如，$\textrm{“aba”}$是回文，而 $\textrm{“abc”}$ 不是。
 
 ## 解决方案
 
@@ -24,7 +24,7 @@ $S = \textrm{“caba”}S=“caba”, S' = \textrm{“abac”}$
 
 S$′=“abac”$
 
-$S$ 以及 $S'$ 之间的最长公共子串为$ \textrm{“aba”}$，恰恰是答案。
+$S$ 以及 $S'$ 之间的最长公共子串为$\textrm{“aba”}$，恰恰是答案。
 
 让我们尝试一下这个例子：$S = \textrm{“abacdfgdcaba”}, S' = \textrm{“abacdgfdcaba”}$：
 
@@ -110,7 +110,7 @@ func isPalindromic(s string, l, r int) bool {
 我们给出 $P(i,j)$ 的定义如下：
 
 $$
-P(i,j) = \begin{cases} \text{true,} &\quad\text{如果子串} S_i \dots S_j \text{是回文子串} \\ \text{false,} &\quad\text{其它情况} \end{cases}
+P(i,j) = \begin{cases} \text{true,} &\quad\text{如果子串} S_i ... S_j\text{是回文子串}\\\text{false,} &\quad\text{其它情况} \end{cases} 
 $$
 
 
