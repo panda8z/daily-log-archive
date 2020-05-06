@@ -1,0 +1,5 @@
+baseURL = "http://panda8z.com/"
+languageCode = "zh"
+title = "Panda张向北"
+theme = "ananke"
+# theme = "panda8z-blog"
