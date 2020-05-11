@@ -2,7 +2,14 @@ package main
 
 import (
 	"fmt"
+	"math"
 )
+
+type TreeNode struct {
+	Val   int
+	Left  *TreeNode
+	Right *TreeNode
+}
 
 /**
  * Definition for a binary tree node.
@@ -12,15 +19,20 @@ import (
  *     Right *TreeNode
  * }
  */
-type TreeNode struct {
-	Val   int
-	Left  *TreeNode
-	Right *TreeNode
+func isBalanced(root *TreeNode) bool {
+	if root == nil {
+		return true
+	}
+	if math.Abs(depth(root.Left)-depth(root.Right)) <= 1 {
+		return isBalanced(root.Left) && isBalanced(root.Right)
+	}
+
+	return false
 }
 
 func main() {
-	// [3,9,20,null,null,15,7]
-	//  [1,2,2,3,3,null,null,4,4]
+	// [3,9,20,null,null,15,7]  true
+	//  [1,2,2,3,3,null,null,4,4] false
 	treeT := &TreeNode{
 		Val: 3,
 		Left: &TreeNode{
@@ -72,58 +84,19 @@ func main() {
 			Right: nil,
 		},
 	}
-
-	// 测试打印下前序遍历这两个二叉树
-	fmt.Println("\nPreOrder treeT : ")
-	PreOrder(treeT)
-	fmt.Println("\nPreOrder treeF : ")
-	PreOrder(treeF)
-
-	// 测试打印下中序遍历这两个二叉树
-	fmt.Println("\nInfixOrder treeT : ")
-	InfixOrder(treeT)
-	fmt.Println("\nInfixOrder treeF : ")
-	InfixOrder(treeF)
-
-	// 测试打印下后序遍历这两个二叉树
-	fmt.Println("\nPostOrder treeT : ")
-	PostOrder(treeT)
-	fmt.Println("\nPostOrder treeF : ")
-	PostOrder(treeF)
-
-	fmt.Printf("\n\n%s", " _   _      _ _    __        __         _     _ \n| | | | ___| | | __\\ \\      / /__  _ __| | __| |\n| |_| |/ _ \\ | |/ _ \\ \\ /\\ / / _ \\| '__| |/ _` |\n|  _  |  __/ | | (_) \\ V  V / (_) | |  | | (_| |\n|_| |_|\\___|_|_|\\___/ \\_/\\_/ \\___/|_|  |_|\\__,_|")
+	fmt.Printf("deepth of treeT: %v\n", depth(treeT))
+	fmt.Printf("deepth of treeF: %v\n", depth(treeF))
+	fmt.Printf("isBalanced of treeT: %v\n", isBalanced(treeT))
+	fmt.Printf("isBalanced of treeF: %v\n", isBalanced(treeF))
 
 }
 
-// PreOrder 先序遍历
-func PreOrder(root *TreeNode) {
+// 获取深度
+func depth(root *TreeNode) float64 {
 	if root == nil {
-		return
+		// 遍历到树的叶子的时候就会出现 nil
+		return 0
 	}
+	return math.Max(depth(root.Left), depth(root.Right)) + 1
 
-	fmt.Printf("%v; ", root.Val)
-	PreOrder(root.Left)
-	PreOrder(root.Right)
-}
-
-// InfixOrder 中序遍历
-func InfixOrder(root *TreeNode) {
-	if root == nil {
-		return
-	}
-
-	InfixOrder(root.Left)
-	fmt.Printf("%v; ", root.Val)
-	InfixOrder(root.Right)
-}
-
-// PostOrder 后序遍历
-func PostOrder(root *TreeNode) {
-	if root == nil {
-		return
-	}
-
-	PostOrder(root.Left)
-	PostOrder(root.Right)
-	fmt.Printf("%v; ", root.Val)
 }
