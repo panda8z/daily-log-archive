@@ -66,7 +66,7 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="../2020-05-10/2020-05-10-笔记.html" />
+    <link rel="next" href="530.二叉搜索树的最小绝对差.html" />
     
     
     <link rel="prev" href="../2020-05-08/2020-05-08-笔记.html" />
@@ -891,6 +891,38 @@
             
 
             
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="17.16.1" data-path="530.二叉搜索树的最小绝对差.html">
+            
+                <a href="530.二叉搜索树的最小绝对差.html">
+            
+                    
+                    530.二叉搜索树的最小绝对差
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="17.16.2" data-path="二叉树的前中后遍历.html">
+            
+                <a href="二叉树的前中后遍历.html">
+            
+                    
+                    二叉树的前中后遍历
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
         </li>
     
         <li class="chapter " data-level="17.17" data-path="../2020-05-10/2020-05-10-笔记.html">
@@ -916,6 +948,70 @@
                 </a>
             
 
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="17.18.1" >
+            
+                <span>
+            
+                    
+                    [面试题04.03.特定深度节点链表](2020-05-11/面试题04.03.特定深度节点链表.md）
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="17.18.2" data-path="../2020-05-11/538.把二叉搜索树转换为累加树.html">
+            
+                <a href="../2020-05-11/538.把二叉搜索树转换为累加树.html">
+            
+                    
+                    538.把二叉搜索树转换为累加树
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="17.19" data-path="../2020-05-15/2020-05-15-笔记.html">
+            
+                <a href="../2020-05-15/2020-05-15-笔记.html">
+            
+                    
+                    2020-05-15-笔记
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="17.19.1" data-path="../2020-05-15/YouTube-dl命令下载YouTube的视频.html">
+            
+                <a href="../2020-05-15/YouTube-dl命令下载YouTube的视频.html">
+            
+                    
+                    YouTube-dl命令下载YouTube的视频
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
             
         </li>
     
@@ -965,203 +1061,84 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="2020-05-09-&#x7B14;&#x8BB0;&#x1F4D2;">2020-05-09-&#x7B14;&#x8BB0;&#x1F4D2;</h1>
-<h2 id="530-&#x4E8C;&#x53C9;&#x641C;&#x7D22;&#x6811;&#x7684;&#x6700;&#x5C0F;&#x7EDD;&#x5BF9;&#x5DEE;"><a href="https://leetcode-cn.com/problems/minimum-absolute-difference-in-bst/" target="_blank">530. &#x4E8C;&#x53C9;&#x641C;&#x7D22;&#x6811;&#x7684;&#x6700;&#x5C0F;&#x7EDD;&#x5BF9;&#x5DEE;</a></h2>
-<h3 id="1-&#x8D44;&#x6599;&#x641C;&#x96C6;">1. &#x8D44;&#x6599;&#x641C;&#x96C6;</h3>
-<p><img src="2020-05-09-&#x7B14;&#x8BB0;/4f3d67f1d3e6e833a4c6b3e6184002b5c2a02d150a60106998180e8bb2b87208-image.png" alt="image.png">wx</p>
-<p>&#x5176;&#x5B9E;&#x4E5F;&#x6CA1;&#x6709;&#x4EC0;&#x4E48;&#x7279;&#x522B;&#x7684;&#xFF0C;&#x53EA;&#x662F;&#x7B2C;&#x4E00;&#x4EFD;GO&#x7684;&#x9898;&#x89E3;&#xFF0C;
-&#x63D0;&#x4EA4;&#x540E;&#xFF0C;&#x53EA;&#x51FB;&#x8D25;&#x4E86;90%&#x3002; &#x770B;&#x4E86;&#x7528;&#x65F6;&#x6700;&#x5C11;&#x7684;&#x63D0;&#x4EA4;&#x4E4B;&#x540E;&#xFF0C;&#x6211;&#x5185;&#x5FC3;&#x662F;&#x4E0D;&#x670D;&#x7684;&#xFF0C;&#x6700;&#x5C0F;&#x7684;&#x601D;&#x8DEF;&#x662F;&#x5148;&#x4E2D;&#x5E8F;&#x904D;&#x5386;&#xFF0C;&#x628A;&#x6240;&#x6709;&#x7684;&#x503C;&#x8BB0;&#x5F55;&#x5230;&#x4E00;&#x4E2A;&#x6570;&#x7EC4;&#xFF0C;&#x7136;&#x540E;&#x5728;&#x904D;&#x5386;&#x6570;&#x7EC4;&#xFF0C;&#x8BA1;&#x7B97;&#x6700;&#x5C0F;&#x503C;&#x3002;
-&#x800C;&#x6211;&#x7684;&#x601D;&#x8DEF;&#x53EA;&#x9700;&#x4E2D;&#x5E8F;&#x904D;&#x5386;&#xFF0C;&#x5728;&#x4E2D;&#x5E8F;&#x904D;&#x5386;&#x7684;&#x540C;&#x65F6;&#x8BA1;&#x7B97;&#x6700;&#x5C0F;&#x503C;&#xFF0C;&#x7406;&#x8BBA;&#x4E0A;&#x5C11;&#x4E86;&#x6570;&#x7EC4;&#x904D;&#x5386;&#x7684;&#x8FC7;&#x7A0B;&#xFF0C;&#x5E94;&#x8BE5;&#x66F4;&#x5FEB;&#x7684;&#xFF0C;&#x800C;&#x4E14;&#x6CA1;&#x6709;&#x989D;&#x5916;&#x7684;&#x7A7A;&#x95F4;&#x5F00;&#x9500;&#x3002;</p>
-<p>&#x4F5C;&#x8005;&#xFF1A;xiaoma_nmg
-&#x94FE;&#x63A5;&#xFF1A;<a href="https://leetcode-cn.com/problems/minimum-absolute-difference-in-bst/solution/ben-ti-goyu-yan-di-yi-fen-ti-jie-by-xiaoma_nmg/" target="_blank">https://leetcode-cn.com/problems/minimum-absolute-difference-in-bst/solution/ben-ti-goyu-yan-di-yi-fen-ti-jie-by-xiaoma_nmg/</a>
-&#x6765;&#x6E90;&#xFF1A;&#x529B;&#x6263;&#xFF08;LeetCode&#xFF09;
-&#x8457;&#x4F5C;&#x6743;&#x5F52;&#x4F5C;&#x8005;&#x6240;&#x6709;&#x3002;&#x5546;&#x4E1A;&#x8F6C;&#x8F7D;&#x8BF7;&#x8054;&#x7CFB;&#x4F5C;&#x8005;&#x83B7;&#x5F97;&#x6388;&#x6743;&#xFF0C;&#x975E;&#x5546;&#x4E1A;&#x8F6C;&#x8F7D;&#x8BF7;&#x6CE8;&#x660E;&#x51FA;&#x5904;&#x3002;</p>
-<h3 id="&#x89E3;&#x9898;&#x601D;&#x8DEF;">&#x89E3;&#x9898;&#x601D;&#x8DEF;</h3>
-<h5 id="1&#x3001;&#x8981;&#x660E;&#x767D;-&#x4E8C;&#x53C9;&#x641C;&#x7D22;&#x6811;-&#x662F;&#x4EC0;&#x4E48;&#x6982;&#x5FF5;&#xFF0C;&#x8FD9;&#x4E2A;&#x5F88;&#x91CD;&#x8981;&#x3002;">1&#x3001;&#x8981;&#x660E;&#x767D; <strong>&#x4E8C;&#x53C9;&#x641C;&#x7D22;&#x6811;</strong> &#x662F;&#x4EC0;&#x4E48;&#x6982;&#x5FF5;&#xFF0C;&#x8FD9;&#x4E2A;&#x5F88;&#x91CD;&#x8981;&#x3002;</h5>
-<p><a href="https://baike.baidu.com/item/%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91/7077855?fr=aladdin" target="_blank">&#x4E8C;&#x53C9;&#x641C;&#x7D22;&#x6811;_&#x767E;&#x5EA6;&#x767E;&#x79D1;</a></p>
-<p><a href="https://blog.csdn.net/rodman177/article/details/89771156" target="_blank">&#x4E8C;&#x53C9;&#x6392;&#x5E8F;&#x6811;&#xFF08;&#x4E8C;&#x53C9;&#x67E5;&#x627E;&#x6811;&#x3001;&#x4E8C;&#x53C9;&#x641C;&#x7D22;&#x6811;&#xFF09;_Java_rodman177&#x7684;&#x535A;&#x5BA2;-CSDN&#x535A;&#x5BA2;</a></p>
-<h5 id="2&#x3001;&#x8981;&#x660E;&#x767D;&#x4E8C;&#x53C9;&#x6811;&#x7684;&#x4E2D;&#x5E8F;&#x904D;&#x5386;&#x3002;">2&#x3001;&#x8981;&#x660E;&#x767D;&#x4E8C;&#x53C9;&#x6811;&#x7684;&#x4E2D;&#x5E8F;&#x904D;&#x5386;&#x3002;</h5>
-<p>&#x8FD9;&#x91CC;&#x8D34;&#x4E00;&#x6BB5;&#x4EE3;&#x7801;&#x662F;&#x4E8C;&#x53C9;&#x6811;&#x7684;&#x524D;&#x4E2D;&#x540E;&#x5E8F;&#x4E09;&#x79CD;&#x904D;&#x5386;&#xFF1A;</p>
-<pre><code class="lang-go"><span class="hljs-keyword">package</span> main
-
-<span class="hljs-keyword">import</span> (
-    <span class="hljs-string">&quot;fmt&quot;</span>
-    <span class="hljs-string">&quot;math&quot;</span>
-)
-
-<span class="hljs-comment">/**
- * Definition for a binary tree node.
- * type TreeNode struct {
- *     Val int
- *     Left *TreeNode
- *     Right *TreeNode
- * }
- */</span>
-<span class="hljs-keyword">type</span> TreeNode <span class="hljs-keyword">struct</span> {
-    Val   <span class="hljs-keyword">int</span>
-    Left  *TreeNode
-    Right *TreeNode
-}
-
-<span class="hljs-keyword">func</span> main() {
-    <span class="hljs-comment">// [3,9,20,null,null,15,7]  </span>
-    <span class="hljs-comment">//  [1,2,2,3,3,null,null,4,4] </span>
-    treeT := &amp;TreeNode{
-        Val: <span class="hljs-number">3</span>,
-        Left: &amp;TreeNode{
-            Val:   <span class="hljs-number">9</span>,
-            Left:  <span class="hljs-literal">nil</span>,
-            Right: <span class="hljs-literal">nil</span>,
-        },
-        Right: &amp;TreeNode{
-            Val: <span class="hljs-number">20</span>,
-            Left: &amp;TreeNode{
-                Val:   <span class="hljs-number">15</span>,
-                Left:  <span class="hljs-literal">nil</span>,
-                Right: <span class="hljs-literal">nil</span>,
-            },
-            Right: &amp;TreeNode{
-                Val:   <span class="hljs-number">7</span>,
-                Left:  <span class="hljs-literal">nil</span>,
-                Right: <span class="hljs-literal">nil</span>,
-            },
-        },
-    }
-
-    treeF := &amp;TreeNode{
-        Val: <span class="hljs-number">1</span>,
-        Left: &amp;TreeNode{
-            Val: <span class="hljs-number">2</span>,
-            Left: &amp;TreeNode{
-                Val: <span class="hljs-number">3</span>,
-                Left: &amp;TreeNode{
-                    Val:   <span class="hljs-number">4</span>,
-                    Left:  <span class="hljs-literal">nil</span>,
-                    Right: <span class="hljs-literal">nil</span>,
-                },
-                Right: &amp;TreeNode{
-                    Val:   <span class="hljs-number">4</span>,
-                    Left:  <span class="hljs-literal">nil</span>,
-                    Right: <span class="hljs-literal">nil</span>,
-                },
-            },
-            Right: &amp;TreeNode{
-                Val:   <span class="hljs-number">3</span>,
-                Left:  <span class="hljs-literal">nil</span>,
-                Right: <span class="hljs-literal">nil</span>,
-            },
-        },
-        Right: &amp;TreeNode{
-            Val:   <span class="hljs-number">2</span>,
-            Left:  <span class="hljs-literal">nil</span>,
-            Right: <span class="hljs-literal">nil</span>,
-        },
-    }
-
-    <span class="hljs-comment">// &#x6D4B;&#x8BD5;&#x6253;&#x5370;&#x4E0B;&#x524D;&#x5E8F;&#x904D;&#x5386;&#x8FD9;&#x4E24;&#x4E2A;&#x4E8C;&#x53C9;&#x6811;</span>
-    fmt.Println(<span class="hljs-string">&quot;\nPreOrder treeT : &quot;</span>)
-    PreOrder(treeT)
-    fmt.Println(<span class="hljs-string">&quot;\nPreOrder treeF : &quot;</span>)
-    PreOrder(treeF)
-
-  <span class="hljs-comment">// &#x6D4B;&#x8BD5;&#x6253;&#x5370;&#x4E0B;&#x4E2D;&#x5E8F;&#x904D;&#x5386;&#x8FD9;&#x4E24;&#x4E2A;&#x4E8C;&#x53C9;&#x6811;</span>
-  fmt.Println(<span class="hljs-string">&quot;\nInfixOrder treeT : &quot;</span>)
-    InfixOrder(treeT)
-    fmt.Println(<span class="hljs-string">&quot;\nInfixOrder treeF : &quot;</span>)
-    InfixOrder(treeF)
-
-  <span class="hljs-comment">// &#x6D4B;&#x8BD5;&#x6253;&#x5370;&#x4E0B;&#x540E;&#x5E8F;&#x904D;&#x5386;&#x8FD9;&#x4E24;&#x4E2A;&#x4E8C;&#x53C9;&#x6811;</span>
-  fmt.Println(<span class="hljs-string">&quot;\nPostOrder treeT : &quot;</span>)
-    PostOrder(treeT)
-    fmt.Println(<span class="hljs-string">&quot;\nPostOrder treeF : &quot;</span>)
-    PostOrder(treeF)
-
-}
-
-<span class="hljs-comment">// PreOrder &#x5148;&#x5E8F;&#x904D;&#x5386;</span>
-<span class="hljs-keyword">func</span> PreOrder(root *TreeNode) {
-    <span class="hljs-keyword">if</span> root == <span class="hljs-literal">nil</span> {
-        <span class="hljs-keyword">return</span>
-    }
-
-    fmt.Printf(<span class="hljs-string">&quot;%v; &quot;</span>, root.Val)
-    PreOrder(root.Left)
-    PreOrder(root.Right)
-}
-
-<span class="hljs-comment">// InfixOrder &#x4E2D;&#x5E8F;&#x904D;&#x5386;</span>
-<span class="hljs-keyword">func</span> InfixOrder(root *TreeNode) {
-    <span class="hljs-keyword">if</span> root == <span class="hljs-literal">nil</span> {
-        <span class="hljs-keyword">return</span>
-    }
-
-    InfixOrder(root.Left)
-    fmt.Printf(<span class="hljs-string">&quot;%v; &quot;</span>, root.Val)
-    InfixOrder(root.Right)
-}
-
-<span class="hljs-comment">// PostOrder &#x540E;&#x5E8F;&#x904D;&#x5386;</span>
-<span class="hljs-keyword">func</span> PostOrder(root *TreeNode) {
-    <span class="hljs-keyword">if</span> root == <span class="hljs-literal">nil</span> {
-        <span class="hljs-keyword">return</span>
-    }
-
-    PostOrder(root.Left)
-    PostOrder(root.Right)
-    fmt.Printf(<span class="hljs-string">&quot;%v; &quot;</span>, root.Val)
-}
-</code></pre>
-<p><strong>OutPut&#xFF1A;</strong></p>
-<pre><code class="lang-bash">PreOrder treeT : 
-3; 9; 20; 15; 7; 
-PreOrder treeF : 
-1; 2; 3; 4; 4; 3; 2; 
-InfixOrder treeT : 
-9; 3; 15; 20; 7; 
-InfixOrder treeF : 
-4; 3; 4; 2; 3; 1; 2; 
-PostOrder treeT : 
-9; 15; 7; 20; 3; 
-PostOrder treeF : 
-4; 4; 3; 3; 2; 2; 1;
-</code></pre>
-<p><strong>&#x6839;&#x636E;&#x4EE5;&#x4E0A;&#x4E24;&#x4E2A;&#x77E5;&#x8BC6;&#x70B9;&#x5C31;&#x6709;&#x4E86;&#x4EE5;&#x4E0B;&#x4EE3;&#x7801;&#xFF0C;&#x4E2D;&#x5E8F;&#x904D;&#x5386;&#x8FC7;&#x7A0B;&#x4E2D;&#x8BB0;&#x5F55; &#x7236;&#x8282;&#x70B9;&#x7684;&#x503C;&#x3001;&#x6700;&#x5C0F;&#x503C;&#x3002;</strong></p>
-<h3 id="&#x4EE3;&#x7801;">&#x4EE3;&#x7801;</h3>
-<pre><code class="lang-go"><span class="hljs-comment">/**
- * Definition for a binary tree node.
- * type TreeNode struct {
- *     Val int
- *     Left *TreeNode
- *     Right *TreeNode
- * }
- */</span>
-
-<span class="hljs-keyword">var</span> (
-    pre <span class="hljs-keyword">int</span> <span class="hljs-comment">// &#x8BB0;&#x5F55;&#x6BCF;&#x6B21;&#x904D;&#x5386;&#x540E;&#xFF0C;&#x7236;&#x8282;&#x70B9;&#x7684;&#x503C;</span>
-    min <span class="hljs-keyword">int</span> <span class="hljs-comment">// &#x8BB0;&#x5F55;&#x904D;&#x5386;&#x8FC7;&#x7A0B;&#x4E2D;&#x7684;&#x6700;&#x5C0F;&#x503C;</span>
-)
-<span class="hljs-keyword">func</span> getMinimumDifference(root *TreeNode) <span class="hljs-keyword">int</span> {
-    pre = <span class="hljs-number">-1</span> <span class="hljs-comment">// &#x521D;&#x59CB;&#x5316;pre&#x4E3A; -1 </span>
-    min = math.MaxInt64 <span class="hljs-comment">// &#x521D;&#x59CB;&#x5316; min &#x4E3A;64&#x4F4D;&#x6700;&#x5927;&#x6574;&#x6570;&#x503C;</span>
-    InfixOrder(root)
-    <span class="hljs-keyword">return</span> min
-}
-
-
-<span class="hljs-comment">// InfixOrder &#x4E2D;&#x5E8F;&#x904D;&#x5386;&#x5168;&#x6811;&#xFF0C;&#x6BCF;&#x6B21;&#x8BB0;&#x5F55;pre &#x548C; min</span>
-<span class="hljs-keyword">func</span> InfixOrder(root *TreeNode) {
-    <span class="hljs-keyword">if</span> root != <span class="hljs-literal">nil</span> {
-       InfixOrder(root.Left)
-        i := root.Val  - pre
-        <span class="hljs-keyword">if</span> pre != <span class="hljs-number">-1</span> {
-            <span class="hljs-keyword">if</span> i  &lt; min {
-                min = i
-            }
-        }
-        pre = root.Val
-       InfixOrder(root.Right)
-    }
-}
-</code></pre>
+<h2 id="&#x4E00;&#x3001;&#x770B;&#x62DB;&#x8058;&#x7F51;&#x7AD9;">&#x4E00;&#x3001;&#x770B;&#x62DB;&#x8058;&#x7F51;&#x7AD9;</h2>
+<h3 id="11-&#x8D44;&#x6DF1;golang&#x5F00;&#x53D1;-50-100k-&#x5750;&#x6807;&#x5317;&#x4EAC;-weixin-18650196973">1.1 &#x8D44;&#x6DF1;GOlang&#x5F00;&#x53D1; 50-100K &#x5750;&#x6807;&#x5317;&#x4EAC; weixin 18650196973</h3>
+<p><a href="https://studygolang.com/user/Nicole123" target="_blank">Nicole123</a> &#xB7; 1&#x5929;&#x4E4B;&#x524D; &#xB7; 232 &#x6B21;&#x70B9;&#x51FB; &#xB7; &#x4E0D;&#x5230;1&#x5206;&#x949F;&#x4E4B;&#x524D; &#x5F00;&#x59CB;&#x6D4F;&#x89C8;  <a href="https://studygolang.com/topics/set_top?tid=11454" target="_blank">&#x7F6E;&#x9876;</a></p>
+<p>&#x804C;&#x4F4D;&#x63CF;&#x8FF0;&#xFF1A;</p>
+<p> 1&#x3001;&#x8D1F;&#x8D23;&#x597D;&#x8BFE;&#x6838;&#x5FC3;&#x4E1A;&#x52A1;&#x7684;&#x670D;&#x52A1;&#x7AEF;&#x7814;&#x53D1;&#x5DE5;&#x4F5C;&#xFF0C;&#x53C2;&#x4E0E;&#x5FAE;&#x670D;&#x52A1;&#x67B6;&#x6784;&#x7684;&#x8BBE;&#x8BA1;&#x548C;&#x843D;&#x5730;&#xFF1B; </p>
+<p>2&#x3001;&#x5BF9;&#x5B66;&#x751F;&#x8D2D;&#x8BFE;&#x3001;&#x4E0A;&#x8BFE;&#x3001;&#x8BC4;&#x4EF7;&#x548C;&#x552E;&#x540E;&#x7B49;&#x573A;&#x666F;&#x8FDB;&#x884C;&#x4E0D;&#x65AD;&#x4F18;&#x5316;&#xFF0C;&#x5411;&#x66F4;&#x597D;&#x7684;&#x4EA7;&#x54C1;&#x4F53;&#x9A8C;&#x4E0D;&#x65AD;&#x51B2;&#x950B;&#x3002; &#x5C97;&#x4F4D;&#x804C;&#x8D23;&#xFF1A; </p>
+<p>1&#x3001;&#x8D1F;&#x8D23;&#x7CFB;&#x7EDF;&#x7684;&#x4F18;&#x5316;&#x548C;&#x91CD;&#x6784;&#xFF1B; </p>
+<p>2&#x3001;&#x8FDB;&#x884C;&#x65B0;&#x6280;&#x672F;&#x9884;&#x7814;&#x3001;&#x5E94;&#x7528;&#xFF1B;</p>
+<p> 3&#x3001;&#x8D1F;&#x8D23;&#x56E2;&#x961F;&#x6280;&#x672F;&#x89C4;&#x8303;&#xFF0C;&#x5355;&#x5143;&#x6D4B;&#x8BD5;; </p>
+<p>4&#x3001;&#x8D1F;&#x8D23;&#x56E2;&#x961F;&#x7684;&#x4E1A;&#x52A1;&#x67B6;&#x6784;&#xFF1B;</p>
+<p> &#x4EFB;&#x804C;&#x8981;&#x6C42;&#xFF1A; </p>
+<p>1&#x3001;&#x672C;&#x79D1;&#x53CA;&#x4EE5;&#x4E0A;&#x5B66;&#x5386;&#xFF0C;&#x8BA1;&#x7B97;&#x673A;&#x53CA;&#x76F8;&#x5173;&#x4E13;&#x4E1A;&#xFF0C;3&#x5E74;&#x53CA;&#x4EE5;&#x4E0A;&#x670D;&#x52A1;&#x7AEF;&#x5F00;&#x53D1;&#x7ECF;&#x9A8C;&#xFF0C;&#x6709;2&#x5E74;&#x53CA;&#x4EE5;&#x4E0A;Go&#x540E;&#x7AEF;&#x5F00;&#x53D1;&#x7ECF;&#x9A8C;&#xFF1B; </p>
+<p>2&#x3001;&#x5BF9;&#x4EE3;&#x7801;&#x8D28;&#x91CF;&#x6709;&#x8FFD;&#x6C42;&#xFF0C;&#x5E76;&#x5177;&#x5907;&#x826F;&#x597D;&#x7684;&#x7F16;&#x7A0B;&#x98CE;&#x683C;&#xFF1B; </p>
+<p>3&#x3001;&#x719F;&#x6089;&#x5F00;&#x6E90;&#x6846;&#x67B6;&#x3001;HTTP&#x534F;&#x8BAE;&#x3001;RPC&#x534F;&#x8BAE;&#xFF0C;&#x7F51;&#x7EDC;&#x7F16;&#x7A0B;&#x7B49;&#x6280;&#x672F;&#xFF1B; </p>
+<p>4&#x3001;&#x638C;&#x63E1;&#x6027;&#x80FD;&#x5206;&#x6790;&#x548C;&#x8C03;&#x4F18;&#x624B;&#x6BB5;&#xFF0C;&#x5BF9;&#x7CFB;&#x7EDF;&#x6269;&#x5C55;&#x6027;&#xFF0C;&#x7A33;&#x5B9A;&#x6027;&#x6709;&#x601D;&#x8003;; </p>
+<p>5&#x3001;&#x5BF9;&#x9AD8;&#x53EF;&#x7528;&#x9AD8;&#x5E76;&#x53D1;&#x7CFB;&#x7EDF;&#x6709;&#x7ECF;&#x9A8C;&#xFF0C;&#x601D;&#x8003;&#xFF0C;&#x6216;&#x8005;&#x611F;&#x5174;&#x8DA3;&#xFF1B;</p>
+<p> 6&#x3001;&#x7CBE;&#x901A;Docker, Kubernetes&#x7B49;&#x4E3B;&#x6D41;&#x5BB9;&#x5668;&#x6280;&#x672F;&#xFF0C;&#x719F;&#x6089;DevOps&#x6D41;&#x7A0B;&#x8BBE;&#x8BA1;&#x548C;&#x76F8;&#x5173;&#x5DE5;&#x5177;&#x94FE;&#x4F18;&#x5148;&#xFF1B; </p>
+<p>6&#x3001;&#x5177;&#x6709;&#x826F;&#x597D;&#x7684;&#x6C9F;&#x901A;&#x80FD;&#x529B;&#xFF0C;&#x601D;&#x8DEF;&#x6E05;&#x6670;&#xFF0C;&#x5584;&#x4E8E;&#x601D;&#x8003;&#xFF0C;&#x80FD;&#x72EC;&#x7ACB;&#x5206;&#x6790;&#x548C;&#x89E3;&#x51B3;&#x95EE;&#x9898;&#xFF1B; </p>
+<p>7&#x3001;&#x6709;&#x8D23;&#x4EFB;&#x611F;&#xFF0C;&#x5BF9;&#x6280;&#x672F;&#x6709;&#x6267;&#x7740;&#x8FFD;&#x6C42; 35&#x5C81;&#x4EE5;&#x5185; &#x5B66;&#x5386;&#x672C;&#x79D1;&#x786C;&#x6027;</p>
+<h3 id="12-&#x57FA;&#x7840;&#x67B6;&#x6784;&#x7814;&#x53D1;&#x5DE5;&#x7A0B;&#x5E08;">1.2 &#x57FA;&#x7840;&#x67B6;&#x6784;&#x7814;&#x53D1;&#x5DE5;&#x7A0B;&#x5E08;</h3>
+<h5 id="&#x804C;&#x4F4D;&#x8BF1;&#x60D1;&#xFF1A;"><strong>&#x804C;&#x4F4D;&#x8BF1;&#x60D1;&#xFF1A;</strong></h5>
+<p>&#x516D;&#x9669;&#x4E00;&#x91D1;&#xFF0C;&#x9AD8;&#x85AA;&#x671F;&#x6743;&#xFF0C;&#x5F39;&#x6027;&#x5DE5;&#x4F5C;&#xFF0C;&#x514D;&#x8D39;&#x4E09;&#x9910;</p>
+<h5 id="&#x804C;&#x4F4D;&#x63CF;&#x8FF0;&#xFF1A;">&#x804C;&#x4F4D;&#x63CF;&#x8FF0;&#xFF1A;</h5>
+<p>&#x804C;&#x4F4D;&#x804C;&#x8D23;&#xFF1A;
+1&#x3001;&#x8D1F;&#x8D23;&#x5934;&#x6761;&#x4E91;&#x5206;&#x5E03;&#x5F0F;&#x8BA1;&#x7B97;&#x3001;&#x5B58;&#x50A8;&#x7B49;&#x57FA;&#x7840;&#x8BBE;&#x65BD;&#x7684;&#x6784;&#x5EFA;&#x548C;&#x4F18;&#x5316;
+2&#x3001;&#x8D1F;&#x8D23;&#x57FA;&#x7840;&#x8BBE;&#x65BD;&#x7684;&#x53EF;&#x7528;&#x6027;&#x548C;&#x7A33;&#x5B9A;&#x6027;&#x4FDD;&#x969C;
+3&#x3001;&#x8D1F;&#x8D23;&#x5927;&#x6D41;&#x91CF;&#x9AD8;&#x5E76;&#x53D1;&#x7CFB;&#x7EDF;&#x7684;&#x652F;&#x6301;&#x4E0E;&#x4F18;&#x5316;</p>
+<p>&#x804C;&#x4F4D;&#x8981;&#x6C42;&#xFF1A;
+1&#x3001;&#x719F;&#x6089;TCP/IP&#x534F;&#x8BAE;&#xFF0C;&#x719F;&#x7EC3;&#x638C;&#x63E1;&#x9AD8;&#x5E76;&#x53D1;Linux&#x7F51;&#x7EDC;&#x7F16;&#x7A0B;&#x548C;&#x591A;&#x7EBF;&#x7A0B;&#x7F16;&#x7A0B;&#x6280;&#x672F;
+2&#x3001;&#x719F;&#x7EC3;&#x638C;&#x63E1;Linux&#x73AF;&#x5883;&#x4E0B;&#x7684;C/C++/Go/Python/Shell/PHP&#x7B49;&#x4E00;&#x79CD;&#x4EE5;&#x4E0A;&#x7F16;&#x7A0B;&#x8BED;&#x8A00;
+3&#x3001;&#x6709;&#x8F83;&#x5F3A;&#x7684;&#x7CFB;&#x7EDF;&#x95EE;&#x9898;&#x5206;&#x6790;&#x7ECF;&#x9A8C;&#x548C;&#x80FD;&#x529B;&#xFF0C;&#x80FD;&#x591F;&#x89E3;&#x51B3;&#x590D;&#x6742;&#x7684;&#x7CFB;&#x7EDF;&#x95EE;&#x9898;</p>
+<p>&#x5177;&#x5907;&#x4EE5;&#x4E0B;&#x6761;&#x4EF6;&#x4E4B;&#x4E00;&#x8005;&#x4F18;&#x5148;&#xFF1A;
+1&#x3001;&#x4E86;&#x89E3;Kubernetes/Mesos/SwarmKit&#x7B49;&#x7F16;&#x6392;&#x670D;&#x52A1;&#x6846;&#x67B6;&#x4F18;&#x5148;
+2&#x3001;&#x6709;&#x5206;&#x5E03;&#x5F0F;&#x6587;&#x4EF6;&#x3001;KV&#x3001;&#x6570;&#x636E;&#x5E93;&#x5B58;&#x50A8;&#x7ECF;&#x9A8C;&#x4F18;&#x5148;
+3&#x3001;&#x5177;&#x6709;&#x7CFB;&#x7EDF;&#x6027;&#x80FD;&#x5206;&#x6790;&#x53CA;&#x4F18;&#x5316;&#x7ECF;&#x9A8C;&#x8005;&#x4F18;&#x5148;
+4&#x3001;&#x5F00;&#x6E90;&#x793E;&#x533A;&#x6D3B;&#x8DC3;&#x8D21;&#x732E;&#x8005;&#x4F18;&#x5148;</p>
+<h5 id="&#x5DE5;&#x4F5C;&#x5730;&#x5740;">&#x5DE5;&#x4F5C;&#x5730;&#x5740;</h5>
+<p><a href="https://www.lagou.com/jobs/list_?city=&#x6DF1;&#x5733;#filterBox" target="_blank">&#x6DF1;&#x5733;</a> - <a href="https://www.lagou.com/jobs/list_?city=&#x6DF1;&#x5733;&amp;district=&#x5357;&#x5C71;&#x533A;#filterBox" target="_blank">&#x5357;&#x5C71;&#x533A;</a> - (Do Not Use)&#x6D77;&#x5FB7;&#x4E09;&#x9053;15&#x53F7;&#x6D77;&#x5CB8;&#x5927;&#x53A6;&#x4E1C;&#x5EA7;B&#x533A;14&#x5C42;</p>
+<p><img src="2020-05-09-&#x7B14;&#x8BB0;/image-20200513160817498.png" alt="image-20200513160817498"></p>
+<h3 id="13-&#x5BF9;&#x8C61;&#x5B58;&#x50A8;&#x7814;&#x53D1;&#x5DE5;&#x7A0B;&#x5E08;">1.3 &#x5BF9;&#x8C61;&#x5B58;&#x50A8;&#x7814;&#x53D1;&#x5DE5;&#x7A0B;&#x5E08;</h3>
+<p><strong>&#x804C;&#x4F4D;&#x8BF1;&#x60D1;&#xFF1A;</strong></p>
+<p>&#x516D;&#x9669;&#x4E00;&#x91D1;&#xFF0C;&#x9AD8;&#x85AA;&#x671F;&#x6743;&#xFF0C;&#x5F39;&#x6027;&#x5DE5;&#x4F5C;&#xFF0C;&#x514D;&#x8D39;&#x4E09;&#x9910;</p>
+<h4 id="&#x804C;&#x4F4D;&#x63CF;&#x8FF0;&#xFF1A;">&#x804C;&#x4F4D;&#x63CF;&#x8FF0;&#xFF1A;</h4>
+<h4 id="&#x804C;&#x4F4D;&#x804C;&#x8D23;&#xFF1A;">&#x804C;&#x4F4D;&#x804C;&#x8D23;&#xFF1A;</h4>
+<p>1&#x3001;&#x8D1F;&#x8D23;&#x5B57;&#x8282;&#x8DF3;&#x52A8;&#x7684;&#x81EA;&#x7814;&#x5BF9;&#x8C61;&#x5B58;&#x50A8; (EB&#x7EA7;) &#x7684;&#x57FA;&#x7840;&#x7814;&#x53D1;&#x5DE5;&#x4F5C;&#xFF0C;&#x63D0;&#x4F9B;&#x7A33;&#x5B9A;&#x53EF;&#x9760;&#x7684;&#x5B58;&#x50A8;&#x670D;&#x52A1;
+2&#x3001;&#x6DF1;&#x5165;&#x7406;&#x89E3;&#x4E1A;&#x52A1;&#x573A;&#x666F;&#x7684;&#x9700;&#x6C42;&#xFF0C;&#x5B9E;&#x73B0;&#x5BF9;&#x8C61;&#x5B58;&#x50A8;&#x5E73;&#x53F0;&#x5316;</p>
+<h4 id="&#x804C;&#x4F4D;&#x8981;&#x6C42;&#xFF1A;">&#x804C;&#x4F4D;&#x8981;&#x6C42;&#xFF1A;</h4>
+<p>1&#x3001;&#x719F;&#x6089;Ceph, Minio&#x7B49;&#xFF0C;&#x9605;&#x8BFB;&#x8FC7;&#x76F8;&#x5173;&#x7684;&#x4EE3;&#x7801;&#x5B9E;&#x73B0;&#xFF0C;&#x6709;&#x76F8;&#x5173;&#x5F00;&#x6E90;&#x9879;&#x76EE;&#x7684;&#x4EE3;&#x7801;&#x8D21;&#x732E;&#x4F18;&#x5148;
+2&#x3001;&#x719F;&#x7EC3;&#x638C;&#x63E1;Linux&#x73AF;&#x5883;&#x4E0B;&#x7684;C/C++/Go/Python/Shell/PHP&#x7B49;&#x4E00;&#x79CD;&#x4EE5;&#x4E0A;&#x8BED;&#x8A00;
+3&#x3001;&#x5177;&#x5907;&#x4E00;&#x5B9A;&#x7684;&#x7F51;&#x7EDC;&#x77E5;&#x8BC6;&#xFF0C;&#x719F;&#x6089;TCP/IP&#x901A;&#x4FE1;&#x539F;&#x7406;
+4&#x3001;&#x719F;&#x6089;&#x5206;&#x5E03;&#x5F0F;&#x7CFB;&#x7EDF;&#x7684;&#x57FA;&#x672C;&#x67B6;&#x6784;&#xFF0C;&#x5E76;&#x6E05;&#x6670;&#x4E0D;&#x540C;&#x67B6;&#x6784;&#x7684;&#x4F18;&#x7F3A;&#x70B9;&#x4EE5;&#x53CA;&#x9002;&#x7528;&#x7684;&#x573A;&#x666F;&#x4F18;&#x5148;</p>
+<p>&#x5177;&#x5907;&#x4EE5;&#x4E0B;&#x6761;&#x4EF6;&#x4E4B;&#x4E00;&#x8005;&#x4F18;&#x5148;&#xFF1A;
+1&#x3001;&#x5177;&#x6709;&#x5185;&#x6838;&#x3001;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x76F8;&#x5173;&#x5F00;&#x53D1;&#x7ECF;&#x9A8C;&#x8005;&#x4F18;&#x5148;
+2&#x3001;&#x5177;&#x6709;&#x624E;&#x5B9E;&#x7684;Linux&#x7CFB;&#x7EDF;&#x7F16;&#x7A0B;&#x80FD;&#x529B;&#xFF0C;&#x719F;&#x6089;Linux&#x7CFB;&#x7EDF;&#x7684;I/O&#x6808;&#x4F18;&#x5148;
+3&#x3001;&#x5177;&#x6709;&#x719F;&#x6089;Go&#x8BED;&#x8A00;&#xFF0C;&#x5E76;&#x4E14;&#x6709;&#x4E00;&#x5E74;&#x4EE5;&#x4E0A;&#x7684;&#x4F7F;&#x7528;&#x7ECF;&#x9A8C;&#x4F18;&#x5148;</p>
+<h4 id="&#x5DE5;&#x4F5C;&#x5730;&#x5740;">&#x5DE5;&#x4F5C;&#x5730;&#x5740;</h4>
+<p><a href="https://www.lagou.com/jobs/list_?city=&#x6DF1;&#x5733;#filterBox" target="_blank">&#x6DF1;&#x5733;</a> - <a href="https://www.lagou.com/jobs/list_?city=&#x6DF1;&#x5733;&amp;district=&#x5357;&#x5C71;&#x533A;#filterBox" target="_blank">&#x5357;&#x5C71;&#x533A;</a> - &#x5357;&#x6D77;&#x5927;&#x9053;2163&#x53F7;&#x6765;&#x798F;&#x58EB;&#x5E7F;&#x573A;15&#x5C42; </p>
+<p><img src="2020-05-09-&#x7B14;&#x8BB0;/image-20200513161116524.png" alt="image-20200513161116524"></p>
+<h3 id="14-go&#x7814;&#x53D1;&#x9AD8;&#x7EA7;&#x5DE5;&#x7A0B;&#x5E08;-&#x2014;-&#x57FA;&#x7840;&#x67B6;&#x6784;">1.4 Go&#x7814;&#x53D1;&#x9AD8;&#x7EA7;&#x5DE5;&#x7A0B;&#x5E08; &#x2014; &#x57FA;&#x7840;&#x67B6;&#x6784;</h3>
+<h4 id="&#x804C;&#x4F4D;&#x8BF1;&#x60D1;&#xFF1A;"><strong>&#x804C;&#x4F4D;&#x8BF1;&#x60D1;&#xFF1A;</strong></h4>
+<p>&#x516D;&#x9669;&#x4E00;&#x91D1;</p>
+<h4 id="&#x804C;&#x4F4D;&#x63CF;&#x8FF0;&#xFF1A;">&#x804C;&#x4F4D;&#x63CF;&#x8FF0;&#xFF1A;</h4>
+<p>&#x804C;&#x4F4D;&#x804C;&#x8D23;&#xFF1A;
+1&#x3001;&#x627F;&#x62C5;&#x6838;&#x5FC3;&#x57FA;&#x7840;&#x7EC4;&#x4EF6;&#x7684;&#x7814;&#x53D1;&#xFF0C;&#x5305;&#x62EC;&#x4F46;&#x4E0D;&#x9650;&#x4E8E; RPC&#x6846;&#x67B6;&#x3001;&#x6D88;&#x606F;&#x4E2D;&#x95F4;&#x4EF6;&#x3001;&#x6570;&#x636E;&#x5E93;&#x4EE3;&#x7406;&#x3001;&#x957F;&#x94FE;&#x63A5;&#x7CFB;&#x7EDF;;
+2&#x3001;&#x534F;&#x52A9;&#x4E1A;&#x52A1;&#x5BF9;&#x7EBF;&#x4E0A;&#x9AD8;&#x5E76;&#x53D1;&#x7684;&#x670D;&#x52A1;&#x8FDB;&#x884C;&#x6027;&#x80FD;&#x5206;&#x6790;&#x4E0E;&#x4F18;&#x5316;;
+3&#x3001;&#x53C2;&#x4E0E;Go&#x751F;&#x6001;&#x5EFA;&#x8BBE;&#xFF0C;&#x5B8C;&#x5584;&#x5468;&#x8FB9;&#x57FA;&#x7840;&#x8BBE;&#x65BD;&#xFF0C;&#x5982;&#x57FA;&#x7840;&#x5E93;&#x7EF4;&#x62A4;&#x3001;&#x6301;&#x7EED;&#x96C6;&#x6210;&#x73AF;&#x5883;&#x6784;&#x5EFA;&#x3002;
+&#x804C;&#x4F4D;&#x8981;&#x6C42;&#xFF1A;
+1&#x3001;&#x719F;&#x6089;Go&#x8BED;&#x8A00;&#x5F00;&#x53D1;&#xFF0C;&#x4E24;&#x5E74;&#x4EE5;&#x4E0A;&#x76F8;&#x5173;&#x5DE5;&#x4F5C;&#x7ECF;&#x9A8C;;
+2&#x3001;&#x719F;&#x6089;Linux&#x4E0B;&#xFF0C;&#x7F51;&#x7EDC;&#x3001;&#x591A;&#x8FDB;&#x7A0B;&#x548C;&#x591A;&#x7EBF;&#x7A0B;&#x7F16;&#x7A0B;;
+3&#x3001;&#x64C5;&#x957F;&#x8FDB;&#x884C;&#x6027;&#x80FD;&#x5206;&#x6790;&#x4E0E;&#x4F18;&#x5316;&#xFF0C;&#x5BF9;GC&#x539F;&#x7406;&#x6709;&#x4E00;&#x5B9A;&#x7684;&#x4E86;&#x89E3;;
+4&#x3001;&#x6709;&#x8F83;&#x5F3A;&#x7684;Linux&#x4E0B; troubleshooting &#x80FD;&#x529B;&#x3002;</p>
+<p>&#x5177;&#x5907;&#x4EE5;&#x4E0B;&#x6761;&#x4EF6;&#x4E4B;&#x4E00;&#x8005;&#x4F18;&#x5148;
+1&#x3001;&#x4E86;&#x89E3;Go runtime&#x5185;&#x90E8;&#x539F;&#x7406;, &#x5177;&#x6709;&#x4E00;&#x5B9A;&#x7684;runtime&#x8C03;&#x8BD5;&#x80FD;&#x529B;;
+2&#x3001;&#x5BF9;Linux&#x5185;&#x6838;&#x6709;&#x4E00;&#x5B9A;&#x7684;&#x7814;&#x7A76;, &#x4E86;&#x89E3;&#x5E38;&#x89C1;Linux&#x5185;&#x6838;&#x77E5;&#x8BC6;;
+3&#x3001;&#x5177;&#x6709;&#x9AD8;&#x5E76;&#x53D1; &#x6216; &#x5927;&#x578B;Go&#x9879;&#x76EE;&#x7814;&#x53D1;&#x7ECF;&#x9A8C;&#x3002;</p>
+<h4 id="&#x5DE5;&#x4F5C;&#x5730;&#x5740;">&#x5DE5;&#x4F5C;&#x5730;&#x5740;</h4>
+<p><a href="https://www.lagou.com/jobs/list_?city=&#x6DF1;&#x5733;#filterBox" target="_blank">&#x6DF1;&#x5733;</a> - <a href="https://www.lagou.com/jobs/list_?city=&#x6DF1;&#x5733;&amp;district=&#x5357;&#x5C71;&#x533A;#filterBox" target="_blank">&#x5357;&#x5C71;&#x533A;</a> - &#x521B;&#x4E1A;&#x8DEF;3023&#x53F7;&#x516C;&#x56ED;&#x4E00;&#x53F7;&#x529E;&#x516C;&#x697C;</p>
+<p><img src="2020-05-09-&#x7B14;&#x8BB0;/image-20200513161452843.png" alt="image-20200513161452843"></p>
 
                                 
                                 </section>
@@ -1194,7 +1171,7 @@ PostOrder treeF :
                 </a>
                 
                 
-                <a href="../2020-05-10/2020-05-10-笔记.html" class="navigation navigation-next " aria-label="Next page: 2020-05-10-笔记📒">
+                <a href="530.二叉搜索树的最小绝对差.html" class="navigation navigation-next " aria-label="Next page: 530.二叉搜索树的最小绝对差">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -1205,7 +1182,7 @@ PostOrder treeF :
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"2020-05-09-笔记📒","level":"17.16","depth":1,"next":{"title":"2020-05-10-笔记📒","level":"17.17","depth":1,"path":"2020-05-10/2020-05-10-笔记.md","ref":"2020-05-10/2020-05-10-笔记.md","articles":[]},"previous":{"title":"2020-05-08-笔记📒","level":"17.15","depth":1,"path":"2020-05-08/2020-05-08-笔记.md","ref":"2020-05-08/2020-05-08-笔记.md","articles":[]},"dir":"ltr"},"config":{"plugins":["expandable-chapters-small","favicon","github","katex"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"github":{"url":"https://github.com/panda8z"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":{"shortcut":"assets/images/favicon.ico","bookmark":"assets/images/favicon.ico","appleTouch":"assets/images/apple-touch-icon.png","appleTouchMore":{"120x120":"assets/images/apple-touch-icon-120x120.png","180x180":"assets/images/apple-touch-icon-120x120.png"}},"expandable-chapters-small":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Panda8z","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Panda8z Go Dairy Archive","language":"zh-hans","links":{"sidebar":{"GitHub托管的CSBlog":"https://moreme.top"}},"gitbook":"3.2.3","description":"Computer System"},"file":{"path":"2020-05-09/2020-05-09-笔记.md","mtime":"2020-05-11T03:09:33.245Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-05-11T03:10:14.486Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"2020-05-09-笔记📒","level":"17.16","depth":1,"next":{"title":"530.二叉搜索树的最小绝对差","level":"17.16.1","depth":2,"path":"2020-05-09/530.二叉搜索树的最小绝对差.md","ref":"2020-05-09/530.二叉搜索树的最小绝对差.md","articles":[]},"previous":{"title":"2020-05-08-笔记📒","level":"17.15","depth":1,"path":"2020-05-08/2020-05-08-笔记.md","ref":"2020-05-08/2020-05-08-笔记.md","articles":[]},"dir":"ltr"},"config":{"plugins":["expandable-chapters-small","favicon","github","katex"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"github":{"url":"https://github.com/panda8z"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":{"shortcut":"assets/images/favicon.ico","bookmark":"assets/images/favicon.ico","appleTouch":"assets/images/apple-touch-icon.png","appleTouchMore":{"120x120":"assets/images/apple-touch-icon-120x120.png","180x180":"assets/images/apple-touch-icon-120x120.png"}},"expandable-chapters-small":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Panda8z","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Panda8z Go Dairy Archive","language":"zh-hans","links":{"sidebar":{"GitHub托管的CSBlog":"https://moreme.top"}},"gitbook":"3.2.3","description":"Computer System"},"file":{"path":"2020-05-09/2020-05-09-笔记.md","mtime":"2020-05-15T15:37:51.646Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-05-15T15:38:37.399Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
