@@ -1,7 +1,15 @@
+
+// 包声明： 我们的程序用 main 包 组织起来。（同一个项目下，即使有多个 .go 文件只要源代码的包声明是 “main” 就是被 main包组织起来的。 ）
 package main
 
-import "fmt"
+// 导入声明： 我们的程序代码一部分细节已经被标准库实现，我们只需要导入相应的实现就可以使用了。
+import (
+  "time" // 导入了 标准库 的 time 包，它主要实现了 时间 的格式化输出和打印。
+  "fmt"  // 导入了 标准库 的 fmt 包， 它主要实现了标准输出的格式化。
+)
 
+// main 函数： go程序的入口
 func main() {
-    fmt.Println("Hello World!")
+  fmt.Println("Hello Go!")  // 在 控制台 打印 “Hello Go!”，然后换行。
+  fmt.Println("现在时间是: ",time.Now()) //在控制台打印：“现在时间是: 【当前时间】” 例如： “现在时间是: Mon Jan 2 15:04:05 -0700 MST 2006”
 }

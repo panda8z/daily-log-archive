@@ -369,7 +369,7 @@ func Remove(h Interface, i int) interface{} {
 参考资料：
 
 - 🇨🇳官方源码：[src/container/heap/heap.go - The Go Programming Language](https://golang.google.cn/src/container/heap/heap.go)
-
 - 🇨🇳官方文档：[heap - The Go Programming Language](https://golang.google.cn/pkg/container/heap/)
 - [维基百科：堆 (数据结构)](https://zh.wikipedia.org/wiki/堆_(数据结构))
+- [Golang: 详解container/heap - Go语言中文网 - Golang中文社区](https://studygolang.com/articles/13173)
 
