@@ -952,25 +952,25 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="17.18.1" >
-            
-                <span>
-            
-                    
-                    [面试题04.03.特定深度节点链表](2020-05-11/面试题04.03.特定深度节点链表.md）
-            
-                </span>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="17.18.2" data-path="../../2020-05-11/538.把二叉搜索树转换为累加树.html">
+        <li class="chapter " data-level="17.18.1" data-path="../../2020-05-11/538.把二叉搜索树转换为累加树.html">
             
                 <a href="../../2020-05-11/538.把二叉搜索树转换为累加树.html">
             
                     
                     538.把二叉搜索树转换为累加树
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="17.18.2" data-path="../../2020-05-11/面试题04-03-特定深度节点链表.html">
+            
+                <a href="../../2020-05-11/面试题04-03-特定深度节点链表.html">
+            
+                    
+                    面试题04-03-特定深度节点链表
             
                 </a>
             
@@ -1003,6 +1003,19 @@
             
                     
                     YouTube-dl命令下载YouTube的视频
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="17.19.2" data-path="../../2020-05-15/EffectiveGo-中文版.html">
+            
+                <a href="../../2020-05-15/EffectiveGo-中文版.html">
+            
+                    
+                    EffectiveGo-中文版
             
                 </a>
             
@@ -1060,7 +1073,8 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="&#x600E;&#x6837;&#x4E66;&#x5199;go&#x4EE3;&#x7801;&#xFF1F;&#xFF08;how-to-write-go-code-&#xFF09;">&#x600E;&#x6837;&#x4E66;&#x5199;Go&#x4EE3;&#x7801;&#xFF1F;&#xFF08;<a href="https://golang.google.cn/doc/code.html" target="_blank">How to Write Go Code </a>&#xFF09;</h1>
+                                <h1 id="&#x600E;&#x6837;&#x4E66;&#x5199;-go-&#x8BED;&#x8A00;&#x7A0B;&#x5E8F;&#xFF1F;&#xFF08;how-to-write-go-code-&#xFF09;">&#x600E;&#x6837;&#x4E66;&#x5199; Go &#x8BED;&#x8A00;&#x7A0B;&#x5E8F;&#xFF1F;&#xFF08;<a href="https://golang.google.cn/doc/code.html" target="_blank">How to Write Go Code </a>&#xFF09;</h1>
+<h2 id="1-&#x7B80;&#x8FF0;">1. &#x7B80;&#x8FF0;</h2>
 <ul>
 <li>&#x4EE3;&#x7801;&#x7684;&#x7EC4;&#x7EC7;&#x65B9;&#x5F0F;&#x3002;<ul>
 <li>&#x4F7F;&#x7528; package &#x7EC4;&#x7EC7;&#x4EE3;&#x7801;&#xFF0C;&#x4E2D;&#x6587;&#x53EB;&#x505A; &#x5305;&#x3002;</li>
@@ -1083,6 +1097,58 @@
 <li>&#x5728; main.go &#x4E2D; &#x4F7F;&#x7528; <code>import &quot;example.com/user/hello/morestrings&quot;</code> &#x8BED;&#x53E5;&#x5BFC;&#x5165;&#x8FD9;&#x4E2A;&#x6587;&#x4EF6;&#x5C31;&#x80FD;&#x4F7F;&#x7528;&#x8FD9;&#x4E2A;&#x5305;&#x7684;&#x65B9;&#x6CD5;&#x4E86;&#x3002;</li>
 </ul>
 </li>
+</ul>
+<h2 id="2-&#x4E00;&#x6B65;&#x4E00;&#x6B65;&#x5F00;&#x59CB;&#x4E66;&#x5199;-go-&#x7A0B;&#x5E8F;">2. &#x4E00;&#x6B65;&#x4E00;&#x6B65;&#x5F00;&#x59CB;&#x4E66;&#x5199; Go &#x7A0B;&#x5E8F;</h2>
+<p>&#x65B0;&#x5EFA;&#x6587;&#x4EF6;&#x5939; <code>ch01</code>&#x3002; &#x7136;&#x540E;&#x5728; <code>ch01</code> &#x5185;&#x65B0;&#x5EFA;&#x6587;&#x4EF6;&#x5939; <code>demo01</code>&#x3002;&#x6700;&#x540E;&#x5728; <code>demo01</code> &#x5185;&#x6587;&#x4EF6; <code>main.go</code>&#x3002;
+&#x6700;&#x540E;&#x5728; <code>main.go</code> &#x91CC;&#x4E66;&#x5199;&#x4E00;&#x4E0B;&#x5185;&#x5BB9;&#xFF08;&#x6CE8;&#x610F;&#x6240;&#x6709;&#x6807;&#x70B9;&#x90FD;&#x662F;&#x82F1;&#x6587;&#x534A;&#x89D2;&#xFF09;&#x3002;</p>
+<p><strong>Code&#xB7;1-1</strong></p>
+<pre><code class="lang-go"><span class="hljs-keyword">package</span> main
+
+<span class="hljs-keyword">import</span> (
+  <span class="hljs-string">&quot;time&quot;</span>
+  <span class="hljs-string">&quot;fmt&quot;</span>
+)
+
+<span class="hljs-keyword">func</span> main() {
+  fmt.Println(<span class="hljs-string">&quot;Hello Go!&quot;</span>)
+  fmt.Println(<span class="hljs-string">&quot;&#x73B0;&#x5728;&#x65F6;&#x95F4;&#x662F;: &quot;</span>,time.Now())
+}
+</code></pre>
+<h2 id="3-&#x4EE3;&#x7801;&#x89E3;&#x91CA;">3. &#x4EE3;&#x7801;&#x89E3;&#x91CA;</h2>
+<p>&#x5982;&#x679C;&#x4F60;&#x5DF2;&#x7ECF;&#x5B8C;&#x6210;&#x4E86;&#x4E0A;&#x4E00;&#x6B65;&#xFF0C;&#x606D;&#x559C;&#x4F60;&#x1F389;&#xFF01; &#x4F60;&#x5DF2;&#x7ECF;&#x5B8C;&#x6210;&#x4E86;&#x7B2C;&#x4E00;&#x4E2A; Go&#x8BED;&#x8A00;&#x7A0B;&#x5E8F;&#x7684;&#x6E90;&#x4EE3;&#x7801;&#x4E66;&#x5199;&#x3002;</p>
+<p>&#x63A5;&#x4E0B;&#x6765;&#x6211;&#x4EEC;&#x6765;&#x9010;&#x884C;&#x89E3;&#x91CA;&#xFF0C;&#x6BCF;&#x4E00;&#x884C;&#x4EE3;&#x7801;&#x7684;&#x610F;&#x4E49;&#x548C;&#x6267;&#x884C;&#x540E;&#x7684;&#x8868;&#x73B0;&#x3002;</p>
+<p><strong>Code&#xB7;1-1</strong></p>
+<pre><code class="lang-go"><span class="hljs-comment">// &#x5305;&#x58F0;&#x660E;&#xFF1A; &#x6211;&#x4EEC;&#x7684;&#x7A0B;&#x5E8F;&#x7528; main &#x5305; &#x7EC4;&#x7EC7;&#x8D77;&#x6765;&#x3002;&#xFF08;&#x540C;&#x4E00;&#x4E2A;&#x9879;&#x76EE;&#x4E0B;&#xFF0C;&#x5373;&#x4F7F;&#x6709;&#x591A;&#x4E2A; .go &#x6587;&#x4EF6;&#x53EA;&#x8981;&#x6E90;&#x4EE3;&#x7801;&#x7684;&#x5305;&#x58F0;&#x660E;&#x662F; &#x201C;main&#x201D; &#x5C31;&#x662F;&#x88AB; main&#x5305;&#x7EC4;&#x7EC7;&#x8D77;&#x6765;&#x7684;&#x3002; &#xFF09;</span>
+<span class="hljs-keyword">package</span> main
+
+<span class="hljs-comment">// &#x5BFC;&#x5165;&#x58F0;&#x660E;&#xFF1A; &#x6211;&#x4EEC;&#x7684;&#x7A0B;&#x5E8F;&#x4EE3;&#x7801;&#x4E00;&#x90E8;&#x5206;&#x7EC6;&#x8282;&#x5DF2;&#x7ECF;&#x88AB;&#x6807;&#x51C6;&#x5E93;&#x5B9E;&#x73B0;&#xFF0C;&#x6211;&#x4EEC;&#x53EA;&#x9700;&#x8981;&#x5BFC;&#x5165;&#x76F8;&#x5E94;&#x7684;&#x5B9E;&#x73B0;&#x5C31;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x4E86;&#x3002;</span>
+<span class="hljs-keyword">import</span> (
+  <span class="hljs-string">&quot;time&quot;</span> <span class="hljs-comment">// &#x5BFC;&#x5165;&#x4E86; &#x6807;&#x51C6;&#x5E93; &#x7684; time &#x5305;&#xFF0C;&#x5B83;&#x4E3B;&#x8981;&#x5B9E;&#x73B0;&#x4E86; &#x65F6;&#x95F4; &#x7684;&#x683C;&#x5F0F;&#x5316;&#x8F93;&#x51FA;&#x548C;&#x6253;&#x5370;&#x3002;</span>
+  <span class="hljs-string">&quot;fmt&quot;</span>  <span class="hljs-comment">// &#x5BFC;&#x5165;&#x4E86; &#x6807;&#x51C6;&#x5E93; &#x7684; fmt &#x5305;&#xFF0C; &#x5B83;&#x4E3B;&#x8981;&#x5B9E;&#x73B0;&#x4E86;&#x6807;&#x51C6;&#x8F93;&#x51FA;&#x7684;&#x683C;&#x5F0F;&#x5316;&#x3002;</span>
+)
+
+<span class="hljs-comment">// main &#x51FD;&#x6570;&#xFF1A; go&#x7A0B;&#x5E8F;&#x7684;&#x5165;&#x53E3;</span>
+<span class="hljs-keyword">func</span> main() {
+  fmt.Println(<span class="hljs-string">&quot;Hello Go!&quot;</span>)  <span class="hljs-comment">// &#x5728; &#x63A7;&#x5236;&#x53F0; &#x6253;&#x5370; &#x201C;Hello Go!&#x201D;&#xFF0C;&#x7136;&#x540E;&#x6362;&#x884C;&#x3002;</span>
+  fmt.Println(<span class="hljs-string">&quot;&#x73B0;&#x5728;&#x65F6;&#x95F4;&#x662F;: &quot;</span>,time.Now()) <span class="hljs-comment">//&#x5728;&#x63A7;&#x5236;&#x53F0;&#x6253;&#x5370;&#xFF1A;&#x201C;&#x73B0;&#x5728;&#x65F6;&#x95F4;&#x662F;: &#x3010;&#x5F53;&#x524D;&#x65F6;&#x95F4;&#x3011;&#x201D; </span>
+  <span class="hljs-comment">//&#x4F8B;&#x5982;&#xFF1A; &#x201C;&#x73B0;&#x5728;&#x65F6;&#x95F4;&#x662F;: Mon Jan 2 15:04:05 -0700 MST 2006&#x201D; </span>
+  <span class="hljs-comment">//(&#x8FD9;&#x91CC;&#x7684;&#x65F6;&#x95F4;&#x662F;&#x6BCF;&#x6B21;&#x8FD0;&#x884C;&#x7A0B;&#x5E8F;&#x7684;&#x65F6;&#x95F4;&#x54E6;&#xFF0C;&#x56E0;&#x4E3A;&#x4EE3;&#x7801;&#x91CC;&#x6211;&#x4EEC;&#x4F7F;&#x7528;&#x4E86; time.Now() &#x51FD;&#x6570;&#x83B7;&#x53D6;&#x7684;&#x662F;&#x7A0B;&#x5E8F;&#x6267;&#x884C;&#x65F6;&#x7684;&#x65F6;&#x95F4;&#xFF0C;&#x8FD9;&#x4E2A;&#x662F;&#x52A8;&#x6001;&#x7684;&#x3002;)</span>
+}
+</code></pre>
+<h2 id="4-&#x8FD0;&#x884C;&#x7A0B;&#x5E8F;">4. &#x8FD0;&#x884C;&#x7A0B;&#x5E8F;</h2>
+<p>&#x6253;&#x5F00;&#x547D;&#x4EE4;&#x884C;&#xFF0C;&#x5728; demo01 &#x8DEF;&#x5F84;&#x4E0B; &#x6267;&#x884C;&#x547D;&#x4EE4; <code>go run main.go</code></p>
+<p>&#x8FD9;&#x662F; <code>go</code> &#x547D;&#x4EE4;&#x5DE5;&#x5177;&#x4F1A;&#x7F16;&#x8BD1;&#x5E76;&#x8FD0;&#x884C; <code>main.go</code>&#xFF0C;&#x7ED3;&#x679C;&#x6253;&#x5370;&#x5982;&#x4E0B;&#x3002;</p>
+<pre><code class="lang-bash">Hello Go!
+&#x73B0;&#x5728;&#x65F6;&#x95F4;&#x662F;:  2020-05-19 00:12:02.865433 +0800 CST m=+0.000257320
+</code></pre>
+<h2 id="5-&#x5173;&#x952E;&#x8BCD;&#x91CA;&#x7591;">5. &#x5173;&#x952E;&#x8BCD;&#x91CA;&#x7591;</h2>
+<ul>
+<li>&#x6807;&#x51C6;&#x5E93;</li>
+<li>&#x6807;&#x51C6;&#x8F93;&#x51FA;</li>
+<li>main &#x5305;&#x7EC4;&#x7EC7;&#x8D77;&#x6765;</li>
+<li>&#x51FD;&#x6570;</li>
+<li>&#x5BFC;&#x5165;</li>
+<li>go &#x7A0B;&#x5E8F;&#x5165;&#x53E3;</li>
 </ul>
 
                                 
@@ -1127,7 +1193,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Day02-怎么书写Go程序","level":"1.1.2","depth":2,"next":{"title":"Day03-开始Go语言旅行","level":"1.1.3","depth":2,"path":"Golang工程师养成计划/Go语言基础/Go-基础-上-Day03-开始Go语言旅行.md","ref":"Golang工程师养成计划/Go语言基础/Go-基础-上-Day03-开始Go语言旅行.md","articles":[]},"previous":{"title":"Day01-命令行","level":"1.1.1","depth":2,"path":"Golang工程师养成计划/Go语言基础/Go-基础-上-Day01-命令行.md","ref":"Golang工程师养成计划/Go语言基础/Go-基础-上-Day01-命令行.md","articles":[]},"dir":"ltr"},"config":{"plugins":["expandable-chapters-small","favicon","github","katex"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"github":{"url":"https://github.com/panda8z"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":{"shortcut":"assets/images/favicon.ico","bookmark":"assets/images/favicon.ico","appleTouch":"assets/images/apple-touch-icon.png","appleTouchMore":{"120x120":"assets/images/apple-touch-icon-120x120.png","180x180":"assets/images/apple-touch-icon-120x120.png"}},"expandable-chapters-small":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Panda8z","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Panda8z Go Dairy Archive","language":"zh-hans","links":{"sidebar":{"GitHub托管的CSBlog":"https://moreme.top"}},"gitbook":"3.2.3","description":"Computer System"},"file":{"path":"Golang工程师养成计划/Go语言基础/Go-基础-上-Day02-怎么书写Go程序.md","mtime":"2020-05-15T15:37:51.662Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-05-15T15:38:37.399Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Day02-怎么书写Go程序","level":"1.1.2","depth":2,"next":{"title":"Day03-开始Go语言旅行","level":"1.1.3","depth":2,"path":"Golang工程师养成计划/Go语言基础/Go-基础-上-Day03-开始Go语言旅行.md","ref":"Golang工程师养成计划/Go语言基础/Go-基础-上-Day03-开始Go语言旅行.md","articles":[]},"previous":{"title":"Day01-命令行","level":"1.1.1","depth":2,"path":"Golang工程师养成计划/Go语言基础/Go-基础-上-Day01-命令行.md","ref":"Golang工程师养成计划/Go语言基础/Go-基础-上-Day01-命令行.md","articles":[]},"dir":"ltr"},"config":{"plugins":["expandable-chapters-small","favicon","github","katex"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"github":{"url":"https://github.com/panda8z"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":{"shortcut":"assets/images/favicon.ico","bookmark":"assets/images/favicon.ico","appleTouch":"assets/images/apple-touch-icon.png","appleTouchMore":{"120x120":"assets/images/apple-touch-icon-120x120.png","180x180":"assets/images/apple-touch-icon-120x120.png"}},"expandable-chapters-small":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Panda8z","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Panda8z Go Dairy Archive","language":"zh-hans","links":{"sidebar":{"GitHub托管的CSBlog":"https://moreme.top"}},"gitbook":"3.2.3","description":"Computer System"},"file":{"path":"Golang工程师养成计划/Go语言基础/Go-基础-上-Day02-怎么书写Go程序.md","mtime":"2020-05-18T16:21:48.175Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-05-18T16:22:34.653Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
