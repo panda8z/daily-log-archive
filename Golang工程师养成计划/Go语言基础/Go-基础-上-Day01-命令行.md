@@ -1,6 +1,8 @@
-# Go语言基础-上-Day01-Go命令行
+# Go语言基础-上-Go命令行
 
 > 关于命令行命令的使用这里有完整的官方文档：[go - The Go Programming Language](https://golang.google.cn/cmd/go/#hdr-Initialize_new_module_in_current_directory)
+>
+> 此文仅做简单 释义 和 翻译。
 
 ## 1. `go` 命令
 
@@ -9,36 +11,77 @@
 
 **`go`是一个管理Go语言源码的工具**
 
+在命令行 执行命令 `go` 打印如下信息：
+
+> Tips: 保留原始信息的基础上在每一行英文的上面是相应的翻译。
+
 ```bash
-$ go 
+$ go  
+// go 是一个管理go源代码的工具🔧。
 Go is a tool for managing Go source code.
 
+// 使用方式
 Usage:
 
         go <command> [arguments]
 
+// 各 命令 如下
 The commands are:
-
-        bug         start a bug report
-        build       compile packages and dependencies
-        clean       remove object files and cached files
+		
+        // 开始一个bug报告。
+        bug         start a bug report 
+        
+        // 编译 包 和 依赖。
+        build       compile packages and dependencies 
+        
+        // 清理 对象文件 和 缓存文件。 
+        clean       remove object files and cached files  
+        
+        // 显示 包或标识的 文档。
         doc         show documentation for package or symbol
-        env         print Go environment information
-        fix         update packages to use new APIs
-        fmt         gofmt (reformat) package sources
-        generate    generate Go files by processing source
-        get         add dependencies to current module and install them
-        install     compile and install packages and dependencies
-        list        list packages or modules
-        mod         module maintenance
-        run         compile and run Go program
-        test        test packages
-        tool        run specified go tool
-        version     print Go version
-        vet         report likely mistakes in packages
+        
+        // 打印 Go 环境信息。
+        env         print Go environment information 
+        
+        // 使用心得 APIs 更新所有的或指定的包。
+        fix         update packages to use new APIs 
+        
+        // 格式化包的源代码。
+        fmt         gofmt (reformat) package sources  
+        
+        // 通过处理源代码产生 go 文件。
+        generate    generate Go files by processing source 
+        
+        // 给当前的模块添加依赖并且安装他们。
+        get         add dependencies to current module and install them 
+        
+        // 编译 并且 安装 包s 及其 依赖。
+        install     compile and install packages and dependencies 
+        
+        // 列出 包s 或 模块s。
+        list        list packages or modules 
 
+        // 用于维护 go 模块。
+        mod         module maintenance 
+        // 编译 并 运行 go 程序。
+        run         compile and run Go program 
+
+        // 测试 go 包s。
+        test        test packages 
+
+        // 运行指定的 go 工具🔧。
+        tool        run specified go tool 
+
+        // 打印 go 版本信息
+        version     print Go version 
+        
+        // 在包中报告可能的错误
+        vet         report likely mistakes in packages 
+
+// 使用 “go help 【command】” 可以获得指定 命令 更多的信息。
 Use "go help <command>" for more information about a command.
 
+// 一些附加的 帮助主题：
 Additional help topics:
 
         buildmode   build modes
@@ -62,8 +105,6 @@ Additional help topics:
 Use "go help <topic>" for more information about that topic.
 
 ```
-
-
 
 使用命令 `go help 【主题名】` 可以获得其他帮助信息。
 
@@ -123,7 +164,6 @@ The report includes useful system information.
 
 
 ```bash
-
 $go help build
 usage: go build [-o output] [-i] [build flags] [packages]
 
@@ -274,7 +314,6 @@ See also: go install, go get, go clean.
 
 
 ```bash
-
 $go help clean
 usage: go clean [clean flags] [build flags] [packages]
 
