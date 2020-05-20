@@ -116,7 +116,7 @@ This module goes over goroutines and channels, and how they are used to implemen
 
 #### 2.2. 选择一下适合你的语言吧，
 
-![图·1-2](Go-基础-上-Day03-开始Go语言旅行/Screen Shot 2020-04-24 at 11.23.29.png)
+![图·1-2](https://tva1.sinaimg.cn/large/007S8ZIlgy1gez7aio45wj31iy0u07az.jpg)
 
 
 
@@ -128,11 +128,11 @@ This module goes over goroutines and channels, and how they are used to implemen
 
 其实是将 tour 程序拉取到自己电脑上来执行，速度杠杠的。再也不愁那个墙，它又厚又高。
 
-![图·1-3](Go-基础-上-Day03-开始Go语言旅行/Screen Shot 2020-04-24 at 11.26.15.png)
+![图·1-3](https://tva1.sinaimg.cn/large/007S8ZIlgy1gez7avy4boj31iz0u0ak5.jpg)
 
 #### 2.4. tour 程序是基于 Go Playground 开发的
 
-![图·1-4](Go-基础-上-Day03-开始Go语言旅行/image-20200424112914019.png)
+![图·1-4](https://tva1.sinaimg.cn/large/007S8ZIlgy1gez7al8aokj31iy0u07az.jpg)
 
 
 
@@ -190,7 +190,7 @@ func main() {
 
 
 
-![图·2-1](Go-基础-上-Day03-开始Go语言旅行/image-20200424115751194.png)
+![图·2-1](https://tva1.sinaimg.cn/large/007S8ZIlgy1gez7auvejoj31iz0u0ak5.jpg)
 
 总结几点：
 
@@ -207,7 +207,7 @@ func main() {
 
 #### 3.2 导入包使用 import 关键字
 
-![图·2-2](Go-基础-上-Day03-开始Go语言旅行/image-20200424120322370.png) 
+![图·2-2](https://tva1.sinaimg.cn/large/007S8ZIlgy1gez7am0tucj31iy0u07az.jpg) 
 
 总结几点： 
 
@@ -218,7 +218,7 @@ func main() {
 
 
 
-![图·2-3](Go-基础-上-Day03-开始Go语言旅行/image-20200424120653966.png)
+![图·2-3](https://tva1.sinaimg.cn/large/007S8ZIlgy1gez7avfbdkj31j60u0451.jpg)
 
 
 
@@ -236,7 +236,7 @@ func main() {
 
 
 
-![图·2-4](Go-基础-上-Day03-开始Go语言旅行/image-20200424121322220.png)
+![图·2-4](https://tva1.sinaimg.cn/large/007S8ZIlgy1gez7au5hz9j31ix0u0q9c.jpg)
 
 
 
