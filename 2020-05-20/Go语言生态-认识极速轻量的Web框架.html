@@ -1,0 +1,1621 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-hans" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Go语言生态-认识极速轻量的Web框架 · Panda8z Go Dairy Archive</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="Panda8z">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-katex/katex.min.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    
+    <link rel="prev" href="2020-05-20-笔记.html" />
+    
+
+    
+        <link rel="shortcut icon" href='../assets/images/favicon.ico' type="image/x-icon">
+    
+    
+        <link rel="bookmark" href='../assets/images/favicon.ico' type="image/x-icon">
+    
+    
+        <link rel="apple-touch-icon" href='../assets/images/apple-touch-icon.png'>
+    
+    
+        
+        <link rel="apple-touch-icon" sizes="120x120" href="../assets/images/apple-touch-icon-120x120.png">
+        
+        <link rel="apple-touch-icon" sizes="180x180" href="../assets/images/apple-touch-icon-120x120.png">
+        
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="输入并搜索" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+    
+        
+        <li>
+            <a href="https://moreme.top" target="_blank" class="custom-link">GitHub托管的CSBlog</a>
+        </li>
+    
+    
+
+    
+    <li class="divider"></li>
+    
+
+    
+        
+        <li class="header">Golang工程师养成计划</li>
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../Golang工程师养成计划/Go语言基础/Go语言基础学习-目录.html">
+            
+                <a href="../Golang工程师养成计划/Go语言基础/Go语言基础学习-目录.html">
+            
+                    
+                    Go语言基础-上
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.1.1" data-path="../Golang工程师养成计划/Go语言基础/Go-基础-上-Day01-命令行.html">
+            
+                <a href="../Golang工程师养成计划/Go语言基础/Go-基础-上-Day01-命令行.html">
+            
+                    
+                    Day01-命令行
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.2" data-path="../Golang工程师养成计划/Go语言基础/Go-基础-上-Day02-怎么书写Go程序.html">
+            
+                <a href="../Golang工程师养成计划/Go语言基础/Go-基础-上-Day02-怎么书写Go程序.html">
+            
+                    
+                    Day02-怎么书写Go程序
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.3" data-path="../Golang工程师养成计划/Go语言基础/Go-基础-上-Day03-开始Go语言旅行.html">
+            
+                <a href="../Golang工程师养成计划/Go语言基础/Go-基础-上-Day03-开始Go语言旅行.html">
+            
+                    
+                    Day03-开始Go语言旅行
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../Golang工程师养成计划/Go语言标准库/Go语言标准库学习-目录.html">
+            
+                <a href="../Golang工程师养成计划/Go语言标准库/Go语言标准库学习-目录.html">
+            
+                    
+                    Go语言标准库学习
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../Golang工程师养成计划/Go语言标准库/container-heap.html">
+            
+                <a href="../Golang工程师养成计划/Go语言标准库/container-heap.html">
+            
+                    
+                    container-heap 笔记
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="header">日志</li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    张向北的笔记本📒
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">2020-03-18</li>
+        
+        
+    
+        <li class="chapter " data-level="3.1" data-path="../2020-03-18/面试准备Day01.html">
+            
+                <a href="../2020-03-18/面试准备Day01.html">
+            
+                    
+                    工作展望
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2" data-path="../2020-03-18/gitbook工具使用指南.html">
+            
+                <a href="../2020-03-18/gitbook工具使用指南.html">
+            
+                    
+                    gitbook工具使用指南
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">2020-04-05</li>
+        
+        
+    
+        <li class="chapter " data-level="4.1" data-path="../2020-04-05/Goroutine是怎么开始和退出的.html">
+            
+                <a href="../2020-04-05/Goroutine是怎么开始和退出的.html">
+            
+                    
+                    Goroutine是怎么开始和退出的
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">2020-04-07</li>
+        
+        
+    
+        <li class="chapter " data-level="5.1" data-path="../2020-04-07/defer的前世今生.html">
+            
+                <a href="../2020-04-07/defer的前世今生.html">
+            
+                    
+                    defer的前世今生
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="5.1.1" data-path="../2020-04-07/Go中defer.html">
+            
+                <a href="../2020-04-07/Go中defer.html">
+            
+                    
+                    Go中defer
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.2" data-path="../2020-04-07/Go中defer7个知识点.html">
+            
+                <a href="../2020-04-07/Go中defer7个知识点.html">
+            
+                    
+                    Go中defer7个知识点
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="5.2" data-path="../2020-04-07/Go实现LeetCode全集.html">
+            
+                <a href="../2020-04-07/Go实现LeetCode全集.html">
+            
+                    
+                    Go实现LeetCode全集
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.3" data-path="../2020-04-07/如何成为Go语言代码贡献者.html">
+            
+                <a href="../2020-04-07/如何成为Go语言代码贡献者.html">
+            
+                    
+                    如何成为Go语言代码贡献者
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.4" data-path="../2020-04-07/读书笔记-2020-04-07.html">
+            
+                <a href="../2020-04-07/读书笔记-2020-04-07.html">
+            
+                    
+                    读书笔记-2020-04-07
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">2020-04-08</li>
+        
+        
+    
+        <li class="chapter " data-level="6.1" data-path="../2020-04-08/go编译器-编译指示.html">
+            
+                <a href="../2020-04-08/go编译器-编译指示.html">
+            
+                    
+                    编译指示
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.2" data-path="../2020-04-08/go做一个小型http服务器并优化实战.html">
+            
+                <a href="../2020-04-08/go做一个小型http服务器并优化实战.html">
+            
+                    
+                    go做一个小型http服务器并优化实战
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">2020-04-09</li>
+        
+        
+    
+        <li class="chapter " data-level="7.1" data-path="../2020-04-09/Go语言原本-调度器.html">
+            
+                <a href="../2020-04-09/Go语言原本-调度器.html">
+            
+                    
+                    Go语言原本-调度器
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">2020-04-10</li>
+        
+        
+    
+        <li class="chapter " data-level="8.1" data-path="../2020-04-10/go垃圾回收.html">
+            
+                <a href="../2020-04-10/go垃圾回收.html">
+            
+                    
+                    go垃圾回收
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">2020-04-11</li>
+        
+        
+    
+        <li class="chapter " data-level="9.1" data-path="../2020-04-11/2020-04-11-日志.html">
+            
+                <a href="../2020-04-11/2020-04-11-日志.html">
+            
+                    
+                    2020-04-11-日志
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">2020-04-12</li>
+        
+        
+    
+        <li class="chapter " data-level="10.1" data-path="../2020-04-12/Go语言原本-延迟语句.html">
+            
+                <a href="../2020-04-12/Go语言原本-延迟语句.html">
+            
+                    
+                    Go语言原本-延迟语句
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">2020-04-13</li>
+        
+        
+    
+        <li class="chapter " data-level="11.1" data-path="../2020-04-13/Go语言原本-channel.html">
+            
+                <a href="../2020-04-13/Go语言原本-channel.html">
+            
+                    
+                    Go语言原本-channel
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="11.2" data-path="../2020-04-13/2020-04-13-日志.html">
+            
+                <a href="../2020-04-13/2020-04-13-日志.html">
+            
+                    
+                    2020-04-13-日志
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">2020-04-14</li>
+        
+        
+    
+        <li class="chapter " data-level="12.1" data-path="../2020-04-14/G0是怎么创建的.html">
+            
+                <a href="../2020-04-14/G0是怎么创建的.html">
+            
+                    
+                    G0是怎么创建的
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="12.2" data-path="../2020-04-14/从0构建亿级微服务架构.html">
+            
+                <a href="../2020-04-14/从0构建亿级微服务架构.html">
+            
+                    
+                    从0构建亿级微服务架构
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">2020-04-15</li>
+        
+        
+    
+        <li class="chapter " data-level="13.1" data-path="../2020-04-15/go-leetcode-TwoSum.html">
+            
+                <a href="../2020-04-15/go-leetcode-TwoSum.html">
+            
+                    
+                    leetcode-day01
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">2020-04-17</li>
+        
+        
+    
+        <li class="chapter " data-level="14.1" data-path="../2020-04-17/go-leetcode-day02.html">
+            
+                <a href="../2020-04-17/go-leetcode-day02.html">
+            
+                    
+                    go-leetcode-day02
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">2020-04-18</li>
+        
+        
+    
+        <li class="chapter " data-level="15.1" data-path="../2020-04-18/go-leetcode-day03.html">
+            
+                <a href="../2020-04-18/go-leetcode-day03.html">
+            
+                    
+                    go-leetcode-day03
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="15.2" data-path="../2020-04-18/timepill-api分析.html">
+            
+                <a href="../2020-04-18/timepill-api分析.html">
+            
+                    
+                    timepill-api分析
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">2020-04-21</li>
+        
+        
+    
+        <li class="chapter " data-level="16.1" data-path="../2020-04-21/Go-leetcode-day04.html">
+            
+                <a href="../2020-04-21/Go-leetcode-day04.html">
+            
+                    
+                    Go-leetcode-day04
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="16.2" data-path="../2020-04-21/Go-VScode-debug-go-program.html">
+            
+                <a href="../2020-04-21/Go-VScode-debug-go-program.html">
+            
+                    
+                    Go-VScode-debug-go-program
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="16.3" data-path="../2020-04-21/数据结构-二叉树时间复杂度.html">
+            
+                <a href="../2020-04-21/数据结构-二叉树时间复杂度.html">
+            
+                    
+                    数据结构-二叉树时间复杂度
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">2020-04-22</li>
+        
+        
+    
+        <li class="chapter " data-level="17.1" data-path="../2020-04-22/2020-04-22-笔记.html">
+            
+                <a href="../2020-04-22/2020-04-22-笔记.html">
+            
+                    
+                    2020-04-22-笔记📒
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="17.2" data-path="../2020-04-23/2020-04-23-笔记.html">
+            
+                <a href="../2020-04-23/2020-04-23-笔记.html">
+            
+                    
+                    2020-04-23-笔记📒
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="17.3" data-path="../2020-04-24/2020-04-24-笔记.html">
+            
+                <a href="../2020-04-24/2020-04-24-笔记.html">
+            
+                    
+                    2020-04-24-笔记📒
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="17.4" data-path="../2020-04-26/2020-04-26-笔记.html">
+            
+                <a href="../2020-04-26/2020-04-26-笔记.html">
+            
+                    
+                    2020-04-26-笔记📒
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="17.5" data-path="../2020-04-27/2020-04-27-笔记.html">
+            
+                <a href="../2020-04-27/2020-04-27-笔记.html">
+            
+                    
+                    2020-04-27-笔记📒
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="17.6" data-path="../2020-04-28/2020-04-28-笔记.html">
+            
+                <a href="../2020-04-28/2020-04-28-笔记.html">
+            
+                    
+                    2020-04-28-笔记📒
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="17.7" data-path="../2020-04-29/2020-04-29-笔记.html">
+            
+                <a href="../2020-04-29/2020-04-29-笔记.html">
+            
+                    
+                    2020-04-29-笔记📒
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="17.8" data-path="../2020-04-30/2020-04-30-笔记.html">
+            
+                <a href="../2020-04-30/2020-04-30-笔记.html">
+            
+                    
+                    2020-04-30-笔记📒
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="17.9" data-path="../2020-05-01/2020-05-01-笔记.html">
+            
+                <a href="../2020-05-01/2020-05-01-笔记.html">
+            
+                    
+                    2020-05-01-笔记📒
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="17.10" data-path="../2020-05-02/2020-05-02-笔记.html">
+            
+                <a href="../2020-05-02/2020-05-02-笔记.html">
+            
+                    
+                    2020-05-02-笔记📒
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="17.11" data-path="../2020-05-03/2020-05-03-笔记.html">
+            
+                <a href="../2020-05-03/2020-05-03-笔记.html">
+            
+                    
+                    2020-05-03-笔记📒
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="17.12" data-path="../2020-05-04/2020-05-04-笔记.html">
+            
+                <a href="../2020-05-04/2020-05-04-笔记.html">
+            
+                    
+                    2020-05-04-笔记📒
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="17.13" data-path="../2020-05-06/2020-05-06-笔记.html">
+            
+                <a href="../2020-05-06/2020-05-06-笔记.html">
+            
+                    
+                    2020-05-06-笔记📒
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="17.14" data-path="../2020-05-07/2020-05-07-笔记.html">
+            
+                <a href="../2020-05-07/2020-05-07-笔记.html">
+            
+                    
+                    2020-05-07-笔记📒
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="17.15" data-path="../2020-05-08/2020-05-08-笔记.html">
+            
+                <a href="../2020-05-08/2020-05-08-笔记.html">
+            
+                    
+                    2020-05-08-笔记📒
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="17.16" data-path="../2020-05-09/2020-05-09-笔记.html">
+            
+                <a href="../2020-05-09/2020-05-09-笔记.html">
+            
+                    
+                    2020-05-09-笔记📒
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="17.16.1" data-path="../2020-05-09/530.二叉搜索树的最小绝对差.html">
+            
+                <a href="../2020-05-09/530.二叉搜索树的最小绝对差.html">
+            
+                    
+                    530.二叉搜索树的最小绝对差
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="17.16.2" data-path="../2020-05-09/二叉树的前中后遍历.html">
+            
+                <a href="../2020-05-09/二叉树的前中后遍历.html">
+            
+                    
+                    二叉树的前中后遍历
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="17.17" data-path="../2020-05-10/2020-05-10-笔记.html">
+            
+                <a href="../2020-05-10/2020-05-10-笔记.html">
+            
+                    
+                    2020-05-10-笔记📒
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="17.18" data-path="../2020-05-11/2020-05-11-笔记.html">
+            
+                <a href="../2020-05-11/2020-05-11-笔记.html">
+            
+                    
+                    2020-05-11-笔记📒
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="17.18.1" data-path="../2020-05-11/538.把二叉搜索树转换为累加树.html">
+            
+                <a href="../2020-05-11/538.把二叉搜索树转换为累加树.html">
+            
+                    
+                    538.把二叉搜索树转换为累加树
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="17.18.2" data-path="../2020-05-11/面试题04-03-特定深度节点链表.html">
+            
+                <a href="../2020-05-11/面试题04-03-特定深度节点链表.html">
+            
+                    
+                    面试题04-03-特定深度节点链表
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="17.19" data-path="../2020-05-15/2020-05-15-笔记.html">
+            
+                <a href="../2020-05-15/2020-05-15-笔记.html">
+            
+                    
+                    2020-05-15-笔记
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="17.19.1" data-path="../2020-05-15/YouTube-dl命令下载YouTube的视频.html">
+            
+                <a href="../2020-05-15/YouTube-dl命令下载YouTube的视频.html">
+            
+                    
+                    YouTube-dl命令下载YouTube的视频
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="17.19.2" data-path="../2020-05-15/EffectiveGo-中文版.html">
+            
+                <a href="../2020-05-15/EffectiveGo-中文版.html">
+            
+                    
+                    EffectiveGo-中文版
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="17.20" data-path="../2020-05-19/2020-05-19-笔记.html">
+            
+                <a href="../2020-05-19/2020-05-19-笔记.html">
+            
+                    
+                    2020-05-19-笔记
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="17.20.1" data-path="../2020-05-19/kratos-01-简介和安装.html">
+            
+                <a href="../2020-05-19/kratos-01-简介和安装.html">
+            
+                    
+                    kratos-01-简介和安装
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="17.20.2" data-path="../2020-05-19/操作系统-词汇表.html">
+            
+                <a href="../2020-05-19/操作系统-词汇表.html">
+            
+                    
+                    操作系统-词汇表
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="17.21" data-path="2020-05-20-笔记.html">
+            
+                <a href="2020-05-20-笔记.html">
+            
+                    
+                    2020-05-20-笔记
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter active" data-level="17.21.1" data-path="Go语言生态-认识极速轻量的Web框架.html">
+            
+                <a href="Go语言生态-认识极速轻量的Web框架.html">
+            
+                    
+                    Go语言生态-认识极速轻量的Web框架
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本书使用 GitBook 发布
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Go语言生态-认识极速轻量的Web框架</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="fiber&#xFF1A;&#x9AD8;&#x6548;&#x3001;&#x6781;&#x901F;&#x3001;&#x6781;&#x7B80;&#x7684;web&#x6846;&#x67B6;">Fiber&#xFF1A;&#x9AD8;&#x6548;&#x3001;&#x6781;&#x901F;&#x3001;&#x6781;&#x7B80;&#x7684;Web&#x6846;&#x67B6;</h1>
+<blockquote>
+<p>Go &#x8BED;&#x8A00;&#x6784;&#x5EFA;&#x7684; Web &#x6846;&#x67B6;&#x4E00;&#x5927;&#x5806;&#xFF0C;Beego&#x3001;Iris&#x3001;Gin &#x7B49; &#x3002;&#x4ECA;&#x5929;&#x5E26;&#x6765;&#x4E00;&#x4E2A;&#x8DB3;&#x591F;&#x6709;&#x5438;&#x5F15;&#x529B;&#x7684;&#x65B0;&#x7684;Web&#x6846;&#x67B6;&#x3002;</p>
+<p>&#x4E0D;&#x540C;&#x4E8E;&#x5176;&#x4ED6;&#x7684;&#x6846;&#x67B6;&#xFF0C;&#x4ED6;&#x7684;&#x6027;&#x80FD;&#x6781;&#x4F73;&#xFF0C;&#x4EE3;&#x7801;&#x91CF;&#x53C8;&#x8DB3;&#x591F;&#x5C0F;&#xFF0C;&#x4E0A;&#x624B;&#x548C;&#x4F7F;&#x7528;&#x90FD;&#x80FD;&#x4F7F;&#x4F60;&#x6709;&#x9A7E;&#x8F7B;&#x5C31;&#x719F;&#x7684;&#x611F;&#x89C9;&#x3002;</p>
+</blockquote>
+<p><strong>Fiber</strong>&#x662F;&#x4E00;&#x4E2A;&#x57FA;&#x4E8E;<a href="https://github.com/expressjs/express" target="_blank">Express</a>&#x7684;<strong>Web&#x6846;&#x67B6;</strong>&#xFF0C;&#x5EFA;&#x7ACB;&#x5728;<a href="https://golang.org/doc/" target="_blank">Go&#x8BED;&#x8A00;</a>&#x5199;&#x7684;<strong>&#x6700;&#x5FEB;&#x7684;<a href="https://github.com/valyala/fasthttp" target="_blank">Fasthttp</a>HTTP&#x5F15;&#x64CE;</strong>&#x7684;&#x57FA;&#x7840;&#x4E0A;&#x3002;&#x7686;&#x5728;<strong>&#x7B80;&#x5316;</strong> <strong>&#x96F6;&#x5185;&#x5B58;&#x5206;&#x914D;</strong>&#x548C;<strong>&#x63D0;&#x9AD8;&#x6027;&#x80FD;</strong>&#xFF0C;&#x4EE5;&#x4FBF;<strong>&#x5FEB;&#x901F;&#x5F00;&#x53D1;</strong>&#x3002;</p>
+<h2 id="&#x26A1;&#xFE0F;-&#x5FEB;&#x901F;&#x5165;&#x95E8;&#x2014;&#x2014;&#x4E0A;&#x4EE3;&#x7801;&#xFF01;&#x4E0A;&#x4EE3;&#x7801;&#xFF01;">&#x26A1;&#xFE0F; &#x5FEB;&#x901F;&#x5165;&#x95E8;&#x2014;&#x2014;&#x4E0A;&#x4EE3;&#x7801;&#xFF01;&#x4E0A;&#x4EE3;&#x7801;&#xFF01;</h2>
+<pre><code class="lang-go"><span class="hljs-keyword">package</span> main
+
+<span class="hljs-keyword">import</span> <span class="hljs-string">&quot;github.com/gofiber/fiber&quot;</span>
+
+<span class="hljs-keyword">func</span> main() {
+  app := fiber.New() <span class="hljs-comment">// &#x521B;&#x5EFA; fiber app&#x5F15;&#x64CE;</span>
+
+  app.Get(<span class="hljs-string">&quot;/&quot;</span>, <span class="hljs-keyword">func</span>(c *fiber.Ctx) { <span class="hljs-comment">// &#x521B;&#x5EFA;&#x4E00;&#x4E2A; get &#x65B9;&#x6CD5;&#x7684;&#x8DEF;&#x7531;&#x8FD4;&#x56DE; Hello World&#xFF01;</span>
+    c.Send(<span class="hljs-string">&quot;Hello, World!&quot;</span>)
+  }) 
+
+  app.Listen(<span class="hljs-number">3000</span>) <span class="hljs-comment">// &#x5F00;&#x542F;&#x670D;&#x52A1;&#xFF0C;&#x5E76;&#x5728; 3000 &#x7AEF;&#x53E3;&#x76D1;&#x542C;&#x3002;</span>
+}
+</code></pre>
+<h2 id="&#x2699;&#xFE0F;-&#x5B89;&#x88C5;&#x2014;&#x2014;go-get-&#x9999;&#x5427;">&#x2699;&#xFE0F; &#x5B89;&#x88C5;&#x2014;&#x2014;go get &#x9999;&#x5427;</h2>
+<p>&#x9996;&#x5148;&#xFF0C; <a href="https://golang.org/dl/" target="_blank">&#x4E0B;&#x8F7D;</a>&#x5E76;&#x5B89;&#x88C5;Go&#x3002; <code>1.11</code>&#x6216;&#x66F4;&#x9AD8;&#x3002;</p>
+<p>&#x4F7F;&#x7528;<a href="https://golang.org/cmd/go/#hdr-Add_dependencies_to_current_module_and_install_them" target="_blank"><code>go get</code></a>&#x547D;&#x4EE4;&#x5B8C;&#x6210;&#x5B89;&#x88C5;&#xFF1A;</p>
+<pre><code class="lang-bash"><span class="hljs-built_in">export</span> GO111MODULE=on
+<span class="hljs-built_in">export</span> GOPROXY=https://goproxy.cn
+
+go get -u github.com/gofiber/fiber
+</code></pre>
+<h2 id="&#x1F916;-&#x6027;&#x80FD;&#x2014;&#x2014;&#x663E;&#x800C;&#x6613;&#x89C1;&#x7684;&#x597D;">&#x1F916; &#x6027;&#x80FD;&#x2014;&#x2014;&#x663E;&#x800C;&#x6613;&#x89C1;&#x7684;&#x597D;</h2>
+<p>&#x8FD9;&#x4E9B;&#x6D4B;&#x8BD5;&#x7531;<a href="https://github.com/TechEmpower/FrameworkBenchmarks" target="_blank">TechEmpower</a>&#x548C;<a href="https://github.com/smallnest/go-web-framework-benchmark" target="_blank">Go Web&#x6267;&#x884C;</a> &#x3002;&#x5982;&#x679C;&#x8981;&#x67E5;&#x770B;&#x6240;&#x6709;&#x7ED3;&#x679C;&#xFF0C;&#x8BF7;&#x8BBF;&#x95EE;&#x6211;&#x4EEC;&#x7684;<a href="https://docs.gofiber.io/benchmarks" target="_blank">Wiki</a> &#x3002;</p>
+<p><img src="Go&#x8BED;&#x8A00;&#x751F;&#x6001;-&#x8BA4;&#x8BC6;&#x6781;&#x901F;&#x8F7B;&#x91CF;&#x7684;Web&#x6846;&#x67B6;/benchmark-pipeline-20200520143517612.png" alt="&#x57FA;&#x51C6;&#x6D4B;&#x8BD5;-1-pipelining"></p>
+<p><img src="Go&#x8BED;&#x8A00;&#x751F;&#x6001;-&#x8BA4;&#x8BC6;&#x6781;&#x901F;&#x8F7B;&#x91CF;&#x7684;Web&#x6846;&#x67B6;/benchmark_alloc-20200520143536826.png" alt="&#x57FA;&#x51C6;&#x6D4B;&#x8BD5;-2-allocations"></p>
+<h2 id="&#x1F3AF;-&#x7279;&#x70B9;">&#x1F3AF; &#x7279;&#x70B9;</h2>
+<ul>
+<li>&#x5F3A;&#x5927;&#x7684;<a href="https://docs.gofiber.io/routing" target="_blank">&#x8DEF;&#x7531;</a></li>
+<li><a href="https://docs.gofiber.io/application#static" target="_blank">&#x9759;&#x6001;&#x6587;&#x4EF6;</a>&#x670D;&#x52A1;</li>
+<li>&#x6781;&#x9650;<a href="https://docs.gofiber.io/benchmarks" target="_blank">&#x8868;&#x73B0;</a></li>
+<li><a href="https://docs.gofiber.io/benchmarks" target="_blank">&#x5185;&#x5B58;&#x5360;&#x7528;&#x4F4E;</a></li>
+<li>Express <a href="https://docs.gofiber.io/context" target="_blank">API&#x7AEF;&#x70B9;</a></li>
+<li>&#x4E2D;&#x95F4;&#x4EF6;&#x548C;<a href="https://docs.gofiber.io/context#next" target="_blank">Next</a>&#x652F;&#x6301;</li>
+<li><a href="https://dev.to/koddr/welcome-to-fiber-an-express-js-styled-fastest-web-framework-written-with-on-golang-497" target="_blank">&#x5FEB;&#x901F;&#x7684;</a>&#x670D;&#x52A1;&#x5668;&#x7AEF;&#x7F16;&#x7A0B;</li>
+<li><a href="https://docs.gofiber.io/middleware#template" target="_blank">Template engines</a></li>
+<li><a href="https://docs.gofiber.io/middleware#websocket" target="_blank">WebSocket support</a></li>
+<li><a href="https://docs.gofiber.io/middleware#limiter" target="_blank">Rate Limiter</a></li>
+<li>Available in <a href="https://docs.gofiber.io/" target="_blank">12 languages</a></li>
+<li>&#x4EE5;&#x53CA;&#x66F4;&#x591A;<a href="https://docs.gofiber.io/" target="_blank">&#x6587;&#x6863;</a></li>
+</ul>
+<h2 id="&#x1F4A1;-&#x54F2;&#x5B66;">&#x1F4A1; &#x54F2;&#x5B66;</h2>
+<p>&#x4ECE;<a href="https://nodejs.org/en/about/" target="_blank">Node.js</a>&#x5207;&#x6362;&#x5230;<a href="https://golang.org/doc/" target="_blank">Go&#x7684;</a>&#x65B0;gopher&#x5728;&#x5F00;&#x59CB;&#x6784;&#x5EFA;Web&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x6216;&#x5FAE;&#x670D;&#x52A1;&#x4E4B;&#x524D;&#x6B63;&#x5728;&#x5E94;&#x5BF9;&#x5B66;&#x4E60;&#x8FC7;&#x7A0B;&#x3002; Fiber&#x4F5C;&#x4E3A;&#x4E00;&#x4E2A;<strong>Web&#x6846;&#x67B6;</strong> &#xFF0C;&#x662F;&#x6309;&#x7167;<strong>&#x6781;&#x7B80;&#x4E3B;&#x4E49;</strong>&#x7684;&#x601D;&#x60F3;&#x5E76;&#x9075;&#x5FAA;<strong>UNIX&#x65B9;&#x5F0F;&#x521B;&#x5EFA;&#x7684;</strong>&#xFF0C;&#x56E0;&#x6B64;&#x65B0;&#x7684;gopher&#x53EF;&#x4EE5;&#x4EE5;&#x70ED;&#x70C8;&#x548C;&#x53EF;&#x4FE1;&#x8D56;&#x7684;&#x6B22;&#x8FCE;<strong>&#x65B9;&#x5F0F;</strong>&#x8FC5;&#x901F;&#x8FDB;&#x5165;Go&#x7684;&#x4E16;&#x754C;&#x3002;</p>
+<p>Fiber <strong>&#x53D7;</strong> Internet&#x4E0A;&#x6700;&#x6D41;&#x884C;&#x7684;Web&#x6846;&#x67B6;Expressjs&#x7684;<strong>&#x542F;&#x53D1;</strong> &#x3002;&#x6211;&#x4EEC;&#x7ED3;&#x5408;&#x4E86;Express&#x7684;<strong>&#x6613;&#x7528;</strong>&#x6027;&#x548C;Go&#x7684;<strong>&#x539F;&#x59CB;&#x6027;&#x80FD;</strong> &#x3002;&#x5982;&#x679C;&#x60A8;&#x66FE;&#x7ECF;&#x5728;Node.js&#x4E0A;&#x5B9E;&#x73B0;&#x8FC7;Web&#x5E94;&#x7528;&#x7A0B;&#x5E8F;(<em>&#x4F7F;&#x7528;Express.js&#x6216;&#x7C7B;&#x4F3C;&#x5DE5;&#x5177;</em>)&#xFF0C;&#x90A3;&#x4E48;&#x8BB8;&#x591A;&#x65B9;&#x6CD5;&#x548C;&#x539F;&#x7406;&#x5BF9;&#x60A8;&#x6765;&#x8BF4;&#x4F3C;&#x4E4E;<strong>&#x975E;&#x5E38;&#x6613;&#x61C2;</strong>&#x3002;</p>
+<h2 id="&#x1F440;-&#x793A;&#x4F8B;">&#x1F440; &#x793A;&#x4F8B;</h2>
+<p>&#x4E0B;&#x9762;&#x5217;&#x51FA;&#x4E86;&#x4E00;&#x4E9B;&#x5E38;&#x89C1;&#x793A;&#x4F8B;&#x3002;&#x5982;&#x679C;&#x60A8;&#x60F3;&#x67E5;&#x770B;&#x66F4;&#x591A;&#x4EE3;&#x7801;&#x793A;&#x4F8B;&#xFF0C;&#x8BF7;&#x8BBF;&#x95EE;&#x6211;&#x4EEC;&#x7684;<a href="https://github.com/gofiber/recipes" target="_blank">Recipes&#x5B58;&#x50A8;&#x5E93;</a>&#x6216;&#x8BBF;&#x95EE;&#x6211;&#x4EEC;&#x7684;<a href="https://docs.gofiber.io" target="_blank">API&#x6587;&#x6863;</a> &#x3002;</p>
+<h3 id="&#x8DEF;&#x7531;">&#x8DEF;&#x7531;</h3>
+<p>&#x8BE6;&#x7EC6;&#x6587;&#x6863;&#x1F4D6;&#xFF1A; <a href="https://docs.gofiber.io/#basic-routing" target="_blank">Routing</a>  </p>
+<pre><code class="lang-go"><span class="hljs-keyword">func</span> main() {
+  app := fiber.New()
+
+  <span class="hljs-comment">// GET /john</span>
+  app.Get(<span class="hljs-string">&quot;/:name&quot;</span>, <span class="hljs-keyword">func</span>(c *fiber.Ctx) {
+    fmt.Printf(<span class="hljs-string">&quot;Hello %s!&quot;</span>, c.Params(<span class="hljs-string">&quot;name&quot;</span>))
+    <span class="hljs-comment">// =&gt; Hello john!</span>
+  })
+
+  <span class="hljs-comment">// GET /john</span>
+  app.Get(<span class="hljs-string">&quot;/:name/:age?&quot;</span>, <span class="hljs-keyword">func</span>(c *fiber.Ctx) {
+    fmt.Printf(<span class="hljs-string">&quot;Name: %s, Age: %s&quot;</span>, c.Params(<span class="hljs-string">&quot;name&quot;</span>), c.Params(<span class="hljs-string">&quot;age&quot;</span>))
+    <span class="hljs-comment">// =&gt; Name: john, Age:</span>
+  })
+
+  <span class="hljs-comment">// GET /api/register</span>
+  app.Get(<span class="hljs-string">&quot;/api/*&quot;</span>, <span class="hljs-keyword">func</span>(c *fiber.Ctx) {
+    fmt.Printf(<span class="hljs-string">&quot;/api/%s&quot;</span>, c.Params(<span class="hljs-string">&quot;*&quot;</span>))
+    <span class="hljs-comment">// =&gt; /api/register</span>
+  })
+
+  app.Listen(<span class="hljs-number">3000</span>)
+}
+</code></pre>
+<h3 id="&#x9759;&#x6001;&#x6587;&#x4EF6;">&#x9759;&#x6001;&#x6587;&#x4EF6;</h3>
+<p>&#x8BE6;&#x7EC6;&#x6587;&#x6863;&#x1F4D6;&#xFF1A; <a href="https://docs.gofiber.io/application#static" target="_blank">Static</a>  </p>
+<pre><code class="lang-go"><span class="hljs-keyword">func</span> main() {
+  app := fiber.New()
+
+  app.Static(<span class="hljs-string">&quot;/&quot;</span>, <span class="hljs-string">&quot;/public&quot;</span>)
+  <span class="hljs-comment">// =&gt; http://localhost:3000/js/script.js</span>
+  <span class="hljs-comment">// =&gt; http://localhost:3000/css/style.css</span>
+
+  app.Static(<span class="hljs-string">&quot;/prefix&quot;</span>, <span class="hljs-string">&quot;/public&quot;</span>)
+  <span class="hljs-comment">// =&gt; http://localhost:3000/prefix/js/script.js</span>
+  <span class="hljs-comment">// =&gt; http://localhost:3000/prefix/css/style.css</span>
+
+  app.Static(<span class="hljs-string">&quot;*&quot;</span>, <span class="hljs-string">&quot;/public/index.html&quot;</span>)
+  <span class="hljs-comment">// =&gt; http://localhost:3000/any/path/shows/index/html</span>
+
+  app.Listen(<span class="hljs-number">3000</span>)
+}
+</code></pre>
+<h3 id="&#x4E2D;&#x95F4;&#x4EF6;&#x548C;-next-&#x51FD;&#x6570;">&#x4E2D;&#x95F4;&#x4EF6;&#x548C; Next &#x51FD;&#x6570;</h3>
+<p>&#x8BE6;&#x7EC6;&#x6587;&#x6863;&#x1F4D6;&#xFF1A; <a href="https://docs.gofiber.io/routing#middleware" target="_blank">Middleware</a><br>&#x8BE6;&#x7EC6;&#x6587;&#x6863;&#x1F4D6;&#xFF1A; <a href="https://docs.gofiber.io/context#next" target="_blank">Next</a>  </p>
+<pre><code class="lang-go"><span class="hljs-keyword">func</span> main() {
+  app := fiber.New()
+
+  <span class="hljs-comment">// Match any route</span>
+  app.Use(<span class="hljs-keyword">func</span>(c *fiber.Ctx) {
+    fmt.Println(<span class="hljs-string">&quot;First middleware&quot;</span>)
+    c.Next()
+  })
+
+  <span class="hljs-comment">// Match all routes starting with /api</span>
+  app.Use(<span class="hljs-string">&quot;/api&quot;</span>, <span class="hljs-keyword">func</span>(c *fiber.Ctx) {
+    fmt.Println(<span class="hljs-string">&quot;Second middleware&quot;</span>)
+    c.Next()
+  })
+
+  <span class="hljs-comment">// GET /api/register</span>
+  app.Get(<span class="hljs-string">&quot;/api/list&quot;</span>, <span class="hljs-keyword">func</span>(c *fiber.Ctx) {
+    fmt.Println(<span class="hljs-string">&quot;Last middleware&quot;</span>)
+    c.Send(<span class="hljs-string">&quot;Hello, World!&quot;</span>)
+  })
+
+  app.Listen(<span class="hljs-number">3000</span>)
+}
+</code></pre>
+<h3 id="&#x6A21;&#x677F;&#x5F15;&#x64CE;">&#x6A21;&#x677F;&#x5F15;&#x64CE;</h3>
+<p>&#x8BE6;&#x7EC6;&#x6587;&#x6863;&#x1F4D6;&#xFF1A; <a href="https://docs.gofiber.io/application#settings" target="_blank">Settings</a><br>&#x8BE6;&#x7EC6;&#x6587;&#x6863;&#x1F4D6;&#xFF1A; <a href="https://docs.gofiber.io/context#render" target="_blank">Render</a><br>&#x8BE6;&#x7EC6;&#x6587;&#x6863;&#x1F4D6;&#xFF1A; <a href="https://docs.gofiber.io/middleware#template" target="_blank">Template</a>  </p>
+<p>Fiber supports the default <a href="https://golang.org/pkg/html/template/" target="_blank">Go template engine</a></p>
+<p>But if you want to use another template engine like <a href="https://github.com/eknkc/amber" target="_blank">amber</a>, <a href="https://github.com/aymerick/raymond" target="_blank">handlebars</a>, <a href="https://github.com/cbroglie/mustache" target="_blank">mustache</a> or <a href="https://github.com/Joker/jade" target="_blank">pug</a>.</p>
+<p>You can use our <a href="https://docs.gofiber.io/middleware#template" target="_blank">Template Middleware</a>.</p>
+<pre><code class="lang-go"><span class="hljs-keyword">import</span> (
+  <span class="hljs-string">&quot;github.com/gofiber/fiber&quot;</span>
+  <span class="hljs-string">&quot;github.com/gofiber/template&quot;</span>
+)
+
+<span class="hljs-keyword">func</span> main() {
+  <span class="hljs-comment">// You can setup template engine before initiation app:</span>
+  app := fiber.New(&amp;fiber.Settings{
+    TemplateEngine:    template.Mustache(),
+    TemplateFolder:    <span class="hljs-string">&quot;./views&quot;</span>,
+    TemplateExtension: <span class="hljs-string">&quot;.tmpl&quot;</span>,
+  })
+
+  <span class="hljs-comment">// OR after initiation app at any convenient location:</span>
+  app.Settings.TemplateEngine = template.Mustache()
+  app.Settings.TemplateFolder = <span class="hljs-string">&quot;./views&quot;</span>
+  app.Settings.TemplateExtension = <span class="hljs-string">&quot;.tmpl&quot;</span>
+
+  <span class="hljs-comment">// And now, you can call template `./views/home.tmpl` like this:</span>
+  app.Get(<span class="hljs-string">&quot;/&quot;</span>, <span class="hljs-keyword">func</span>(c *fiber.Ctx) {
+    c.Render(<span class="hljs-string">&quot;home&quot;</span>, fiber.Map{
+      <span class="hljs-string">&quot;title&quot;</span>: <span class="hljs-string">&quot;Homepage&quot;</span>,
+      <span class="hljs-string">&quot;year&quot;</span>:  <span class="hljs-number">1999</span>,
+    })
+  })
+
+  <span class="hljs-comment">// ...</span>
+}
+</code></pre>
+<h3 id="&#x94FE;&#x5F0F;&#x8DEF;&#x7531;&#x7EC4;">&#x94FE;&#x5F0F;&#x8DEF;&#x7531;&#x7EC4;</h3>
+<p>&#x1F4D6; <a href="https://docs.gofiber.io/application#group" target="_blank">Group</a>  </p>
+<pre><code class="lang-go"><span class="hljs-keyword">func</span> main() {
+  app := fiber.New()
+
+  <span class="hljs-comment">// Root API route</span>
+  api := app.Group(<span class="hljs-string">&quot;/api&quot;</span>, cors())  <span class="hljs-comment">// /api</span>
+
+  <span class="hljs-comment">// API v1 routes</span>
+  v1 := api.Group(<span class="hljs-string">&quot;/v1&quot;</span>, mysql())   <span class="hljs-comment">// /api/v1</span>
+  v1.Get(<span class="hljs-string">&quot;/list&quot;</span>, handler)          <span class="hljs-comment">// /api/v1/list</span>
+  v1.Get(<span class="hljs-string">&quot;/user&quot;</span>, handler)          <span class="hljs-comment">// /api/v1/user</span>
+
+  <span class="hljs-comment">// API v2 routes</span>
+  v2 := api.Group(<span class="hljs-string">&quot;/v2&quot;</span>, mongodb()) <span class="hljs-comment">// /api/v2</span>
+  v2.Get(<span class="hljs-string">&quot;/list&quot;</span>, handler)          <span class="hljs-comment">// /api/v2/list</span>
+  v2.Get(<span class="hljs-string">&quot;/user&quot;</span>, handler)          <span class="hljs-comment">// /api/v2/user</span>
+
+  <span class="hljs-comment">// ...</span>
+}
+</code></pre>
+<h3 id="&#x65E5;&#x5FD7;&#x4E2D;&#x95F4;&#x4EF6;">&#x65E5;&#x5FD7;&#x4E2D;&#x95F4;&#x4EF6;</h3>
+<p>&#x1F4D6; <a href="https://docs.gofiber.io/middleware#logger" target="_blank">Logger</a>  </p>
+<pre><code class="lang-go"><span class="hljs-keyword">import</span> (
+    <span class="hljs-string">&quot;github.com/gofiber/fiber&quot;</span>
+    <span class="hljs-string">&quot;github.com/gofiber/logger&quot;</span>
+)
+
+<span class="hljs-keyword">func</span> main() {
+    app := fiber.New()
+
+    <span class="hljs-comment">// Optional logger config</span>
+    config := logger.Config{
+      Format:     <span class="hljs-string">&quot;${time} - ${method} ${path}\n&quot;</span>,
+      TimeFormat: <span class="hljs-string">&quot;Mon, 2 Jan 2006 15:04:05 MST&quot;</span>,
+    }
+
+    <span class="hljs-comment">// Logger with config</span>
+    app.Use(logger.New(config))
+
+    app.Listen(<span class="hljs-number">3000</span>)
+}
+</code></pre>
+<h3 id="cross-origin-resource-sharing-cors">Cross-Origin Resource Sharing (CORS)</h3>
+<p>&#x1F4D6; <a href="https://docs.gofiber.io/middleware#cors" target="_blank">CORS</a>  </p>
+<pre><code class="lang-go"><span class="hljs-keyword">import</span> (
+    <span class="hljs-string">&quot;github.com/gofiber/fiber&quot;</span>
+    <span class="hljs-string">&quot;github.com/gofiber/cors&quot;</span>
+)
+
+<span class="hljs-keyword">func</span> main() {
+    app := fiber.New()
+
+    <span class="hljs-comment">// CORS with default config</span>
+    app.Use(cors.New())
+
+    app.Listen(<span class="hljs-number">3000</span>)
+}
+</code></pre>
+<p>Check CORS by passing any domain in <code>Origin</code> header:</p>
+<pre><code class="lang-bash">curl -H <span class="hljs-string">&quot;Origin: http://example.com&quot;</span> --verbose http://localhost:3000
+</code></pre>
+<h3 id="&#x81EA;&#x5B9A;&#x4E49;404&#x54CD;&#x5E94;">&#x81EA;&#x5B9A;&#x4E49;404&#x54CD;&#x5E94;</h3>
+<p>&#x1F4D6; <a href="https://docs.gofiber.io/application#http-methods" target="_blank">HTTP Methods</a>  </p>
+<pre><code class="lang-go"><span class="hljs-keyword">func</span> main() {
+  app := fiber.New()
+
+  app.Static(<span class="hljs-string">&quot;/public&quot;</span>)
+
+  app.Get(<span class="hljs-string">&quot;/demo&quot;</span>, <span class="hljs-keyword">func</span>(c *fiber.Ctx) {
+    c.Send(<span class="hljs-string">&quot;This is a demo!&quot;</span>)
+  })
+
+  app.Post(<span class="hljs-string">&quot;/register&quot;</span>, <span class="hljs-keyword">func</span>(c *fiber.Ctx) {
+    c.Send(<span class="hljs-string">&quot;Welcome!&quot;</span>)
+  })
+
+  <span class="hljs-comment">// Last middleware to match anything</span>
+  app.Use(<span class="hljs-keyword">func</span>(c *fiber.Ctx) {
+    c.SendStatus(<span class="hljs-number">404</span>) 
+    <span class="hljs-comment">// =&gt; 404 &quot;Not Found&quot;</span>
+  })
+
+  app.Listen(<span class="hljs-number">3000</span>)
+}
+</code></pre>
+<h3 id="json-&#x54CD;&#x5E94;">JSON &#x54CD;&#x5E94;</h3>
+<p>&#x1F4D6; <a href="https://docs.gofiber.io/context#json" target="_blank">JSON</a>  </p>
+<pre><code class="lang-go"><span class="hljs-keyword">type</span> User <span class="hljs-keyword">struct</span> {
+  Name <span class="hljs-keyword">string</span> <span class="hljs-string">`json:&quot;name&quot;`</span>
+  Age  <span class="hljs-keyword">int</span>    <span class="hljs-string">`json:&quot;age&quot;`</span>
+}
+
+<span class="hljs-keyword">func</span> main() {
+  app := fiber.New()
+
+  app.Get(<span class="hljs-string">&quot;/user&quot;</span>, <span class="hljs-keyword">func</span>(c *fiber.Ctx) {
+    c.JSON(&amp;User{<span class="hljs-string">&quot;John&quot;</span>, <span class="hljs-number">20</span>})
+    <span class="hljs-comment">// =&gt; {&quot;name&quot;:&quot;John&quot;, &quot;age&quot;:20}</span>
+  })
+
+  app.Get(<span class="hljs-string">&quot;/json&quot;</span>, <span class="hljs-keyword">func</span>(c *fiber.Ctx) {
+    c.JSON(fiber.Map{
+      <span class="hljs-string">&quot;success&quot;</span>: <span class="hljs-literal">true</span>,
+      <span class="hljs-string">&quot;message&quot;</span>: <span class="hljs-string">&quot;Hi John!&quot;</span>,
+    })
+    <span class="hljs-comment">// =&gt; {&quot;success&quot;:true, &quot;message&quot;:&quot;Hi John!&quot;}</span>
+  })
+
+  app.Listen(<span class="hljs-number">3000</span>)
+}
+</code></pre>
+<h3 id="websocket-&#x5347;&#x7EA7;">WebSocket &#x5347;&#x7EA7;</h3>
+<p>&#x1F4D6; <a href="https://docs.gofiber.io/middleware#websocket" target="_blank">Websocket</a>  </p>
+<pre><code class="lang-go"><span class="hljs-keyword">import</span> (
+    <span class="hljs-string">&quot;github.com/gofiber/fiber&quot;</span>
+    <span class="hljs-string">&quot;github.com/gofiber/websocket&quot;</span>
+)
+
+<span class="hljs-keyword">func</span> main() {
+  app := fiber.New()
+
+  app.Get(<span class="hljs-string">&quot;/ws&quot;</span>, websocket.New(<span class="hljs-keyword">func</span>(c *websocket.Conn) {
+    <span class="hljs-keyword">for</span> {
+      mt, msg, err := c.ReadMessage()
+      <span class="hljs-keyword">if</span> err != <span class="hljs-literal">nil</span> {
+        log.Println(<span class="hljs-string">&quot;read:&quot;</span>, err)
+        <span class="hljs-keyword">break</span>
+      }
+      log.Printf(<span class="hljs-string">&quot;recv: %s&quot;</span>, msg)
+      err = c.WriteMessage(mt, msg)
+      <span class="hljs-keyword">if</span> err != <span class="hljs-literal">nil</span> {
+        log.Println(<span class="hljs-string">&quot;write:&quot;</span>, err)
+        <span class="hljs-keyword">break</span>
+      }
+    }
+  }))
+
+  app.Listen(<span class="hljs-number">3000</span>)
+  <span class="hljs-comment">// ws://localhost:3000/ws</span>
+}
+</code></pre>
+<h3 id="&#x91CD;&#x65B0;&#x914D;&#x7F6E;&#x4E2D;&#x95F4;&#x4EF6;">&#x91CD;&#x65B0;&#x914D;&#x7F6E;&#x4E2D;&#x95F4;&#x4EF6;</h3>
+<p>&#x1F4D6; <a href="https://docs.gofiber.io/middleware#recover" target="_blank">Recover</a>  </p>
+<pre><code class="lang-go"><span class="hljs-keyword">import</span> (
+    <span class="hljs-string">&quot;github.com/gofiber/fiber&quot;</span>
+    <span class="hljs-string">&quot;github.com/gofiber/recover&quot;</span>
+)
+
+<span class="hljs-keyword">func</span> main() {
+  app := fiber.New()
+
+  <span class="hljs-comment">// Optional recover config</span>
+  config := <span class="hljs-built_in">recover</span>.Config{
+    Handler: <span class="hljs-keyword">func</span>(c *fiber.Ctx, err error) {
+            c.SendString(err.Error())
+            c.SendStatus(<span class="hljs-number">500</span>)
+        },
+  }
+
+  <span class="hljs-comment">// Logger with custom config</span>
+  app.Use(<span class="hljs-built_in">recover</span>.New(config))
+
+  app.Listen(<span class="hljs-number">3000</span>)
+}
+</code></pre>
+<h2 id="&#x1F9EC;-&#x5B98;&#x65B9;&#x63D0;&#x4F9B;&#x7684;&#x4E2D;&#x95F4;&#x4EF6;">&#x1F9EC; &#x5B98;&#x65B9;&#x63D0;&#x4F9B;&#x7684;&#x4E2D;&#x95F4;&#x4EF6;</h2>
+<p>For an more <em>maintainable</em> middleware <em>ecosystem</em>, we&apos;ve put official <a href="https://docs.gofiber.io/middleware" target="_blank">middlewares</a> into separate repositories:</p>
+<ul>
+<li><a href="https://github.com/gofiber/compression" target="_blank">gofiber/compression</a></li>
+<li><a href="https://github.com/gofiber/basicauth" target="_blank">gofiber/basicauth</a></li>
+<li><a href="https://github.com/gofiber/requestid" target="_blank">gofiber/requestid</a></li>
+<li><a href="https://github.com/gofiber/websocket" target="_blank">gofiber/websocket</a></li>
+<li><a href="https://github.com/gofiber/keyauth" target="_blank">gofiber/keyauth</a></li>
+<li><a href="https://github.com/gofiber/rewrite" target="_blank">gofiber/rewrite</a></li>
+<li><a href="https://github.com/gofiber/recover" target="_blank">gofiber/recover</a></li>
+<li><a href="https://github.com/gofiber/limiter" target="_blank">gofiber/limiter</a></li>
+<li><a href="https://github.com/gofiber/session" target="_blank">gofiber/session</a></li>
+<li><a href="https://github.com/gofiber/adaptor" target="_blank">gofiber/adaptor</a></li>
+<li><a href="https://github.com/gofiber/logger" target="_blank">gofiber/logger</a></li>
+<li><a href="https://github.com/gofiber/helmet" target="_blank">gofiber/helmet</a></li>
+<li><a href="https://github.com/gofiber/embed" target="_blank">gofiber/embed</a></li>
+<li><a href="https://github.com/gofiber/pprof" target="_blank">gofiber/pprof</a></li>
+<li><a href="https://github.com/gofiber/cors" target="_blank">gofiber/cors</a></li>
+<li><a href="https://github.com/gofiber/csrf" target="_blank">gofiber/csrf</a></li>
+<li><a href="https://github.com/gofiber/jwt" target="_blank">gofiber/jwt</a></li>
+</ul>
+<h2 id="&#x1F331;&#x7B2C;&#x4E09;&#x65B9;&#x63D0;&#x4F9B;&#x7684;&#x4E2D;&#x95F4;&#x4EF6;">&#x1F331;&#x7B2C;&#x4E09;&#x65B9;&#x63D0;&#x4F9B;&#x7684;&#x4E2D;&#x95F4;&#x4EF6;</h2>
+<p>This is a list of middlewares that are created by the Fiber community, please create a PR if you want to see yours!</p>
+<ul>
+<li><a href="https://github.com/arsmn/fiber-swagger" target="_blank">arsmn/fiber-swagger</a></li>
+<li><a href="https://github.com/arsmn/fiber-casbin" target="_blank">arsmn/fiber-casbin</a></li>
+<li><a href="https://github.com/arsmn/fiber-introspect" target="_blank">arsmn/fiber-introspect</a></li>
+<li><a href="https://github.com/shareed2k/fiber_tracing" target="_blank">shareed2k/fiber_tracing</a></li>
+<li><a href="https://github.com/shareed2k/fiber_limiter" target="_blank">shareed2k/fiber_limiter</a></li>
+<li><a href="https://github.com/thomasvvugt/fiber-boilerplate" target="_blank">thomasvvugt/fiber-boilerplate</a></li>
+<li><a href="https://github.com/arsmn/gqlgen" target="_blank">arsmn/gqlgen</a></li>
+</ul>
+<h2 id="&#x1F4AC;-&#x5A92;&#x4F53;">&#x1F4AC; &#x5A92;&#x4F53;</h2>
+<ul>
+<li><a href="https://dev.to/koddr/welcome-to-fiber-an-express-js-styled-fastest-web-framework-written-with-on-golang-497" target="_blank">Welcome to Fiber &#x2014; an Express.js styled web framework written in Go with &#x2764;&#xFE0F;</a> &#x2014; <em>03 Feb 2020</em></li>
+<li><a href="https://dev.to/koddr/fiber-v2-is-out-now-what-s-new-and-is-he-still-fast-flexible-and-friendly-3ipf" target="_blank">Fiber released v1.7! &#x1F389; What&apos;s new and is it still fast, flexible and friendly?</a> &#x2014; <em>21 Feb 2020</em></li>
+<li><a href="https://dev.to/koddr/fiber-v1-8-what-s-new-updated-and-re-thinked-339h" target="_blank">&#x1F680; Fiber v1.8. What&apos;s new, updated and re-thinked?</a> &#x2014; <em>03 Mar 2020</em></li>
+<li><a href="https://dev.to/koddr/are-sure-what-your-lovely-web-framework-running-so-fast-2jl1" target="_blank">Is switching from Express to Fiber worth it? &#x1F914;</a> &#x2014; <em>01 Apr 2020</em></li>
+<li><a href="https://dev.to/jozsefsallai/creating-fast-apis-in-go-using-fiber-59m9" target="_blank">Creating Fast APIs In Go Using Fiber</a> &#x2014; <em>07 Apr 2020</em></li>
+<li><a href="https://tutorialedge.net/golang/basic-rest-api-go-fiber/" target="_blank">Building a Basic REST API in Go using Fiber</a> - <em>23 Apr 2020</em></li>
+<li><a href="https://youtu.be/Iq2qT0fRhAA" target="_blank">&#x1F4FA; Building a REST API using GORM and Fiber</a> - <em>25 Apr 2020</em></li>
+<li><a href="https://blog.yongweilun.me/create-a-travel-list-app-with-go-fiber-angular-mongodb-and-google-cloud-secret-manager-ck9fgxy0p061pcss1xt1ubu8t" target="_blank">&#x1F30E; Create a travel list app with Go, Fiber, Angular, MongoDB and Google Cloud Secret Manager</a> - <em>25 Apr 2020</em></li>
+<li><a href="https://dev.to/koddr/fiber-v1-9-5-how-to-improve-performance-by-817-and-stay-fast-flexible-and-friendly-2dp6" target="_blank">Fiber v1.9.6 &#x1F525; How to improve performance by 817% and stay fast, flexible and friendly?</a> - <em>12 May 2020</em></li>
+</ul>
+<h2 id="&#x1F44D;-&#x8D21;&#x732E;">&#x1F44D; &#x8D21;&#x732E;</h2>
+<p>&#x5982;&#x679C;&#x60A8;&#x8981;&#x8BF4;&#x58F0;<strong>&#x8C22;&#x8C22;</strong>&#x6216;&#x652F;&#x6301;<code>Fiber</code>&#x7684;&#x79EF;&#x6781;&#x53D1;&#x5C55;&#xFF1A;</p>
+<ol>
+<li>&#x5C06;<a href="https://github.com/gofiber/fiber/stargazers" target="_blank">GitHub Star</a>&#x6DFB;&#x52A0;&#x5230;&#x9879;&#x76EE;&#x4E2D;&#x3002;</li>
+<li><a href="https://twitter.com/intent/tweet?text=Fiber%20is%20an%20Express%20inspired%20%23web%20%23framework%20built%20on%20top%20of%20Fasthttp%2C%20the%20fastest%20HTTP%20engine%20for%20%23Go.%20Designed%20to%20ease%20things%20up%20for%20%23fast%20development%20with%20zero%20memory%20allocation%20and%20%23performance%20in%20mind%20%F0%9F%9A%80%20https%3A%2F%2Fgithub.com%2Fgofiber%2Ffiber" target="_blank">&#x5728;Twitter&#x4E0A;</a>&#x53D1;&#x5E03;&#x6709;&#x5173;&#x9879;&#x76EE;<a href="https://twitter.com/intent/tweet?text=Fiber%20is%20an%20Express%20inspired%20%23web%20%23framework%20built%20on%20top%20of%20Fasthttp%2C%20the%20fastest%20HTTP%20engine%20for%20%23Go.%20Designed%20to%20ease%20things%20up%20for%20%23fast%20development%20with%20zero%20memory%20allocation%20and%20%23performance%20in%20mind%20%F0%9F%9A%80%20https%3A%2F%2Fgithub.com%2Fgofiber%2Ffiber" target="_blank">&#x7684;&#x63A8;&#x6587;</a>&#x3002;</li>
+<li>&#x5728;<a href="https://medium.com/" target="_blank">Medium</a>&#xFF0C;<a href="https://dev.to/" target="_blank">Dev.to</a>&#x6216;&#x4E2A;&#x4EBA;&#x535A;&#x5BA2;&#x4E0A;&#x5199;&#x8BC4;&#x8BBA;&#x6216;&#x6559;&#x7A0B;&#x3002;</li>
+<li>Help us to translate our API Documentation via <a href="https://crowdin.com/project/gofiber" target="_blank">Crowdin</a> <a href="https://crowdin.com/project/gofiber" target="_blank"><img src="https://badges.crowdin.net/gofiber/localized.svg" alt="Crowdin"></a></li>
+<li>Support the project by donating a <a href="https://buymeacoff.ee/fenny" target="_blank">cup of coffee</a>.</li>
+</ol>
+<h2 id="&#x200E;&#x200D;&#x1F4BB;-&#x8D21;&#x732E;&#x8005;github&#x5934;&#x50CF;">&#x200E;&#x200D;&#x1F4BB; &#x8D21;&#x732E;&#x8005;Github&#x5934;&#x50CF;</h2>
+<p><img src="https://opencollective.com/fiber/contributors.svg?width=890&amp;button=false" alt="Code Contributors" style="max-width:100%;"></p>
+<h2 id="&#x26A0;&#xFE0F;-mit&#x4E66;">&#x26A0;&#xFE0F; MIT&#x4E66;</h2>
+<p>Copyright (c) 2019-present <a href="https://github.com/fenny" target="_blank">Fenny</a> and <a href="https://github.com/gofiber/fiber/graphs/contributors" target="_blank">Contributors</a>. <code>Fiber</code> is free and open-source software licensed under the <a href="https://github.com/gofiber/fiber/blob/master/LICENSE" target="_blank">MIT License</a>. Official logo was created by <a href="https://github.com/koddr" target="_blank">Vic Sh&#xF3;stak</a> and distributed under <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative Commons</a> license (CC BY-SA 4.0 International).</p>
+<p><strong>Third-party library licenses</strong></p>
+<ul>
+<li><a href="https://github.com/valyala/fasthttp/blob/master/LICENSE" target="_blank">FastHTTP</a></li>
+<li><a href="https://github.com/gorilla/schema/blob/master/LICENSE" target="_blank">Schema</a></li>
+<li><a href="https://github.com/valyala/bytebufferpool/blob/master/LICENSE" target="_blank">bytebufferpool</a></li>
+</ul>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="2020-05-20-笔记.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: 2020-05-20-笔记">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Go语言生态-认识极速轻量的Web框架","level":"17.21.1","depth":2,"previous":{"title":"2020-05-20-笔记","level":"17.21","depth":1,"path":"2020-05-20/2020-05-20-笔记.md","ref":"2020-05-20/2020-05-20-笔记.md","articles":[{"title":"Go语言生态-认识极速轻量的Web框架","level":"17.21.1","depth":2,"path":"2020-05-20/Go语言生态-认识极速轻量的Web框架.md","ref":"2020-05-20/Go语言生态-认识极速轻量的Web框架.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["expandable-chapters-small","favicon","github","katex"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"github":{"url":"https://github.com/panda8z"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":{"shortcut":"assets/images/favicon.ico","bookmark":"assets/images/favicon.ico","appleTouch":"assets/images/apple-touch-icon.png","appleTouchMore":{"120x120":"assets/images/apple-touch-icon-120x120.png","180x180":"assets/images/apple-touch-icon-120x120.png"}},"expandable-chapters-small":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Panda8z","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Panda8z Go Dairy Archive","language":"zh-hans","links":{"sidebar":{"GitHub托管的CSBlog":"https://moreme.top"}},"gitbook":"3.2.3","description":"Computer System"},"file":{"path":"2020-05-20/Go语言生态-认识极速轻量的Web框架.md","mtime":"2020-05-20T14:55:01.434Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-05-20T14:55:46.735Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-github/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
