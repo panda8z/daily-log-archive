@@ -1,0 +1,1912 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-hans" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>LRU算法详解.md · Panda8z Go Dairy Archive</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="Panda8z">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-katex/katex.min.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="kratos-01-快速入门.html" />
+    
+    
+    <link rel="prev" href="../2020-05-22/2020-05-22-笔记.html" />
+    
+
+    
+        <link rel="shortcut icon" href='../assets/images/favicon.ico' type="image/x-icon">
+    
+    
+        <link rel="bookmark" href='../assets/images/favicon.ico' type="image/x-icon">
+    
+    
+        <link rel="apple-touch-icon" href='../assets/images/apple-touch-icon.png'>
+    
+    
+        
+        <link rel="apple-touch-icon" sizes="120x120" href="../assets/images/apple-touch-icon-120x120.png">
+        
+        <link rel="apple-touch-icon" sizes="180x180" href="../assets/images/apple-touch-icon-120x120.png">
+        
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="输入并搜索" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+    
+        
+        <li>
+            <a href="https://moreme.top" target="_blank" class="custom-link">GitHub托管的CSBlog</a>
+        </li>
+    
+    
+
+    
+    <li class="divider"></li>
+    
+
+    
+        
+        <li class="header">Golang工程师养成计划</li>
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../Golang工程师养成计划/Go语言基础/Go语言基础学习-目录.html">
+            
+                <a href="../Golang工程师养成计划/Go语言基础/Go语言基础学习-目录.html">
+            
+                    
+                    Go语言基础-上
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.1.1" data-path="../Golang工程师养成计划/Go语言基础/Go-基础-上-Day01-命令行.html">
+            
+                <a href="../Golang工程师养成计划/Go语言基础/Go-基础-上-Day01-命令行.html">
+            
+                    
+                    Day01-命令行
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.2" data-path="../Golang工程师养成计划/Go语言基础/Go-基础-上-Day02-怎么书写Go程序.html">
+            
+                <a href="../Golang工程师养成计划/Go语言基础/Go-基础-上-Day02-怎么书写Go程序.html">
+            
+                    
+                    Day02-怎么书写Go程序
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.3" data-path="../Golang工程师养成计划/Go语言基础/Go-基础-上-Day03-开始Go语言旅行.html">
+            
+                <a href="../Golang工程师养成计划/Go语言基础/Go-基础-上-Day03-开始Go语言旅行.html">
+            
+                    
+                    Day03-开始Go语言旅行
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.4" data-path="../2020-04-07/如何成为Go语言代码贡献者.html">
+            
+                <a href="../2020-04-07/如何成为Go语言代码贡献者.html">
+            
+                    
+                    如何成为Go语言代码贡献者
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.5" data-path="../2020-05-15/EffectiveGo-中文版.html">
+            
+                <a href="../2020-05-15/EffectiveGo-中文版.html">
+            
+                    
+                    EffectiveGo-中文版
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.6" data-path="../2020-04-08/go编译器-编译指示.html">
+            
+                <a href="../2020-04-08/go编译器-编译指示.html">
+            
+                    
+                    编译指示
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.7" data-path="../2020-04-12/Go语言原本-延迟语句.html">
+            
+                <a href="../2020-04-12/Go语言原本-延迟语句.html">
+            
+                    
+                    Go语言原本-延迟语句
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.1.7.1" data-path="../2020-04-05/Goroutine是怎么开始和退出的.html">
+            
+                <a href="../2020-04-05/Goroutine是怎么开始和退出的.html">
+            
+                    
+                    Goroutine是怎么开始和退出的
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.7.2" data-path="../2020-04-14/G0是怎么创建的.html">
+            
+                <a href="../2020-04-14/G0是怎么创建的.html">
+            
+                    
+                    G0是怎么创建的
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.7.3" data-path="../2020-04-09/Go语言原本-调度器.html">
+            
+                <a href="../2020-04-09/Go语言原本-调度器.html">
+            
+                    
+                    Go语言原本-调度器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.7.4" data-path="../2020-04-13/Go语言原本-channel.html">
+            
+                <a href="../2020-04-13/Go语言原本-channel.html">
+            
+                    
+                    Go语言原本-channel
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.8" data-path="../2020-04-07/defer的前世今生.html">
+            
+                <a href="../2020-04-07/defer的前世今生.html">
+            
+                    
+                    defer的前世今生
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.1.8.1" data-path="../2020-04-07/Go中defer.html">
+            
+                <a href="../2020-04-07/Go中defer.html">
+            
+                    
+                    Go中defer
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.8.2" data-path="../2020-04-07/Go中defer7个知识点.html">
+            
+                <a href="../2020-04-07/Go中defer7个知识点.html">
+            
+                    
+                    Go中defer7个知识点
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../Golang工程师养成计划/Go语言标准库/Go语言标准库学习-目录.html">
+            
+                <a href="../Golang工程师养成计划/Go语言标准库/Go语言标准库学习-目录.html">
+            
+                    
+                    Go语言标准库学习
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../Golang工程师养成计划/Go语言标准库/container-heap.html">
+            
+                <a href="../Golang工程师养成计划/Go语言标准库/container-heap.html">
+            
+                    
+                    container-heap 笔记
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Go语言刷题LeetCode</li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="../2020-04-07/Go实现LeetCode全集.html">
+            
+                <a href="../2020-04-07/Go实现LeetCode全集.html">
+            
+                    
+                    Go实现LeetCode全集
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="../2020-04-15/go-leetcode-TwoSum.html">
+            
+                <a href="../2020-04-15/go-leetcode-TwoSum.html">
+            
+                    
+                    leetcode-day01
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" data-path="../2020-04-17/go-leetcode-day02.html">
+            
+                <a href="../2020-04-17/go-leetcode-day02.html">
+            
+                    
+                    go-leetcode-day02
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4" data-path="../2020-04-18/go-leetcode-day03.html">
+            
+                <a href="../2020-04-18/go-leetcode-day03.html">
+            
+                    
+                    go-leetcode-day03
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.5" data-path="../2020-04-21/Go-leetcode-day04.html">
+            
+                <a href="../2020-04-21/Go-leetcode-day04.html">
+            
+                    
+                    Go-leetcode-day04
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.6" data-path="../2020-04-21/数据结构-二叉树时间复杂度.html">
+            
+                <a href="../2020-04-21/数据结构-二叉树时间复杂度.html">
+            
+                    
+                    数据结构-二叉树时间复杂度
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.7" data-path="../2020-05-09/530.二叉搜索树的最小绝对差.html">
+            
+                <a href="../2020-05-09/530.二叉搜索树的最小绝对差.html">
+            
+                    
+                    530.二叉搜索树的最小绝对差
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.8" data-path="../2020-05-09/二叉树的前中后遍历.html">
+            
+                <a href="../2020-05-09/二叉树的前中后遍历.html">
+            
+                    
+                    二叉树的前中后遍历
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.9" data-path="../2020-05-11/538.把二叉搜索树转换为累加树.html">
+            
+                <a href="../2020-05-11/538.把二叉搜索树转换为累加树.html">
+            
+                    
+                    538.把二叉搜索树转换为累加树
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.10" data-path="../2020-05-11/面试题04-03-特定深度节点链表.html">
+            
+                <a href="../2020-05-11/面试题04-03-特定深度节点链表.html">
+            
+                    
+                    面试题04-03-特定深度节点链表
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.11" data-path="../2020-05-22/101. 对称二叉树.html">
+            
+                <a href="../2020-05-22/101. 对称二叉树.html">
+            
+                    
+                    101. 对称二叉树.md
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.12" data-path="../2020-05-22/1.两数之和.html">
+            
+                <a href="../2020-05-22/1.两数之和.html">
+            
+                    
+                    1.两数之和.md
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.13" data-path="../2020-05-22/2. 两数相加.html">
+            
+                <a href="../2020-05-22/2. 两数相加.html">
+            
+                    
+                    2. 两数相加.md
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.14" data-path="../2020-05-22/3. 无重复字符的最长子串.html">
+            
+                <a href="../2020-05-22/3. 无重复字符的最长子串.html">
+            
+                    
+                    3. 无重复字符的最长子串.md
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.15" data-path="../2020-05-22/4. 寻找两个正序数组的中位数.html">
+            
+                <a href="../2020-05-22/4. 寻找两个正序数组的中位数.html">
+            
+                    
+                    4. 寻找两个正序数组的中位数.md
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Go语言生态系统</li>
+        
+        
+    
+        <li class="chapter " data-level="3.1" data-path="../2020-05-19/kratos-01-简介和安装.html">
+            
+                <a href="../2020-05-19/kratos-01-简介和安装.html">
+            
+                    
+                    kratos-01-简介和安装
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2" data-path="../2020-05-20/Go语言生态-认识极速轻量的Web框架.html">
+            
+                <a href="../2020-05-20/Go语言生态-认识极速轻量的Web框架.html">
+            
+                    
+                    Go: Fiber-一个极速轻量的Web框架
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3" data-path="../2020-05-19/操作系统-词汇表.html">
+            
+                <a href="../2020-05-19/操作系统-词汇表.html">
+            
+                    
+                    操作系统-词汇表
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.4" data-path="../2020-04-14/从0构建亿级微服务架构.html">
+            
+                <a href="../2020-04-14/从0构建亿级微服务架构.html">
+            
+                    
+                    从0构建亿级微服务架构
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.5" data-path="../2020-04-08/go做一个小型http服务器并优化实战.html">
+            
+                <a href="../2020-04-08/go做一个小型http服务器并优化实战.html">
+            
+                    
+                    go做一个小型http服务器并优化实战
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">日志</li>
+        
+        
+    
+        <li class="chapter " data-level="4.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    张向北的笔记本📒
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">2020-03-18</li>
+        
+        
+    
+        <li class="chapter " data-level="5.1" data-path="../2020-03-18/面试准备Day01.html">
+            
+                <a href="../2020-03-18/面试准备Day01.html">
+            
+                    
+                    工作展望
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.2" data-path="../2020-03-18/gitbook工具使用指南.html">
+            
+                <a href="../2020-03-18/gitbook工具使用指南.html">
+            
+                    
+                    gitbook工具使用指南
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">2020-04-05</li>
+        
+        
+    
+        <li class="chapter " data-level="6.1" data-path="../2020-04-05/Goroutine是怎么开始和退出的.html">
+            
+                <a href="../2020-04-05/Goroutine是怎么开始和退出的.html">
+            
+                    
+                    Goroutine是怎么开始和退出的
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">2020-04-07</li>
+        
+        
+    
+        <li class="chapter " data-level="7.1" data-path="../2020-04-07/defer的前世今生.html">
+            
+                <a href="../2020-04-07/defer的前世今生.html">
+            
+                    
+                    defer的前世今生
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="7.1.1" data-path="../2020-04-07/Go中defer.html">
+            
+                <a href="../2020-04-07/Go中defer.html">
+            
+                    
+                    Go中defer
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="7.1.2" data-path="../2020-04-07/Go中defer7个知识点.html">
+            
+                <a href="../2020-04-07/Go中defer7个知识点.html">
+            
+                    
+                    Go中defer7个知识点
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="7.2" data-path="../2020-04-07/Go实现LeetCode全集.html">
+            
+                <a href="../2020-04-07/Go实现LeetCode全集.html">
+            
+                    
+                    Go实现LeetCode全集
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="7.3" data-path="../2020-04-07/如何成为Go语言代码贡献者.html">
+            
+                <a href="../2020-04-07/如何成为Go语言代码贡献者.html">
+            
+                    
+                    如何成为Go语言代码贡献者
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="7.4" data-path="../2020-04-07/读书笔记-2020-04-07.html">
+            
+                <a href="../2020-04-07/读书笔记-2020-04-07.html">
+            
+                    
+                    读书笔记-2020-04-07
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">2020-04-08</li>
+        
+        
+    
+        <li class="chapter " data-level="8.1" data-path="../2020-04-08/go编译器-编译指示.html">
+            
+                <a href="../2020-04-08/go编译器-编译指示.html">
+            
+                    
+                    编译指示
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="8.2" data-path="../2020-04-08/go做一个小型http服务器并优化实战.html">
+            
+                <a href="../2020-04-08/go做一个小型http服务器并优化实战.html">
+            
+                    
+                    go做一个小型http服务器并优化实战
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">2020-04-09</li>
+        
+        
+    
+        <li class="chapter " data-level="9.1" data-path="../2020-04-09/Go语言原本-调度器.html">
+            
+                <a href="../2020-04-09/Go语言原本-调度器.html">
+            
+                    
+                    Go语言原本-调度器
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">2020-04-10</li>
+        
+        
+    
+        <li class="chapter " data-level="10.1" data-path="../2020-04-10/go垃圾回收.html">
+            
+                <a href="../2020-04-10/go垃圾回收.html">
+            
+                    
+                    go垃圾回收
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">2020-04-11</li>
+        
+        
+    
+        <li class="chapter " data-level="11.1" data-path="../2020-04-11/2020-04-11-日志.html">
+            
+                <a href="../2020-04-11/2020-04-11-日志.html">
+            
+                    
+                    2020-04-11-日志
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">2020-04-12</li>
+        
+        
+    
+        <li class="chapter " data-level="12.1" data-path="../2020-04-12/Go语言原本-延迟语句.html">
+            
+                <a href="../2020-04-12/Go语言原本-延迟语句.html">
+            
+                    
+                    Go语言原本-延迟语句
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">2020-04-13</li>
+        
+        
+    
+        <li class="chapter " data-level="13.1" data-path="../2020-04-13/Go语言原本-channel.html">
+            
+                <a href="../2020-04-13/Go语言原本-channel.html">
+            
+                    
+                    Go语言原本-channel
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="13.2" data-path="../2020-04-13/2020-04-13-日志.html">
+            
+                <a href="../2020-04-13/2020-04-13-日志.html">
+            
+                    
+                    2020-04-13-日志
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">2020-04-14</li>
+        
+        
+    
+        <li class="chapter " data-level="14.1" data-path="../2020-04-14/G0是怎么创建的.html">
+            
+                <a href="../2020-04-14/G0是怎么创建的.html">
+            
+                    
+                    G0是怎么创建的
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="14.2" data-path="../2020-04-14/从0构建亿级微服务架构.html">
+            
+                <a href="../2020-04-14/从0构建亿级微服务架构.html">
+            
+                    
+                    从0构建亿级微服务架构
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">2020-04-15</li>
+        
+        
+    
+        <li class="chapter " data-level="15.1" data-path="../2020-04-15/go-leetcode-TwoSum.html">
+            
+                <a href="../2020-04-15/go-leetcode-TwoSum.html">
+            
+                    
+                    leetcode-day01
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">2020-04-17</li>
+        
+        
+    
+        <li class="chapter " data-level="16.1" data-path="../2020-04-17/go-leetcode-day02.html">
+            
+                <a href="../2020-04-17/go-leetcode-day02.html">
+            
+                    
+                    go-leetcode-day02
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">2020-04-18</li>
+        
+        
+    
+        <li class="chapter " data-level="17.1" data-path="../2020-04-18/go-leetcode-day03.html">
+            
+                <a href="../2020-04-18/go-leetcode-day03.html">
+            
+                    
+                    go-leetcode-day03
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="17.2" data-path="../2020-04-18/timepill-api分析.html">
+            
+                <a href="../2020-04-18/timepill-api分析.html">
+            
+                    
+                    timepill-api分析
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">2020-04-21</li>
+        
+        
+    
+        <li class="chapter " data-level="18.1" data-path="../2020-04-21/Go-leetcode-day04.html">
+            
+                <a href="../2020-04-21/Go-leetcode-day04.html">
+            
+                    
+                    Go-leetcode-day04
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="18.2" data-path="../2020-04-21/Go-VScode-debug-go-program.html">
+            
+                <a href="../2020-04-21/Go-VScode-debug-go-program.html">
+            
+                    
+                    Go-VScode-debug-go-program
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="18.3" data-path="../2020-04-21/数据结构-二叉树时间复杂度.html">
+            
+                <a href="../2020-04-21/数据结构-二叉树时间复杂度.html">
+            
+                    
+                    数据结构-二叉树时间复杂度
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">2020-04-22</li>
+        
+        
+    
+        <li class="chapter " data-level="19.1" data-path="../2020-04-22/2020-04-22-笔记.html">
+            
+                <a href="../2020-04-22/2020-04-22-笔记.html">
+            
+                    
+                    2020-04-22-笔记📒
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="19.2" data-path="../2020-04-23/2020-04-23-笔记.html">
+            
+                <a href="../2020-04-23/2020-04-23-笔记.html">
+            
+                    
+                    2020-04-23-笔记📒
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="19.3" data-path="../2020-04-24/2020-04-24-笔记.html">
+            
+                <a href="../2020-04-24/2020-04-24-笔记.html">
+            
+                    
+                    2020-04-24-笔记📒
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="19.4" data-path="../2020-04-26/2020-04-26-笔记.html">
+            
+                <a href="../2020-04-26/2020-04-26-笔记.html">
+            
+                    
+                    2020-04-26-笔记📒
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="19.5" data-path="../2020-04-27/2020-04-27-笔记.html">
+            
+                <a href="../2020-04-27/2020-04-27-笔记.html">
+            
+                    
+                    2020-04-27-笔记📒
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="19.6" data-path="../2020-04-28/2020-04-28-笔记.html">
+            
+                <a href="../2020-04-28/2020-04-28-笔记.html">
+            
+                    
+                    2020-04-28-笔记📒
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="19.7" data-path="../2020-04-29/2020-04-29-笔记.html">
+            
+                <a href="../2020-04-29/2020-04-29-笔记.html">
+            
+                    
+                    2020-04-29-笔记📒
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="19.8" data-path="../2020-04-30/2020-04-30-笔记.html">
+            
+                <a href="../2020-04-30/2020-04-30-笔记.html">
+            
+                    
+                    2020-04-30-笔记📒
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="19.9" data-path="../2020-05-01/2020-05-01-笔记.html">
+            
+                <a href="../2020-05-01/2020-05-01-笔记.html">
+            
+                    
+                    2020-05-01-笔记📒
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="19.10" data-path="../2020-05-02/2020-05-02-笔记.html">
+            
+                <a href="../2020-05-02/2020-05-02-笔记.html">
+            
+                    
+                    2020-05-02-笔记📒
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="19.11" data-path="../2020-05-03/2020-05-03-笔记.html">
+            
+                <a href="../2020-05-03/2020-05-03-笔记.html">
+            
+                    
+                    2020-05-03-笔记📒
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="19.12" data-path="../2020-05-04/2020-05-04-笔记.html">
+            
+                <a href="../2020-05-04/2020-05-04-笔记.html">
+            
+                    
+                    2020-05-04-笔记📒
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="19.13" data-path="../2020-05-06/2020-05-06-笔记.html">
+            
+                <a href="../2020-05-06/2020-05-06-笔记.html">
+            
+                    
+                    2020-05-06-笔记📒
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="19.14" data-path="../2020-05-07/2020-05-07-笔记.html">
+            
+                <a href="../2020-05-07/2020-05-07-笔记.html">
+            
+                    
+                    2020-05-07-笔记📒
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="19.15" data-path="../2020-05-08/2020-05-08-笔记.html">
+            
+                <a href="../2020-05-08/2020-05-08-笔记.html">
+            
+                    
+                    2020-05-08-笔记📒
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="19.16" data-path="../2020-05-09/2020-05-09-笔记.html">
+            
+                <a href="../2020-05-09/2020-05-09-笔记.html">
+            
+                    
+                    2020-05-09-笔记📒
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="19.16.1" data-path="../2020-05-09/530.二叉搜索树的最小绝对差.html">
+            
+                <a href="../2020-05-09/530.二叉搜索树的最小绝对差.html">
+            
+                    
+                    530.二叉搜索树的最小绝对差
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="19.16.2" data-path="../2020-05-09/二叉树的前中后遍历.html">
+            
+                <a href="../2020-05-09/二叉树的前中后遍历.html">
+            
+                    
+                    二叉树的前中后遍历
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="19.17" data-path="../2020-05-10/2020-05-10-笔记.html">
+            
+                <a href="../2020-05-10/2020-05-10-笔记.html">
+            
+                    
+                    2020-05-10-笔记📒
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="19.18" data-path="../2020-05-11/2020-05-11-笔记.html">
+            
+                <a href="../2020-05-11/2020-05-11-笔记.html">
+            
+                    
+                    2020-05-11-笔记📒
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="19.18.1" data-path="../2020-05-11/538.把二叉搜索树转换为累加树.html">
+            
+                <a href="../2020-05-11/538.把二叉搜索树转换为累加树.html">
+            
+                    
+                    538.把二叉搜索树转换为累加树
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="19.18.2" data-path="../2020-05-11/面试题04-03-特定深度节点链表.html">
+            
+                <a href="../2020-05-11/面试题04-03-特定深度节点链表.html">
+            
+                    
+                    面试题04-03-特定深度节点链表
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="19.19" data-path="../2020-05-15/2020-05-15-笔记.html">
+            
+                <a href="../2020-05-15/2020-05-15-笔记.html">
+            
+                    
+                    2020-05-15-笔记
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="19.19.1" data-path="../2020-05-15/YouTube-dl命令下载YouTube的视频.html">
+            
+                <a href="../2020-05-15/YouTube-dl命令下载YouTube的视频.html">
+            
+                    
+                    YouTube-dl命令下载YouTube的视频
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="19.19.2" data-path="../2020-05-15/EffectiveGo-中文版.html">
+            
+                <a href="../2020-05-15/EffectiveGo-中文版.html">
+            
+                    
+                    EffectiveGo-中文版
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="19.20" data-path="../2020-05-19/2020-05-19-笔记.html">
+            
+                <a href="../2020-05-19/2020-05-19-笔记.html">
+            
+                    
+                    2020-05-19-笔记
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="19.20.1" data-path="../2020-05-19/kratos-01-简介和安装.html">
+            
+                <a href="../2020-05-19/kratos-01-简介和安装.html">
+            
+                    
+                    kratos-01-简介和安装
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="19.20.2" data-path="../2020-05-19/操作系统-词汇表.html">
+            
+                <a href="../2020-05-19/操作系统-词汇表.html">
+            
+                    
+                    操作系统-词汇表
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="19.21" data-path="../2020-05-20/2020-05-20-笔记.html">
+            
+                <a href="../2020-05-20/2020-05-20-笔记.html">
+            
+                    
+                    2020-05-20-笔记
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="19.21.1" data-path="../2020-05-20/Go语言生态-认识极速轻量的Web框架.html">
+            
+                <a href="../2020-05-20/Go语言生态-认识极速轻量的Web框架.html">
+            
+                    
+                    Go语言生态-认识极速轻量的Web框架
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="19.22" data-path="../2020-05-22/2020-05-22-笔记.html">
+            
+                <a href="../2020-05-22/2020-05-22-笔记.html">
+            
+                    
+                    2020-05-22-笔记.md
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter active" data-level="19.22.1" data-path="LRU算法详解.html">
+            
+                <a href="LRU算法详解.html">
+            
+                    
+                    LRU算法详解.md
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="19.22.2" data-path="kratos-01-快速入门.html">
+            
+                <a href="kratos-01-快速入门.html">
+            
+                    
+                    kratos-01-快速入门.md
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="19.23" data-path="2020-05-21-笔记.html">
+            
+                <a href="2020-05-21-笔记.html">
+            
+                    
+                    2020-05-21-笔记.md
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="19.23.1" data-path="../2020-05-22/101. 对称二叉树.html">
+            
+                <a href="../2020-05-22/101. 对称二叉树.html">
+            
+                    
+                    101. 对称二叉树.md
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本书使用 GitBook 发布
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >LRU算法详解.md</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="lru&#x7B97;&#x6CD5;&#x8BE6;&#x89E3;">LRU&#x7B97;&#x6CD5;&#x8BE6;&#x89E3;</h1>
+<h3 id="&#x4E00;&#x3001;&#x4EC0;&#x4E48;&#x662F;-lru-&#x7B97;&#x6CD5;">&#x4E00;&#x3001;&#x4EC0;&#x4E48;&#x662F; LRU &#x7B97;&#x6CD5;</h3>
+<p>&#x5C31;&#x662F;&#x4E00;&#x79CD;&#x7F13;&#x5B58;&#x6DD8;&#x6C70;&#x7B56;&#x7565;&#x3002;</p>
+<p>&#x8BA1;&#x7B97;&#x673A;&#x7684;&#x5185;&#x5B58;&#x7F13;&#x5B58;&#x5BB9;&#x91CF;&#x6709;&#x9650;&#xFF0C;&#x5982;&#x679C;&#x7F13;&#x5B58;&#x6EE1;&#x4E86;&#x5C31;&#x8981;&#x5220;&#x9664;&#x4E00;&#x4E9B;&#x6570;&#x636E;&#xFF0C;&#x7ED9;&#x65B0;&#x7684;&#x6570;&#x636E;&#x817E;&#x51FA;&#x4F4D;&#x7F6E;&#x3002;</p>
+<p>&#x4F46;&#x95EE;&#x9898;&#x662F;&#xFF0C;<strong>&#x5220;&#x9664;&#x54EA;&#x4E9B;&#x6570;&#x636E;&#x5462;&#xFF1F;</strong></p>
+<p>&#x6211;&#x4EEC;&#x80AF;&#x5B9A;&#x5E0C;&#x671B;&#x5220;&#x6389;&#x54EA;&#x4E9B;&#x6CA1;&#x4EC0;&#x4E48;&#x7528;&#x7684;&#x7F13;&#x5B58;&#xFF0C;&#x800C;&#x628A;<code>&#x6709;&#x7528;&#x7684;&#x6570;&#x636E;</code>&#x7EE7;&#x7EED;&#x7559;&#x5728;&#x7F13;&#x5B58;&#x91CC;&#xFF0C;&#x65B9;&#x4FBF;&#x4E4B;&#x540E;&#x7EE7;&#x7EED;&#x4F7F;&#x7528;&#x3002;</p>
+<p>&#x90A3;&#x4E48;&#xFF0C;<strong>&#x4EC0;&#x4E48;&#x6837;&#x7684;&#x6570;&#x636E;&#x6211;&#x4EEC;&#x5224;&#x5B9A;&#x4E3A;&#x300C;&#x6709;&#x7528;&#x7684;&#x300D;&#x7684;&#x6570;&#x636E;&#x5462;&#xFF1F;</strong></p>
+<p><strong>LRU &#x7F13;&#x5B58;&#x6DD8;&#x6C70;&#x7B97;&#x6CD5;</strong>&#x5C31;&#x662F;&#x4E00;&#x79CD;&#x5E38;&#x7528;&#x7B56;&#x7565;&#x3002;</p>
+<p><strong>LRU</strong> &#x7684;&#x5168;&#x79F0;&#x662F; <strong>Least Recently Used&#xFF08;least&#xFF1A;&#x81F3;&#x5C11;&#xFF1B;Recently&#xFF1A;&#x6700;&#x8FD1;&#xFF1B;Used&#xFF1A;&#x4F7F;&#x7528;&#x8FC7;&#xFF09;</strong>&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x8BF4;&#x6211;&#x4EEC;&#x8BA4;&#x4E3A; <code>&#x6700;&#x8FD1;&#x4F7F;&#x7528;&#x8FC7;&#x7684;&#x6570;&#x636E;</code> &#x5E94;&#x8BE5;&#x662F;&#x662F;&#x300C;<strong>&#x6709;&#x7528;&#x7684;</strong>&#x300D;&#xFF0C;<code>&#x5F88;&#x4E45;&#x90FD;&#x6CA1;&#x7528;&#x8FC7;&#x7684;&#x6570;&#x636E;</code>&#x5E94;&#x8BE5;&#x662F;&#x65E0;&#x7528;&#x7684;&#xFF0C;&#x5185;&#x5B58;&#x6EE1;&#x4E86;&#x5C31;<strong>&#x4F18;&#x5148;&#x5220;&#x9664;</strong>&#x90A3;&#x4E9B;<code>&#x5F88;&#x4E45;&#x6CA1;&#x7528;&#x8FC7;&#x7684;&#x6570;&#x636E;</code>&#x3002;</p>
+<p>&#x73B0;&#x5728;&#x4F60;&#x5E94;&#x8BE5;&#x7406;&#x89E3; <strong>LRU</strong>&#xFF08; <strong>Least Recently Used</strong> &#xFF09;&#x7B56;&#x7565;&#x4E86;&#x3002;&#x5F53;&#x7136;&#x8FD8;&#x6709;&#x5176;&#x4ED6;&#x7F13;&#x5B58;&#x6DD8;&#x6C70;&#x7B56;&#x7565;&#xFF0C;&#x6BD4;&#x5982;&#x4E0D;&#x6309;&#x8BBF;&#x95EE;&#x7684;&#x65F6;&#x5E8F;&#x6765;&#x6DD8;&#x6C70;&#xFF0C;&#x800C;&#x662F;&#x6309;&#x8BBF;&#x95EE;&#x9891;&#x7387;&#xFF08;<strong>LFU</strong> &#x7B56;&#x7565;&#xFF09;&#x6765;&#x6DD8;&#x6C70;&#x7B49;&#x7B49;&#xFF0C;&#x5404;&#x6709;&#x5E94;&#x7528;&#x573A;&#x666F;&#x3002;&#x672C;&#x6587;&#x8BB2;&#x89E3; <strong>LRU</strong> &#x7B97;&#x6CD5;&#x7B56;&#x7565;&#x3002;</p>
+<h3 id="&#x4E8C;&#x3001;lru-&#x7B97;&#x6CD5;&#x63CF;&#x8FF0;">&#x4E8C;&#x3001;LRU &#x7B97;&#x6CD5;&#x63CF;&#x8FF0;</h3>
+<p><strong>LRU</strong> &#x7B97;&#x6CD5;&#x5B9E;&#x9645;&#x4E0A;&#x662F;&#x8BA9;&#x4F60;&#x8BBE;&#x8BA1;&#x6570;&#x636E;&#x7ED3;&#x6784;&#xFF1A;&#x9996;&#x5148;&#x8981;&#x63A5;&#x6536;&#x4E00;&#x4E2A; <code>capacity</code> &#x53C2;&#x6570;&#x4F5C;&#x4E3A;&#x7F13;&#x5B58;&#x7684;&#x6700;&#x5927;&#x5BB9;&#x91CF;&#xFF0C;&#x7136;&#x540E;&#x5B9E;&#x73B0;&#x4E24;&#x4E2A; <strong>API</strong>&#xFF0C;&#x4E00;&#x4E2A;&#x662F; <code>put(key, val)</code> &#x65B9;&#x6CD5;&#x5B58;&#x5165;&#x952E;&#x503C;&#x5BF9;&#xFF0C;&#x53E6;&#x4E00;&#x4E2A;&#x662F; <code>get(key)</code> &#x65B9;&#x6CD5;&#x83B7;&#x53D6; <code>key</code> &#x5BF9;&#x5E94;&#x7684; <code>val</code>&#xFF0C;&#x5982;&#x679C; <code>key</code> &#x4E0D;&#x5B58;&#x5728;&#x5219;&#x8FD4;&#x56DE; -1&#x3002;</p>
+<p>&#x6CE8;&#x610F;&#x54E6;&#xFF0C;<code>get</code> &#x548C; <code>put</code> &#x65B9;&#x6CD5;&#x5FC5;&#x987B;&#x90FD;&#x662F; $O(1)$ &#x7684;&#x65F6;&#x95F4;&#x590D;&#x6742;&#x5EA6;&#xFF0C;&#x6211;&#x4EEC;&#x4E3E;&#x4E2A;&#x5177;&#x4F53;&#x4F8B;&#x5B50;&#x6765;&#x770B;&#x770B; <strong>LRU</strong> &#x7B97;&#x6CD5;&#x600E;&#x4E48;&#x5DE5;&#x4F5C;&#x3002;</p>
+<pre><code class="lang-java"><span class="hljs-comment">/* &#x7F13;&#x5B58;&#x5BB9;&#x91CF;&#x4E3A; 2 */</span>
+LRUCache cache = <span class="hljs-keyword">new</span> LRUCache(<span class="hljs-number">2</span>);
+<span class="hljs-comment">// &#x4F60;&#x53EF;&#x4EE5;&#x628A; cache &#x7406;&#x89E3;&#x6210;&#x4E00;&#x4E2A;&#x961F;&#x5217;</span>
+<span class="hljs-comment">// &#x5047;&#x8BBE;&#x5DE6;&#x8FB9;&#x662F;&#x961F;&#x5934;&#xFF0C;&#x53F3;&#x8FB9;&#x662F;&#x961F;&#x5C3E;</span>
+<span class="hljs-comment">// &#x6700;&#x8FD1;&#x4F7F;&#x7528;&#x7684;&#x6392;&#x5728;&#x961F;&#x5934;&#xFF0C;&#x4E45;&#x672A;&#x4F7F;&#x7528;&#x7684;&#x6392;&#x5728;&#x961F;&#x5C3E;</span>
+<span class="hljs-comment">// &#x5706;&#x62EC;&#x53F7;&#x8868;&#x793A;&#x952E;&#x503C;&#x5BF9; (key, val)</span>
+
+cache.put(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>);
+<span class="hljs-comment">// cache = [(1, 1)]</span>
+cache.put(<span class="hljs-number">2</span>, <span class="hljs-number">2</span>);
+<span class="hljs-comment">// cache = [(2, 2), (1, 1)]</span>
+cache.get(<span class="hljs-number">1</span>);       <span class="hljs-comment">// &#x8FD4;&#x56DE; 1</span>
+<span class="hljs-comment">// cache = [(1, 1), (2, 2)]</span>
+<span class="hljs-comment">// &#x89E3;&#x91CA;&#xFF1A;&#x56E0;&#x4E3A;&#x6700;&#x8FD1;&#x8BBF;&#x95EE;&#x4E86;&#x952E; 1&#xFF0C;&#x6240;&#x4EE5;&#x63D0;&#x524D;&#x81F3;&#x961F;&#x5934;</span>
+<span class="hljs-comment">// &#x8FD4;&#x56DE;&#x952E; 1 &#x5BF9;&#x5E94;&#x7684;&#x503C; 1</span>
+cache.put(<span class="hljs-number">3</span>, <span class="hljs-number">3</span>);
+<span class="hljs-comment">// cache = [(3, 3), (1, 1)]</span>
+<span class="hljs-comment">// &#x89E3;&#x91CA;&#xFF1A;&#x7F13;&#x5B58;&#x5BB9;&#x91CF;&#x5DF2;&#x6EE1;&#xFF0C;&#x9700;&#x8981;&#x5220;&#x9664;&#x5185;&#x5BB9;&#x7A7A;&#x51FA;&#x4F4D;&#x7F6E;</span>
+<span class="hljs-comment">// &#x4F18;&#x5148;&#x5220;&#x9664;&#x4E45;&#x672A;&#x4F7F;&#x7528;&#x7684;&#x6570;&#x636E;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x961F;&#x5C3E;&#x7684;&#x6570;&#x636E;</span>
+<span class="hljs-comment">// &#x7136;&#x540E;&#x628A;&#x65B0;&#x7684;&#x6570;&#x636E;&#x63D2;&#x5165;&#x961F;&#x5934;</span>
+cache.get(<span class="hljs-number">2</span>);       <span class="hljs-comment">// &#x8FD4;&#x56DE; -1 (&#x672A;&#x627E;&#x5230;)</span>
+<span class="hljs-comment">// cache = [(3, 3), (1, 1)]</span>
+<span class="hljs-comment">// &#x89E3;&#x91CA;&#xFF1A;cache &#x4E2D;&#x4E0D;&#x5B58;&#x5728;&#x952E;&#x4E3A; 2 &#x7684;&#x6570;&#x636E;</span>
+cache.put(<span class="hljs-number">1</span>, <span class="hljs-number">4</span>);    
+<span class="hljs-comment">// cache = [(1, 4), (3, 3)]</span>
+<span class="hljs-comment">// &#x89E3;&#x91CA;&#xFF1A;&#x952E; 1 &#x5DF2;&#x5B58;&#x5728;&#xFF0C;&#x628A;&#x539F;&#x59CB;&#x503C; 1 &#x8986;&#x76D6;&#x4E3A; 4</span>
+<span class="hljs-comment">// &#x4E0D;&#x8981;&#x5FD8;&#x4E86;&#x4E5F;&#x8981;&#x5C06;&#x952E;&#x503C;&#x5BF9;&#x63D0;&#x524D;&#x5230;&#x961F;&#x5934;</span>
+</code></pre>
+<h3 id="&#x4E09;&#x3001;lru-&#x7B97;&#x6CD5;&#x8BBE;&#x8BA1;">&#x4E09;&#x3001;LRU &#x7B97;&#x6CD5;&#x8BBE;&#x8BA1;</h3>
+<p>&#x5206;&#x6790;&#x4E0A;&#x9762;&#x7684;&#x64CD;&#x4F5C;&#x8FC7;&#x7A0B;&#xFF0C;&#x8981;&#x8BA9; <code>put</code> &#x548C; <code>get</code> &#x65B9;&#x6CD5;&#x7684;&#x65F6;&#x95F4;&#x590D;&#x6742;&#x5EA6;&#x4E3A; $O(1)$&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x603B;&#x7ED3;&#x51FA; <strong>cache</strong> &#x8FD9;&#x4E2A;&#x6570;&#x636E;&#x7ED3;&#x6784;&#x5FC5;&#x8981;&#x7684;&#x6761;&#x4EF6;&#xFF1A;<strong>&#x67E5;&#x627E;&#x5FEB;</strong>&#xFF0C;<strong>&#x63D2;&#x5165;&#x5FEB;</strong>&#xFF0C;<strong>&#x5220;&#x9664;&#x5FEB;</strong>&#xFF0C;<strong>&#x6709;&#x987A;&#x5E8F;&#x4E4B;&#x5206;</strong>&#x3002;</p>
+<p>&#x56E0;&#x4E3A;&#x663E;&#x7136; <strong>cache</strong> &#x5FC5;&#x987B;&#x6709;&#x987A;&#x5E8F;&#x4E4B;&#x5206;&#xFF0C;&#x4EE5;&#x533A;&#x5206;&#x6700;&#x8FD1;&#x4F7F;&#x7528;&#x7684;&#x548C;&#x4E45;&#x672A;&#x4F7F;&#x7528;&#x7684;&#x6570;&#x636E;&#xFF1B;&#x800C;&#x4E14;&#x6211;&#x4EEC;&#x8981;&#x5728; <strong>cache</strong> &#x4E2D;&#x67E5;&#x627E;&#x952E;&#x662F;&#x5426;&#x5DF2;&#x5B58;&#x5728;&#xFF1B;&#x5982;&#x679C;&#x5BB9;&#x91CF;&#x6EE1;&#x4E86;&#x8981;&#x5220;&#x9664;&#x6700;&#x540E;&#x4E00;&#x4E2A;&#x6570;&#x636E;&#xFF1B;&#x6BCF;&#x6B21;&#x8BBF;&#x95EE;&#x8FD8;&#x8981;&#x628A;&#x6570;&#x636E;&#x63D2;&#x5165;&#x5230;&#x961F;&#x5934;&#x3002;</p>
+<p>&#x90A3;&#x4E48;&#xFF0C;<strong>&#x4EC0;&#x4E48;&#x6570;&#x636E;&#x7ED3;&#x6784;&#x540C;&#x65F6;&#x7B26;&#x5408;&#x4E0A;&#x8FF0;&#x6761;&#x4EF6;&#x5462;&#xFF1F;</strong>&#x54C8;&#x5E0C;&#x8868;&#x67E5;&#x627E;&#x5FEB;&#xFF0C;&#x4F46;&#x662F;&#x6570;&#x636E;&#x65E0;&#x56FA;&#x5B9A;&#x987A;&#x5E8F;&#xFF1B;&#x94FE;&#x8868;&#x6709;&#x987A;&#x5E8F;&#x4E4B;&#x5206;&#xFF0C;&#x63D2;&#x5165;&#x5220;&#x9664;&#x5FEB;&#xFF0C;&#x4F46;&#x662F;&#x67E5;&#x627E;&#x6162;&#x3002;&#x6240;&#x4EE5;&#x7ED3;&#x5408;&#x4E00;&#x4E0B;&#xFF0C;&#x5F62;&#x6210;&#x4E00;&#x79CD;&#x65B0;&#x7684;&#x6570;&#x636E;&#x7ED3;&#x6784;&#xFF1A;<strong>&#x54C8;&#x5E0C;&#x94FE;&#x8868;</strong>&#x3002;</p>
+<p><strong>LRU &#x7F13;&#x5B58;&#x7B97;&#x6CD5;</strong>&#x7684;&#x6838;&#x5FC3;<strong>&#x6570;&#x636E;&#x7ED3;&#x6784;</strong>&#x5C31;&#x662F;<strong>&#x54C8;&#x5E0C;&#x94FE;&#x8868;</strong>&#xFF0C;&#x53CC;&#x5411;&#x94FE;&#x8868;&#x548C;&#x54C8;&#x5E0C;&#x8868;&#x7684;&#x7ED3;&#x5408;&#x4F53;&#x3002;&#x8FD9;&#x4E2A;&#x6570;&#x636E;&#x7ED3;&#x6784;&#x957F;&#x8FD9;&#x6837;&#xFF1A;</p>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gf0aj6hh7zj318g0r04ey.jpg" alt="&#x53CC;&#x5411;&#x94FE;&#x8868;"></p>
+<p>&#x601D;&#x60F3;&#x5F88;&#x7B80;&#x5355;&#xFF0C;&#x5C31;&#x662F;&#x501F;&#x52A9;&#x54C8;&#x5E0C;&#x8868;&#x8D4B;&#x4E88;&#x4E86;&#x94FE;&#x8868;&#x5FEB;&#x901F;&#x67E5;&#x627E;&#x7684;&#x7279;&#x6027;&#x561B;&#xFF1A;&#x53EF;&#x4EE5;&#x5FEB;&#x901F;&#x67E5;&#x627E;&#x67D0;&#x4E2A; <code>key</code> &#x662F;&#x5426;&#x5B58;&#x5728;&#x7F13;&#x5B58;&#xFF08;&#x94FE;&#x8868;&#xFF09;&#x4E2D;&#xFF0C;&#x540C;&#x65F6;&#x53EF;&#x4EE5;&#x5FEB;&#x901F;&#x5220;&#x9664;&#x3001;&#x6DFB;&#x52A0;&#x8282;&#x70B9;&#x3002;&#x56DE;&#x60F3;&#x521A;&#x624D;&#x7684;&#x4F8B;&#x5B50;&#xFF0C;&#x8FD9;&#x79CD;&#x6570;&#x636E;&#x7ED3;&#x6784;&#x662F;&#x4E0D;&#x662F;&#x5B8C;&#x7F8E;&#x89E3;&#x51B3;&#x4E86; <strong>LRU</strong> &#x7F13;&#x5B58;&#x7684;&#x9700;&#x6C42;&#xFF1F;</p>
+<p>&#x4E5F;&#x8BB8;&#x8BFB;&#x8005;&#x4F1A;&#x95EE;&#xFF0C;&#x4E3A;&#x4EC0;&#x4E48;&#x8981;&#x662F;&#x53CC;&#x5411;&#x94FE;&#x8868;&#xFF0C;&#x5355;&#x94FE;&#x8868;&#x884C;&#x4E0D;&#x884C;&#xFF1F;&#x53E6;&#x5916;&#xFF0C;&#x65E2;&#x7136;&#x54C8;&#x5E0C;&#x8868;&#x4E2D;&#x5DF2;&#x7ECF;&#x5B58;&#x4E86; <code>key</code>&#xFF0C;&#x4E3A;&#x4EC0;&#x4E48;&#x94FE;&#x8868;&#x4E2D;&#x8FD8;&#x8981;&#x5B58;&#x952E;&#x503C;&#x5BF9;&#x5462;&#xFF0C;&#x53EA;&#x5B58;&#x503C;&#x4E0D;&#x5C31;&#x884C;&#x4E86;&#xFF1F;</p>
+<p>&#x60F3;&#x7684;&#x65F6;&#x5019;&#x90FD;&#x662F;&#x95EE;&#x9898;&#xFF0C;&#x53EA;&#x6709;&#x505A;&#x7684;&#x65F6;&#x5019;&#x624D;&#x6709;&#x7B54;&#x6848;&#x3002;&#x8FD9;&#x6837;&#x8BBE;&#x8BA1;&#x7684;&#x539F;&#x56E0;&#xFF0C;&#x5FC5;&#x987B;&#x7B49;&#x6211;&#x4EEC;&#x4EB2;&#x81EA;&#x5B9E;&#x73B0; <strong>LRU</strong> &#x7B97;&#x6CD5;&#x4E4B;&#x540E;&#x624D;&#x80FD;&#x7406;&#x89E3;&#xFF0C;&#x6240;&#x4EE5;&#x6211;&#x4EEC;&#x5F00;&#x59CB;&#x770B;&#x4EE3;&#x7801;&#x5427;&#xFF5E;</p>
+<h3 id="&#x56DB;&#x3001;&#x4EE3;&#x7801;&#x5B9E;&#x73B0;">&#x56DB;&#x3001;&#x4EE3;&#x7801;&#x5B9E;&#x73B0;</h3>
+<p>&#x5F88;&#x591A;&#x7F16;&#x7A0B;&#x8BED;&#x8A00;&#x90FD;&#x6709;&#x5185;&#x7F6E;&#x7684;&#x54C8;&#x5E0C;&#x94FE;&#x8868;&#x6216;&#x8005;&#x7C7B;&#x4F3C; <strong>LRU</strong> &#x529F;&#x80FD;&#x7684;&#x5E93;&#x51FD;&#x6570;&#xFF0C;&#x4F46;&#x662F;&#x4E3A;&#x4E86;&#x5E2E;&#x5927;&#x5BB6;&#x7406;&#x89E3;&#x7B97;&#x6CD5;&#x7684;&#x7EC6;&#x8282;&#xFF0C;&#x6211;&#x4EEC;&#x7528; Java &#x81EA;&#x5DF1;&#x9020;&#x8F6E;&#x5B50;&#x5B9E;&#x73B0;&#x4E00;&#x904D; <strong>LRU</strong> &#x7B97;&#x6CD5;&#x3002;</p>
+<p>&#x9996;&#x5148;&#xFF0C;&#x6211;&#x4EEC;&#x628A;&#x53CC;&#x94FE;&#x8868;&#x7684;&#x8282;&#x70B9;&#x7C7B;&#x5199;&#x51FA;&#x6765;&#xFF0C;&#x4E3A;&#x4E86;&#x7B80;&#x5316;&#xFF0C;<code>key</code> &#x548C; <code>val</code> &#x90FD;&#x8BA4;&#x4E3A;&#x662F; <code>int</code> &#x7C7B;&#x578B;&#xFF1A;</p>
+<pre><code class="lang-java"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Node</span> </span>{
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> key, val;
+    <span class="hljs-keyword">public</span> Node next, prev;
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">Node</span><span class="hljs-params">(<span class="hljs-keyword">int</span> k, <span class="hljs-keyword">int</span> v)</span> </span>{
+        <span class="hljs-keyword">this</span>.key = k;
+        <span class="hljs-keyword">this</span>.val = v;
+    }
+}
+</code></pre>
+<p>&#x7136;&#x540E;&#x4F9D;&#x9760;&#x6211;&#x4EEC;&#x7684; Node &#x7C7B;&#x578B;&#x6784;&#x5EFA;&#x4E00;&#x4E2A;&#x53CC;&#x94FE;&#x8868;&#xFF0C;&#x5B9E;&#x73B0;&#x51E0;&#x4E2A;&#x9700;&#x8981;&#x7684; API&#xFF08;&#x8FD9;&#x4E9B;&#x64CD;&#x4F5C;&#x7684;&#x65F6;&#x95F4;&#x590D;&#x6742;&#x5EA6;&#x5747;&#x4E3A; $O(1)$)&#xFF1A;</p>
+<pre><code class="lang-java"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">DoubleList</span> </span>{  
+    <span class="hljs-comment">// &#x5728;&#x94FE;&#x8868;&#x5934;&#x90E8;&#x6DFB;&#x52A0;&#x8282;&#x70B9; x&#xFF0C;&#x65F6;&#x95F4; O(1)</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">addFirst</span><span class="hljs-params">(Node x)</span></span>;
+
+    <span class="hljs-comment">// &#x5220;&#x9664;&#x94FE;&#x8868;&#x4E2D;&#x7684; x &#x8282;&#x70B9;&#xFF08;x &#x4E00;&#x5B9A;&#x5B58;&#x5728;&#xFF09;</span>
+    <span class="hljs-comment">// &#x7531;&#x4E8E;&#x662F;&#x53CC;&#x94FE;&#x8868;&#x4E14;&#x7ED9;&#x7684;&#x662F;&#x76EE;&#x6807; Node &#x8282;&#x70B9;&#xFF0C;&#x65F6;&#x95F4; O(1)</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">remove</span><span class="hljs-params">(Node x)</span></span>;
+
+    <span class="hljs-comment">// &#x5220;&#x9664;&#x94FE;&#x8868;&#x4E2D;&#x6700;&#x540E;&#x4E00;&#x4E2A;&#x8282;&#x70B9;&#xFF0C;&#x5E76;&#x8FD4;&#x56DE;&#x8BE5;&#x8282;&#x70B9;&#xFF0C;&#x65F6;&#x95F4; O(1)</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> Node <span class="hljs-title">removeLast</span><span class="hljs-params">()</span></span>;
+
+    <span class="hljs-comment">// &#x8FD4;&#x56DE;&#x94FE;&#x8868;&#x957F;&#x5EA6;&#xFF0C;&#x65F6;&#x95F4; O(1)</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">size</span><span class="hljs-params">()</span></span>;
+}
+</code></pre>
+<p>PS&#xFF1A;&#x8FD9;&#x5C31;&#x662F;&#x666E;&#x901A;&#x53CC;&#x5411;&#x94FE;&#x8868;&#x7684;&#x5B9E;&#x73B0;&#xFF0C;&#x4E3A;&#x4E86;&#x8BA9;&#x8BFB;&#x8005;&#x96C6;&#x4E2D;&#x7CBE;&#x529B;&#x7406;&#x89E3; <strong>LRU</strong> &#x7B97;&#x6CD5;&#x7684;&#x903B;&#x8F91;&#xFF0C;&#x5C31;&#x7701;&#x7565;&#x94FE;&#x8868;&#x7684;&#x5177;&#x4F53;&#x4EE3;&#x7801;&#x3002;</p>
+<p>&#x5230;&#x8FD9;&#x91CC;&#x5C31;&#x80FD;&#x56DE;&#x7B54;&#x521A;&#x624D;&#x201C;&#x4E3A;&#x4EC0;&#x4E48;&#x5FC5;&#x987B;&#x8981;&#x7528;&#x53CC;&#x5411;&#x94FE;&#x8868;&#x201D;&#x7684;&#x95EE;&#x9898;&#x4E86;&#xFF0C;&#x56E0;&#x4E3A;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x5220;&#x9664;&#x64CD;&#x4F5C;&#x3002;&#x5220;&#x9664;&#x4E00;&#x4E2A;&#x8282;&#x70B9;&#x4E0D;&#x5149;&#x8981;&#x5F97;&#x5230;&#x8BE5;&#x8282;&#x70B9;&#x672C;&#x8EAB;&#x7684;&#x6307;&#x9488;&#xFF0C;&#x4E5F;&#x9700;&#x8981;&#x64CD;&#x4F5C;&#x5176;&#x524D;&#x9A71;&#x8282;&#x70B9;&#x7684;&#x6307;&#x9488;&#xFF0C;&#x800C;&#x53CC;&#x5411;&#x94FE;&#x8868;&#x624D;&#x80FD;&#x652F;&#x6301;&#x76F4;&#x63A5;&#x67E5;&#x627E;&#x524D;&#x9A71;&#xFF0C;&#x4FDD;&#x8BC1;&#x64CD;&#x4F5C;&#x7684;&#x65F6;&#x95F4;&#x590D;&#x6742;&#x5EA6; $O(1)$&#x3002;</p>
+<p>&#x6709;&#x4E86;&#x53CC;&#x5411;&#x94FE;&#x8868;&#x7684;&#x5B9E;&#x73B0;&#xFF0C;&#x6211;&#x4EEC;&#x53EA;&#x9700;&#x8981;&#x5728; <strong>LRU</strong> &#x7B97;&#x6CD5;&#x4E2D;&#x628A;&#x5B83;&#x548C;&#x54C8;&#x5E0C;&#x8868;&#x7ED3;&#x5408;&#x8D77;&#x6765;&#x5373;&#x53EF;&#x3002;&#x6211;&#x4EEC;&#x5148;&#x628A;&#x903B;&#x8F91;&#x7406;&#x6E05;&#x695A;&#xFF1A;</p>
+<pre><code class="lang-java"><span class="hljs-comment">// key &#x6620;&#x5C04;&#x5230; Node(key, val)</span>
+HashMap&lt;Integer, Node&gt; map;
+<span class="hljs-comment">// Node(k1, v1) &lt;-&gt; Node(k2, v2)...</span>
+DoubleList cache;
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">get</span><span class="hljs-params">(<span class="hljs-keyword">int</span> key)</span> </span>{
+    <span class="hljs-keyword">if</span> (key &#x4E0D;&#x5B58;&#x5728;) {
+        <span class="hljs-keyword">return</span> -<span class="hljs-number">1</span>;
+    } <span class="hljs-keyword">else</span> {        
+        &#x5C06;&#x6570;&#x636E; (key, val) &#x63D0;&#x5230;&#x5F00;&#x5934;&#xFF1B;
+        <span class="hljs-keyword">return</span> val;
+    }
+}
+
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">put</span><span class="hljs-params">(<span class="hljs-keyword">int</span> key, <span class="hljs-keyword">int</span> val)</span> </span>{
+    Node x = <span class="hljs-keyword">new</span> Node(key, val);
+    <span class="hljs-keyword">if</span> (key &#x5DF2;&#x5B58;&#x5728;) {
+        &#x628A;&#x65E7;&#x7684;&#x6570;&#x636E;&#x5220;&#x9664;&#xFF1B;
+        &#x5C06;&#x65B0;&#x8282;&#x70B9; x &#x63D2;&#x5165;&#x5230;&#x5F00;&#x5934;&#xFF1B;
+    } <span class="hljs-keyword">else</span> {
+        <span class="hljs-keyword">if</span> (cache &#x5DF2;&#x6EE1;) {
+            &#x5220;&#x9664;&#x94FE;&#x8868;&#x7684;&#x6700;&#x540E;&#x4E00;&#x4E2A;&#x6570;&#x636E;&#x817E;&#x4F4D;&#x7F6E;&#xFF1B;
+            &#x5220;&#x9664; map &#x4E2D;&#x6620;&#x5C04;&#x5230;&#x8BE5;&#x6570;&#x636E;&#x7684;&#x952E;&#xFF1B;
+        } 
+        &#x5C06;&#x65B0;&#x8282;&#x70B9; x &#x63D2;&#x5165;&#x5230;&#x5F00;&#x5934;&#xFF1B;
+        map &#x4E2D;&#x65B0;&#x5EFA; key &#x5BF9;&#x65B0;&#x8282;&#x70B9; x &#x7684;&#x6620;&#x5C04;&#xFF1B;
+    }
+}
+</code></pre>
+<p>&#x5982;&#x679C;&#x80FD;&#x591F;&#x770B;&#x61C2;&#x4E0A;&#x8FF0;&#x903B;&#x8F91;&#xFF0C;&#x7FFB;&#x8BD1;&#x6210;&#x4EE3;&#x7801;&#x5C31;&#x5F88;&#x5BB9;&#x6613;&#x7406;&#x89E3;&#x4E86;&#xFF1A;</p>
+<pre><code class="lang-java"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">LRUCache</span> </span>{
+    <span class="hljs-comment">// key -&gt; Node(key, val)</span>
+    <span class="hljs-keyword">private</span> HashMap&lt;Integer, Node&gt; map;
+    <span class="hljs-comment">// Node(k1, v1) &lt;-&gt; Node(k2, v2)...</span>
+    <span class="hljs-keyword">private</span> DoubleList cache;
+    <span class="hljs-comment">// &#x6700;&#x5927;&#x5BB9;&#x91CF;</span>
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">int</span> cap;
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">LRUCache</span><span class="hljs-params">(<span class="hljs-keyword">int</span> capacity)</span> </span>{
+        <span class="hljs-keyword">this</span>.cap = capacity;
+        map = <span class="hljs-keyword">new</span> HashMap&lt;&gt;();
+        cache = <span class="hljs-keyword">new</span> DoubleList();
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">get</span><span class="hljs-params">(<span class="hljs-keyword">int</span> key)</span> </span>{
+        <span class="hljs-keyword">if</span> (!map.containsKey(key))
+            <span class="hljs-keyword">return</span> -<span class="hljs-number">1</span>;
+        <span class="hljs-keyword">int</span> val = map.get(key).val;
+        <span class="hljs-comment">// &#x5229;&#x7528; put &#x65B9;&#x6CD5;&#x628A;&#x8BE5;&#x6570;&#x636E;&#x63D0;&#x524D;</span>
+        put(key, val);
+        <span class="hljs-keyword">return</span> val;
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">put</span><span class="hljs-params">(<span class="hljs-keyword">int</span> key, <span class="hljs-keyword">int</span> val)</span> </span>{
+        <span class="hljs-comment">// &#x5148;&#x628A;&#x65B0;&#x8282;&#x70B9; x &#x505A;&#x51FA;&#x6765;</span>
+        Node x = <span class="hljs-keyword">new</span> Node(key, val);
+
+        <span class="hljs-keyword">if</span> (map.containsKey(key)) {
+            <span class="hljs-comment">// &#x5220;&#x9664;&#x65E7;&#x7684;&#x8282;&#x70B9;&#xFF0C;&#x65B0;&#x7684;&#x63D2;&#x5230;&#x5934;&#x90E8;</span>
+            cache.remove(map.get(key));
+            cache.addFirst(x);
+            <span class="hljs-comment">// &#x66F4;&#x65B0; map &#x4E2D;&#x5BF9;&#x5E94;&#x7684;&#x6570;&#x636E;</span>
+            map.put(key, x);
+        } <span class="hljs-keyword">else</span> {
+            <span class="hljs-keyword">if</span> (cap == cache.size()) {
+                <span class="hljs-comment">// &#x5220;&#x9664;&#x94FE;&#x8868;&#x6700;&#x540E;&#x4E00;&#x4E2A;&#x6570;&#x636E;</span>
+                Node last = cache.removeLast();
+                map.remove(last.key);
+            }
+            <span class="hljs-comment">// &#x76F4;&#x63A5;&#x6DFB;&#x52A0;&#x5230;&#x5934;&#x90E8;</span>
+            cache.addFirst(x);
+            map.put(key, x);
+        }
+    }
+}
+</code></pre>
+<p>&#x8FD9;&#x91CC;&#x5C31;&#x80FD;&#x56DE;&#x7B54;&#x4E4B;&#x524D;&#x7684;&#x95EE;&#x7B54;&#x9898;&#x201C;&#x4E3A;&#x4EC0;&#x4E48;&#x8981;&#x5728;&#x94FE;&#x8868;&#x4E2D;&#x540C;&#x65F6;&#x5B58;&#x50A8; <code>key</code> &#x548C; <code>val</code>&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x53EA;&#x5B58;&#x50A8; <code>val</code>&#x201D;&#xFF0C;&#x6CE8;&#x610F;&#x8FD9;&#x6BB5;&#x4EE3;&#x7801;&#xFF1A;</p>
+<pre><code class="lang-java"><span class="hljs-keyword">if</span> (cap == cache.size()) {
+    <span class="hljs-comment">// &#x5220;&#x9664;&#x94FE;&#x8868;&#x6700;&#x540E;&#x4E00;&#x4E2A;&#x6570;&#x636E;</span>
+    Node last = cache.removeLast();
+    map.remove(last.key);
+}
+</code></pre>
+<p>&#x5F53;&#x7F13;&#x5B58;&#x5BB9;&#x91CF;&#x5DF2;&#x6EE1;&#xFF0C;&#x6211;&#x4EEC;&#x4E0D;&#x4EC5;&#x4EC5;&#x8981;&#x5220;&#x9664;&#x6700;&#x540E;&#x4E00;&#x4E2A; <strong>Node</strong> &#x8282;&#x70B9;&#xFF0C;&#x8FD8;&#x8981;&#x628A; <code>map</code> &#x4E2D;&#x6620;&#x5C04;&#x5230;&#x8BE5;&#x8282;&#x70B9;&#x7684; <code>key</code> &#x540C;&#x65F6;&#x5220;&#x9664;&#xFF0C;&#x800C;&#x8FD9;&#x4E2A; <code>key</code> &#x53EA;&#x80FD;&#x7531; <strong>Node</strong> &#x5F97;&#x5230;&#x3002;&#x5982;&#x679C; <strong>Node</strong> &#x7ED3;&#x6784;&#x4E2D;&#x53EA;&#x5B58;&#x50A8; <code>val</code>&#xFF0C;&#x90A3;&#x4E48;&#x6211;&#x4EEC;&#x5C31;&#x65E0;&#x6CD5;&#x5F97;&#x77E5; <code>key</code> &#x662F;&#x4EC0;&#x4E48;&#xFF0C;&#x5C31;&#x65E0;&#x6CD5;&#x5220;&#x9664; map &#x4E2D;&#x7684;&#x952E;&#xFF0C;&#x9020;&#x6210;&#x9519;&#x8BEF;&#x3002;</p>
+<p>&#x81F3;&#x6B64;&#xFF0C;&#x4F60;&#x5E94;&#x8BE5;&#x5DF2;&#x7ECF;&#x638C;&#x63E1; <strong>LRU</strong> &#x7B97;&#x6CD5;&#x7684;&#x601D;&#x60F3;&#x548C;&#x5B9E;&#x73B0;&#x4E86;&#xFF0C;&#x5F88;&#x5BB9;&#x6613;&#x72AF;&#x9519;&#x7684;&#x4E00;&#x70B9;&#x662F;&#xFF1A;&#x5904;&#x7406;&#x94FE;&#x8868;&#x8282;&#x70B9;&#x7684;&#x540C;&#x65F6;&#x4E0D;&#x8981;&#x5FD8;&#x4E86;&#x66F4;&#x65B0;&#x54C8;&#x5E0C;&#x8868;&#x4E2D;&#x5BF9;&#x8282;&#x70B9;&#x7684;&#x6620;&#x5C04;&#x3002;</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="../2020-05-22/2020-05-22-笔记.html" class="navigation navigation-prev " aria-label="Previous page: 2020-05-22-笔记.md">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="kratos-01-快速入门.html" class="navigation navigation-next " aria-label="Next page: kratos-01-快速入门.md">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"LRU算法详解.md","level":"19.22.1","depth":2,"next":{"title":"kratos-01-快速入门.md","level":"19.22.2","depth":2,"path":"2020-05-21/kratos-01-快速入门.md","ref":"2020-05-21/kratos-01-快速入门.md","articles":[]},"previous":{"title":"2020-05-22-笔记.md","level":"19.22","depth":1,"path":"2020-05-22/2020-05-22-笔记.md","ref":"2020-05-22/2020-05-22-笔记.md","articles":[{"title":"LRU算法详解.md","level":"19.22.1","depth":2,"path":"2020-05-21/LRU算法详解.md","ref":"2020-05-21/LRU算法详解.md","articles":[]},{"title":"kratos-01-快速入门.md","level":"19.22.2","depth":2,"path":"2020-05-21/kratos-01-快速入门.md","ref":"2020-05-21/kratos-01-快速入门.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["expandable-chapters-small","favicon","github","katex"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"github":{"url":"https://github.com/panda8z"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":{"shortcut":"assets/images/favicon.ico","bookmark":"assets/images/favicon.ico","appleTouch":"assets/images/apple-touch-icon.png","appleTouchMore":{"120x120":"assets/images/apple-touch-icon-120x120.png","180x180":"assets/images/apple-touch-icon-120x120.png"}},"expandable-chapters-small":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Panda8z","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Panda8z Go Dairy Archive","language":"zh-hans","links":{"sidebar":{"GitHub托管的CSBlog":"https://moreme.top"}},"gitbook":"3.2.3","description":"Computer System"},"file":{"path":"2020-05-21/LRU算法详解.md","mtime":"2020-05-22T11:56:53.446Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-05-22T11:57:38.392Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-github/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

@@ -1,0 +1,1811 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-hans" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>101. 对称二叉树.md · Panda8z Go Dairy Archive</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="Panda8z">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-katex/katex.min.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="1.两数之和.html" />
+    
+    
+    <link rel="prev" href="../2020-05-11/面试题04-03-特定深度节点链表.html" />
+    
+
+    
+        <link rel="shortcut icon" href='../assets/images/favicon.ico' type="image/x-icon">
+    
+    
+        <link rel="bookmark" href='../assets/images/favicon.ico' type="image/x-icon">
+    
+    
+        <link rel="apple-touch-icon" href='../assets/images/apple-touch-icon.png'>
+    
+    
+        
+        <link rel="apple-touch-icon" sizes="120x120" href="../assets/images/apple-touch-icon-120x120.png">
+        
+        <link rel="apple-touch-icon" sizes="180x180" href="../assets/images/apple-touch-icon-120x120.png">
+        
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="输入并搜索" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+    
+        
+        <li>
+            <a href="https://moreme.top" target="_blank" class="custom-link">GitHub托管的CSBlog</a>
+        </li>
+    
+    
+
+    
+    <li class="divider"></li>
+    
+
+    
+        
+        <li class="header">Golang工程师养成计划</li>
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../Golang工程师养成计划/Go语言基础/Go语言基础学习-目录.html">
+            
+                <a href="../Golang工程师养成计划/Go语言基础/Go语言基础学习-目录.html">
+            
+                    
+                    Go语言基础-上
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.1.1" data-path="../Golang工程师养成计划/Go语言基础/Go-基础-上-Day01-命令行.html">
+            
+                <a href="../Golang工程师养成计划/Go语言基础/Go-基础-上-Day01-命令行.html">
+            
+                    
+                    Day01-命令行
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.2" data-path="../Golang工程师养成计划/Go语言基础/Go-基础-上-Day02-怎么书写Go程序.html">
+            
+                <a href="../Golang工程师养成计划/Go语言基础/Go-基础-上-Day02-怎么书写Go程序.html">
+            
+                    
+                    Day02-怎么书写Go程序
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.3" data-path="../Golang工程师养成计划/Go语言基础/Go-基础-上-Day03-开始Go语言旅行.html">
+            
+                <a href="../Golang工程师养成计划/Go语言基础/Go-基础-上-Day03-开始Go语言旅行.html">
+            
+                    
+                    Day03-开始Go语言旅行
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.4" data-path="../2020-04-07/如何成为Go语言代码贡献者.html">
+            
+                <a href="../2020-04-07/如何成为Go语言代码贡献者.html">
+            
+                    
+                    如何成为Go语言代码贡献者
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.5" data-path="../2020-05-15/EffectiveGo-中文版.html">
+            
+                <a href="../2020-05-15/EffectiveGo-中文版.html">
+            
+                    
+                    EffectiveGo-中文版
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.6" data-path="../2020-04-08/go编译器-编译指示.html">
+            
+                <a href="../2020-04-08/go编译器-编译指示.html">
+            
+                    
+                    编译指示
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.7" data-path="../2020-04-12/Go语言原本-延迟语句.html">
+            
+                <a href="../2020-04-12/Go语言原本-延迟语句.html">
+            
+                    
+                    Go语言原本-延迟语句
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.1.7.1" data-path="../2020-04-05/Goroutine是怎么开始和退出的.html">
+            
+                <a href="../2020-04-05/Goroutine是怎么开始和退出的.html">
+            
+                    
+                    Goroutine是怎么开始和退出的
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.7.2" data-path="../2020-04-14/G0是怎么创建的.html">
+            
+                <a href="../2020-04-14/G0是怎么创建的.html">
+            
+                    
+                    G0是怎么创建的
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.7.3" data-path="../2020-04-09/Go语言原本-调度器.html">
+            
+                <a href="../2020-04-09/Go语言原本-调度器.html">
+            
+                    
+                    Go语言原本-调度器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.7.4" data-path="../2020-04-13/Go语言原本-channel.html">
+            
+                <a href="../2020-04-13/Go语言原本-channel.html">
+            
+                    
+                    Go语言原本-channel
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.8" data-path="../2020-04-07/defer的前世今生.html">
+            
+                <a href="../2020-04-07/defer的前世今生.html">
+            
+                    
+                    defer的前世今生
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.1.8.1" data-path="../2020-04-07/Go中defer.html">
+            
+                <a href="../2020-04-07/Go中defer.html">
+            
+                    
+                    Go中defer
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.8.2" data-path="../2020-04-07/Go中defer7个知识点.html">
+            
+                <a href="../2020-04-07/Go中defer7个知识点.html">
+            
+                    
+                    Go中defer7个知识点
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../Golang工程师养成计划/Go语言标准库/Go语言标准库学习-目录.html">
+            
+                <a href="../Golang工程师养成计划/Go语言标准库/Go语言标准库学习-目录.html">
+            
+                    
+                    Go语言标准库学习
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../Golang工程师养成计划/Go语言标准库/container-heap.html">
+            
+                <a href="../Golang工程师养成计划/Go语言标准库/container-heap.html">
+            
+                    
+                    container-heap 笔记
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Go语言刷题LeetCode</li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="../2020-04-07/Go实现LeetCode全集.html">
+            
+                <a href="../2020-04-07/Go实现LeetCode全集.html">
+            
+                    
+                    Go实现LeetCode全集
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="../2020-04-15/go-leetcode-TwoSum.html">
+            
+                <a href="../2020-04-15/go-leetcode-TwoSum.html">
+            
+                    
+                    leetcode-day01
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" data-path="../2020-04-17/go-leetcode-day02.html">
+            
+                <a href="../2020-04-17/go-leetcode-day02.html">
+            
+                    
+                    go-leetcode-day02
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4" data-path="../2020-04-18/go-leetcode-day03.html">
+            
+                <a href="../2020-04-18/go-leetcode-day03.html">
+            
+                    
+                    go-leetcode-day03
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.5" data-path="../2020-04-21/Go-leetcode-day04.html">
+            
+                <a href="../2020-04-21/Go-leetcode-day04.html">
+            
+                    
+                    Go-leetcode-day04
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.6" data-path="../2020-04-21/数据结构-二叉树时间复杂度.html">
+            
+                <a href="../2020-04-21/数据结构-二叉树时间复杂度.html">
+            
+                    
+                    数据结构-二叉树时间复杂度
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.7" data-path="../2020-05-09/530.二叉搜索树的最小绝对差.html">
+            
+                <a href="../2020-05-09/530.二叉搜索树的最小绝对差.html">
+            
+                    
+                    530.二叉搜索树的最小绝对差
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.8" data-path="../2020-05-09/二叉树的前中后遍历.html">
+            
+                <a href="../2020-05-09/二叉树的前中后遍历.html">
+            
+                    
+                    二叉树的前中后遍历
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.9" data-path="../2020-05-11/538.把二叉搜索树转换为累加树.html">
+            
+                <a href="../2020-05-11/538.把二叉搜索树转换为累加树.html">
+            
+                    
+                    538.把二叉搜索树转换为累加树
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.10" data-path="../2020-05-11/面试题04-03-特定深度节点链表.html">
+            
+                <a href="../2020-05-11/面试题04-03-特定深度节点链表.html">
+            
+                    
+                    面试题04-03-特定深度节点链表
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="2.11" data-path="101. 对称二叉树.html">
+            
+                <a href="101. 对称二叉树.html">
+            
+                    
+                    101. 对称二叉树.md
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.12" data-path="1.两数之和.html">
+            
+                <a href="1.两数之和.html">
+            
+                    
+                    1.两数之和.md
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.13" data-path="2. 两数相加.html">
+            
+                <a href="2. 两数相加.html">
+            
+                    
+                    2. 两数相加.md
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.14" data-path="3. 无重复字符的最长子串.html">
+            
+                <a href="3. 无重复字符的最长子串.html">
+            
+                    
+                    3. 无重复字符的最长子串.md
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.15" data-path="4. 寻找两个正序数组的中位数.html">
+            
+                <a href="4. 寻找两个正序数组的中位数.html">
+            
+                    
+                    4. 寻找两个正序数组的中位数.md
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Go语言生态系统</li>
+        
+        
+    
+        <li class="chapter " data-level="3.1" data-path="../2020-05-19/kratos-01-简介和安装.html">
+            
+                <a href="../2020-05-19/kratos-01-简介和安装.html">
+            
+                    
+                    kratos-01-简介和安装
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2" data-path="../2020-05-20/Go语言生态-认识极速轻量的Web框架.html">
+            
+                <a href="../2020-05-20/Go语言生态-认识极速轻量的Web框架.html">
+            
+                    
+                    Go: Fiber-一个极速轻量的Web框架
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3" data-path="../2020-05-19/操作系统-词汇表.html">
+            
+                <a href="../2020-05-19/操作系统-词汇表.html">
+            
+                    
+                    操作系统-词汇表
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.4" data-path="../2020-04-14/从0构建亿级微服务架构.html">
+            
+                <a href="../2020-04-14/从0构建亿级微服务架构.html">
+            
+                    
+                    从0构建亿级微服务架构
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.5" data-path="../2020-04-08/go做一个小型http服务器并优化实战.html">
+            
+                <a href="../2020-04-08/go做一个小型http服务器并优化实战.html">
+            
+                    
+                    go做一个小型http服务器并优化实战
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">日志</li>
+        
+        
+    
+        <li class="chapter " data-level="4.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    张向北的笔记本📒
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">2020-03-18</li>
+        
+        
+    
+        <li class="chapter " data-level="5.1" data-path="../2020-03-18/面试准备Day01.html">
+            
+                <a href="../2020-03-18/面试准备Day01.html">
+            
+                    
+                    工作展望
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.2" data-path="../2020-03-18/gitbook工具使用指南.html">
+            
+                <a href="../2020-03-18/gitbook工具使用指南.html">
+            
+                    
+                    gitbook工具使用指南
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">2020-04-05</li>
+        
+        
+    
+        <li class="chapter " data-level="6.1" data-path="../2020-04-05/Goroutine是怎么开始和退出的.html">
+            
+                <a href="../2020-04-05/Goroutine是怎么开始和退出的.html">
+            
+                    
+                    Goroutine是怎么开始和退出的
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">2020-04-07</li>
+        
+        
+    
+        <li class="chapter " data-level="7.1" data-path="../2020-04-07/defer的前世今生.html">
+            
+                <a href="../2020-04-07/defer的前世今生.html">
+            
+                    
+                    defer的前世今生
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="7.1.1" data-path="../2020-04-07/Go中defer.html">
+            
+                <a href="../2020-04-07/Go中defer.html">
+            
+                    
+                    Go中defer
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="7.1.2" data-path="../2020-04-07/Go中defer7个知识点.html">
+            
+                <a href="../2020-04-07/Go中defer7个知识点.html">
+            
+                    
+                    Go中defer7个知识点
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="7.2" data-path="../2020-04-07/Go实现LeetCode全集.html">
+            
+                <a href="../2020-04-07/Go实现LeetCode全集.html">
+            
+                    
+                    Go实现LeetCode全集
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="7.3" data-path="../2020-04-07/如何成为Go语言代码贡献者.html">
+            
+                <a href="../2020-04-07/如何成为Go语言代码贡献者.html">
+            
+                    
+                    如何成为Go语言代码贡献者
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="7.4" data-path="../2020-04-07/读书笔记-2020-04-07.html">
+            
+                <a href="../2020-04-07/读书笔记-2020-04-07.html">
+            
+                    
+                    读书笔记-2020-04-07
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">2020-04-08</li>
+        
+        
+    
+        <li class="chapter " data-level="8.1" data-path="../2020-04-08/go编译器-编译指示.html">
+            
+                <a href="../2020-04-08/go编译器-编译指示.html">
+            
+                    
+                    编译指示
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="8.2" data-path="../2020-04-08/go做一个小型http服务器并优化实战.html">
+            
+                <a href="../2020-04-08/go做一个小型http服务器并优化实战.html">
+            
+                    
+                    go做一个小型http服务器并优化实战
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">2020-04-09</li>
+        
+        
+    
+        <li class="chapter " data-level="9.1" data-path="../2020-04-09/Go语言原本-调度器.html">
+            
+                <a href="../2020-04-09/Go语言原本-调度器.html">
+            
+                    
+                    Go语言原本-调度器
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">2020-04-10</li>
+        
+        
+    
+        <li class="chapter " data-level="10.1" data-path="../2020-04-10/go垃圾回收.html">
+            
+                <a href="../2020-04-10/go垃圾回收.html">
+            
+                    
+                    go垃圾回收
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">2020-04-11</li>
+        
+        
+    
+        <li class="chapter " data-level="11.1" data-path="../2020-04-11/2020-04-11-日志.html">
+            
+                <a href="../2020-04-11/2020-04-11-日志.html">
+            
+                    
+                    2020-04-11-日志
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">2020-04-12</li>
+        
+        
+    
+        <li class="chapter " data-level="12.1" data-path="../2020-04-12/Go语言原本-延迟语句.html">
+            
+                <a href="../2020-04-12/Go语言原本-延迟语句.html">
+            
+                    
+                    Go语言原本-延迟语句
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">2020-04-13</li>
+        
+        
+    
+        <li class="chapter " data-level="13.1" data-path="../2020-04-13/Go语言原本-channel.html">
+            
+                <a href="../2020-04-13/Go语言原本-channel.html">
+            
+                    
+                    Go语言原本-channel
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="13.2" data-path="../2020-04-13/2020-04-13-日志.html">
+            
+                <a href="../2020-04-13/2020-04-13-日志.html">
+            
+                    
+                    2020-04-13-日志
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">2020-04-14</li>
+        
+        
+    
+        <li class="chapter " data-level="14.1" data-path="../2020-04-14/G0是怎么创建的.html">
+            
+                <a href="../2020-04-14/G0是怎么创建的.html">
+            
+                    
+                    G0是怎么创建的
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="14.2" data-path="../2020-04-14/从0构建亿级微服务架构.html">
+            
+                <a href="../2020-04-14/从0构建亿级微服务架构.html">
+            
+                    
+                    从0构建亿级微服务架构
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">2020-04-15</li>
+        
+        
+    
+        <li class="chapter " data-level="15.1" data-path="../2020-04-15/go-leetcode-TwoSum.html">
+            
+                <a href="../2020-04-15/go-leetcode-TwoSum.html">
+            
+                    
+                    leetcode-day01
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">2020-04-17</li>
+        
+        
+    
+        <li class="chapter " data-level="16.1" data-path="../2020-04-17/go-leetcode-day02.html">
+            
+                <a href="../2020-04-17/go-leetcode-day02.html">
+            
+                    
+                    go-leetcode-day02
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">2020-04-18</li>
+        
+        
+    
+        <li class="chapter " data-level="17.1" data-path="../2020-04-18/go-leetcode-day03.html">
+            
+                <a href="../2020-04-18/go-leetcode-day03.html">
+            
+                    
+                    go-leetcode-day03
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="17.2" data-path="../2020-04-18/timepill-api分析.html">
+            
+                <a href="../2020-04-18/timepill-api分析.html">
+            
+                    
+                    timepill-api分析
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">2020-04-21</li>
+        
+        
+    
+        <li class="chapter " data-level="18.1" data-path="../2020-04-21/Go-leetcode-day04.html">
+            
+                <a href="../2020-04-21/Go-leetcode-day04.html">
+            
+                    
+                    Go-leetcode-day04
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="18.2" data-path="../2020-04-21/Go-VScode-debug-go-program.html">
+            
+                <a href="../2020-04-21/Go-VScode-debug-go-program.html">
+            
+                    
+                    Go-VScode-debug-go-program
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="18.3" data-path="../2020-04-21/数据结构-二叉树时间复杂度.html">
+            
+                <a href="../2020-04-21/数据结构-二叉树时间复杂度.html">
+            
+                    
+                    数据结构-二叉树时间复杂度
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">2020-04-22</li>
+        
+        
+    
+        <li class="chapter " data-level="19.1" data-path="../2020-04-22/2020-04-22-笔记.html">
+            
+                <a href="../2020-04-22/2020-04-22-笔记.html">
+            
+                    
+                    2020-04-22-笔记📒
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="19.2" data-path="../2020-04-23/2020-04-23-笔记.html">
+            
+                <a href="../2020-04-23/2020-04-23-笔记.html">
+            
+                    
+                    2020-04-23-笔记📒
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="19.3" data-path="../2020-04-24/2020-04-24-笔记.html">
+            
+                <a href="../2020-04-24/2020-04-24-笔记.html">
+            
+                    
+                    2020-04-24-笔记📒
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="19.4" data-path="../2020-04-26/2020-04-26-笔记.html">
+            
+                <a href="../2020-04-26/2020-04-26-笔记.html">
+            
+                    
+                    2020-04-26-笔记📒
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="19.5" data-path="../2020-04-27/2020-04-27-笔记.html">
+            
+                <a href="../2020-04-27/2020-04-27-笔记.html">
+            
+                    
+                    2020-04-27-笔记📒
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="19.6" data-path="../2020-04-28/2020-04-28-笔记.html">
+            
+                <a href="../2020-04-28/2020-04-28-笔记.html">
+            
+                    
+                    2020-04-28-笔记📒
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="19.7" data-path="../2020-04-29/2020-04-29-笔记.html">
+            
+                <a href="../2020-04-29/2020-04-29-笔记.html">
+            
+                    
+                    2020-04-29-笔记📒
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="19.8" data-path="../2020-04-30/2020-04-30-笔记.html">
+            
+                <a href="../2020-04-30/2020-04-30-笔记.html">
+            
+                    
+                    2020-04-30-笔记📒
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="19.9" data-path="../2020-05-01/2020-05-01-笔记.html">
+            
+                <a href="../2020-05-01/2020-05-01-笔记.html">
+            
+                    
+                    2020-05-01-笔记📒
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="19.10" data-path="../2020-05-02/2020-05-02-笔记.html">
+            
+                <a href="../2020-05-02/2020-05-02-笔记.html">
+            
+                    
+                    2020-05-02-笔记📒
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="19.11" data-path="../2020-05-03/2020-05-03-笔记.html">
+            
+                <a href="../2020-05-03/2020-05-03-笔记.html">
+            
+                    
+                    2020-05-03-笔记📒
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="19.12" data-path="../2020-05-04/2020-05-04-笔记.html">
+            
+                <a href="../2020-05-04/2020-05-04-笔记.html">
+            
+                    
+                    2020-05-04-笔记📒
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="19.13" data-path="../2020-05-06/2020-05-06-笔记.html">
+            
+                <a href="../2020-05-06/2020-05-06-笔记.html">
+            
+                    
+                    2020-05-06-笔记📒
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="19.14" data-path="../2020-05-07/2020-05-07-笔记.html">
+            
+                <a href="../2020-05-07/2020-05-07-笔记.html">
+            
+                    
+                    2020-05-07-笔记📒
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="19.15" data-path="../2020-05-08/2020-05-08-笔记.html">
+            
+                <a href="../2020-05-08/2020-05-08-笔记.html">
+            
+                    
+                    2020-05-08-笔记📒
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="19.16" data-path="../2020-05-09/2020-05-09-笔记.html">
+            
+                <a href="../2020-05-09/2020-05-09-笔记.html">
+            
+                    
+                    2020-05-09-笔记📒
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="19.16.1" data-path="../2020-05-09/530.二叉搜索树的最小绝对差.html">
+            
+                <a href="../2020-05-09/530.二叉搜索树的最小绝对差.html">
+            
+                    
+                    530.二叉搜索树的最小绝对差
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="19.16.2" data-path="../2020-05-09/二叉树的前中后遍历.html">
+            
+                <a href="../2020-05-09/二叉树的前中后遍历.html">
+            
+                    
+                    二叉树的前中后遍历
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="19.17" data-path="../2020-05-10/2020-05-10-笔记.html">
+            
+                <a href="../2020-05-10/2020-05-10-笔记.html">
+            
+                    
+                    2020-05-10-笔记📒
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="19.18" data-path="../2020-05-11/2020-05-11-笔记.html">
+            
+                <a href="../2020-05-11/2020-05-11-笔记.html">
+            
+                    
+                    2020-05-11-笔记📒
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="19.18.1" data-path="../2020-05-11/538.把二叉搜索树转换为累加树.html">
+            
+                <a href="../2020-05-11/538.把二叉搜索树转换为累加树.html">
+            
+                    
+                    538.把二叉搜索树转换为累加树
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="19.18.2" data-path="../2020-05-11/面试题04-03-特定深度节点链表.html">
+            
+                <a href="../2020-05-11/面试题04-03-特定深度节点链表.html">
+            
+                    
+                    面试题04-03-特定深度节点链表
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="19.19" data-path="../2020-05-15/2020-05-15-笔记.html">
+            
+                <a href="../2020-05-15/2020-05-15-笔记.html">
+            
+                    
+                    2020-05-15-笔记
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="19.19.1" data-path="../2020-05-15/YouTube-dl命令下载YouTube的视频.html">
+            
+                <a href="../2020-05-15/YouTube-dl命令下载YouTube的视频.html">
+            
+                    
+                    YouTube-dl命令下载YouTube的视频
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="19.19.2" data-path="../2020-05-15/EffectiveGo-中文版.html">
+            
+                <a href="../2020-05-15/EffectiveGo-中文版.html">
+            
+                    
+                    EffectiveGo-中文版
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="19.20" data-path="../2020-05-19/2020-05-19-笔记.html">
+            
+                <a href="../2020-05-19/2020-05-19-笔记.html">
+            
+                    
+                    2020-05-19-笔记
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="19.20.1" data-path="../2020-05-19/kratos-01-简介和安装.html">
+            
+                <a href="../2020-05-19/kratos-01-简介和安装.html">
+            
+                    
+                    kratos-01-简介和安装
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="19.20.2" data-path="../2020-05-19/操作系统-词汇表.html">
+            
+                <a href="../2020-05-19/操作系统-词汇表.html">
+            
+                    
+                    操作系统-词汇表
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="19.21" data-path="../2020-05-20/2020-05-20-笔记.html">
+            
+                <a href="../2020-05-20/2020-05-20-笔记.html">
+            
+                    
+                    2020-05-20-笔记
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="19.21.1" data-path="../2020-05-20/Go语言生态-认识极速轻量的Web框架.html">
+            
+                <a href="../2020-05-20/Go语言生态-认识极速轻量的Web框架.html">
+            
+                    
+                    Go语言生态-认识极速轻量的Web框架
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="19.22" data-path="2020-05-22-笔记.html">
+            
+                <a href="2020-05-22-笔记.html">
+            
+                    
+                    2020-05-22-笔记.md
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="19.22.1" data-path="../2020-05-21/LRU算法详解.html">
+            
+                <a href="../2020-05-21/LRU算法详解.html">
+            
+                    
+                    LRU算法详解.md
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="19.22.2" data-path="../2020-05-21/kratos-01-快速入门.html">
+            
+                <a href="../2020-05-21/kratos-01-快速入门.html">
+            
+                    
+                    kratos-01-快速入门.md
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="19.23" data-path="../2020-05-21/2020-05-21-笔记.html">
+            
+                <a href="../2020-05-21/2020-05-21-笔记.html">
+            
+                    
+                    2020-05-21-笔记.md
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter active" data-level="19.23.1" data-path="101. 对称二叉树.html">
+            
+                <a href="101. 对称二叉树.html">
+            
+                    
+                    101. 对称二叉树.md
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本书使用 GitBook 发布
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >101. 对称二叉树.md</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="101&#x5BF9;&#x79F0;&#x4E8C;&#x53C9;&#x6811;-&#x5982;&#x4F55;&#x7406;&#x89E3;&#x9012;&#x5F52;&#xFF1F;&#x8BE6;&#x7EC6;&#x56FE;&#x89E3;">101.&#x5BF9;&#x79F0;&#x4E8C;&#x53C9;&#x6811;-&#x5982;&#x4F55;&#x7406;&#x89E3;&#x9012;&#x5F52;&#xFF1F;&#x8BE6;&#x7EC6;&#x56FE;&#x89E3;</h1>
+<h2 id="&#x9012;&#x5F52;&#x6CD5;">&#x9012;&#x5F52;&#x6CD5;</h2>
+<p>&#x4E00;&#x822C;&#x6811;&#x76F8;&#x5173;&#x7684;&#x9898;&#x7528;&#x9012;&#x5F52;&#x90FD;&#x975E;&#x5E38;&#x5BB9;&#x6613;&#x7406;&#x89E3;&#xFF0C;&#x4F46;&#x662F;&#x5F88;&#x591A;&#x65F6;&#x5019;&#xFF0C;&#x8FD9;&#x4E2A;&#x5F88;&#x597D;&#x7406;&#x89E3;&#x662F;&#x5728;&#x770B;&#x5230;&#x4EE3;&#x7801;&#x540E;...
+&#x6240;&#x4EE5;&#x5728;&#x505A;&#x4E86;&#x4E00;&#x4E9B;&#x6811;&#x76F8;&#x5173;&#x7684;&#x9898;&#x540E;&#xFF0C;&#x5728;&#x8FD9;&#x91CC;&#x5C31;&#x8BB2;&#x4E00;&#x4E0B;&#x6211;&#x5BF9;&#x6811;&#x7ED3;&#x6784;&#x4E2D;&#x9012;&#x5F52;&#x7684;&#x7406;&#x89E3;&#xFF0C;&#x4F9B;&#x5927;&#x5BB6;&#x53C2;&#x8003;&#x3002;</p>
+<ul>
+<li>&#x9012;&#x5F52;&#x7684;&#x672C;&#x8D28;&#x662F;&#x4EC0;&#x4E48;&#x5462;&#xFF1F;&#x7B80;&#x5355;&#x8BF4;&#xFF1A; <strong>&#x5927;&#x95EE;&#x9898;</strong> -&gt; &#x82E5;&#x5E72; <strong>&#x89C4;&#x6A21;&#x66F4;&#x5C0F;</strong> &#x4E14; <strong>&#x7ED3;&#x6784;&#x76F8;&#x540C;</strong> &#x7684; <strong>&#x5C0F;&#x95EE;&#x9898;</strong><ul>
+<li>&#x90A3;&#x4E48;&#x6211;&#x4EEC;&#x53EA;&#x8981;&#x6293;&#x4F4F;&#x4E24;&#x4E2A;&#x6838;&#x5FC3;&#xFF1A; <code>1) &#x89C4;&#x6A21;&#x66F4;&#x5C0F;&#xFF08;&#x5206;&#x6CBB;&#xFF09;</code>&#xFF1B;<code>2) &#x7ED3;&#x6784;&#x76F8;&#x540C;&#xFF08;&#x5171;&#x6027;&#xFF09;</code></li>
+</ul>
+</li>
+<li>&#x7531;&#x4E8E;&#x6811;&#x7ED3;&#x6784;&#x672C;&#x8EAB;&#x5C31;&#x5177;&#x6709;<code>&#x5206;&#x6CBB;</code>&#x7684;&#x7279;&#x6027;&#xFF0C;&#x56E0;&#x4E3A;&#x6811;&#x7ED3;&#x6784;&#x7684;&#x7236;&#x5B50;&#x5173;&#x7CFB;; &#xFF08;&#x4E0B;&#x6587;&#x6709;&#x8BE6;&#x7EC6;&#x89E3;&#x91CA;&#xFF09;</li>
+<li>&#x6240;&#x4EE5;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x505A;&#x7684;&#x5C31;&#x662F;&#x627E;<code>&#x5171;&#x6027;</code>&#xFF0C;&#x800C;&#x6240;&#x8C13;&#x7684;&#x5171;&#x6027;&#x5C31;&#x662F;&#xFF1A;<strong>&#x6EE1;&#x8DB3;&#x76F8;&#x540C;&#x7684;&#x89C4;&#x5F8B;</strong></li>
+</ul>
+<h3 id="&#x5206;&#x6790;">&#x5206;&#x6790;</h3>
+<p>&#x5C31;&#x672C;&#x9898;&#x800C;&#x8A00;&#xFF0C;&#x6211;&#x4EEC;&#x770B;&#x4E0B;&#x56FE;&#xFF1A;
+&#x5728;&#x8FD9;&#x6837;&#x4E00;&#x4E2A;&#x5BF9;&#x79F0;&#x7684;&#x4E8C;&#x53C9;&#x6811;&#x4E2D;&#xFF0C;&#x56FE; (a)&#xFF0C;(c)&#xFF0C;(d) &#x4E2D;&#x7684;&#x84DD;&#x8272;&#x8282;&#x70B9;&#x90E8;&#x5206;&#x5C31;&#x662F;&#x6211;&#x4EEC;&#x8981;&#x5BFB;&#x627E;&#x7684;<code>&#x5171;&#x6027;</code></p>
+<p>&#x9996;&#x5148;&#x770B;&#x56FE; (a)&#xFF0C;&#x7531;&#x4E8E;&#x5BF9;&#x79F0;&#xFF0C;&#x6240;&#x4EE5;&#x5728;&#x8FD9;&#x4E2A;&#x533A;&#x57DF;&#x5185;&#xFF0C;&#x4FDD;&#x6301;&#x8FD9;&#x6837;&#x4E00;&#x4E2A;<code>&#x89C4;&#x5F8B;</code>&#xFF08;&#x5171;&#x6027;&#xFF09;&#xFF1A;</p>
+<ol>
+<li><strong>&#x4E24;&#x4E2A;&#x7236;&#x8282;&#x70B9;&#x7684;&#x503C;&#x76F8;&#x7B49;</strong>: left.val == right.val<em>l<strong>e</strong>f**t</em>.<em>v<strong>a</strong>l</em>==<em>r<strong>i</strong>g<strong>h</strong>t</em>.<em>v<strong>a</strong>l</em></li>
+<li><strong>&#x5DE6;&#x7236;&#x4EB2;&#x7684;&#x53F3;&#x5B50;&#x7684;&#x503C;</strong> == <strong>&#x53F3;&#x7236;&#x4EB2;&#x7684;&#x5DE6;&#x5B50;&#x7684;&#x503C;</strong>&#xFF1A; left.right \ == right.left<em>l<strong>e</strong>f**t</em>.<em>r<strong>i</strong>g<strong>h</strong>t</em> ==<em>r<strong>i</strong>g<strong>h</strong>t</em>.<em>l<strong>e</strong>f**t</em></li>
+<li><strong>&#x5DE6;&#x7236;&#x4EB2;&#x7684;&#x5DE6;&#x5B50;&#x7684;&#x503C;</strong> == <strong>&#x53F3;&#x7236;&#x4EB2;&#x7684;&#x53F3;&#x5B50;&#x7684;&#x503C;</strong>&#xFF1A; left.left \ \ \ == right.right<em>l<strong>e</strong>f**t</em>.<em>l<strong>e</strong>f**t</em>  ==<em>r<strong>i</strong>g<strong>h</strong>t</em>.<em>r<strong>i</strong>g<strong>h</strong>t</em></li>
+</ol>
+<p>&#x5927;&#x5BB6;&#x770B;(c)&#x3001;(d) &#x7684;&#x84DD;&#x8272;&#x8282;&#x70B9;&#x90E8;&#x5206;&#xFF0C;&#x662F;&#x4E0D;&#x662F;&#x548C;&#x4E0A;&#x9762;&#x7684;&#x6811;&#x7684;&#x84DD;&#x8272;&#x8282;&#x70B9;&#x90E8;&#x5206;&#x4FDD;&#x6301;&#x4E86;&#x76F8;&#x540C;&#x7684;&#x89C4;&#x5F8B;&#xFF1B;
+<img src="../Users/zcj/panda/git4me/daily-log-archive/2020-05-22/101. &#x5BF9;&#x79F0;&#x4E8C;&#x53C9;&#x6811;/ff74f26781a4eff54e414a6716578a44ed20e862450ecc3f54dfbd3ef0d86efb-&#x56FE;&#x7247;.png" alt="&#x56FE;&#x7247;.png"></p>
+<p>&#x597D;&#xFF0C;&#x73B0;&#x5728;&#x6211;&#x4EEC;&#x5DF2;&#x7ECF;&#x627E;&#x5230;&#x4E86;&#x89C4;&#x5F8B;&#xFF0C;&#x63A5;&#x4E0B;&#x6765;&#x5C31;&#x662F;&#x91CD;&#x70B9;&#xFF0C;<strong>&#x5982;&#x4F55;&#x7406;&#x89E3;&#x6811;&#x672C;&#x8EAB;&#x7684;&#x5206;&#x6CBB;&#x7279;&#x6027;&#xFF1F;&#x5373;&#x5982;&#x4F55;&#x627E;&#x5230;&#x5B50;&#x95EE;&#x9898;&#x5462;&#xFF1F;</strong></p>
+<blockquote>
+<p>&#x6211;&#x4EE5;&#x524D;&#x521A;&#x63A5;&#x89E6; &#x6811; &#x7684;&#x9898;&#xFF0C;&#x4EE5;&#x4E3A;&#x7684;&#x6811;&#x4E2D;&#x9012;&#x5F52;&#x5212;&#x5206;&#x5B50;&#x95EE;&#x9898;&#x662F;&#xFF0C;&#x76F4;&#x63A5;&#x5C06;&#x5F53;&#x524D;&#x8FD9;&#x4E2A;&#x7ED3;&#x6784;&#x4F20;&#x9012;&#x7ED9;&#x5176;&#x5B50;&#x7ED3;&#x6784;&#x3002;&#x5C31;&#x8FD9;&#x4E2A;&#x9898;&#x800C;&#x8A00;&#xFF0C;&#x6211;&#x4EEC;&#x5DF2;&#x7ECF;&#x627E;&#x5230;&#x4E86;&#x5177;&#x6709;&#x5171;&#x6027;&#x7684;&#x7ED3;&#x6784;&#xFF0C;&#x5373;&#x56FE;(a)&#x4E2D;&#x84DD;&#x8272;&#x7684;&#x90E8;&#x5206;&#xFF0C;&#x90A3;&#x4E48;&#x6309;&#x6211;&#x4E4B;&#x524D;&#x7684;&#x7406;&#x89E3;&#xFF0C;&#x9012;&#x5F52;&#x7684;&#x4E0B;&#x4E00;&#x5C42;&#x5C31;&#x662F;<code>left(2)</code> &#x548C; <code>right(2)</code>&#x8282;&#x70B9;&#x7684;&#x5DE6;&#x53F3;&#x5B50;&#x8282;&#x70B9;&#xFF0C;&#x5373;<code>3</code>&#xFF0C;<code>4</code> &#x8282;&#x70B9;&#x53CA;&#x5176;&#x5B50;&#x8282;&#x70B9;&#x6784;&#x6210;&#x7684;&#x7ED3;&#x6784;&#xFF1B;&#x5F88;&#x660E;&#x663E;&#xFF0C;&#x8FD9;&#x4E48;&#x6765;&#x601D;&#x8003;&#x6211;&#x4EEC;&#x4F1A;&#x5F97;&#x51FA;&#x9519;&#x8BEF;&#x7684;&#x7ED3;&#x8BBA;&#xFF0C;&#x5373; <code>3</code>&#xFF0C;<code>4</code> &#x4E24;&#x9897;&#x5B50;&#x6811;&#x6784;&#x6210;&#x7684;&#x5B50;&#x7ED3;&#x6784;&#x5E76;&#x4E0D;&#x5BF9;&#x79F0;&#xFF01;</p>
+</blockquote>
+<p>&#x800C;&#x6B63;&#x786E;&#x7684;&#x601D;&#x8003;&#x65B9;&#x5F0F;&#x662F;&#x56FE;(b), &#x4E0D;&#x8981;&#x628A;&#x56FE; (a)&#x7684;&#x84DD;&#x8272;&#x90E8;&#x5206;&#x5F53;&#x505A;&#x6574;&#x4E2A;&#x6811;&#x7684;<strong>&#x4E00;&#x4E2A;&#x90E8;&#x5206;</strong>&#xFF0C;&#x800C;&#x662F;&#x628A;&#x8FD9;&#x4E2A;&#x7ED3;&#x6784;&#x5F53;&#x505A;<strong>&#x6574;&#x4E2A;&#x6811;&#x7684;&#x62BD;&#x8C61;</strong>&#xFF01;</p>
+<blockquote>
+<ul>
+<li>&#x6211;&#x4EEC;&#x62BD;&#x53D6;&#x7684;&#x8FD9;&#x4E2A;&#x5177;&#x6709;&#x5171;&#x6027;&#x7684;&#x7ED3;&#x6784;&#xFF0C;&#x5176;&#x5B9E;&#x5C31;&#x662F;&#x8FD9;&#x4E2A;&#x6811;&#x672C;&#x8EAB;&#xFF1B;</li>
+<li>&#x800C;&#x6211;&#x4EEC;&#x63D0;&#x53D6;&#x7684;&#x8FD9;&#x4E2A;&#x89C4;&#x5F8B;&#xFF0C;&#x5728;&#x8FD9;&#x4E2A;&#x6811;&#x7684;&#x4EFB;&#x610F;&#x4E00;&#x4E2A;&#x5B50;&#x7ED3;&#x6784;&#x90FD;&#x6EE1;&#x8DB3;&#xFF01;</li>
+<li>&#x8FD9;&#x91CC;&#x7684;&#x5B50;&#x7ED3;&#x6784;&#x5C31;&#x662F; <code>3</code>,<code>4</code>,<code>4</code>,<code>3</code> &#x56DB;&#x9897;&#x5B50;&#x6811;;</li>
+<li>&#x5176;&#x4E2D;&#x6700;&#x5173;&#x952E;&#x7684;&#x9012;&#x5F52;&#x903B;&#x8F91;&#x5C31;&#x662F;&#xFF1A; &#x5224;&#x65AD;&#x7236;&#x7ED3;&#x6784;&#x6EE1;&#x8DB3;&#x89C4;&#x5F8B;&#x7684;&#x524D;&#x63D0;&#x662F;&#x6240;&#x6709;&#x5B50;&#x7ED3;&#x6784;&#x5168;&#x90E8;&#x6EE1;&#x8DB3;</li>
+</ul>
+</blockquote>
+<p>&#x518D;&#x4E3E;&#x4E2A;&#x7B80;&#x5355;&#x7684;&#x4F8B;&#x5B50;&#xFF1A;
+&#x6211;&#x73B0;&#x5728;&#x8981;&#x5B8C;&#x6210;&#x4E00;&#x4E2A;&#x4EFB;&#x52A1;&#xFF0C;&#x7531;&#x4E8E;&#x6211;&#x975E;&#x5E38;&#x61D2;&#xFF0C;&#x4E8E;&#x662F;&#x6211;&#x5C31;&#x628A;&#x8FD9;&#x4E2A;&#x4EFB;&#x52A1;&#x5206;&#x6210;&#x4E24;&#x4E2A;&#x90E8;&#x5206;&#xFF0C;&#x5206;&#x522B;&#x4EA4;&#x4E2A;<code>A</code>, <code>B</code>&#x53BB;&#x5B8C;&#x6210;
+&#x8C01;&#x6599;&#x5230;<code>A</code>&#xFF0C;<code>B</code> &#x4E5F;&#x7279;&#x522B;&#x61D2;&#xFF0C;<code>A</code>&#x628A;&#x4EFB;&#x52A1;&#x4E5F;&#x5BF9;&#x534A;&#x5206;&#xFF0C;&#x4EA4;&#x7ED9;&#x4E86;<code>A1</code>,<code>A2</code> ; <code>B</code> &#x4E5F;&#x628A;&#x4EFB;&#x52A1;&#x5BF9;&#x534A;&#x5206;&#xFF0C;&#x4EA4;&#x7ED9;&#x4E86; <code>B1</code>,<code>B2</code>
+&#x6240;&#x4EE5;&#x6211;&#x7684;&#x8FD9;&#x4E2A;&#x4E8B;&#x7684;&#x5B8C;&#x6210;&#x53D6;&#x51B3;&#x4E8E;&#xFF1A; <code>A1</code>&#xFF0C;<code>A2</code>&#xFF0C;<code>B1</code>&#xFF0C;<code>B2</code> &#x56DB;&#x4E2A;&#x4EBA;&#x5B8C;&#x6210;&#x4EFB;&#x52A1;&#x540E;&#xFF0C;&#x6211;&#x7684;&#x4EFB;&#x52A1;&#x624D;&#x7B97;&#x505A;&#x5B8C;&#x4E86;</p>
+<p>&#x6709;&#x4E86;&#x4EE5;&#x4E0A;&#x7684;&#x94FA;&#x57AB;&#xFF0C;&#x6211;&#x4EEC;&#x518D;&#x53BB;&#x770B;&#x4E0B;&#x9762;&#x7684;&#x4EE3;&#x7801;&#xFF0C;checkSymetry()<em>c<strong>h</strong>e<strong>c</strong>k<strong>S</strong>y<strong>m</strong>e<strong>t</strong>r**y</em>() &#x65B9;&#x6CD5;&#x5C31;&#x662F;&#x7528;&#x6765;&#x9A8C;&#x8BC1;&#x4E0A;&#x8FF0;&#x89C4;&#x5F8B;&#x7684;&#x4E09;&#x6761;</p>
+<ol>
+<li><strong>&#x4E24;&#x4E2A;&#x7236;&#x8282;&#x70B9;&#x7684;&#x503C;&#x76F8;&#x7B49;</strong>: left.val == right.val<em>l<strong>e</strong>f**t</em>.<em>v<strong>a</strong>l</em>==<em>r<strong>i</strong>g<strong>h</strong>t</em>.<em>v<strong>a</strong>l</em></li>
+<li><strong>&#x5DE6;&#x7236;&#x4EB2;&#x7684;&#x53F3;&#x5B50;*&#x7684;&#x503C;</strong> == <strong>&#x53F3;&#x7236;&#x4EB2;&#x7684;&#x5DE6;&#x5B50;*&#x7684;&#x503C;</strong>&#xFF1A; left.right \ == right.left<em>l<strong>e</strong>f**t</em>.<em>r<strong>i</strong>g<strong>h</strong>t</em> ==<em>r<strong>i</strong>g<strong>h</strong>t</em>.<em>l<strong>e</strong>f**t</em></li>
+<li><strong>&#x5DE6;&#x7236;&#x4EB2;&#x7684;&#x5DE6;&#x5B50;*&#x7684;&#x503C;</strong> == <strong>&#x53F3;&#x7236;&#x4EB2;&#x7684;&#x53F3;&#x5B50;*&#x7684;&#x503C;</strong>&#xFF1A; left.left \ \ \ == right.right<em>l<strong>e</strong>f**t</em>.<em>l<strong>e</strong>f**t</em>  ==<em>r<strong>i</strong>g<strong>h</strong>t</em>.<em>r<strong>i</strong>g<strong>h</strong>t</em></li>
+</ol>
+<p>&#x53EA;&#x4E0D;&#x8FC7;&#x6211;&#x4EEC;&#x5728;&#x68C0;&#x67E5;&#x89C4;&#x5F8B;<code>2</code>,<code>3</code>&#x7684;&#x540C;&#x65F6;&#xFF0C;&#x53C8;&#x9012;&#x5F52;&#x7684;&#x68C0;&#x67E5;&#x7684;&#x5B50;&#x6811;&#x662F;&#x5426;&#x6EE1;&#x8DB3;&#x89C4;&#x5F8B;&#x800C;&#x5DF2;&#x3002;<strong>&#x56E0;&#x4E3A;&#x5B50;&#x6811;&#x6EE1;&#x8DB3;&#x89C4;&#x5F8B;&#x662F;&#x524D;&#x63D0;&#xFF01;</strong></p>
+<ul>
+<li>checkSymetry(left.right, right.left)<em>c<strong>h</strong>e<strong>c</strong>k<strong>S</strong>y<strong>m</strong>e<strong>t</strong>r**y</em>(<em>l<strong>e</strong>f**t</em>.<em>r<strong>i</strong>g<strong>h</strong>t</em>,<em>r<strong>i</strong>g<strong>h</strong>t</em>.<em>l<strong>e</strong>f**t</em>)</li>
+<li>checkSymetry(left.left, right.right)<em>c<strong>h</strong>e<strong>c</strong>k<strong>S</strong>y<strong>m</strong>e<strong>t</strong>r**y</em>(<em>l<strong>e</strong>f**t</em>.<em>l<strong>e</strong>f**t</em>,<em>r<strong>i</strong>g<strong>h</strong>t</em>.<em>r<strong>i</strong>g<strong>h</strong>t</em>)</li>
+</ul>
+<p>&#x4EE5;&#x4E0A;&#x662F;&#x6211;&#x4E2A;&#x4EBA;&#x7684;&#x7406;&#x89E3;&#xFF0C;&#x611F;&#x8C22;&#x6709;&#x8010;&#x5FC3;&#x770B;&#x5230;&#x8FD9;&#x91CC;&#x7684;&#x4F60;&#x4EEC;! &#x6709;&#x95EE;&#x9898;&#x53EF;&#x4EE5;&#x8BC4;&#x8BBA;&#x4EA4;&#x6D41;&#x6307;&#x6B63;~</p>
+<pre><code class="lang-java"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> </span>{
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">isSymmetric</span><span class="hljs-params">(TreeNode root)</span> </span>{
+        <span class="hljs-keyword">return</span> root == <span class="hljs-keyword">null</span> || checkSymetry(root.left, root.right);
+    }
+    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">checkSymetry</span><span class="hljs-params">(TreeNode left, TreeNode right)</span> </span>{
+        <span class="hljs-keyword">if</span> (left == <span class="hljs-keyword">null</span> &amp;&amp; right == <span class="hljs-keyword">null</span>) { <span class="hljs-keyword">return</span> <span class="hljs-keyword">true</span>; }
+        <span class="hljs-keyword">if</span> (left == <span class="hljs-keyword">null</span> || right == <span class="hljs-keyword">null</span>) { <span class="hljs-keyword">return</span> <span class="hljs-keyword">false</span>; }
+        <span class="hljs-keyword">return</span> left.val == right.val 
+             &amp;&amp; checkSymetry(left.right, right.left) 
+             &amp;&amp; checkSymetry(left.left,  right.right);
+    }
+}
+</code></pre>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="../2020-05-11/面试题04-03-特定深度节点链表.html" class="navigation navigation-prev " aria-label="Previous page: 面试题04-03-特定深度节点链表">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="1.两数之和.html" class="navigation navigation-next " aria-label="Next page: 1.两数之和.md">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"101. 对称二叉树.md","level":"2.11","depth":1,"next":{"title":"1.两数之和.md","level":"2.12","depth":1,"path":"2020-05-22/1.两数之和.md","ref":"2020-05-22/1.两数之和.md","articles":[]},"previous":{"title":"面试题04-03-特定深度节点链表","level":"2.10","depth":1,"path":"2020-05-11/面试题04-03-特定深度节点链表.md","ref":"2020-05-11/面试题04-03-特定深度节点链表.md","articles":[]},"dir":"ltr"},"config":{"plugins":["expandable-chapters-small","favicon","github","katex"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"github":{"url":"https://github.com/panda8z"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":{"shortcut":"assets/images/favicon.ico","bookmark":"assets/images/favicon.ico","appleTouch":"assets/images/apple-touch-icon.png","appleTouchMore":{"120x120":"assets/images/apple-touch-icon-120x120.png","180x180":"assets/images/apple-touch-icon-120x120.png"}},"expandable-chapters-small":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Panda8z","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Panda8z Go Dairy Archive","language":"zh-hans","links":{"sidebar":{"GitHub托管的CSBlog":"https://moreme.top"}},"gitbook":"3.2.3","description":"Computer System"},"file":{"path":"2020-05-22/101. 对称二叉树.md","mtime":"2020-05-22T11:56:53.446Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-05-22T11:57:38.392Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-github/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

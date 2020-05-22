@@ -1,0 +1,1993 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-hans" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>kratos-01-快速入门.md · Panda8z Go Dairy Archive</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="Panda8z">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-katex/katex.min.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="2020-05-21-笔记.html" />
+    
+    
+    <link rel="prev" href="LRU算法详解.html" />
+    
+
+    
+        <link rel="shortcut icon" href='../assets/images/favicon.ico' type="image/x-icon">
+    
+    
+        <link rel="bookmark" href='../assets/images/favicon.ico' type="image/x-icon">
+    
+    
+        <link rel="apple-touch-icon" href='../assets/images/apple-touch-icon.png'>
+    
+    
+        
+        <link rel="apple-touch-icon" sizes="120x120" href="../assets/images/apple-touch-icon-120x120.png">
+        
+        <link rel="apple-touch-icon" sizes="180x180" href="../assets/images/apple-touch-icon-120x120.png">
+        
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="输入并搜索" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+    
+        
+        <li>
+            <a href="https://moreme.top" target="_blank" class="custom-link">GitHub托管的CSBlog</a>
+        </li>
+    
+    
+
+    
+    <li class="divider"></li>
+    
+
+    
+        
+        <li class="header">Golang工程师养成计划</li>
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../Golang工程师养成计划/Go语言基础/Go语言基础学习-目录.html">
+            
+                <a href="../Golang工程师养成计划/Go语言基础/Go语言基础学习-目录.html">
+            
+                    
+                    Go语言基础-上
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.1.1" data-path="../Golang工程师养成计划/Go语言基础/Go-基础-上-Day01-命令行.html">
+            
+                <a href="../Golang工程师养成计划/Go语言基础/Go-基础-上-Day01-命令行.html">
+            
+                    
+                    Day01-命令行
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.2" data-path="../Golang工程师养成计划/Go语言基础/Go-基础-上-Day02-怎么书写Go程序.html">
+            
+                <a href="../Golang工程师养成计划/Go语言基础/Go-基础-上-Day02-怎么书写Go程序.html">
+            
+                    
+                    Day02-怎么书写Go程序
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.3" data-path="../Golang工程师养成计划/Go语言基础/Go-基础-上-Day03-开始Go语言旅行.html">
+            
+                <a href="../Golang工程师养成计划/Go语言基础/Go-基础-上-Day03-开始Go语言旅行.html">
+            
+                    
+                    Day03-开始Go语言旅行
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.4" data-path="../2020-04-07/如何成为Go语言代码贡献者.html">
+            
+                <a href="../2020-04-07/如何成为Go语言代码贡献者.html">
+            
+                    
+                    如何成为Go语言代码贡献者
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.5" data-path="../2020-05-15/EffectiveGo-中文版.html">
+            
+                <a href="../2020-05-15/EffectiveGo-中文版.html">
+            
+                    
+                    EffectiveGo-中文版
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.6" data-path="../2020-04-08/go编译器-编译指示.html">
+            
+                <a href="../2020-04-08/go编译器-编译指示.html">
+            
+                    
+                    编译指示
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.7" data-path="../2020-04-12/Go语言原本-延迟语句.html">
+            
+                <a href="../2020-04-12/Go语言原本-延迟语句.html">
+            
+                    
+                    Go语言原本-延迟语句
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.1.7.1" data-path="../2020-04-05/Goroutine是怎么开始和退出的.html">
+            
+                <a href="../2020-04-05/Goroutine是怎么开始和退出的.html">
+            
+                    
+                    Goroutine是怎么开始和退出的
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.7.2" data-path="../2020-04-14/G0是怎么创建的.html">
+            
+                <a href="../2020-04-14/G0是怎么创建的.html">
+            
+                    
+                    G0是怎么创建的
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.7.3" data-path="../2020-04-09/Go语言原本-调度器.html">
+            
+                <a href="../2020-04-09/Go语言原本-调度器.html">
+            
+                    
+                    Go语言原本-调度器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.7.4" data-path="../2020-04-13/Go语言原本-channel.html">
+            
+                <a href="../2020-04-13/Go语言原本-channel.html">
+            
+                    
+                    Go语言原本-channel
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.8" data-path="../2020-04-07/defer的前世今生.html">
+            
+                <a href="../2020-04-07/defer的前世今生.html">
+            
+                    
+                    defer的前世今生
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.1.8.1" data-path="../2020-04-07/Go中defer.html">
+            
+                <a href="../2020-04-07/Go中defer.html">
+            
+                    
+                    Go中defer
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.8.2" data-path="../2020-04-07/Go中defer7个知识点.html">
+            
+                <a href="../2020-04-07/Go中defer7个知识点.html">
+            
+                    
+                    Go中defer7个知识点
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../Golang工程师养成计划/Go语言标准库/Go语言标准库学习-目录.html">
+            
+                <a href="../Golang工程师养成计划/Go语言标准库/Go语言标准库学习-目录.html">
+            
+                    
+                    Go语言标准库学习
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../Golang工程师养成计划/Go语言标准库/container-heap.html">
+            
+                <a href="../Golang工程师养成计划/Go语言标准库/container-heap.html">
+            
+                    
+                    container-heap 笔记
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Go语言刷题LeetCode</li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="../2020-04-07/Go实现LeetCode全集.html">
+            
+                <a href="../2020-04-07/Go实现LeetCode全集.html">
+            
+                    
+                    Go实现LeetCode全集
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="../2020-04-15/go-leetcode-TwoSum.html">
+            
+                <a href="../2020-04-15/go-leetcode-TwoSum.html">
+            
+                    
+                    leetcode-day01
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" data-path="../2020-04-17/go-leetcode-day02.html">
+            
+                <a href="../2020-04-17/go-leetcode-day02.html">
+            
+                    
+                    go-leetcode-day02
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4" data-path="../2020-04-18/go-leetcode-day03.html">
+            
+                <a href="../2020-04-18/go-leetcode-day03.html">
+            
+                    
+                    go-leetcode-day03
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.5" data-path="../2020-04-21/Go-leetcode-day04.html">
+            
+                <a href="../2020-04-21/Go-leetcode-day04.html">
+            
+                    
+                    Go-leetcode-day04
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.6" data-path="../2020-04-21/数据结构-二叉树时间复杂度.html">
+            
+                <a href="../2020-04-21/数据结构-二叉树时间复杂度.html">
+            
+                    
+                    数据结构-二叉树时间复杂度
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.7" data-path="../2020-05-09/530.二叉搜索树的最小绝对差.html">
+            
+                <a href="../2020-05-09/530.二叉搜索树的最小绝对差.html">
+            
+                    
+                    530.二叉搜索树的最小绝对差
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.8" data-path="../2020-05-09/二叉树的前中后遍历.html">
+            
+                <a href="../2020-05-09/二叉树的前中后遍历.html">
+            
+                    
+                    二叉树的前中后遍历
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.9" data-path="../2020-05-11/538.把二叉搜索树转换为累加树.html">
+            
+                <a href="../2020-05-11/538.把二叉搜索树转换为累加树.html">
+            
+                    
+                    538.把二叉搜索树转换为累加树
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.10" data-path="../2020-05-11/面试题04-03-特定深度节点链表.html">
+            
+                <a href="../2020-05-11/面试题04-03-特定深度节点链表.html">
+            
+                    
+                    面试题04-03-特定深度节点链表
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.11" data-path="../2020-05-22/101. 对称二叉树.html">
+            
+                <a href="../2020-05-22/101. 对称二叉树.html">
+            
+                    
+                    101. 对称二叉树.md
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.12" data-path="../2020-05-22/1.两数之和.html">
+            
+                <a href="../2020-05-22/1.两数之和.html">
+            
+                    
+                    1.两数之和.md
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.13" data-path="../2020-05-22/2. 两数相加.html">
+            
+                <a href="../2020-05-22/2. 两数相加.html">
+            
+                    
+                    2. 两数相加.md
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.14" data-path="../2020-05-22/3. 无重复字符的最长子串.html">
+            
+                <a href="../2020-05-22/3. 无重复字符的最长子串.html">
+            
+                    
+                    3. 无重复字符的最长子串.md
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.15" data-path="../2020-05-22/4. 寻找两个正序数组的中位数.html">
+            
+                <a href="../2020-05-22/4. 寻找两个正序数组的中位数.html">
+            
+                    
+                    4. 寻找两个正序数组的中位数.md
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Go语言生态系统</li>
+        
+        
+    
+        <li class="chapter " data-level="3.1" data-path="../2020-05-19/kratos-01-简介和安装.html">
+            
+                <a href="../2020-05-19/kratos-01-简介和安装.html">
+            
+                    
+                    kratos-01-简介和安装
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2" data-path="../2020-05-20/Go语言生态-认识极速轻量的Web框架.html">
+            
+                <a href="../2020-05-20/Go语言生态-认识极速轻量的Web框架.html">
+            
+                    
+                    Go: Fiber-一个极速轻量的Web框架
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3" data-path="../2020-05-19/操作系统-词汇表.html">
+            
+                <a href="../2020-05-19/操作系统-词汇表.html">
+            
+                    
+                    操作系统-词汇表
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.4" data-path="../2020-04-14/从0构建亿级微服务架构.html">
+            
+                <a href="../2020-04-14/从0构建亿级微服务架构.html">
+            
+                    
+                    从0构建亿级微服务架构
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.5" data-path="../2020-04-08/go做一个小型http服务器并优化实战.html">
+            
+                <a href="../2020-04-08/go做一个小型http服务器并优化实战.html">
+            
+                    
+                    go做一个小型http服务器并优化实战
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">日志</li>
+        
+        
+    
+        <li class="chapter " data-level="4.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    张向北的笔记本📒
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">2020-03-18</li>
+        
+        
+    
+        <li class="chapter " data-level="5.1" data-path="../2020-03-18/面试准备Day01.html">
+            
+                <a href="../2020-03-18/面试准备Day01.html">
+            
+                    
+                    工作展望
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.2" data-path="../2020-03-18/gitbook工具使用指南.html">
+            
+                <a href="../2020-03-18/gitbook工具使用指南.html">
+            
+                    
+                    gitbook工具使用指南
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">2020-04-05</li>
+        
+        
+    
+        <li class="chapter " data-level="6.1" data-path="../2020-04-05/Goroutine是怎么开始和退出的.html">
+            
+                <a href="../2020-04-05/Goroutine是怎么开始和退出的.html">
+            
+                    
+                    Goroutine是怎么开始和退出的
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">2020-04-07</li>
+        
+        
+    
+        <li class="chapter " data-level="7.1" data-path="../2020-04-07/defer的前世今生.html">
+            
+                <a href="../2020-04-07/defer的前世今生.html">
+            
+                    
+                    defer的前世今生
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="7.1.1" data-path="../2020-04-07/Go中defer.html">
+            
+                <a href="../2020-04-07/Go中defer.html">
+            
+                    
+                    Go中defer
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="7.1.2" data-path="../2020-04-07/Go中defer7个知识点.html">
+            
+                <a href="../2020-04-07/Go中defer7个知识点.html">
+            
+                    
+                    Go中defer7个知识点
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="7.2" data-path="../2020-04-07/Go实现LeetCode全集.html">
+            
+                <a href="../2020-04-07/Go实现LeetCode全集.html">
+            
+                    
+                    Go实现LeetCode全集
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="7.3" data-path="../2020-04-07/如何成为Go语言代码贡献者.html">
+            
+                <a href="../2020-04-07/如何成为Go语言代码贡献者.html">
+            
+                    
+                    如何成为Go语言代码贡献者
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="7.4" data-path="../2020-04-07/读书笔记-2020-04-07.html">
+            
+                <a href="../2020-04-07/读书笔记-2020-04-07.html">
+            
+                    
+                    读书笔记-2020-04-07
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">2020-04-08</li>
+        
+        
+    
+        <li class="chapter " data-level="8.1" data-path="../2020-04-08/go编译器-编译指示.html">
+            
+                <a href="../2020-04-08/go编译器-编译指示.html">
+            
+                    
+                    编译指示
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="8.2" data-path="../2020-04-08/go做一个小型http服务器并优化实战.html">
+            
+                <a href="../2020-04-08/go做一个小型http服务器并优化实战.html">
+            
+                    
+                    go做一个小型http服务器并优化实战
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">2020-04-09</li>
+        
+        
+    
+        <li class="chapter " data-level="9.1" data-path="../2020-04-09/Go语言原本-调度器.html">
+            
+                <a href="../2020-04-09/Go语言原本-调度器.html">
+            
+                    
+                    Go语言原本-调度器
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">2020-04-10</li>
+        
+        
+    
+        <li class="chapter " data-level="10.1" data-path="../2020-04-10/go垃圾回收.html">
+            
+                <a href="../2020-04-10/go垃圾回收.html">
+            
+                    
+                    go垃圾回收
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">2020-04-11</li>
+        
+        
+    
+        <li class="chapter " data-level="11.1" data-path="../2020-04-11/2020-04-11-日志.html">
+            
+                <a href="../2020-04-11/2020-04-11-日志.html">
+            
+                    
+                    2020-04-11-日志
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">2020-04-12</li>
+        
+        
+    
+        <li class="chapter " data-level="12.1" data-path="../2020-04-12/Go语言原本-延迟语句.html">
+            
+                <a href="../2020-04-12/Go语言原本-延迟语句.html">
+            
+                    
+                    Go语言原本-延迟语句
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">2020-04-13</li>
+        
+        
+    
+        <li class="chapter " data-level="13.1" data-path="../2020-04-13/Go语言原本-channel.html">
+            
+                <a href="../2020-04-13/Go语言原本-channel.html">
+            
+                    
+                    Go语言原本-channel
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="13.2" data-path="../2020-04-13/2020-04-13-日志.html">
+            
+                <a href="../2020-04-13/2020-04-13-日志.html">
+            
+                    
+                    2020-04-13-日志
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">2020-04-14</li>
+        
+        
+    
+        <li class="chapter " data-level="14.1" data-path="../2020-04-14/G0是怎么创建的.html">
+            
+                <a href="../2020-04-14/G0是怎么创建的.html">
+            
+                    
+                    G0是怎么创建的
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="14.2" data-path="../2020-04-14/从0构建亿级微服务架构.html">
+            
+                <a href="../2020-04-14/从0构建亿级微服务架构.html">
+            
+                    
+                    从0构建亿级微服务架构
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">2020-04-15</li>
+        
+        
+    
+        <li class="chapter " data-level="15.1" data-path="../2020-04-15/go-leetcode-TwoSum.html">
+            
+                <a href="../2020-04-15/go-leetcode-TwoSum.html">
+            
+                    
+                    leetcode-day01
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">2020-04-17</li>
+        
+        
+    
+        <li class="chapter " data-level="16.1" data-path="../2020-04-17/go-leetcode-day02.html">
+            
+                <a href="../2020-04-17/go-leetcode-day02.html">
+            
+                    
+                    go-leetcode-day02
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">2020-04-18</li>
+        
+        
+    
+        <li class="chapter " data-level="17.1" data-path="../2020-04-18/go-leetcode-day03.html">
+            
+                <a href="../2020-04-18/go-leetcode-day03.html">
+            
+                    
+                    go-leetcode-day03
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="17.2" data-path="../2020-04-18/timepill-api分析.html">
+            
+                <a href="../2020-04-18/timepill-api分析.html">
+            
+                    
+                    timepill-api分析
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">2020-04-21</li>
+        
+        
+    
+        <li class="chapter " data-level="18.1" data-path="../2020-04-21/Go-leetcode-day04.html">
+            
+                <a href="../2020-04-21/Go-leetcode-day04.html">
+            
+                    
+                    Go-leetcode-day04
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="18.2" data-path="../2020-04-21/Go-VScode-debug-go-program.html">
+            
+                <a href="../2020-04-21/Go-VScode-debug-go-program.html">
+            
+                    
+                    Go-VScode-debug-go-program
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="18.3" data-path="../2020-04-21/数据结构-二叉树时间复杂度.html">
+            
+                <a href="../2020-04-21/数据结构-二叉树时间复杂度.html">
+            
+                    
+                    数据结构-二叉树时间复杂度
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">2020-04-22</li>
+        
+        
+    
+        <li class="chapter " data-level="19.1" data-path="../2020-04-22/2020-04-22-笔记.html">
+            
+                <a href="../2020-04-22/2020-04-22-笔记.html">
+            
+                    
+                    2020-04-22-笔记📒
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="19.2" data-path="../2020-04-23/2020-04-23-笔记.html">
+            
+                <a href="../2020-04-23/2020-04-23-笔记.html">
+            
+                    
+                    2020-04-23-笔记📒
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="19.3" data-path="../2020-04-24/2020-04-24-笔记.html">
+            
+                <a href="../2020-04-24/2020-04-24-笔记.html">
+            
+                    
+                    2020-04-24-笔记📒
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="19.4" data-path="../2020-04-26/2020-04-26-笔记.html">
+            
+                <a href="../2020-04-26/2020-04-26-笔记.html">
+            
+                    
+                    2020-04-26-笔记📒
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="19.5" data-path="../2020-04-27/2020-04-27-笔记.html">
+            
+                <a href="../2020-04-27/2020-04-27-笔记.html">
+            
+                    
+                    2020-04-27-笔记📒
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="19.6" data-path="../2020-04-28/2020-04-28-笔记.html">
+            
+                <a href="../2020-04-28/2020-04-28-笔记.html">
+            
+                    
+                    2020-04-28-笔记📒
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="19.7" data-path="../2020-04-29/2020-04-29-笔记.html">
+            
+                <a href="../2020-04-29/2020-04-29-笔记.html">
+            
+                    
+                    2020-04-29-笔记📒
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="19.8" data-path="../2020-04-30/2020-04-30-笔记.html">
+            
+                <a href="../2020-04-30/2020-04-30-笔记.html">
+            
+                    
+                    2020-04-30-笔记📒
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="19.9" data-path="../2020-05-01/2020-05-01-笔记.html">
+            
+                <a href="../2020-05-01/2020-05-01-笔记.html">
+            
+                    
+                    2020-05-01-笔记📒
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="19.10" data-path="../2020-05-02/2020-05-02-笔记.html">
+            
+                <a href="../2020-05-02/2020-05-02-笔记.html">
+            
+                    
+                    2020-05-02-笔记📒
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="19.11" data-path="../2020-05-03/2020-05-03-笔记.html">
+            
+                <a href="../2020-05-03/2020-05-03-笔记.html">
+            
+                    
+                    2020-05-03-笔记📒
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="19.12" data-path="../2020-05-04/2020-05-04-笔记.html">
+            
+                <a href="../2020-05-04/2020-05-04-笔记.html">
+            
+                    
+                    2020-05-04-笔记📒
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="19.13" data-path="../2020-05-06/2020-05-06-笔记.html">
+            
+                <a href="../2020-05-06/2020-05-06-笔记.html">
+            
+                    
+                    2020-05-06-笔记📒
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="19.14" data-path="../2020-05-07/2020-05-07-笔记.html">
+            
+                <a href="../2020-05-07/2020-05-07-笔记.html">
+            
+                    
+                    2020-05-07-笔记📒
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="19.15" data-path="../2020-05-08/2020-05-08-笔记.html">
+            
+                <a href="../2020-05-08/2020-05-08-笔记.html">
+            
+                    
+                    2020-05-08-笔记📒
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="19.16" data-path="../2020-05-09/2020-05-09-笔记.html">
+            
+                <a href="../2020-05-09/2020-05-09-笔记.html">
+            
+                    
+                    2020-05-09-笔记📒
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="19.16.1" data-path="../2020-05-09/530.二叉搜索树的最小绝对差.html">
+            
+                <a href="../2020-05-09/530.二叉搜索树的最小绝对差.html">
+            
+                    
+                    530.二叉搜索树的最小绝对差
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="19.16.2" data-path="../2020-05-09/二叉树的前中后遍历.html">
+            
+                <a href="../2020-05-09/二叉树的前中后遍历.html">
+            
+                    
+                    二叉树的前中后遍历
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="19.17" data-path="../2020-05-10/2020-05-10-笔记.html">
+            
+                <a href="../2020-05-10/2020-05-10-笔记.html">
+            
+                    
+                    2020-05-10-笔记📒
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="19.18" data-path="../2020-05-11/2020-05-11-笔记.html">
+            
+                <a href="../2020-05-11/2020-05-11-笔记.html">
+            
+                    
+                    2020-05-11-笔记📒
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="19.18.1" data-path="../2020-05-11/538.把二叉搜索树转换为累加树.html">
+            
+                <a href="../2020-05-11/538.把二叉搜索树转换为累加树.html">
+            
+                    
+                    538.把二叉搜索树转换为累加树
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="19.18.2" data-path="../2020-05-11/面试题04-03-特定深度节点链表.html">
+            
+                <a href="../2020-05-11/面试题04-03-特定深度节点链表.html">
+            
+                    
+                    面试题04-03-特定深度节点链表
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="19.19" data-path="../2020-05-15/2020-05-15-笔记.html">
+            
+                <a href="../2020-05-15/2020-05-15-笔记.html">
+            
+                    
+                    2020-05-15-笔记
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="19.19.1" data-path="../2020-05-15/YouTube-dl命令下载YouTube的视频.html">
+            
+                <a href="../2020-05-15/YouTube-dl命令下载YouTube的视频.html">
+            
+                    
+                    YouTube-dl命令下载YouTube的视频
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="19.19.2" data-path="../2020-05-15/EffectiveGo-中文版.html">
+            
+                <a href="../2020-05-15/EffectiveGo-中文版.html">
+            
+                    
+                    EffectiveGo-中文版
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="19.20" data-path="../2020-05-19/2020-05-19-笔记.html">
+            
+                <a href="../2020-05-19/2020-05-19-笔记.html">
+            
+                    
+                    2020-05-19-笔记
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="19.20.1" data-path="../2020-05-19/kratos-01-简介和安装.html">
+            
+                <a href="../2020-05-19/kratos-01-简介和安装.html">
+            
+                    
+                    kratos-01-简介和安装
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="19.20.2" data-path="../2020-05-19/操作系统-词汇表.html">
+            
+                <a href="../2020-05-19/操作系统-词汇表.html">
+            
+                    
+                    操作系统-词汇表
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="19.21" data-path="../2020-05-20/2020-05-20-笔记.html">
+            
+                <a href="../2020-05-20/2020-05-20-笔记.html">
+            
+                    
+                    2020-05-20-笔记
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="19.21.1" data-path="../2020-05-20/Go语言生态-认识极速轻量的Web框架.html">
+            
+                <a href="../2020-05-20/Go语言生态-认识极速轻量的Web框架.html">
+            
+                    
+                    Go语言生态-认识极速轻量的Web框架
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="19.22" data-path="../2020-05-22/2020-05-22-笔记.html">
+            
+                <a href="../2020-05-22/2020-05-22-笔记.html">
+            
+                    
+                    2020-05-22-笔记.md
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="19.22.1" data-path="LRU算法详解.html">
+            
+                <a href="LRU算法详解.html">
+            
+                    
+                    LRU算法详解.md
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="19.22.2" data-path="kratos-01-快速入门.html">
+            
+                <a href="kratos-01-快速入门.html">
+            
+                    
+                    kratos-01-快速入门.md
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="19.23" data-path="2020-05-21-笔记.html">
+            
+                <a href="2020-05-21-笔记.html">
+            
+                    
+                    2020-05-21-笔记.md
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="19.23.1" data-path="../2020-05-22/101. 对称二叉树.html">
+            
+                <a href="../2020-05-22/101. 对称二叉树.html">
+            
+                    
+                    101. 对称二叉树.md
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本书使用 GitBook 发布
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >kratos-01-快速入门.md</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="orykratos-01-&#x5FEB;&#x901F;&#x5165;&#x95E8;">ory/kratos-01-&#x5FEB;&#x901F;&#x5165;&#x95E8;</h1>
+<blockquote>
+<p>&#x5FEB;&#x901F;&#x5165;&#x95E8;&#x5B98;&#x65B9;&#x82F1;&#x6587;&#x6587;&#x6863;&#xFF1A; <a href="https://www.ory.sh/kratos/docs/quickstart/" target="_blank">Quickstart | <strong>ORY Kratos</strong></a></p>
+</blockquote>
+<p><strong>ORY Kratos</strong> &#x6709;&#x51E0;&#x4E2A;&#x6B63;&#x5728;&#x7ECF;&#x5386;&#x6539;&#x52A8;&#x7684;&#x7EC4;&#x4EF6;&#xFF0C;&#x56E0;&#x6B64;&#x4ECE;&#x4E00;&#x5F00;&#x59CB;&#x5C31;&#x4F7F;&#x6240;&#x6709;&#x95EE;&#x9898;&#x90FD;&#x53D8;&#x5F97;&#x56F0;&#x96BE;&#x3002;</p>
+<p>&#x672C;&#x5165;&#x95E8;&#x6307;&#x5357;&#x5C06;&#x5E2E;&#x52A9;&#x4F60;&#x5B89;&#x88C5; <strong>ORY Kratos</strong> &#x548C;&#x4E00;&#x4E9B;&#x5176;&#x4ED6;&#x4F9D;&#x8D56;&#x9879;&#xFF0C;&#x4EE5;&#x4FBF;&#x4F60;&#x4E86;&#x89E3; <strong>ORY Kratos</strong> &#x7684;&#x5DE5;&#x4F5C;&#x65B9;&#x5F0F;&#x3002;</p>
+<p>&#x8BF7;&#x6CE8;&#x610F;&#xFF0C;&#x672C;&#x6307;&#x5357;&#x4E0D;&#x80FD;&#x4EE3;&#x66FF;&#x7814;&#x7A76;&#x6587;&#x6863;&#x3002;&#x4F60;&#x5FC5;&#x987B;&#x4E86;&#x89E3;&#x6838;&#x5FC3;&#x6982;&#x5FF5;&#x548C; API &#x624D;&#x80FD;&#x6709;&#x6548;&#x5730;&#x4F7F;&#x7528; <strong>ORY Kratos</strong>&#x3002;&#x8FD9;&#x7BC7;&#x6587;&#x7AE0;&#x4EC5;&#x662F;&#x5165;&#x95E8;&#x6307;&#x5BFC;&#x3002;</p>
+<h2 id="&#x7528;&#x4F8B;&#xFF1A;&#x4F60;&#x60F3;&#x8981;&#x767B;&#x5F55;&#x5E76;&#x6CE8;&#x518C;&#x4F60;&#x7684;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;">&#x7528;&#x4F8B;&#xFF1A;&#x4F60;&#x60F3;&#x8981;&#x767B;&#x5F55;&#x5E76;&#x6CE8;&#x518C;&#x4F60;&#x7684;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;</h2>
+<p>&#x672C;&#x8282;&#x4E3A;&#x4F60;&#x63D0;&#x4F9B;&#x4E86;&#x4E00;&#x4E9B;&#x6709;&#x5173;&#x6211;&#x4EEC;&#x8981;&#x5B9E;&#x73B0;&#x7684;&#x76EE;&#x6807;&#x4EE5;&#x53CA;&#x4E3A;&#x6B64;&#x6240;&#x9700;&#x7684;&#x5DE5;&#x5177;&#x7684;&#x80CC;&#x666F;&#x4FE1;&#x606F;&#x3002;&#x4F60;&#x8FD8;&#x5C06;&#x4E86;&#x89E3;&#x6211;&#x4EEC;&#x4E3A;&#x672C;&#x6307;&#x5357;&#x9009;&#x62E9;&#x7684;&#x7F51;&#x7EDC;&#x8BBE;&#x7F6E;&#x3002;</p>
+<p>&#x672C;&#x5FEB;&#x901F;&#x5165;&#x95E8;&#x6307;&#x5357;&#x7684;&#x524D;&#x63D0;&#x662F;&#x5047;&#x8BBE;&#x6211;&#x4EEC;&#x6B63;&#x5728;&#x7F16;&#x5199;&#x4E00;&#x4E2A;&#x79F0;&#x4E3A; <strong>SecureApp</strong> &#x7684; NodeJS &#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x3002; &#x8FD9;&#x4E2A;&#x7A0B;&#x5E8F;&#x6CA1;&#x6709;&#x82B1;&#x54E8;&#x7684;&#x4E1C;&#x897F;&#x4EC5;&#x6709;&#x4E00;&#x4E9B; <strong>ExpressJS</strong> &#x548C;&#x4E00;&#x4E9B;&#x4F7F;&#x7528; <strong>Handlebars</strong> &#x7684; <strong>HTML</strong> &#x6A21;&#x677F;&#x3002; &#x6211;&#x4EEC;&#x4F7F;&#x7528; <strong>TypeScript</strong>&#xFF0C;&#x4F46;&#x8FD9;&#x53EA;&#x662F;&#x56E0;&#x4E3A;&#x5B83;&#x66F4;&#x5177;&#x53EF;&#x8BFB;&#x6027;&#xFF0C;&#x5E76;&#x4E0D;&#x662F;&#x56E0;&#x4E3A;&#x6211;&#x4EEC;&#x5728;&#x505A;&#x4EFB;&#x4F55;&#x4E0E;&#x4F17;&#x4E0D;&#x540C;&#x7684;&#x4E8B;&#x60C5;&#xFF01;</p>
+<p>&#x5728; UI &#x5C42;&#xFF0C;&#x4F60;&#x5F53;&#x7136;&#x53EF;&#x4EE5;&#x9009;&#x62E9;&#x4EFB;&#x4F55;&#x6280;&#x672F;&#x3002; &#x5B83;&#x53EF;&#x4EE5;&#x4E0E; <strong>Swift</strong>&#xFF0C;<strong>ReactJS</strong> &#x6216; <strong>Angular</strong>&#xFF08;&#x5BA2;&#x6237;&#x7AEF;&#xFF09;&#x4EE5;&#x53CA; <strong>PHP</strong>&#xFF0C;<strong>Ruby</strong>&#xFF0C;<strong>Python</strong>&#xFF0C;<strong>Java</strong>&#xFF08;&#x670D;&#x52A1;&#x5668;&#x7AEF;&#xFF09;&#x6216;&#x4E00;&#x8D77;&#x4F7F;&#x7528;&#xFF0C;&#x603B;&#x4E4B;&#x968F;&#x4FBF;&#x4F60;&#x600E;&#x4E48;&#x7EC4;&#x5408;&#x3002;&#x6211;&#x4EEC;&#x4E4B;&#x6240;&#x4EE5;&#x9009;&#x62E9; <strong>NodeJS</strong> + <strong>TypeScript</strong>&#xFF0C;&#x662F;&#x56E0;&#x4E3A;&#x6211;&#x4EEC;&#x8BA4;&#x4E3A;&#x5B83;&#x6700;&#x5BB9;&#x6613;&#x7406;&#x89E3;&#xFF0C;&#x5E76;&#x4E14;&#x56E0;&#x4E3A;<strong>JavaScript</strong> &#x548C; <strong>NodeJS</strong> &#x88AB;&#x666E;&#x904D;&#x7406;&#x89E3;&#x5E76;&#x4E14;&#x6613;&#x4E8E;&#x5B89;&#x88C5;&#x3002;</p>
+<p>&#x6211;&#x4EEC;&#x771F;&#x7684;&#x4E0D;&#x77E5;&#x9053; <strong>SecureApp</strong> &#x6709;&#x4E00;&#x5929;&#x5B83;&#x4F1A;&#x88AB;&#x6269;&#x5C55;&#x6210;&#x4EC0;&#x4E48;&#x6837;&#x5B50;&#x3002; &#x4F46;&#x662F;&#x6211;&#x4EEC;&#x786E;&#x5207;&#x77E5;&#x9053;&#x5B83;&#x5C06;&#x5177;&#x6709;&#x67D0;&#x79CD;&#x7C7B;&#x578B;&#x7684;&#x4EEA;&#x8868;&#x677F;&#x5E76;&#x4E14;&#x9700;&#x8981;&#x7528;&#x6237;&#xFF0C;&#x56E0;&#x6B64;&#x6211;&#x4EEC;&#x9700;&#x8981;&#xFF1A;</p>
+<ul>
+<li>&#x767B;&#x5F55;</li>
+<li>&#x767B;&#x51FA;</li>
+<li>&#x6CE8;&#x518C;</li>
+<li>&#x4E2A;&#x4EBA;&#x8D44;&#x6599;&#x7BA1;&#x7406;&#xFF08;&#x201C;&#x66F4;&#x65B0;&#x540D;&#x5B57;&#x201D;&#xFF0C;&#x201C;&#x66F4;&#x65B0;&#x5934;&#x50CF;...&#x201D;&#xFF09;</li>
+<li>&#x51ED;&#x636E;&#x7BA1;&#x7406;&#xFF08;&#x201C;&#x6DFB;&#x52A0;&#x65B0;&#x7684;&#x8F85;&#x52A9;&#x90AE;&#x7BB1;&#x201D;&#xFF0C;&#x201C;&#x66F4;&#x6539;&#x5BC6;&#x7801;&#x201D;&#xFF0C;&#x201C; ...&#x201D;&#xFF09;</li>
+<li>&#x5E10;&#x6237;&#x6062;&#x590D;&#xFF08;&#x201C;&#x5BC6;&#x7801;&#x91CD;&#x7F6E;&#x201D;&#xFF09;</li>
+<li>&#x4F7F;&#x7528;Google Authenticator&#x8FDB;&#x884C;&#x4E24;&#x56E0;&#x7D20;&#x8EAB;&#x4EFD;&#x9A8C;&#x8BC1;</li>
+<li>&#x201C;&#x4F7F;&#x7528;Google&#x767B;&#x5F55;&#x201D;&#x548C;&#x201C;&#x4F7F;&#x7528;GitHub&#x767B;&#x5F55;&#x201D;</li>
+</ul>
+<p>&#x5F53;&#x7136;&#x8FD8;&#x6709;&#x5728;&#x4EEA;&#x8868;&#x76D8;&#x663E;&#x793A;&#x4E00;&#x4E9B;&#x4FE1;&#x606F;</p>
+<ul>
+<li>&#x6BD4;&#x5982;&#x7528;&#x6237;&#x4FE1;&#x606F;&#xFF1A;&#x201C;<code>&#x4F60;&#x597D;  &#xFF0C;&#x4F60;&#x7684;&#x751F;&#x65E5;&#x5728;&#xFF01;</code>&#x201D;&#x3002; &#x4EC5;&#x5728;&#x7528;&#x6237;&#x767B;&#x5F55;&#x65F6;&#x53EF;&#x89C1;&#xFF01;</li>
+</ul>
+<h2 id="&#x8BBE;&#x7F6E;">&#x8BBE;&#x7F6E;</h2>
+<p>&#x4F60;&#x53EF;&#x80FD;&#x5DF2;&#x7ECF;&#x77E5;&#x9053;&#xFF0C;<strong>ORY Kratos</strong> &#x4EC5;&#x9650;&#x4E8E; API&#x3002; &#x5B83;&#x6CA1;&#x6709; UI &#x6216; HTML &#x6A21;&#x677F;&#x5F15;&#x64CE;&#x3002; &#x6211;&#x4EEC;&#x5C06;&#x5728; NodeJS <strong>SecureApp</strong> &#x4E2D;&#x5B9E;&#x73B0;&#x6240;&#x6709;&#x9762;&#x5411;&#x7528;&#x6237;&#x7684; UI&#xFF08;&#x4EEA;&#x8868;&#x76D8;&#xFF0C;&#x767B;&#x5F55;&#xFF0C;&#x6CE8;&#x518C;...&#xFF09;&#x3002;</p>
+<p>&#x4E3A;&#x4E86;&#x786E;&#x4FDD;&#x6CA1;&#x6709;&#x672A;&#x7ECF;&#x8EAB;&#x4EFD;&#x9A8C;&#x8BC1;&#xFF08;&#x767B;&#x5F55;&#xFF09;&#x7684;&#x4EBA;&#x90FD;&#x65E0;&#x6CD5;&#x8BBF;&#x95EE;&#x4EEA;&#x8868;&#x677F;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x4E00;&#x5C0F;&#x6BB5;&#x4EE3;&#x7801;&#xFF08;&#x6B64;&#x5904;&#x4E3A; ExpressJS&#xFF09;&#x6765;&#x6267;&#x884C;&#x6B64;&#x64CD;&#x4F5C;&#xFF1A;</p>
+<pre><code class="lang-js"><span class="hljs-comment">// Import the ORY Kratos SDK. SDKs are available for all popular programming</span>
+<span class="hljs-comment">// languages!</span>
+<span class="hljs-comment">//</span>
+<span class="hljs-comment">// We will add examples for other programming languages here soon!</span>
+<span class="hljs-keyword">import</span> { KratosPublicSDK } <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;@oryd/kratos-client&apos;</span>;
+
+<span class="hljs-comment">// You can use protect as a middleware for expressJS:</span>
+<span class="hljs-comment">//</span>
+<span class="hljs-comment">//   import express from &apos;express&apos;</span>
+<span class="hljs-comment">//   const app = express()</span>
+<span class="hljs-comment">//   app.get(&quot;/dashboard&quot;, needsLogin, dashboard)</span>
+<span class="hljs-comment">//</span>
+<span class="hljs-keyword">const</span> needsLogin = (req, res, next) =&gt; {
+  <span class="hljs-keyword">new</span> KratosPublicSDK(<span class="hljs-string">&apos;https://public.ory-kratos&apos;</span>)
+    .whoami(req)
+    .then(({ body }) =&gt; {
+      req.user = { session: body };
+      next();
+    })
+    .catch(() =&gt; {
+      res.redirect(<span class="hljs-string">&apos;/login&apos;</span>);
+    });
+};
+</code></pre>
+<blockquote>
+<p><strong>ORY Kratos</strong>&#x4E0D;&#x4EC5;&#x662F;&#x4E00;&#x4E2A;API&#xFF0C;&#x5B83;&#x8FD8;&#x4F7F;&#x7528;Cookie&#xFF0C;HTTP&#x91CD;&#x5B9A;&#x5411;&#xFF0C;Anti-CSRF&#x4EE4;&#x724C;&#x7B49;&#x7B49;&#xFF0C;&#x56E0;&#x6B64;&#x8FD9;&#x4E9B;&#x4F60;&#x90FD;&#x4E0D;&#x7528;&#x70E6;&#x5FC3;&#x4E86;&#xFF01;</p>
+</blockquote>
+<p>&#x7531;&#x4E8E;&#x6211;&#x4EEC;&#x7684; <strong>SecureApp</strong> &#x548C; <strong>ORY Kratos</strong> &#x9700;&#x8981;&#x5171;&#x4EAB; cookie&#xFF0C;&#x4E3A;&#x4E86;&#x4F7F; Anti-CSRF &#x4EE4;&#x724C;&#x548C;&#x767B;&#x5F55;&#x4F1A;&#x8BDD;&#x6B63;&#x5E38;&#x5DE5;&#x4F5C;&#xFF0C;&#x6211;&#x4EEC;&#x5C06;&#x8BBE;&#x7F6E;&#x8F6C;&#x53D1;&#x8BF7;&#x6C42;&#x5230; ORY Krato &#x7684; Public API &#x7684;&#x8DEF;&#x5F84;&#x3002;
+ &#x5982;&#x679C;&#x53D1;&#x51FA;&#x4E86;&#x5BF9; <code>https://my-secureap/.ory/kratos/public/self-service/browser/flows/login</code> &#x7684; HTTP &#x8BF7;&#x6C42;&#xFF0C;&#x6211;&#x4EEC;&#x4F1A;&#x5C06;&#x8BF7;&#x6C42;&#x8F6C;&#x53D1;&#x7ED9; <code>https://public.ory-kratos/self-service/browser/flows/login</code> &#xFF08;&#x50CF;&#x4EE3;&#x7406;&#x4E00;&#x6837;&#xFF09; &#x5E76;&#x5C06;&#x54CD;&#x5E94;&#x901A;&#x8FC7;&#x7BA1;&#x9053;&#x4F20;&#x9012;&#x56DE;&#x521D;&#x59CB; HTTP &#x8BF7;&#x6C42;&#xFF1A;</p>
+<pre><code class="lang-js">
+<span class="hljs-keyword">import</span> express <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;express&apos;</span>;
+<span class="hljs-keyword">import</span> request <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;request&apos;</span>;
+<span class="hljs-keyword">const</span> app = express();
+
+<span class="hljs-keyword">const</span> pathPrefix = <span class="hljs-string">&apos;/.ory/kratos/public&apos;</span>;
+app.use(pathPrefix + <span class="hljs-string">&apos;/&apos;</span>, (req, res) =&gt; {
+  <span class="hljs-keyword">const</span> url = <span class="hljs-string">&apos;https://public.ory-kratos&apos;</span> + req.url.replace(pathPrefix, <span class="hljs-string">&apos;&apos;</span>);
+
+  <span class="hljs-comment">// Uses the request library to forward the request to **ORY Kratos**</span>
+  req.pipe(request(url, { followRedirect: <span class="hljs-literal">false</span> })).pipe(res);
+});
+
+<span class="hljs-comment">// ...</span>
+<span class="hljs-comment">// app.get(&quot;/dashboard&quot;, needsLogin, dashboard)</span>
+<span class="hljs-comment">// ...</span>
+</code></pre>
+<p><strong>ORY Kratos</strong> &#x4E0D;&#x9644;&#x5E26;&#x7BA1;&#x7406;&#x7528;&#x6237;&#x754C;&#x9762;&#x3002; &#x4F60;&#x5FC5;&#x987B;&#x81EA;&#x5DF1;&#x5B9E;&#x73B0;&#xFF0C;&#x6216;&#x9009;&#x62E9; ORY Cloud &#x4EA7;&#x54C1;&#xFF08;&#x5F85;&#x53D1;&#x884C;&#xFF09;&#x3002; 
+&#x5728;&#x672C;&#x5FEB;&#x901F;&#x5165;&#x95E8;&#x4E2D;&#xFF0C;&#x6211;&#x4EEC;&#x5C06;&#x4F7F;&#x7528; <strong>ORY Kratos</strong> CLI&#xFF08;&#x547D;&#x4EE4;&#x884C;&#x754C;&#x9762;&#xFF09;&#x4E0E; <strong>ORY Kratos</strong> &#x7684;&#x7BA1;&#x7406; API &#x8FDB;&#x884C;&#x4EA4;&#x4E92;&#x3002;</p>
+<p>&#x5FEB;&#x901F;&#x5165;&#x95E8;&#x8FD8;&#x968F;&#x9644; <strong>MailSlurper</strong>&#xFF0C;&#x8FD9;&#x662F;&#x6F14;&#x793A;&#x7A0B;&#x5E8F;&#x7528;&#x6765;&#x6F14;&#x793A;&#x5982;&#x4F55;&#x8FDB;&#x884C;&#x6F14;&#x793A;&#x7684;&#x6A21;&#x62DF; SMTP &#x670D;&#x52A1;&#x5668;&#x3002; &#x7535;&#x5B50;&#x90AE;&#x4EF6;&#x9A8C;&#x8BC1;&#x6709;&#x6548;&#x3002;</p>
+<h2 id="&#x514B;&#x9686;ory-kratos&#x5E76;&#x8FD0;&#x884C;docker">&#x514B;&#x9686;<strong>ORY Kratos</strong>&#x5E76;&#x8FD0;&#x884C;docker</h2>
+<p>&#x4E3A;&#x4E86;&#x4F7F;&#x8BE5;&#x793A;&#x4F8B;&#x6B63;&#x5E38;&#x5DE5;&#x4F5C;&#xFF0C;&#x4F60;&#x5C06;&#x9700;&#x8981;&#x5728;&#x7CFB;&#x7EDF;&#x4E0A;&#x5B89;&#x88C5; <strong>Git</strong> &#x548C; <strong>Docker</strong>&#xFF0C;&#x4EE5;&#x53CA; <strong>Docker Compose</strong>&#x3002; &#x4E0D;&#x9700;&#x8981;&#x5176;&#x4ED6;&#x4F9D;&#x8D56;&#x9879;&#x3002; &#x5728;&#x5F00;&#x59CB;&#x4E4B;&#x524D;&#xFF0C;&#x8BF7;&#x786E;&#x4FDD; <strong>Docker</strong> &#x5177;&#x6709;&#x8DB3;&#x591F;&#x7684;&#x78C1;&#x76D8;&#x7A7A;&#x95F4;&#x3002;</p>
+<blockquote>
+<p>Tips: &#x672C;&#x6559;&#x7A0B;&#x4F7F;&#x7528; <strong>Docker-Compose</strong> &#x5377;&#xFF0C;&#x8FD9;&#x4E9B;&#x5377;&#x636E;&#x62A5;&#x9053;&#x5DF2;&#x7528;&#x5B8C;&#x78C1;&#x76D8;&#x7A7A;&#x95F4;&#x3002; &#x4F7F;&#x7528; <code>docker system df</code> &#x68C0;&#x67E5;&#x5269;&#x4F59;&#x78C1;&#x76D8;&#x7A7A;&#x95F4;&#x3002; &#x5982;&#x679C;&#x5377;&#x9AD8;&#x4E8E;85&#xFF05;&#x7684;&#x9608;&#x503C;&#xFF0C;&#x8BF7;&#x5728;&#x5F00;&#x59CB;&#x4E4B;&#x524D;&#x4FEE;&#x526A;&#x65E7;&#x7684; Docker &#x5BF9;&#x8C61;&#xFF01;</p>
+<p>Tips: &#x5982;&#x679C;&#x9047;&#x5230;&#x6784;&#x5EFA;&#x9519;&#x8BEF;&#xFF08;&#x4F8B;&#x5982;&#xFF0C;&#x7F51;&#x7EDC;&#x8D85;&#x65F6;&#xFF09;&#xFF0C;&#x8BF7;&#x786E;&#x4FDD;&#x7F51;&#x7EDC;&#x8FD0;&#x884C;&#x6B63;&#x5E38;&#x5E76;&#x518D;&#x6B21;&#x8FD0;&#x884C; <code>macke docker</code>&#x3002; &#x5982;&#x679C;&#x95EE;&#x9898;&#x4ECD;&#x7136;&#x5B58;&#x5728;&#xFF0C;&#x8BF7;&#x968F;&#x65F6;&#x6253;&#x5F00;&#x95EE;&#x9898;&#x3002;</p>
+</blockquote>
+<p>&#x8BA9;&#x6211;&#x4EEC;&#x514B;&#x9686; <strong>ORY Kratos</strong> &#x5E76;&#x8FD0;&#x884C; docker-compose&#xFF1A;</p>
+<pre><code class="lang-bash">git <span class="hljs-built_in">clone</span> https://github.com/ory/kratos.git
+<span class="hljs-comment"># or if you have git+ssh set up:</span>
+<span class="hljs-comment">#  git clone git@github.com:ory/kratos.git</span>
+<span class="hljs-built_in">cd</span> kratos
+git checkout v0.3.0-alpha.1
+make quickstart
+
+<span class="hljs-comment"># or if you don&apos;t have make installed:</span>
+docker pull oryd/kratos:latest-sqlite
+docker pull oryd/kratos-selfservice-ui-node:latest
+docker-compose <span class="hljs-_">-f</span> quickstart.yml <span class="hljs-_">-f</span> quickstart-standalone.yml up --build --force-recreate
+</code></pre>
+<p>&#x8FD9;&#x53EF;&#x80FD;&#x9700;&#x8981;&#x4E00;&#x4E24;&#x5206;&#x949F;&#x3002;
+&#x4E00;&#x65E6;&#x8F93;&#x51FA;&#x53D8;&#x6162;&#x5E76;&#x4E14;&#x65E5;&#x5FD7;&#x8868;&#x660E;&#x7CFB;&#x7EDF;&#x8FD0;&#x884C;&#x6B63;&#x5E38;&#xFF0C;&#x5C31;&#x53EF;&#x4EE5;&#x5F00;&#x59CB;&#x8FD0;&#x884C;&#x4E86;&#xFF01;
+&#x72B6;&#x51B5;&#x826F;&#x597D;&#x7684;&#x7CFB;&#x7EDF;&#x5C06;&#x663E;&#x793A;&#x4EE5;&#x4E0B;&#x5185;&#x5BB9;&#xFF08;&#x6D88;&#x606F;&#x7684;&#x987A;&#x5E8F;&#x53EF;&#x80FD;&#x76F8;&#x53CD;&#xFF09;&#xFF1A;</p>
+<pre><code class="lang-bash">kratos_1                      | time=<span class="hljs-string">&quot;2020-01-20T14:52:13Z&quot;</span> level=info msg=<span class="hljs-string">&quot;Starting the admin httpd on: 0.0.0.0:4434&quot;</span>
+kratos_1                      | time=<span class="hljs-string">&quot;2020-01-20T14:52:13Z&quot;</span> level=info msg=<span class="hljs-string">&quot;Starting the public httpd on: 0.0.0.0:4433&quot;</span>
+</code></pre>
+<blockquote>
+<p>&#x83B7;&#x5F97;&#x5B8C;&#x6574;&#x529F;&#x80FD;&#x7684;&#x7CFB;&#x7EDF;&#x6709;&#x4E24;&#x4E2A;&#x91CD;&#x8981;&#x56E0;&#x7D20;&#xFF1A;</p>
+<ol>
+<li>&#x9700;&#x8981;&#x786E;&#x4FDD;&#x7AEF;&#x53E3; <code>4455</code>&#x3001;<code>4433</code>&#x3001;<code>4434</code>&#x548C;<code>4436</code>&#x7A7A;&#x95F2;&#x3002;</li>
+<li>&#x786E;&#x4FDD;&#x59CB;&#x7EC8;&#x4F7F;&#x7528; <code>127.0.0.1</code> &#x4F5C;&#x4E3A;&#x4E3B;&#x673A;&#x540D;&#xFF0C;&#x5207;&#x52FF;&#x4F7F;&#x7528; <code>localhost</code> &#xFF01;&#x8FD9;&#x5F88;&#x91CD;&#x8981;&#xFF0C;&#x56E0;&#x4E3A;&#x6D4F;&#x89C8;&#x5668;&#x5C06;&#x8FD9;&#x4E24;&#x4E2A;&#x89C6;&#x4E3A;&#x5355;&#x72EC;&#x7684;&#x57DF;&#xFF0C;&#x56E0;&#x6B64;&#x5728;&#x8BBE;&#x7F6E;&#x548C;&#x4F7F;&#x7528;&#x6B63;&#x786E;&#x7684; <code>cookie</code> &#x65F6;&#x4F1A;&#x9047;&#x5230;&#x95EE;&#x9898;&#x3002;</li>
+</ol>
+</blockquote>
+<p>&#x4F60;&#x53EF;&#x80FD;&#x4F1A;&#x6CE8;&#x610F;&#x5230;&#x5728;&#x6B64;&#x793A;&#x4F8B;&#x4E2D;&#x672A;&#x4F7F;&#x7528;&#x4EFB;&#x4F55;&#x6570;&#x636E;&#x5E93;&#x3002; <strong>ORY Kratos</strong> &#x652F;&#x6301; <strong>SQLite</strong>&#xFF0C;<strong>PostgreSQL</strong>&#xFF0C;<strong>MySQL</strong> &#x548C; <strong>CockroachDB</strong> &#x4F5C;&#x4E3A;&#x6570;&#x636E;&#x5E93;&#x540E;&#x7AEF;&#x3002;
+&#x4E3A;&#x4E86;&#x5FEB;&#x901F;&#x5165;&#x95E8;&#xFF0C;&#x6211;&#x4EEC;&#x5B89;&#x88C5;&#x4E86;&#x4E00;&#x4E2A;&#x6C38;&#x4E45;&#x5377;&#x6765;&#x5B58;&#x50A8; <strong>SQLite</strong> &#x6570;&#x636E;&#x5E93;&#x3002;
+&#x4EE5;&#x540E;&#x7684;&#x6307;&#x5357;&#x5C06;&#x89E3;&#x91CA;&#x5982;&#x4F55;&#x8BBE;&#x7F6E;&#x751F;&#x4EA7;&#x7CFB;&#x7EDF;&#xFF01;</p>
+<h2 id="&#x7F51;&#x7EDC;&#x67B6;&#x6784;">&#x7F51;&#x7EDC;&#x67B6;&#x6784;</h2>
+<p>&#x8BE5;&#x6F14;&#x793A;&#x5229;&#x7528;&#x4E86;&#x591A;&#x79CD;&#x670D;&#x52A1; Docker &#x955C;&#x50CF;&#xFF1A;</p>
+<ol>
+<li><strong>ORY Kratos</strong></li>
+<li><strong>SecureApp</strong>-&#x7528; <strong>NodeJS</strong> &#x7F16;&#x5199;&#x7684;&#x793A;&#x4F8B;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#xFF0C;&#x7528;&#x4E8E;&#x5B9E;&#x73B0;&#x767B;&#x5F55;&#xFF0C;&#x6CE8;&#x518C;&#xFF0C;&#x6CE8;&#x9500;&#xFF0C;...&#x548C;&#x4EEA;&#x8868;&#x677F;&#x5C4F;&#x5E55;&#x3002;</li>
+<li><strong>ORY Kratos</strong>&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x5176;&#x53D1;&#x9001;&#x7535;&#x5B50;&#x90AE;&#x4EF6;&#x7684;SMTP&#x670D;&#x52A1;&#x5668;&#x3002;&#x6211;&#x4EEC;&#x5C06;&#x4F7F;&#x7528; <strong>MailHog</strong>&#xFF0C;&#x8FD9;&#x662F;&#x5177;&#x6709;&#x7B80;&#x5355; UI &#x7684;&#x7B80;&#x7EA6; SMTP &#x7A7F;&#x8D8A;&#x670D;&#x52A1;&#x5668;&#x3002;</li>
+</ol>
+<p>&#x4E3A;&#x4E86;&#x66F4;&#x597D;&#x5730;&#x7406;&#x89E3;&#x6240;&#x6709;&#x5185;&#x5BB9;&#x7684;&#x8FDE;&#x63A5;&#x65B9;&#x5F0F;&#xFF0C;&#x8BA9;&#x6211;&#x4EEC;&#x770B;&#x4E00;&#x4E0B;&#x7F51;&#x7EDC;&#x914D;&#x7F6E;&#x3002;&#x5047;&#x8BBE;&#x4F60;&#x81F3;&#x5C11;&#x5BF9;Docker&#xFF08;&#x7EC4;&#x5408;&#xFF09;&#x7F51;&#x7EDC;&#x7684;&#x5DE5;&#x4F5C;&#x65B9;&#x5F0F;&#x6709;&#x4E00;&#x5B9A;&#x7684;&#x4E86;&#x89E3;&#xFF1A;
+<img src="https://img-blog.csdnimg.cn/20200520235850143.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3BhbmRhXzg=,size_16,color_FFFFFF,t_70" alt="Docker&#x7EC4;&#x7EC7;&#x8D77;&#x6765;&#x7684;&#x7F51;&#x7EDC;&#x67B6;&#x6784;"></p>
+<p>&#x5982;&#x524D;&#x6240;&#x8FF0;&#xFF0C;&#x6211;&#x4EEC;&#x6B63;&#x5728;&#x5C06;&#x8BF7;&#x6C42;&#x4EE3;&#x7406;&#x5230; <strong>ORY Kratos</strong> &#x7684; Public API&#x3002;</p>
+<p>&#x6211;&#x4EEC;&#x8FD9;&#x6837;&#x505A;&#x662F;&#x56E0;&#x4E3A;&#x8FD9;&#x6837;&#x6240;&#x6709;&#x8BF7;&#x6C42;&#x90FD;&#x5C06;&#x6765;&#x81EA;&#x540C;&#x4E00;&#x4E3B;&#x673A;&#x540D;&#x3002;&#x8FD9;&#x6837;&#x53EF;&#x4EE5;&#x907F;&#x514D; Cookie &#x5E38;&#x89C1;&#x7684;&#x8DE8;&#x57DF;&#x95EE;&#x9898;&#x3002;</p>
+<h2 id="&#x7528;&#x6237;&#x6267;&#x884C;&#x6CE8;&#x518C;&#xFF0C;&#x6CE8;&#x9500;&#xFF0C;&#x767B;&#x5F55;">&#x7528;&#x6237;&#x6267;&#x884C;&#x6CE8;&#x518C;&#xFF0C;&#x6CE8;&#x9500;&#xFF0C;&#x767B;&#x5F55;</h2>
+<p>&#x5DF2;&#x7ECF;&#x6709;&#x8DB3;&#x591F;&#x7684;&#x7406;&#x8BBA;&#x652F;&#x6301;&#x4E86;&#xFF0C;&#x662F;&#x65F6;&#x5019;&#x8BA9;&#x6211;&#x4EEC;&#x5F00;&#x59CB;&#x4E0B;&#x4E00;&#x6B65;&#x4E86;&#xFF01; </p>
+<p>&#x8BA9;&#x6211;&#x4EEC;&#x9996;&#x5148;&#x5C1D;&#x8BD5;&#x6253;&#x5F00;&#x4EEA;&#x8868;&#x677F;-&#x8F6C;&#x5230; <code>http://127.0.0.1:4455/dashboard</code>&#x3002;&#x4F60;&#x53EF;&#x80FD;&#x4F1A;&#x6CE8;&#x610F;&#x5230;&#xFF0C;&#x4F60;&#x6700;&#x7EC8;&#x5C06;&#x767B;&#x5F55;&#x5230;&#x7AEF;&#x70B9;&#xFF1A;
+<img src="https://img-blog.csdnimg.cn/20200520235929758.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3BhbmRhXzg=,size_16,color_FFFFFF,t_70" alt="&#x767B;&#x5F55;"></p>
+<p><strong>SecureApp</strong> &#x7684;&#x767B;&#x5F55;&#x5C4F;&#x5E55;
+&#x67E5;&#x770B;&#x7F51;&#x7EDC;&#x5806;&#x6808;&#xFF0C;&#x4F60;&#x4F1A;&#x770B;&#x5230;&#x4E24;&#x4E2A;&#x91CD;&#x5B9A;&#x5411;&#x53D1;&#x751F;&#xFF1A;
+<img src="https://img-blog.csdnimg.cn/20200520235952660.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3BhbmRhXzg=,size_16,color_FFFFFF,t_70" alt="&#x5728;&#x8FD9;&#x91CC;&#x63D2;&#x5165;&#x56FE;&#x7247;&#x63CF;&#x8FF0;">
+<strong>SecureApp</strong> &#x7684;&#x7F51;&#x7EDC; trace&#x3002;</p>
+<p>&#x56E0;&#x4E3A;&#x5728;&#x4E00;&#x5F00;&#x59CB;&#x6D4F;&#x89C8;&#x5668;&#x8FD8;&#x6CA1;&#x6709;&#x6709;&#x6548;&#x7684;&#x8EAB;&#x4EFD;&#x9A8C;&#x8BC1;&#xFF08;&#x767B;&#x5F55;&#xFF09;&#x4F1A;&#x8BDD;&#x5EFA;&#x7ACB;&#xFF0C;&#x6240;&#x4EE5;&#x624D;&#x6709;&#x4E86;&#x4ECE; <code>http://127.0.0.1:4445/dashboard</code> &#x5230; <code>http://127.0.0.1:4455/.ory/kratos/public/self-service/browser/flows/login</code> &#x7684;&#x9996;&#x6B21;&#x91CD;&#x5B9A;&#x5411;&#x3002;</p>
+<p>&#x91CD;&#x5B9A;&#x5411;&#x5230; &#x67D0;&#x4E2A;<strong>ORY Kratos</strong> API &#xFF0C;&#x8BB0;&#x5F55;<strong>&#x6D4F;&#x89C8;&#x5668;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;</strong>&#x7684;&#x8EAB;&#x4EFD; ID&#xFF0C;&#x8FD9;&#x91CC;&#x5C31;&#x662F; request &#x540E;&#x9762;&#x7684;&#x53C2;&#x6570; &#x3002; </p>
+<p><strong>ORY Kratos</strong> &#x4F1A;&#x8FDB;&#x884C;&#x4E00;&#x4E9B;&#x5B89;&#x5168;&#x68C0;&#x67E5;&#xFF0C;&#x5E76;&#x51C6;&#x5907;&#x8868;&#x5355;&#x6570;&#x636E;&#xFF0C;&#x7136;&#x540E;&#x5C06;&#x6D4F;&#x89C8;&#x5668;&#x91CD;&#x5B9A;&#x5411;&#x5230; <code>http://127.0.0.1:4445/auth/login</code>&#xFF0C;&#x5E76;&#x9644;&#x52A0;&#x4E00;&#x4E2A; <code>?request =</code>  &#x67E5;&#x8BE2;&#x53C2;&#x6570;&#x3002;</p>
+<p>&#x7136;&#x540E;&#xFF0C;<code>/auth/login</code>&#xFF08;&#x5C5E;&#x4E8E;<strong>SecureApp</strong>&#xFF09;&#x4ECE; <strong>ORY Kratos</strong> &#x7684; Admin API &#x4E2D;&#x83B7;&#x53D6;&#x5BF9;&#x5448;&#x73B0;&#x8868;&#x5355;&#x81F3;&#x5173;&#x91CD;&#x8981;&#x7684;&#x6570;&#x636E;&#xFF1A;</p>
+<pre><code class="lang-bash">
+$ curl http://127.0.0.1:4434/self-service/browser/flows/requests/login?request=&lt;request-id&gt;
+{
+    <span class="hljs-string">&quot;id&quot;</span>: <span class="hljs-string">&quot;27aa98bc-a074-418f-96fa-8b8146050209&quot;</span>,
+    <span class="hljs-string">&quot;expires_at&quot;</span>: <span class="hljs-string">&quot;2020-01-20T21:10:12.7365393Z&quot;</span>,
+    <span class="hljs-string">&quot;issued_at&quot;</span>: <span class="hljs-string">&quot;2020-01-20T21:00:12.7365532Z&quot;</span>,
+    <span class="hljs-string">&quot;request_url&quot;</span>: <span class="hljs-string">&quot;http://127.0.0.1:4455/self-service/browser/flows/login&quot;</span>,
+    <span class="hljs-string">&quot;methods&quot;</span>: {
+        <span class="hljs-string">&quot;password&quot;</span>: {
+            <span class="hljs-string">&quot;method&quot;</span>: <span class="hljs-string">&quot;password&quot;</span>,
+            <span class="hljs-string">&quot;config&quot;</span>: {
+                <span class="hljs-string">&quot;action&quot;</span>: <span class="hljs-string">&quot;http://127.0.0.1:4455/.ory/kratos/public/auth/browser/methods/password/login?request=27aa98bc-a074-418f-96fa-8b8146050209&quot;</span>,
+                <span class="hljs-string">&quot;method&quot;</span>: <span class="hljs-string">&quot;POST&quot;</span>,
+                <span class="hljs-string">&quot;fields&quot;</span>: [
+                    {
+                        <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;csrf_token&quot;</span>,
+                        <span class="hljs-string">&quot;type&quot;</span>: <span class="hljs-string">&quot;hidden&quot;</span>,
+                        <span class="hljs-string">&quot;required&quot;</span>: <span class="hljs-literal">true</span>,
+                        <span class="hljs-string">&quot;value&quot;</span>: <span class="hljs-string">&quot;Ii8iIEdnn12vVQ2vyz2YaHjmXMUK5eSQgw9pgENGxPjXi1PHC9gOG51x61o2GT9LGvC81ddvmNXYeLvlPxA04g==&quot;</span>
+                    },
+                    {
+                        <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;identifier&quot;</span>,
+                        <span class="hljs-string">&quot;type&quot;</span>: <span class="hljs-string">&quot;text&quot;</span>,
+                        <span class="hljs-string">&quot;required&quot;</span>: <span class="hljs-literal">true</span>
+                    },
+                    {
+                        <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;password&quot;</span>,
+                        <span class="hljs-string">&quot;type&quot;</span>: <span class="hljs-string">&quot;password&quot;</span>,
+                        <span class="hljs-string">&quot;required&quot;</span>: <span class="hljs-literal">true</span>
+                    }
+                ]
+            }
+        }
+    }
+}
+</code></pre>
+<p>&#x7136;&#x540E;&#x5C06;&#x6B64;&#x6570;&#x636E;&#x5448;&#x73B0;&#x4E3A; HTML &#x8868;&#x5355;&#x3002; &#x6B64;&#x6D41;&#x7A0B;&#x4E5F;&#x53EF;&#x7528;&#x4E8E;<strong>&#x5355;&#x9875;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#xFF08;SPA&#xFF09;</strong>&#x548C; <strong>Angular</strong> &#x6216; <strong>ReactJS</strong> &#x4E4B;&#x7C7B;&#x7684;&#x6846;&#x67B6;&#x3002; &#x6709;&#x5173;&#x7279;&#x5B9A;&#x6D41;&#x7A0B;&#xFF08;&#x767B;&#x5F55;&#xFF0C;&#x6CE8;&#x518C;&#xFF0C;&#x6CE8;&#x9500;&#x7B49;&#xFF09;&#x7684;&#x66F4;&#x591A;&#x8BE6;&#x7EC6;&#x4FE1;&#x606F;&#xFF0C;&#x8BF7;&#x8F6C;&#x81F3;<a href="https://www.ory.sh/kratos/docs/concepts/index" target="_blank">&#x6982;&#x5FF5;&#x7AE0;&#x8282;</a>&#x3002;</p>
+<p>&#x8BA9;&#x6211;&#x4EEC;&#x7EE7;&#x7EED;&#x4E0B;&#x4E00;&#x4E2A;&#x6D41;&#x7A0B;-&#x6CE8;&#x518C;&#xFF01; &#x5355;&#x51FB;&#x201C;&#x521B;&#x5EFA;&#x5E10;&#x6237;&#x201D;&#xFF0C;&#x8FD9;&#x5C06;&#x542F;&#x52A8;&#x7C7B;&#x4F3C;&#x4E8E;&#x6211;&#x4EEC;&#x521A;&#x521A;&#x4F7F;&#x7528;&#x7684;&#x6D41;&#x7A0B;&#xFF1A;
+<img src="https://img-blog.csdnimg.cn/2020052100002237.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3BhbmRhXzg=,size_16,color_FFFFFF,t_70" alt="">
+&#x5230;&#x76EE;&#x524D;&#x4E3A;&#x6B62;&#xFF0C;&#x7F51;&#x7EDC;&#x91CD;&#x5B9A;&#x5411;&#x770B;&#x8D77;&#x6765;&#x5F88;&#x719F;&#x6089;&#xFF1A;
+<img src="https://img-blog.csdnimg.cn/20200521000040827.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3BhbmRhXzg=,size_16,color_FFFFFF,t_70" alt="">
+&#x5982;&#x679C;&#x6211;&#x4EEC;&#x5C1D;&#x8BD5;&#x4F7F;&#x7528; <code>123456</code> &#x8FD9;&#x6837;&#x7684;&#x5BC6;&#x7801;&#x8FDB;&#x884C;&#x6CE8;&#x518C;&#xFF0C;&#x90A3;&#x4E48; <strong>ORY Kratos</strong> &#x7684;&#x5BC6;&#x7801;&#x7B56;&#x7565;&#x5C06;&#x4F1A;&#x62D2;&#x7EDD;&#xFF1A;
+<img src="https://img-blog.csdnimg.cn/2020052100005749.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3BhbmRhXzg=,size_16,color_FFFFFF,t_70" alt="&#x5728;&#x8FD9;&#x91CC;&#x63D2;&#x5165;&#x56FE;&#x7247;&#x63CF;&#x8FF0;"></p>
+<p>&#x9519;&#x8BEF;&#x6D88;&#x606F;&#x76F4;&#x63A5;&#x6765;&#x81EA;<strong>ORY Kratos</strong> &#x7684; API&#xFF1A;</p>
+<pre><code class="lang-bash">$ curl http://127.0.0.1:4434/self-service/browser/flows/requests/registration?request=&lt;request-id&gt;
+{
+    <span class="hljs-string">&quot;id&quot;</span>: <span class="hljs-string">&quot;79349cbd-c785-476a-8db8-d0d71c5b003c&quot;</span>,
+    <span class="hljs-string">&quot;expires_at&quot;</span>: <span class="hljs-string">&quot;2020-01-20T21:17:00.5077381Z&quot;</span>,
+    <span class="hljs-string">&quot;issued_at&quot;</span>: <span class="hljs-string">&quot;2020-01-20T21:07:00.5077527Z&quot;</span>,
+    <span class="hljs-string">&quot;request_url&quot;</span>: <span class="hljs-string">&quot;http://127.0.0.1:4455/self-service/browser/flows/registration&quot;</span>,
+    <span class="hljs-string">&quot;methods&quot;</span>: {
+        <span class="hljs-string">&quot;password&quot;</span>: {
+            <span class="hljs-string">&quot;method&quot;</span>: <span class="hljs-string">&quot;password&quot;</span>,
+            <span class="hljs-string">&quot;config&quot;</span>: {
+                <span class="hljs-string">&quot;action&quot;</span>: <span class="hljs-string">&quot;http://127.0.0.1:4455/.ory/kratos/public/auth/browser/methods/password/registration?request=79349cbd-c785-476a-8db8-d0d71c5b003c&quot;</span>,
+                <span class="hljs-string">&quot;method&quot;</span>: <span class="hljs-string">&quot;POST&quot;</span>,
+                <span class="hljs-string">&quot;fields&quot;</span>: [
+                    {
+                        <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;csrf_token&quot;</span>,
+                        <span class="hljs-string">&quot;type&quot;</span>: <span class="hljs-string">&quot;hidden&quot;</span>,
+                        <span class="hljs-string">&quot;required&quot;</span>: <span class="hljs-literal">true</span>,
+                        <span class="hljs-string">&quot;value&quot;</span>: <span class="hljs-string">&quot;+ZQ8x5cVgdtt4xtPIRJXQPKMVU5c/S2Mj2MuudP32vsMME0g26oQnV/H/brcNvBjkJq1XoF3UcnUFPzcr6Eq4Q==&quot;</span>
+                    },
+                    {
+                        <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;password&quot;</span>,
+                        <span class="hljs-string">&quot;type&quot;</span>: <span class="hljs-string">&quot;password&quot;</span>,
+                        <span class="hljs-string">&quot;required&quot;</span>: <span class="hljs-literal">true</span>
+                    },
+                    {
+                        <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;traits.email&quot;</span>,
+                        <span class="hljs-string">&quot;type&quot;</span>: <span class="hljs-string">&quot;text&quot;</span>,
+                        <span class="hljs-string">&quot;value&quot;</span>: <span class="hljs-string">&quot;hello@ory.sh&quot;</span>
+                    },
+                    {
+                        <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;traits.full_name&quot;</span>,
+                        <span class="hljs-string">&quot;type&quot;</span>: <span class="hljs-string">&quot;text&quot;</span>
+                    }
+                ]
+            }
+        }
+    }
+}
+</code></pre>
+<p>&#x8BBE;&#x7F6E;&#x4E0D;&#x8FDD;&#x53CD;&#x8FD9;&#x4E9B;&#x7B56;&#x7565;&#x7684;&#x5BC6;&#x7801;&#xFF0C;&#x6211;&#x4EEC;&#x5C06;&#x7ACB;&#x5373;&#x91CD;&#x5B9A;&#x5411;&#x5230;&#x4EEA;&#x8868;&#x677F;&#xFF1A;</p>
+<p><img src="https://img-blog.csdnimg.cn/2020052100012544.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3BhbmRhXzg=,size_16,color_FFFFFF,t_70" alt=""></p>
+<p>&#x901A;&#x8FC7;&#x4F7F;&#x7528;&#x201C;&#x6CE8;&#x9500;&#x201D;&#xFF0C;&#x4F60;&#x5C06;&#x518D;&#x6B21;&#x88AB;&#x91CD;&#x5B9A;&#x5411;&#x5230;&#x767B;&#x5F55;&#x5C4F;&#x5E55;&#xFF0C;&#x5E76;&#x4E14;&#x5C06;&#x80FD;&#x591F;&#x4F7F;&#x7528;&#x521A;&#x521A;&#x8BBE;&#x7F6E;&#x7684;&#x767B;&#x5F55;&#x51ED;&#x636E;&#xFF01;</p>
+<h2 id="&#x4E86;&#x89E3;&#x767B;&#x5F55;&#x548C;&#x6CE8;&#x518C;&#x7684;&#x5DE5;&#x4F5C;&#x65B9;&#x5F0F;">&#x4E86;&#x89E3;&#x767B;&#x5F55;&#x548C;&#x6CE8;&#x518C;&#x7684;&#x5DE5;&#x4F5C;&#x65B9;&#x5F0F;</h2>
+<p>&#x8BF7;&#x8F6C;&#x5230;<a href="https://www.ory.sh/kratos/docs/self-service/flows/index.md" target="_blank">&#x81EA;&#x52A9;&#x670D;&#x52A1;&#x6D41;&#x7A0B;&#x4E00;&#x7AE0;</a>&#xFF0C;&#x6DF1;&#x5165;&#x4E86;&#x89E3;&#x5404;&#x4E2A;&#x6D41;&#x7A0B;&#x7684;&#x5DE5;&#x4F5C;&#x539F;&#x7406;&#x3002;</p>
+<h2 id="&#x7535;&#x5B50;&#x90AE;&#x4EF6;&#x9A8C;&#x8BC1;">&#x7535;&#x5B50;&#x90AE;&#x4EF6;&#x9A8C;&#x8BC1;</h2>
+<p>&#x5728;&#x4F60;&#x6CE8;&#x518C;&#x540E;&#xFF0C;&#x4E00;&#x5C01;&#x7535;&#x5B50;&#x90AE;&#x4EF6;&#x5DF2;&#x53D1;&#x9001;&#x5230;&#x4F60;&#x4F7F;&#x7528;&#x7684;&#x7535;&#x5B50;&#x90AE;&#x4EF6;&#x5730;&#x5740;&#x3002; &#x56E0;&#x4E3A;&#x5FEB;&#x901F;&#x5165;&#x95E8;&#x4F7F;&#x7528;&#x4E86;&#x4F2A;&#x9020;&#x7684; SMTP &#x670D;&#x52A1;&#x5668;&#xFF0C;&#x6240;&#x4EE5;&#x7535;&#x5B50;&#x90AE;&#x4EF6;&#x6CA1;&#x6709;&#x5230;&#x8FBE;&#x4F60;&#x7684;&#x6536;&#x4EF6;&#x7BB1;&#x3002; &#x4F46;&#x662F;&#xFF0C;&#x4F60;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x5728; <a href="127.0.0.1:4436" target="_blank"><code>127.0.0.1:4436</code></a> &#x6253;&#x5F00; <strong>MailSlurper UI</strong> &#x6765;&#x68C0;&#x7D22;&#x7535;&#x5B50;&#x90AE;&#x4EF6;&#x3002;</p>
+<p>&#x4F60;&#x5E94;&#x8BE5;&#x4F1A;&#x770B;&#x5230;&#x4EE5;&#x4E0B;&#x5185;&#x5BB9;&#xFF1A;
+<img src="https://img-blog.csdnimg.cn/20200521000150292.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3BhbmRhXzg=,size_16,color_FFFFFF,t_70" alt="">
+&#x5982;&#x679C;&#x4E0D;&#x662F;&#xFF0C;&#x8BF7;&#x786C;&#x5237;&#x65B0;&#x9009;&#x9879;&#x5361;&#x6216;&#x5355;&#x51FB;&#x83DC;&#x5355;&#x680F;&#x4E2D;&#x7684;&#x4E3B;&#x9875;&#x56FE;&#x6807;&#x3002;</p>
+<p>&#x63A5;&#x4E0B;&#x6765;&#xFF0C;&#x70B9;&#x51FB;&#x9A8C;&#x8BC1;&#x94FE;&#x63A5;&#x3002;</p>
+<p>&#x4F60;&#x6700;&#x7EC8;&#x5C06;&#x5728;&#x4EEA;&#x8868;&#x677F;&#x4E2D;&#x83B7;&#x5F97;&#x4E00;&#x4E2A;&#x7ECF;&#x8FC7;&#x9A8C;&#x8BC1;&#x7684;&#x7535;&#x5B50;&#x90AE;&#x4EF6;&#x5730;&#x5740;&#xFF08;&#x8BF7;&#x68C0;&#x67E5; JSON Payload &#x4E2D;&#x7684; <code>authenticated</code> &#x548C; <code>authenticated_at</code> &#x5B57;&#x6BB5;&#xFF09;&#xFF1A;
+<img src="https://img-blog.csdnimg.cn/20200521000213753.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3BhbmRhXzg=,size_16,color_FFFFFF,t_70" alt="&#x5728;&#x8FD9;&#x91CC;&#x63D2;&#x5165;&#x56FE;&#x7247;&#x63CF;&#x8FF0;"></p>
+<p>&#x8981;&#x91CD;&#x65B0;&#x8BF7;&#x6C42;&#x9A8C;&#x8BC1;&#x7535;&#x5B50;&#x90AE;&#x4EF6;&#xFF0C;&#x8BF7;&#x586B;&#x5199;&#x8868;&#x683C; <code>127.0.0.1:4455/verify</code>&#x3002;</p>
+<h2 id="&#x4F7F;&#x7528;&#x7684;&#x914D;&#x7F6E;">&#x4F7F;&#x7528;&#x7684;&#x914D;&#x7F6E;</h2>
+<p>&#x4F60;&#x53EF;&#x4EE5;&#x5728;  <code>./contrib/quickstart</code> &#x548C;  <code>./quickstart.yml</code> &#x4E2D;&#x627E;&#x5230;&#x6B64;&#x5FEB;&#x901F;&#x5165;&#x95E8;&#x6307;&#x5357;&#x7684;&#x6240;&#x6709;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x3002; &#x8981;&#x4E86;&#x89E3;&#x6BCF;&#x4E2A;&#x5355;&#x72EC;&#x7684;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x7684;&#x529F;&#x80FD;&#xFF0C;&#x5FC5;&#x987B;&#x67E5;&#x9605;&#x672C;&#x6587;&#x6863;&#x7684;&#x5176;&#x4ED6;&#x7AE0;&#x8282;&#x3002;</p>
+<blockquote>
+<p>&#x8981;&#x8FD0;&#x884C; <strong>ORY Kratos</strong> &#x7684;&#x6700;&#x4F4E;&#x7248;&#x672C;&#xFF0C;&#x4F60;&#x9700;&#x8981;&#x8BBE;&#x7F6E;&#x914D;&#x7F6E;&#x9879; <code>identity.traits.default_schema_url</code> &#x548C; <code>dsn</code>&#x3002; &#x4F60;&#x8FD8;&#x5E94;&#x8BE5;&#x914D;&#x7F6E; <code>urls.*_ui</code>&#xFF0C;&#x56E0;&#x4E3A;&#x5426;&#x5219;&#x4F60;&#x7684;&#x7528;&#x6237;&#x5C06;&#x4EE5;&#x56DE;&#x9000;&#x72B6;&#x6001;&#x7ED3;&#x675F;&#x3002;</p>
+</blockquote>
+<p>&#x5C06;&#x6765;&#xFF0C;&#x672C;&#x6307;&#x5357;&#x5C06;&#x652F;&#x6301;&#x66F4;&#x591A;&#x7528;&#x4F8B;&#xFF0C;&#x4F8B;&#x5982;&#xFF1A;</p>
+<ul>
+<li>&#x4F7F;&#x7528; GitHub &#x767B;&#x5F55;&#x5E76;&#x6CE8;&#x518C;</li>
+</ul>
+<h2 id="&#x6E05;&#x7406;docker">&#x6E05;&#x7406;Docker</h2>
+<p>&#x6700;&#x540E;&#xFF0C;&#x8981;&#x6E05;&#x7406;&#x6240;&#x6709;&#x5185;&#x5BB9;&#xFF0C;&#x9700;&#x8981;&#x5173;&#x95ED; Docker Compose &#x73AF;&#x5883;&#x5E76;&#x5220;&#x9664;&#x6240;&#x6709;&#x5DF2;&#x5B89;&#x88C5;&#x7684;&#x5377;&#x3002;</p>
+<pre><code class="lang-bash">docker-compose <span class="hljs-_">-f</span> quickstart.yml down -v
+docker-compose <span class="hljs-_">-f</span> quickstart.yml rm <span class="hljs-_">-f</span> <span class="hljs-_">-s</span> -v
+</code></pre>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="LRU算法详解.html" class="navigation navigation-prev " aria-label="Previous page: LRU算法详解.md">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="2020-05-21-笔记.html" class="navigation navigation-next " aria-label="Next page: 2020-05-21-笔记.md">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"kratos-01-快速入门.md","level":"19.22.2","depth":2,"next":{"title":"2020-05-21-笔记.md","level":"19.23","depth":1,"path":"2020-05-21/2020-05-21-笔记.md","ref":"2020-05-21/2020-05-21-笔记.md","articles":[{"title":"101. 对称二叉树.md","level":"19.23.1","depth":2,"path":"2020-05-22/101. 对称二叉树.md","ref":"2020-05-22/101. 对称二叉树.md","articles":[]}]},"previous":{"title":"LRU算法详解.md","level":"19.22.1","depth":2,"path":"2020-05-21/LRU算法详解.md","ref":"2020-05-21/LRU算法详解.md","articles":[]},"dir":"ltr"},"config":{"plugins":["expandable-chapters-small","favicon","github","katex"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"github":{"url":"https://github.com/panda8z"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":{"shortcut":"assets/images/favicon.ico","bookmark":"assets/images/favicon.ico","appleTouch":"assets/images/apple-touch-icon.png","appleTouchMore":{"120x120":"assets/images/apple-touch-icon-120x120.png","180x180":"assets/images/apple-touch-icon-120x120.png"}},"expandable-chapters-small":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Panda8z","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Panda8z Go Dairy Archive","language":"zh-hans","links":{"sidebar":{"GitHub托管的CSBlog":"https://moreme.top"}},"gitbook":"3.2.3","description":"Computer System"},"file":{"path":"2020-05-21/kratos-01-快速入门.md","mtime":"2020-05-22T11:56:53.446Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-05-22T11:57:38.392Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-github/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
