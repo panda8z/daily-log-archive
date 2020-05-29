@@ -197,13 +197,9 @@ viper.SetDefault("age", "18")
 viper.SetDefault("class", map[string]string{"class01": "01", "class02": "02"})
 ```
 
-
-
 完整代码：
 
 ##### main.go
-
-
 
 ```go
 package main
@@ -371,7 +367,7 @@ err := viper.ReadRemoteConfig()
 
 当然，你也可以使用`SecureRemoteProvider`。
 
-##### 远程Key/Value存储示例-加密
+###### 远程Key/Value存储示例-加密
 
 ```go
 viper.AddSecureRemoteProvider("etcd","http://127.0.0.1:4001","/config/hugo.json","/etc/secrets/mykeyring.gpg")
@@ -379,7 +375,7 @@ viper.SetConfigType("json") // 因为在字节流中没有文件扩展名，所�
 err := viper.ReadRemoteConfig()
 ```
 
-##### 监控etcd中的更改-未加密
+###### 监控etcd中的更改-未加密
 
 ```go
 // 或者你可以创建一个新的viper实例
@@ -410,4 +406,172 @@ go func(){
 	    runtime_viper.Unmarshal(&runtime_conf)
 	}
 }()
+```
+
+
+
+## 7. 显示调用`Set`设置值
+
+###### 覆盖设置
+
+这些可能来自命令行标志，也可能来自你自己的应用程序逻辑。
+
+```go
+viper.Set("Verbose", true)
+viper.Set("LogFile", LogFile)
+```
+
+## 8. 命令行参数（`flag`）
+
+Viper 具有绑定到标志的能力。具体来说，Viper支持[Cobra](https://github.com/spf13/cobra)库中使用的`Pflag`。
+
+与`BindEnv`类似，该值不是在调用绑定方法时设置的，而是在访问该方法时设置的。这意味着你可以根据需要尽早进行绑定，即使在`init()`函数中也是如此。
+
+对于单个标志，`BindPFlag()`方法提供此功能。
+
+**例如：**
+
+```go
+serverCmd.Flags().Int("port", 1138, "Port to run Application server on")
+viper.BindPFlag("port", serverCmd.Flags().Lookup("port"))
+```
+
+###### 绑定一组现有的pflags
+
+你还可以绑定一组现有的pflags （pflag.FlagSet）：
+
+**举个例子：**
+
+```go
+pflag.Int("flagname", 1234, "help message for flagname")
+
+pflag.Parse()
+viper.BindPFlags(pflag.CommandLine)
+
+i := viper.GetInt("flagname") // 从viper而不是从pflag检索值
+```
+
+在 Viper 中使用 pflag 并不阻碍其他包中使用标准库中的 flag 包。pflag 包可以通过导入这些 flags 来处理flag包定义的flags。这是通过调用pflag包提供的便利函数`AddGoFlagSet()`来实现的。
+
+**例如：**
+
+```go
+package main
+
+import (
+	"flag"
+	"github.com/spf13/pflag"
+)
+
+func main() {
+
+	// 使用标准库 "flag" 包
+	flag.Int("flagname", 1234, "help message for flagname")
+
+	pflag.CommandLine.AddGoFlagSet(flag.CommandLine)
+	pflag.Parse()
+	viper.BindPFlags(pflag.CommandLine)
+
+	i := viper.GetInt("flagname") // 从 viper 检索值
+
+	...
+}
+```
+
+###### flag接口
+
+如果你不使用`Pflag`，Viper 提供了两个Go接口来绑定其他 flag 系统。
+
+`FlagValue`表示单个flag。这是一个关于如何实现这个接口的非常简单的例子：
+
+```go
+type myFlag struct {}
+func (f myFlag) HasChanged() bool { return false }
+func (f myFlag) Name() string { return "my-flag-name" }
+func (f myFlag) ValueString() string { return "my-flag-value" }
+func (f myFlag) ValueType() string { return "string" }
+```
+
+一旦你的 flag 实现了这个接口，你可以很方便地告诉Viper绑定它：
+
+```go
+viper.BindFlagValue("my-flag-name", myFlag{})
+```
+
+`FlagValueSet`代表一组 flags 。这是一个关于如何实现这个接口的非常简单的例子:
+
+```go
+type myFlagSet struct {
+	flags []myFlag
+}
+
+func (f myFlagSet) VisitAll(fn func(FlagValue)) {
+	for _, flag := range flags {
+		fn(flag)
+	}
+}
+```
+
+一旦你的flag set实现了这个接口，你就可以很方便地告诉Viper绑定它：
+
+```go
+fSet := myFlagSet{
+	flags: []myFlag{myFlag{}, myFlag{}},
+}
+viper.BindFlagValues("my-flags", fSet)
+```
+
+## 9. 环境变量
+
+Viper完全支持环境变量。这使`Twelve-Factor App`开箱即用。有五种方法可以帮助与ENV协作:
+
+- `AutomaticEnv()`
+- `BindEnv(string...) : error`
+- `SetEnvPrefix(string)`
+- `SetEnvKeyReplacer(string...) *strings.Replacer`
+- `AllowEmptyEnv(bool)`
+
+*使用ENV变量时，务必要意识到Viper将ENV变量视为区分大小写。*
+
+Viper提供了一种机制来确保ENV变量是惟一的。通过使用`SetEnvPrefix`，你可以告诉Viper在读取环境变量时使用前缀。`BindEnv`和`AutomaticEnv`都将使用这个前缀。
+
+`BindEnv`使用一个或两个参数。第一个参数是键名称，第二个是环境变量的名称。环境变量的名称区分大小写。如果没有提供ENV变量名，那么Viper将自动假设ENV变量与以下格式匹配：前缀+ “_” +键名全部大写。当你显式提供ENV变量名（第二个参数）时，它 **不会** 自动添加前缀。例如，如果第二个参数是“id”，Viper将查找环境变量“ID”。
+
+在使用ENV变量时，需要注意的一件重要事情是，每次访问该值时都将读取它。Viper在调用`BindEnv`时不固定该值。
+
+`AutomaticEnv`是一个强大的助手，尤其是与`SetEnvPrefix`结合使用时。调用时，Viper会在发出`viper.Get`请求时随时检查环境变量。它将应用以下规则。它将检查环境变量的名称是否与键匹配（如果设置了`EnvPrefix`）。
+
+`SetEnvKeyReplacer`允许你使用`strings.Replacer`对象在一定程度上重写 Env 键。如果你希望在`Get()`调用中使用`-`或者其他什么符号，但是环境变量里使用`_`分隔符，那么这个功能是非常有用的。可以在`viper_test.go`中找到它的使用示例。
+
+或者，你可以使用带有`NewWithOptions`工厂函数的`EnvKeyReplacer`。与`SetEnvKeyReplacer`不同，它接受`StringReplacer`接口，允许你编写自定义字符串替换逻辑。
+
+默认情况下，空环境变量被认为是未设置的，并将返回到下一个配置源。若要将空环境变量视为已设置，请使用`AllowEmptyEnv`方法。
+
+###### Env 示例：
+
+```go
+SetEnvPrefix("spf") // 将自动转为大写
+BindEnv("id")
+
+os.Setenv("SPF_ID", "13") // 通常是在应用程序之外完成的
+
+id := Get("id") // 13
+```
+
+### 10.监控并重新读取配置文件
+
+Viper支持在运行时实时读取配置文件的功能。
+
+需要重新启动服务器以使配置生效的日子已经一去不复返了，viper驱动的应用程序可以在运行时读取配置文件的更新，而不会错过任何消息。
+
+只需告诉viper实例watchConfig。可选地，你可以为Viper提供一个回调函数，以便在每次发生更改时运行。
+
+**确保在调用`WatchConfig()`之前添加了所有的配置路径。**
+
+```go
+viper.WatchConfig()
+viper.OnConfigChange(func(e fsnotify.Event) {
+  // 配置文件发生变更之后会调用的回调函数
+	fmt.Println("Config file changed:", e.Name)
+})
 ```
