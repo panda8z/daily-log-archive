@@ -1,3 +1,4 @@
+// demo10
 // Timeout using select
 
 // The time.After function returns a channel that blocks

@@ -1,3 +1,4 @@
+// demo05
 // Generator: function that returns a channel
 // Channels are first-class values, just like strings or integers.
 
