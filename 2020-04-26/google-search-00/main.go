@@ -1,3 +1,4 @@
+// demo - Google Search 00
 // Google Search: A fake framework
 package main
 

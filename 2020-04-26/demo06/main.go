@@ -1,3 +1,4 @@
+// demo06
 // Channels as a handle on service
 
 // Our boring function returns a channel that let us communicate with the boring service it provides.
