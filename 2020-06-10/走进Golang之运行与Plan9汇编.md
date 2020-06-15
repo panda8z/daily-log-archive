@@ -1,3 +1,9 @@
+> 本文内容和图片均整理自互联网。
+>
+> 原文地址：https://xiaomi-info.github.io/2019/11/27/golang-compiler-plan9/
+>
+> 版权归原作者所有。
+
 通过上一篇[走进 Golang 之汇编原理](https://xiaomi-info.github.io/2019/11/13/golang-compiler-principle/)，我们知道了目标代码的生成经历了那些过程。今天我们一起来学习一下生成的目标代码如何在计算机上执行。以及通过查阅 `Golang` 的 Plan9 汇编来了解 Golang 的一些内部秘密。
 
 ## Golang 的运行环境
