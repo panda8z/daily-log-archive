@@ -1,3 +1,11 @@
+
+
+> 本文内容和图片均整理自互联网。
+>
+> 原文地址：https://xiaomi-info.github.io/2019/11/13/golang-compiler-principle/
+>
+> 版权归原作者所有。
+
 ## 认识 go build
 
 当我们敲下 `go build` 的时候，我们的写的源码文件究竟经历了哪些事情？最终变成了可执行文件。
@@ -171,7 +179,7 @@ go build -gcflags '-N -l'
 
 首先看入口函数 `cmd/compile/main.go:main()`
 
-```
+```go
 var archInits = map[string]func(*gc.Arch){
     "386":      x86.Init,
     "amd64":    amd64.Init,
@@ -201,7 +209,7 @@ func main() {
 
 然后在 `cmd/internal/obj/plist.go` 中调用对应架构的方法进行处理
 
-```
+```go
 func Flushplist(ctxt *Link, plist *Plist, newprog ProgAlloc, myimportpath string) {
     ... ...
     for _, s := range text {

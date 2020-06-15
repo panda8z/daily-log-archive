@@ -1,24 +1,8 @@
 **A Manual for the Plan 9 assembler**
 
-
-
-
-
 *Rob Pike*
 
 *rob@plan9.bell-labs.com*
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
