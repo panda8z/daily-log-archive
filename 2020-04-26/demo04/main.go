@@ -6,7 +6,7 @@
 // Note for exports: Go channels can also be created with a buffer.
 // Buffering removes synchronization.
 // Buffering makes them more like Erlang`s mailboxes.
-// Buffered channels can be important for some problems 
+// Buffered channels can be important for some problems
 // but they are more subtle to reason about
 // We won`t need them today.
 
@@ -18,12 +18,12 @@ package main
 
 import (
 	"fmt"
-	"time"
 	"math/rand"
+	"time"
 )
 
-func main()  {
-	c := make(chan, string)
+func main() {
+	c := make(chan string)
 	go boring("boring!", c)
 	for i := 0; i < 5; i++ {
 		fmt.Printf("You say: %q\n", <-c)
@@ -33,7 +33,7 @@ func main()  {
 
 func boring(msg string, c chan string) {
 	for i := 0; ; i++ {
-		c <- fmt.Sprint("%s %d", msg, i)
+		c <- fmt.Sprintf("%s %d", msg, i)
 		time.Sleep(time.Duration(rand.Intn(1e3)) * time.Millisecond)
 	}
 }
