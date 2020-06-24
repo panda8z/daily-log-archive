@@ -240,7 +240,7 @@ import (
 )
 
 func main()  {
-	c := make(chan, string)
+	c := make(chan string)
 	go boring("boring!", c)
 	for i := 0; i < 5; i++ {
 		fmt.Printf("You say: %q\n", <-c)
@@ -250,7 +250,7 @@ func main()  {
 
 func boring(msg string, c chan string) {
 	for i := 0; ; i++ {
-		c <- fmt.Sprint("%s %d", msg, i)
+		c <- fmt.Sprintf("%s %d", msg, i)
 		time.Sleep(time.Duration(rand.Intn(1e3)) * time.Millisecond)
 	}
 }
