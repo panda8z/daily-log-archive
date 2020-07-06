@@ -107,3 +107,36 @@ Too boring! I`m Leaving..
 ```
 
 并发开始后两秒内，打印了6次，最后main函数结束执行，整个程序结束，并发也就结束了。
+
+
+
+### 使用Channel的并发模式
+
+
+
+```go
+package main
+
+import (
+	"fmt"
+	"math/rand"
+	"time"
+)
+
+func main() {
+	c := make(chan string)
+	go boring("boring!",c)
+	for i:=0; i<5; i++ {
+			fmt.Printf("You say :%s",<-c)
+	}
+	fmt.Println("Yes! You are boring! I`m leaving")
+}
+
+func boring(msg string, c chan string) {
+	for i:=0; ; i++ {
+		c <- fmt.Sprintf("%s %d",msg,i)
+		time.Sleep(time.Duration(rand.Intn(1e3)) * time.Millisecond)
+	}
+}
+```
+
