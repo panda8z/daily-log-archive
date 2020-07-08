@@ -1,0 +1,56 @@
+# Project information
+site_name: Panda张向北
+site_description: 张向北的博客
+site_author: Panda 张向北
+site_url: https://moreme.top
+
+# Repository
+repo_name: panda8z/daily-log-archive
+repo_url: https://github.com/panda8z/daily-log-archive
+
+# Copyright
+copyright: Copyright &copy; 2019 - 2020 Panda张向北
+
+# Configuration
+docs_dir: 'zh_cn'
+theme:
+  
+  name: material
+  features:
+    - tabs
+  language: zh
+  palette:
+    primary: indigo
+    accent: indigo
+  font:
+    text: Roboto
+    code: Roboto Mono
+
+# Extras
+# extra:
+  # social:
+    # - icon: fontawesome/brands/github-alt
+    #   link: https://github.com/squidfunk
+    # - icon: fontawesome/brands/twitter
+    #   link: https://twitter.com/squidfunk
+    # - icon: fontawesome/brands/linkedin
+    #   link: https://linkedin.com/in/squidfunk
+
+# Google Analytics
+# google_analytics:
+#   - UA-XXXXXXXX-X
+#   - auto
+
+# Extensions
+markdown_extensions:
+  - admonition
+  - codehilite:
+      guess_lang: false
+  - toc:
+      permalink: true
+
+nav: 
+  - '首页': index.md
+  - 'Go语言学习之路': index.md
+  - '数据结构': index.md
+  - '算法导论': index.md
