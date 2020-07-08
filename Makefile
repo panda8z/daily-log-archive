@@ -4,3 +4,4 @@ serve:
 sync:
 	git pull
 	git push
+
