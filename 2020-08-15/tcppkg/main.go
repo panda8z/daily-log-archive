@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"net"
 	"strconv"
 )
@@ -19,6 +20,7 @@ func main() {
 
 	acceptor.OnSessionData = func(conn net.Conn, data []byte) bool {
 		str := string(data)
+		fmt.Println("recive:", str)
 		n, err := strconv.Atoi(str)
 		if err != nil || recvCounter != n {
 			panic("failed")

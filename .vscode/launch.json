@@ -9,7 +9,7 @@
             "type": "go",
             "request": "launch",
             "mode": "debug",
-            "program": "/Users/zcj/panda/git4me/daily-log-archive/2020-06-11/sortExamples/demo01/main.go",
+            "program": "${workspaceRoot}/2020-08-15/tcppkg/",
             "env": {},
             "args": []
         }
