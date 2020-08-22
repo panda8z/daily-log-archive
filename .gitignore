@@ -1,1 +1,8 @@
+# gitbook
 _book
+
+# vuepress
+node_modules
+
+# cmake
+*.build

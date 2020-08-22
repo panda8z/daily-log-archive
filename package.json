@@ -1,0 +1,18 @@
+{
+  "name": "daily-log-archive",
+  "version": "1.0.0",
+  "description": "Panda8z`s daily logs",
+  "main": "index.js",
+  "repository": "git@github.com:panda8z/Interview2020.git",
+  "author": "panda8z <panda8@126.com>",
+  "license": "MIT",
+  "private": false,
+  "devDependencies": {
+    "@vuepress/theme-blog": "^2.3.1",
+    "vuepress": "^1.5.3"
+  },
+  "scripts": {
+    "docs:dev": "vuepress dev docs",
+    "docs:build": "vuepress build docs"
+  }
+}
