@@ -215,7 +215,7 @@ Status NextElem(SqList L, ElemType cur_e, ElemType* next_e) {
         return ERROR;
     }
     
-    // 存储cur_e的前驱
+    // 存储cur_e的后继
     *next_e = L.elem[i + 1];
     
     return OK;
