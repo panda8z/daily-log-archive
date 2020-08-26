@@ -10,3 +10,4 @@ target_link_libraries(SqBiTree Scanf_lib)
 file(GLOB TestData TestData*.txt)
 # 将资源文件拷贝到*.exe目录下，不然无法加载
 file(COPY ${TestData} DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
+message("CMAKE_CURRENT_BINARY_DIR:${CMAKE_CURRENT_BINARY_DIR}")
