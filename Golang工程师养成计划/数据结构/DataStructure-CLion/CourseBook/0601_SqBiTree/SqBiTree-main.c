@@ -11,7 +11,9 @@ Status PrintElem(TElemType c) {
 
 int main(int argc, char* argv[]) {
     SqBiTree T;
-    
+//    debug = TRUE;
+
+
     printf("████████ InitBiTree \n");
     {
         printf("█ 初始化空二叉树 T ...\n");
@@ -23,7 +25,7 @@ int main(int argc, char* argv[]) {
     printf("████████ CreateBiTree \n");
     {
         printf("█ 按先序序列创建二叉树 T ...\n");
-        CreateBiTree(T, "TestData_Pre.txt");
+        CreateBiTree(T, "TestData_Pre1.txt");
     }
     PressEnterToContinue(debug);
     
