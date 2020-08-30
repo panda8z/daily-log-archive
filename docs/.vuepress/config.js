@@ -43,4 +43,11 @@ module.exports = {
         }
 
     },
+    configureWebpack: {
+        resolve: {
+          alias: {
+            '@alias': './public/pdfs'
+          }
+        }
+      }
 }
