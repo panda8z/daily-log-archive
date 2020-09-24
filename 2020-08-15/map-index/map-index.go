@@ -53,6 +53,8 @@ var mapper = make(map[int][]*Profile)
 
 func buildIndexByHash(list []*Profile) {
 	for _, profile := range list {
+		/*
+		 */
 		key := classicQueryKey{profile.Name, profile.Age}
 		exitValue := mapper[key.hash()]        // take out the value of the hash
 		exitValue = append(exitValue, profile) // add new profile
