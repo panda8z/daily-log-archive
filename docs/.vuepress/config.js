@@ -8,7 +8,7 @@ module.exports = {
             { text: 'Home', link: '/' },
             { text: 'About', link: '/about.md' },
             {
-                text: '分类',
+                text: '文集',
                 ariaLabel: 'Kinds',
                 items: [
                     { text: 'Rust', link: '/rust/', target: 'self' },
