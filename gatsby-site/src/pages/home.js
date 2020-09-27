@@ -5,9 +5,11 @@ import Bio from "../components/bio"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
-const BlogIndex = ({ data, location }) => {
-    const siteTitle = data.site.siteMetadata?.title || `Title`
-    const posts = data.allMarkdownRemark.nodes
+const BlogIndex = (props) => {
+    const siteTitle = props.data.site.siteMetadata?.title || `Title`
+    const posts = props.data.allMarkdownRemark.nodes
+    const location = props.location
+    console.log(props)
 
     return (
         <Layout location={location} title={siteTitle}>

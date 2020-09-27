@@ -1,8 +1,6 @@
 import React, { Component } from "react"
 import { Link, graphql } from "gatsby"
 
-import Layout from "../components/layout"
-
 
 export default class Index extends Component {
   constructor(props) {
@@ -10,39 +8,40 @@ export default class Index extends Component {
     console.log(props)
     this.state = {
       location: props.location,
-      data: props.data,
-      siteTitle: props.data.site.siteMetadata.title
+      img: props.data.img.childImageSharp.fixed,
     }
   }
-  render(){
-    return (<Layout class="index" location={this.state.location} title={this.state.siteTitle} >Hello
+  render() {
+    return (<div className="index" >
     
+      <div 
+      style={{ 
+        backgroundImage : this.state.img.src,
+        backgroundRepeat: 'repeat',
+        display:"flex",
+        position: "absolute",
+        flexDirection: "row",
+      }}>
       <Link className="header-link-home" to="/home">
-        HomePage
+        Home
       </Link>
-      </Layout>)
+      <br/>
+      <Link className="header-link-home" to="/list">
+        Blog List
+      </Link>
+      </div>
+    </div>)
   }
 }
 
 export const pageQuery = graphql`
-  query {
-    site {
-      siteMetadata {
-        title
-      }
-    }
-    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
-      nodes {
-        excerpt
-        fields {
-          slug
-        }
-        frontmatter {
-          date(formatString: "MMMM DD, YYYY")
-          title
-          description
-        }
+{
+  img: file(absolutePath: {regex: "/profile-pic.jpg/"}) {
+    childImageSharp {
+      fixed(width: 500, height: 500, quality: 95) {
+        ...GatsbyImageSharpFixed
       }
     }
   }
+}
 `
