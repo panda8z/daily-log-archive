@@ -1,0 +1,79 @@
+{
+  "main": {
+    "id": "e06a2a4f367b18a0",
+    "type": "split",
+    "children": [
+      {
+        "id": "eafd783f2ebec44e",
+        "type": "leaf",
+        "active": true,
+        "state": {
+          "type": "graph",
+          "state": {}
+        }
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "830ee6a5caad5dcb",
+    "type": "split",
+    "children": [
+      {
+        "id": "6cadb1c114b19692",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "e60f2d58951e518e",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {}
+            }
+          },
+          {
+            "id": "ad459568a04e10ae",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "right": {
+    "id": "3f300b3d1410de97",
+    "type": "split",
+    "children": [
+      {
+        "id": "fd2eebaca8a20e8d",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "cd6861a5c2731633",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "lastOpenFiles": [
+    "2020-05-22/2020-05-22-笔记.md",
+    "2020-05-22/3. 无重复字符的最长子串.md",
+    "2020-05-22/101. 对称二叉树/ff74f26781a4eff54e414a6716578a44ed20e862450ecc3f54dfbd3ef0d86efb-图片.png",
+    "2020-05-22/101. 对称二叉树/avatar_1568204658.png",
+    "2020-05-20/kratos-02-快速入门.md"
+  ]
+}

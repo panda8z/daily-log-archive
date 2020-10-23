@@ -1,0 +1,156 @@
+
+
+
+
+![image-20200923173949904](MySQL-SQL基础/image-20200923173949904.png)
+
+### SQL的基本概念
+
+SQL (Structure Query Language) 结构化查询语言
+
+- DDL (data define language) 数据定义语言
+- DML(data machine language) 数据操作语言
+- DCL(data control language) 数据控制语言
+- DQL(data query language) 数据查询语言
+
+## 云数据库RDS MySQL 版 
+
+阿里云关系型数据库RDS（Relational Database Service）是一种稳定可靠、可弹性伸缩的在线数据库服务，提供容灾、备份、恢复、迁移等方面的全套解决方案，彻底解决数据库运维的烦恼。
+RDS MySQL基于阿里巴巴的MySQL源码分支，经过双十一高并发、大数据量的考验，拥有优良的性能。RDS MySQL支持实例管理、账号管理、数据库管理、备份恢复、白名单、透明数据加密以及数据迁移等基本功能。
+
+ 
+
+了解产品详情: https://www.aliyun.com/product/rds/mysql 
+
+
+
+### Linux 下安装 rpm包方法。
+
+- 在 Linux 的 /opt 目录下安装；
+- `ls -ltr `列出当前目录详细文件列表。
+- `rpm -qa|grep -i mysql` 查询当前机器是否安装了mysql。
+- `rpm -e [RPM软件名]` 查找RPM安装的所有软件。
+- `rpm -ivh [软件安装包路径]` 可以安装指定路径的软件。 
+- i 是 install。
+  - v 是 verbose 代表打印日志。
+  - h 是 hash 代表显示进度条。
+  - 例如： `rpm -ivh MySQL-server-5.5.48-1.linux2.6.i386.rpm` 代表安装本目录下的 **MySQL-server-5.5.48-1.linux2.6.i386.rpm**安装包文件。
+
+## MySQL 简介
+
+官网：[https://www.mysql.com](https://www.mysql.com)
+
+### 什么是 **Mysql**
+
+-  MySQL是一个关系型数据库管理系统，由瑞典MySQLAB公司开发，目前属于Oracle公司。
+
+-  Mysql是开源的，可以定制的，采用了GPL协议，你可以修改源码来开发自己的Mysql系统。
+
+-  MySQL使用标准的SQL数据语言形式。
+
+-  Mysql可以允许于多个系统上，并且支持多种语言。这些编程语言包括C、C++、Python、Java、Perl、PHP、
+
+  Eiffel、Ruby 和 Tcl 等。
+
+-  MySQL支持大型数据库，支持5000万条记录的数据仓库，32位系统表文件最大可支持4GB，64位系统支
+
+  持最大的表文件为 8TB。
+
+### MySQL 高手是怎样练成的
+
+-  数据库内部结构和原理
+-  数据库建模优化
+-  数据库索引建立
+-  SQL 语句优化
+-  SQL 编程(自定义函数、存储过程、触发器、定时任务)
+-  mysql 服务器的安装配置
+-  数据库的性能监控分析与系统优化
+-  各种参数常量设定
+- 主从复制
+- 分布式架构搭建、垂直切割和水平切割 
+- 数据迁移
+- 容灾备份和恢复
+- shell或python等脚本语言开发
+- 对开源数据库进行二次开发
+
+### 常用SQL语句
+
+- `show databases`		列出所有数据库
+- `create database 库名`		创建一个数据库
+- `create database 库名 character set utf8`		创建数据库，顺便执行字符集为utf-8
+- `show create database 库名`		查看数据库的字符集
+- `show variables like ‘%char%’`		查询所有跟字符集相关的信息
+- `set [字符集属性]=utf8`		设置相应的属性为 utf8。只是临时修改，当前有效。服务重启后， 失效。 
+- `alter database 库名 character set 'utf8'`		修改数据库的字符集
+- `alter table 表名 convert to character set 'utf8'`		修改表的字符集                                                                          
+#### 练习01
+- `CREATE database mydb;`
+- `CREATE table mytable(id int,name varchar(30));`
+- `insert into mytable(id,name) values (1,'jack');`
+- `insert into mytable(id,name) values (2,'张三')`
+
+
+
+## MySQL 用户管理
+
+
+
+### 用户管理常用 SQL
+
+
+
+```mysql
+# 创建名称为 zhang3 的用户, 密码设为 123123;
+create user zhang3 identified by '123123';
+```
+
+```mysql
+# 修改当前用户的密码
+set password =password('123456');
+```
+
+```mysql
+# 修改其他用户的密码
+# 所有通过 user 表的修改，必须用 flush privileges; 命令才能生效
+update mysql.user set password=password('123456') where user='li4';
+```
+
+```mysql
+# 修改用户名
+# 所有通过 user 表的修改，必须用 flush privileges; 命令才能生效
+update mysql.user set user='li4' where user='wang5';
+```
+
+```mysql
+# 删除用户
+# 不要通过 delete from user u where user='li4' 进行删除，系 统会有残留信息保留。
+drop user li4
+```
+
+
+
+```mysql
+# 查看用户和权限的相关信息
+select host,user,password,select_priv,insert_priv,drop_priv from mysql.user;
+```
+
+![image-20201020170152674](https://tva1.sinaimg.cn/large/007S8ZIlgy1gjvwobva2dj31u20d0tj4.jpg)
+
+
+
+- **host** ：表示连接类型
+  - **%**：表示所有远程通过 TCP 方式的连接
+  - **IP**： 地址 如 (`192.168.1.2`, `127.0.0.1`) 通过制定 ip 地址进行的 TCP 方式的连接
+  - **机器名**： 通过制定 i 网络中的机器名进行的 TCP 方式的连接
+  - **::1**： IPv6 的本地 ip 地址 等同于 IPv4 的 `127.0.0.1`
+  - **localhost**： 本地方式通过命令行方式的连接 ，比如 `mysql -u xxx -p 123xxx` 方式的连接。
+
+- **user**： 表示用户名 同一用户通过不同方式链接的权限是不一样的。
+
+- **password**：密码
+  - 所有密码串通过 password(明文字符串) 生成的密文字符串。
+  - 加密算法为 MYSQLSHA1 ，不可逆 。
+  - mysql 5.7 的密码保存到 `authentication_string` 字段中不再使用 `password` 字段。 
+- **select_priv , insert_priv** 等
+
+为该用户所拥有的权限
