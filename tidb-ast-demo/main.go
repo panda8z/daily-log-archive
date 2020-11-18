@@ -32,3 +32,19 @@ func main()  {
 		stmtNode.Accept(&v)
 	}
 }
+
+/*
+% go build
+# github.com/pingcap/tidb/parser
+/Users/apple/go/pkg/mod/github.com/pingcap/tidb@v2.0.11+incompatible/parser/lexer.go:132:26: undefined: yySymType
+/Users/apple/go/pkg/mod/github.com/pingcap/tidb@v2.0.11+incompatible/parser/misc.go:595:24: undefined: yySymType
+/Users/apple/go/pkg/mod/github.com/pingcap/tidb@v2.0.11+incompatible/parser/yy_parser.go:70:11: undefined: yySymType
+/Users/apple/go/pkg/mod/github.com/pingcap/tidb@v2.0.11+incompatible/parser/yy_parser.go:71:9: undefined: yySymType
+/Users/apple/go/pkg/mod/github.com/pingcap/tidb@v2.0.11+incompatible/parser/yy_parser.go:72:9: undefined: yySymType
+/Users/apple/go/pkg/mod/github.com/pingcap/tidb@v2.0.11+incompatible/parser/yy_parser.go:151:38: undefined: yySymType
+/Users/apple/go/pkg/mod/github.com/pingcap/tidb@v2.0.11+incompatible/parser/yy_parser.go:155:36: undefined: yySymType
+/Users/apple/go/pkg/mod/github.com/pingcap/tidb@v2.0.11+incompatible/parser/yy_parser.go:163:14: undefined: yyLexer
+/Users/apple/go/pkg/mod/github.com/pingcap/tidb@v2.0.11+incompatible/parser/yy_parser.go:163:29: undefined: yySymType
+/Users/apple/go/pkg/mod/github.com/pingcap/tidb@v2.0.11+incompatible/parser/yy_parser.go:191:18: undefined: yyLexer
+/Users/apple/go/pkg/mod/github.com/pingcap/tidb@v2.0.11+incompatible/parser/yy_parser.go:191:18: too many errors
+*/
